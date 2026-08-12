@@ -9,13 +9,14 @@ Dovranno essere esposte tramite dei MCP servers
 import mysql.connector
 from mysql.connector import Error
 
+
 class DatabaseTools:
     def __init__(self, 
                  host="localHost", 
                  port = 3306,
                  user = "root", 
-                 password = "password", 
-                 database = "test"
+                 password = "pastacontonno123", 
+                 database = "Voli"
                  ):
         self.config = {
             'host': host,
@@ -25,73 +26,73 @@ class DatabaseTools:
             'database': database
         }
 
-###############################################
-# Connessione
-###############################################
-def _get_connection(self):
-    """
-    Crea una nuova connessione al db MySQL.
-    """
-    return mysql.connector.connect(**self.config)
-
-################################################
-# Esecuzione query
-################################################
-def _execute_query(self, query, params=None):
-    """
-    Esegue una query SQL e restituisce:
-        - I risultati della query
-        - Un messaggio di errore
-    """
-    connection = None
-    cursor = None
-
-    try:
-        connection = self._get_connection()
-        cursor = connection.cursor(dictionary=True)
-        cursor.execute(query, params)
-        connection.commit()
-        result = cursor.fetchall()
-        return{
-            "success": True,
-            "rows": result
-        }
-    
-    except Error as e:
-        return{
-            "success": False,
-            "error": str(e)
-        }
-
-    finally:
-        if cursor is not None: 
-            cursor.close()
-        if connection is not None and connection.is_connected():
-            connection.close()
+    ###############################################
+    # Connessione
+    ###############################################
+    def _get_connection(self):
+        """
+        Crea una nuova connessione al db MySQL.
+        """
+        return mysql.connector.connect(**self.config)
 
     ################################################
-    # Elenco delle tabelle
+    # Esecuzione query
+    ################################################
+    def _execute_query(self, query, params=None):
+        """
+        Esegue una query SQL e restituisce:
+            - I risultati della query
+            - Un messaggio di errore
+        """
+        connection = None
+        cursor = None
+
+        try:
+            connection = self._get_connection()
+            cursor = connection.cursor(dictionary=True)
+            cursor.execute(query, params)
+            result = cursor.fetchall()
+            return{
+                "success": True,
+                "rows": result
+            }
+        
+        except Error as e:
+            return{
+                "success": False,
+                "error": str(e)
+            }
+
+        finally:
+            if cursor is not None: 
+                cursor.close()
+            if connection is not None and connection.is_connected():
+                connection.close()
+    ################################################
+    # Insieme di tabelle del database
     ################################################
     def list_tables(self):
         """
-        Restituisce l'elenco delle tabelle nel database.
+        Restituisce l'insieme di tabelle contenute nel database
         """
-        query = """
+        query= """
                 SELECT table_name
                 FROM information_schema.tables
                 WHERE table_schema = DATABASE()
-                ORDER BY table_name;
-                """
+                ORDER BY table_name
+               """
         result = self._execute_query(query)
-
+        
         if not result["success"]:
             return result
-        tables = [ row["table_name"] for row in result["rows"]]
-        return {
-            "success": True,
-            "tables": tables
+        
+        table_names = [row["TABLE_NAME"]
+                       for row in result["rows"]
+                      ]
+        return{
+            "tables": table_names
         }
-    
+
     ################################################
     # Schema di una tabella
     ################################################
@@ -103,17 +104,111 @@ def _execute_query(self, query, params=None):
                 SELECT column_name, data_type, is_nullable, column_key, column_default
                 FROM information_schema.columns
                 WHERE table_schema = DATABASE() 
-                      AND table_name = %s
+                    AND table_name = %s
                 ORDER BY ordinal_position;
                 """
         
         result = self._execute_query(query, (table_name,))
-
+        if not result["success"]:
+            return result
+            
+        return {
+            "table": table_name,
+            "schema": result["rows"]
+        }
+        
+    ################################################
+    # Ricerca di chiavi primarie del database
+    ################################################
+    def get_primary_keys(self):
+        """
+        Restituisce le chiavi primarie di tutte le tabelle nel database.
+        """
+        query = """
+                SELECT table_name, column_name
+                FROM information_schema.key_column_usage
+                WHERE table_schema = DATABASE() 
+                    AND constraint_name = 'PRIMARY'
+                ORDER BY table_name, ordinal_position;
+                """
+        result = self._execute_query(query)
         if not result["success"]:
             return result
         
         return {
+            "primary_keys": result["rows"]
+        }
+        
+    ################################################
+    # Ricerca di relazioni del database
+    ################################################
+    def get_foreign_keys(self):
+        """
+        Restituisce le chiavi esterne di tutte le tabelle nel database.
+        """
+        query = """
+                SELECT table_name, column_name, referenced_table_name, referenced_column_name
+                FROM information_schema.key_column_usage
+                WHERE table_schema = DATABASE() 
+                AND referenced_table_name IS NOT NULL
+                ORDER BY table_name;
+                """
+        result = self._execute_query(query)
+        if not result["success"]:
+            return result
+        
+        return {
+            "foreign_keys": result["rows"]
+        }
+    
+    ################################################
+    # Esempi di righe di tabelle del db
+    ################################################
+    def sample_rows(self, table_name, limit=5):
+        """
+        Restituisce un esempio di righe da una tabella specificata.
+        """
+        tables_result = self.list_tables()
+        if not tables_result["success"]:
+            return tables_result
+        if table_name not in tables_result["tables"]:
+            return {
+                "success": False,
+                "error": f"Table '{table_name}' does not exist in the database."
+            }
+        query = f"""
+                SELECT * 
+                FROM `{table_name}`
+                LIMIT %s;
+                """
+        result = self._execute_query(query, (limit,))
+
+        if not result["success"]:
+            return result
+           
+        return {
             "success": True,
             "table": table_name,
-            "schema": result["rows"]
+            "rows": result["rows"]
         }
+
+    ###############################################
+    # Esecuzione di query SQL
+    ###############################################
+    def execute_sql(self, query):
+        """
+        Esegue una query SQL fornita dall'utente.
+        """
+        query = query.strip()
+
+        #Per ora permettiamo solo query SELECT e WITH 
+        if not query.upper().startswith(("SELECT", "WITH")):
+            return {
+                "success": False,
+                "error": "Only SELECT queries are allowed."
+            }
+        
+        result = self._execute_query(query)
+
+        return result
+        
