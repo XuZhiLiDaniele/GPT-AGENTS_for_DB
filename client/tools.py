@@ -16,39 +16,45 @@ class DatabaseTools:
                  port = 3306,
                  user = "root", 
                  password = "pastacontonno123", 
-                 database = "Voli"
                  ):
         self.config = {
             'host': host,
             'port': port,
             'user': user,
             'password': password,
-            'database': database
         }
 
     ###############################################
     # Connessione
     ###############################################
-    def _get_connection(self):
+    def _get_connection(self, database):
         """
-        Crea una nuova connessione al db MySQL.
+        Crea una nuova connessione al db MySQL specificato.
         """
-        return mysql.connector.connect(**self.config)
+        config = self.config.copy()
+        config["database"] = database
+        return mysql.connector.connect(**config)
 
     ################################################
     # Esecuzione query
     ################################################
-    def _execute_query(self, query, params=None):
+    def _execute_query(self, query, params=None, database=None):
         """
-        Esegue una query SQL e restituisce:
+        Esegue una query SQL sul db specificato e restituisce:
             - I risultati della query
             - Un messaggio di errore
         """
         connection = None
         cursor = None
 
+        if database is None:
+            return{ 
+                "success": False,
+                "error": "Database not specified."
+            }
+
         try:
-            connection = self._get_connection()
+            connection = self._get_connection(database)
             cursor = connection.cursor(dictionary=True)
             cursor.execute(query, params)
             result = cursor.fetchall()
@@ -71,7 +77,7 @@ class DatabaseTools:
     ################################################
     # Insieme di tabelle del database
     ################################################
-    def list_tables(self):
+    def list_tables(self, database):
         """
         Restituisce l'insieme di tabelle contenute nel database
         """
@@ -81,7 +87,7 @@ class DatabaseTools:
                 WHERE table_schema = DATABASE()
                 ORDER BY table_name
                """
-        result = self._execute_query(query)
+        result = self._execute_query(query, database = database)
         
         if not result["success"]:
             return result
@@ -90,13 +96,14 @@ class DatabaseTools:
                        for row in result["rows"]
                       ]
         return{
+            "success": True,
             "tables": table_names
         }
 
     ################################################
     # Schema di una tabella
     ################################################
-    def describe_table(self, table_name):
+    def describe_table(self, database, table_name):
         """
         Restituisce lo schema di una tabella specificata.
         """
@@ -108,7 +115,7 @@ class DatabaseTools:
                 ORDER BY ordinal_position;
                 """
         
-        result = self._execute_query(query, (table_name,))
+        result = self._execute_query(query, (table_name,), database = database)
         if not result["success"]:
             return result
             
@@ -120,7 +127,7 @@ class DatabaseTools:
     ################################################
     # Ricerca di chiavi primarie del database
     ################################################
-    def get_primary_keys(self):
+    def get_primary_keys(self, database):
         """
         Restituisce le chiavi primarie di tutte le tabelle nel database.
         """
@@ -131,7 +138,7 @@ class DatabaseTools:
                     AND constraint_name = 'PRIMARY'
                 ORDER BY table_name, ordinal_position;
                 """
-        result = self._execute_query(query)
+        result = self._execute_query(query, database = database)
         if not result["success"]:
             return result
         
@@ -142,7 +149,7 @@ class DatabaseTools:
     ################################################
     # Ricerca di relazioni del database
     ################################################
-    def get_foreign_keys(self):
+    def get_foreign_keys(self, database):
         """
         Restituisce le chiavi esterne di tutte le tabelle nel database.
         """
@@ -153,7 +160,7 @@ class DatabaseTools:
                 AND referenced_table_name IS NOT NULL
                 ORDER BY table_name;
                 """
-        result = self._execute_query(query)
+        result = self._execute_query(query, database = database)
         if not result["success"]:
             return result
         
@@ -164,11 +171,11 @@ class DatabaseTools:
     ################################################
     # Esempi di righe di tabelle del db
     ################################################
-    def sample_rows(self, table_name, limit=5):
+    def sample_rows(self, database, table_name, limit=5):
         """
         Restituisce un esempio di righe da una tabella specificata.
         """
-        tables_result = self.list_tables()
+        tables_result = self.list_tables(database)
         if not tables_result["success"]:
             return tables_result
         if table_name not in tables_result["tables"]:
@@ -181,7 +188,7 @@ class DatabaseTools:
                 FROM `{table_name}`
                 LIMIT %s;
                 """
-        result = self._execute_query(query, (limit,))
+        result = self._execute_query(query, (limit,), database = database)
 
         if not result["success"]:
             return result
@@ -195,7 +202,7 @@ class DatabaseTools:
     ###############################################
     # Esecuzione di query SQL
     ###############################################
-    def execute_sql(self, query):
+    def execute_sql(self, database, query):
         """
         Esegue una query SQL fornita dall'utente.
         """
@@ -208,7 +215,7 @@ class DatabaseTools:
                 "error": "Only SELECT queries are allowed."
             }
         
-        result = self._execute_query(query)
+        result = self._execute_query(query, database=database)
 
         return result
         

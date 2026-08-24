@@ -7,6 +7,7 @@ import json
 import asyncio
 import sys
 import os
+import time
 
 from openai import OpenAI
 from mcp import ClientSession, StdioServerParameters
@@ -67,9 +68,21 @@ async def main():
             messages = [
                 {"role": "system", 
                 "content": """
-                            Sei un assistente che può interagire con un database MySQL tramite strumenti MCP.
+                            Sei un assistente che può interagire con dei database MySQL tramite strumenti MCP.
                             Quando l'utente chiede informazioni, utilizza gli strumenti disponibili invece di inventare informazioni.
-                            Dopo aver ricevuto il risultato di uno strumento, analizzalo e fornisci una risposta comprensibile all'utente.
+                            Dopo aver ricevuto il risultato di uno strumento, analizzalo, e se ritieni che sia insufficiente, rifletti per 
+                            chiamare di nuovo altri strumenti.
+                            Per ogni richiesta che ritieni più complessa, prima di tutto realizza un piano d'azione a più step e strumenti, 
+                            solo poi prosegui con l'esecuzione degli step in MODO AUTONOMO, ovvero SENZA necessitare di interpellare l'utente
+                            Produci la risposta per l'utente solo quando completi il piano d'azione con una risposta soddisfacente.
+                            Infine, quando devi eseguire delle query sul database, fai attenzione al formato dei dati, in modo da applicare
+                            filtri che rispettino quel formato. Per conoscere il formato, usa gli strumenti a tua disposizione come 
+                            sample_rows per ottenere un esempio di righe della tabella e capire il formato dei dati.
+
+                            I database disponibili sono:
+                            1. DBVOLI: contiene informazioni su aeroporti, compagnie, rotte e voli.
+                            2. DBMETEO: contiene informazioni meteorologiche, ovvero previsioni e stazioni meteo.
+                            3. DBHOTEL: contiene informazioni sugli hotel e sulle loro camere. 
                         """
                 }
             ]
@@ -85,7 +98,8 @@ async def main():
                 print("[DEBUG 1] Input ricevuto")
                 if not user_input:
                     continue
-
+                
+                start_time = time.perf_counter() #timer per misurare la latenza
                 messages.append(
                     {"role": "user", 
                     "content": user_input
@@ -109,7 +123,11 @@ async def main():
                     #if it doesn't require a tool
                     if not message.tool_calls:
                         print("\nAssistant:", message.content)
+                        end_time = time.perf_counter()
                         messages.append(message)
+                        latency = end_time - start_time
+                        print("\nAssistant:", message.content)
+                        print(f"\n[LATENZA: {latency:.3f} secondi]")
                         break
 
                     print(f"[DEBUG] LM Studio ha rischiesto {len(message.tool_calls)} tool")

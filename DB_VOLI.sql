@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS VOLI;
-CREATE DATABASE VOLI;
-USE VOLI;
+DROP DATABASE IF EXISTS DBVOLI;
+CREATE DATABASE DBVOLI;
+USE DBVOLI;
 
 ---------------------------
 -- TABELLA AEROPORTI
@@ -11,7 +11,7 @@ CREATE TABLE AEROPORTO(
  continente VARCHAR(50) NOT NULL,
  stato VARCHAR(80) NOT NULL,
  citta VARCHAR(80) NOT NULL,
- passeggeri INT NOT NULL,
+ passeggeri DECIMAL(5,1) NOT NULL,
  corsie INT NOT NULL
 );
 
@@ -70,7 +70,7 @@ VALUES
 ('HND', 'Tokyo Haneda International Airport', 'AS', 'Giappone', 'Tokyo', 85, 4),
 ('LHR','London Heathrow Airport','EU','Regno Unito','Londra', 83.9, 2),
 ('DEN','Denver International Airport','NA','Stati Uniti','Denver', 82.4, 6),
-('IST','İstanbul Airport','EU','Turchia','Instabul', 80.1, 5),
+('IST','İstanbul Airport','EU','Turchia','Istanbul', 80.1, 5),
 ('ORD','Chicago O Hare International Airport','NA','Stati Uniti','Chicago', 80, 8),
 ('DEL','Indira Gandhi International Airport','AS','India','Nuova Delhi', 77.8, 4),
 ('PVG','Shanghai Pudong International Airport','AS','Cina','Shanghai', 76.8, 5),
@@ -89,7 +89,7 @@ VALUES
 ('CLT','Charlotte Douglas International Airport','NA','Stati Uniti','Charlotte', 58.8, 3),
 ('LAS','Harry Reid International Airport','NA','Stati Uniti','Las Vegas', 58.4, 4),
 ('MCO','Orlando International Airport','NA','Stati Uniti','Orlando', 57.2, 4),
-('KUL','Kuala Lumpur International Airport','AS','Malesia','Kuala Limpur', 57.1, 3),
+('KUL','Kuala Lumpur International Airport','AS','Malesia','Kuala Lumpur', 57.1, 3),
 ('MIA','Miami International Airport','NA','Stati Uniti','Miami', 56, 4),
 ('BOM','Chhatrapati Shivaji International Airport','AS','India','Mumbai', 55.1, 2),
 ('BCN','Josep Tarradellas Barcelona-El Prat Airport','EU','Spagna','Barcellona', 55, 3),
@@ -118,9 +118,9 @@ VALUES
 ('LGW','London Gatwick Airport','EU','Regno Unito','Londra', 43.2, 2),
 ('GRU','Guarulhos - Governador André Franco Montoro International Airport','SA','Brasile','San Paolo', 43, 2),
 ('SVO','Sheremetyevo International Airport','EU','Russia','Mosca', 43, 3),
-('BLR','Kempegowda International Airport Bengaluru','AS','Indonesia','Bangaluru', 41.9, 2),
+('BLR','Kempegowda International Airport Bengaluru','AS','India','Bangaluru', 41.9, 2),
 ('MUC','Munich Airport','EU','Germania','Monaco', 41.6, 2),
-('SAW','Instanbul Sabiha Gökçen International Airport','EU','Turchia','Instabul', 41.4, 2),
+('SAW','Istanbul Sabiha Gökçen International Airport','EU','Turchia','Istanbul', 41.4, 2),
 ('SYD','Sydney Kingsford Smith International Airport','OCE','Australia','Sydney', 41.4, 3),
 ('SGN','Tan Son Nhat International Airport','AS','Vietnam','Ho Chi Minh', 40, 2),
 ('NRT','Narita International Airport','AS','Giappone','Narita', 39.8, 2),
