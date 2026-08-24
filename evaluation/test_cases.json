@@ -1,0 +1,58 @@
+[
+    {
+        "id":1,
+        "question": "Qual è l'aeroporto con più passeggeri?",
+        "ground_truth": "ATL - Hartsfield Jackson Atlanta International Airpo rt"
+    },
+    
+    {
+        "id":2, 
+        "question": "Qual è la città con più pioggia nel giorno 18/08/2026?",
+        "ground_truth": "..."
+    },
+
+    {
+        "id":3,
+        "question": "Quali sono le destinazioni di voli che partono da aeroporti in Oceania?",
+        "ground_truth": "..."
+    },
+
+    {
+        "id":4,
+        "question": "Qual è la città con il costo medio maggiore di camere di hotel?",
+        "ground_truth": "..."
+    },
+    
+    {
+        "id":5,
+        "question": "Quali sono le previsioni meteo della città con la stazione meteo con più ricercatori?",
+        "ground-truth": "..."
+    },
+
+    {
+        "id": 6,
+        "question": "Qual è la compagnia dei voli che ha operato più voli con un aereo A320?",
+        "ground_truth": "..."
+    },
+
+    {
+        "id":7,
+        "question": "Quali sono gli hotel con camere disponibili situati in città in cui non ci sarà pioggia il giorno 17/08/2026?",
+        "ground_truth": "..."
+    },
+
+    {
+        "id":8,
+        "question": "Quali sono gli hotel a 5 stelle situati in città che posso raggiungere con un volo diretto da Barcellona?",
+        "ground_truth": "..."
+    },
+
+    {
+        "id": 9,
+        "question": "Quali sono i voli che partono dall'Italia e che vanno a destinazioni in cui il 17/08/2026 ci saranno temperature inferiori ai 34 gradi?",
+        "ground_truth": "..."
+
+    }
+
+
+]
