@@ -1,3 +1,7 @@
+#
+# Script per testare la connessione con il modello locale Gemma 4 collegato con LLMStudio tramite un prompt pre-definito nel codice.
+# La risposta deve essere stampata su terminale. NON mantiene memoria della conversazione.
+#
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
 system_prompt = "You are a helpful assistant."
