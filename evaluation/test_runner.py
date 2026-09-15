@@ -6,21 +6,22 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 
+#from agentQwen_tester import Agent
 from autoTestAgent import Agent
-
 
 # ============================================================
 # CONFIGURAZIONE
 # ============================================================
 
 TEST_CASES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                               "test_cases.json")
+                               "test_casesM.json")
 
 # Quante volte eseguire ogni test
-NUM_RUNS = 1
+NUM_RUNS = 4
 
 # File in cui salvare i risultati
-RESULTS_FILE = "test_results.json"
+RESULTS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "test_results.json")
 
 
 # ============================================================
@@ -101,7 +102,7 @@ async def run_tests():
             run_result = {
                 "run": run,
                 "answer": result.get("answer"),
-                "success": result.get("success"),
+                "agent_completion": result.get("agent_completion"),
 
                 "latency_total": result.get(
                     "latency_total"
@@ -118,7 +119,7 @@ async def run_tests():
             }
 
             # Se Agent ha restituito un errore
-            if not result.get("success"):
+            if not result.get("agent_completion"):
 
                 run_result["error"] = result.get(
                     "error"
@@ -127,7 +128,7 @@ async def run_tests():
             test_runs.append(run_result)
 
             print(
-                f"  Success: {run_result['success']}"
+                f"  Completed: {run_result['agent_completion']}"
             )
 
             print(
@@ -166,17 +167,17 @@ def calculate_statistics(results):
 
         runs = test["runs"]
 
-        successful_runs = [
+        completed_runs = [
             run
             for run in runs
-            if run["success"]
+            if run["agent_completion"]
         ]
 
-        if not successful_runs:
+        if not completed_runs:
 
             statistics.append({
                 "id": test["id"],
-                "success_rate": 0,
+                "completion_rate": 0,
                 "average_latency": None,
                 "average_tool_calls": None
             })
@@ -189,8 +190,8 @@ def calculate_statistics(results):
 
         average_latency = sum(
             run["latency_total"]
-            for run in successful_runs
-        ) / len(successful_runs)
+            for run in completed_runs
+        ) / len(completed_runs)
 
         # --------------------------------------------
         # Numero medio di tool
@@ -198,21 +199,21 @@ def calculate_statistics(results):
 
         average_tool_calls = sum(
             run["tool_calls_count"]
-            for run in successful_runs
-        ) / len(successful_runs)
+            for run in completed_runs
+        ) / len(completed_runs)
 
         # --------------------------------------------
-        # Success rate
+        # completion rate
         # --------------------------------------------
 
-        success_rate = (
-            len(successful_runs)
+        completion_rate = (
+            len(completed_runs)
             / len(runs)
         )
 
         statistics.append({
             "id": test["id"],
-            "success_rate": success_rate,
+            "completion_rate": completion_rate,
             "average_latency": average_latency,
             "average_tool_calls": average_tool_calls
         })
@@ -272,8 +273,8 @@ async def main():
         )
 
         print(
-            f"  Success rate: "
-            f"{stat['success_rate'] * 100:.1f}%"
+            f"  Completion rate: "
+            f"{stat['completion_rate'] * 100:.1f}%"
         )
 
         if stat["average_latency"] is not None:

@@ -55,36 +55,36 @@ def describe_table(database:str, table_name:str) -> dict:
     Si restituisce una descrizione dettagliata dello schema della tabella del database specificati in input
     Vengono quindi fornite informazioni come il nome di ogni colonna, il tipo etc...
     """
+    print("CHIAMATO DESCRIBE_TABLE")
     if database not in dbs:
             return{ "error": f"Database '{database}' non disponibile"}
     return dbs[database].describe_table(database,table_name)
 
-@mcp.tool() #tool per ottenere le chiavi primarie di ogni tabella del db
-def get_primary_keys(database:str) -> dict:
-    """
-    Restituisce le chiavi primarie di tutte le tabelle del database specificato.
-    """
-    if database not in dbs:
-                return{ "error": f"Database '{database}' non disponibile"}
-    return dbs[database].get_primary_keys(database)
-
-@mcp.tool() 
-def get_foreign_keys(database:str) -> dict:
-    """
-    Restituisce le chiavi esterne di tutte le tabelle del database specificato
-    """
-    if database not in dbs:
-                return{ "error": f"Database '{database}' non disponibile"}
-    return dbs[database].get_foreign_keys(database)
-
 @mcp.tool()
 def sample_rows(database:str, table_name:str) -> dict:
     """
-    Restituisce 5 istanze che facciano da esempio per la tabella del database specificati
+    Restituisce 10 istanze che facciano da esempio per la tabella del database specificati
     """
     if database not in dbs:
                 return{ "error": f"Database '{database}' non disponibile"}
     return dbs[database].sample_rows(database, table_name)
+
+@mcp.tool()
+def get_distinct_values(database: str, table_name: str, column_name: str):
+    """
+    Restituisce tutti i valori distinti presenti in una colonna.
+    Utile per conoscere i valori effettivamente memorizzati
+    nel database prima di costruire filtri SQL.
+    """
+    print("!!! TOOL MCP get_distinct_values !!!")
+    if database not in dbs:
+        return {"error": f"Database non valido: {database}"}
+
+    result = dbs[database].get_distinct_values(
+        database, table_name, column_name
+    )
+    print("!!! RISULTATO:", result)
+    return result
 
 @mcp.tool()
 def execute_sql(database:str, query:str):
@@ -95,6 +95,8 @@ def execute_sql(database:str, query:str):
     if database not in dbs:
                 return{ "error": f"Database '{database}' non disponibile"}
     return dbs[database].execute_sql(database, query)
+
+
 
 # ============Avvio server================
 if __name__=="__main__":

@@ -9,7 +9,7 @@ from mcp.client.stdio import stdio_client
 
 
 llm = OpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
-MODEL_NAME = "google/gemma-4-e4b"
+MODEL_NAME = "qwen3.5-9b"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -121,15 +121,15 @@ class Agent:
                         if tool_calls_count >= MAX_TOOL_COUNT:
                             total_end = time.perf_counter()
                             return {
-                                    "question": question,
-                                    "answer": None,
-                                    "agent_completion": False,
-                                    "error": "Maximum number of tool calls exceeded",
-                                    "latency_total": total_end - total_start,
-                                    "tool_calls_count": tool_calls_count,
-                                    "tool_calls": tool_calls_log
-                                }
-
+                                "question": question,
+                                "answer": None,
+                                "agent_completion": False,
+                                "error": "Maximum number of tool calls exceeded",
+                                "latency_total": total_end - total_start,
+                                "tool_calls_count": tool_calls_count,
+                                "tool_calls": tool_calls_log
+                            }
+                          
                         completion = llm.chat.completions.create(
                             model=MODEL_NAME,
                             messages=messages,
@@ -149,7 +149,7 @@ class Agent:
 
                             return {
                                 "question": question,
-                                "answer": answer,
+                                "answer": message.content,
                                 "agent_completion": agent_completion,
                                 "latency_total": total_end - total_start,
                                 "tool_calls_count": tool_calls_count,

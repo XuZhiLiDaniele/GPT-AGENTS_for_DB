@@ -41,7 +41,8 @@ class DatabaseTools:
     def _execute_query(self, query, params=None, database=None):
         """
         Esegue una query SQL sul db specificato e restituisce:
-            - I risultati della query
+            - Le colonne del risultato 
+            - Le righe del risultato
             - Un messaggio di errore
         """
         connection = None
@@ -58,8 +59,10 @@ class DatabaseTools:
             cursor = connection.cursor(dictionary=True)
             cursor.execute(query, params)
             result = cursor.fetchall()
+            columns = [column[0] for column in cursor.description]
             return{
                 "success": True,
+                "columns": columns,
                 "rows": result
             }
         
@@ -116,62 +119,32 @@ class DatabaseTools:
                 """
         
         result = self._execute_query(query, (table_name,), database = database)
+
         if not result["success"]:
             return result
+
+        if not result["rows"]:
+            return{
+                "success": False,
+                "database": database,
+                "table": table_name,
+                "error_type": "TABLE_NOT_FOUND",
+                "error": (f"Table '{table_name}' does not exist"
+                          f"in database '{database}'."),
+                "action_required": ("Use list_tables to verify the correct table name")
+            }
             
         return {
+            "success": True,
+            "database": database,
             "table": table_name,
             "schema": result["rows"]
         }
         
     ################################################
-    # Ricerca di chiavi primarie del database
-    ################################################
-    def get_primary_keys(self, database):
-        """
-        Restituisce le chiavi primarie di tutte le tabelle nel database.
-        """
-        query = """
-                SELECT table_name, column_name
-                FROM information_schema.key_column_usage
-                WHERE table_schema = DATABASE() 
-                    AND constraint_name = 'PRIMARY'
-                ORDER BY table_name, ordinal_position;
-                """
-        result = self._execute_query(query, database = database)
-        if not result["success"]:
-            return result
-        
-        return {
-            "primary_keys": result["rows"]
-        }
-        
-    ################################################
-    # Ricerca di relazioni del database
-    ################################################
-    def get_foreign_keys(self, database):
-        """
-        Restituisce le chiavi esterne di tutte le tabelle nel database.
-        """
-        query = """
-                SELECT table_name, column_name, referenced_table_name, referenced_column_name
-                FROM information_schema.key_column_usage
-                WHERE table_schema = DATABASE() 
-                AND referenced_table_name IS NOT NULL
-                ORDER BY table_name;
-                """
-        result = self._execute_query(query, database = database)
-        if not result["success"]:
-            return result
-        
-        return {
-            "foreign_keys": result["rows"]
-        }
-    
-    ################################################
     # Esempi di righe di tabelle del db
     ################################################
-    def sample_rows(self, database, table_name, limit=5):
+    def sample_rows(self, database, table_name, limit=10):
         """
         Restituisce un esempio di righe da una tabella specificata.
         """
@@ -199,6 +172,44 @@ class DatabaseTools:
             "rows": result["rows"]
         }
 
+
+    ################################################
+    # Esempi di valori distinti di una determinata colonna di una tabella
+    ################################################
+    def get_distinct_values(self, database, table_name, column_name):
+        """
+        Restituisce i valori distinti presenti in una determinata colonna.
+        """
+        tables_result = self.list_tables(database)
+        if not tables_result.get("success"):
+            return tables_result
+        if table_name not in tables_result["tables"]:
+            return {
+                "success": False,
+                "error": f"Table '{table_name}' does not exits in '{database}'."
+            }
+        
+        describe_result = self.describe_table(database, table_name)
+        if not describe_result.get("success"):
+            return describe_result
+        columns = [col["COLUMN_NAME"] for col in describe_result["schema"]]
+        if column_name not in columns:
+            return {
+                "success": False,
+                "error": (
+                    f"La colonna '{column_name}' non esiste "
+                    f"nella tabella '{table_name}'."
+                )
+            }
+
+        query = f"""
+            SELECT DISTINCT `{column_name}`
+            FROM `{table_name}`
+            ORDER BY `{column_name}`;
+        """
+        result = self._execute_query(query,database=database)
+        return result
+    
     ###############################################
     # Esecuzione di query SQL
     ###############################################
@@ -212,10 +223,32 @@ class DatabaseTools:
         if not query.upper().startswith(("SELECT", "WITH")):
             return {
                 "success": False,
-                "error": "Only SELECT queries are allowed."
+                "database": database,
+                "query": query,
+                "error_type": "INVALID_QUERY_TYPE",
+                "error": "Only SELECT queries are allowed.",
+                "action_required": ("Generate a SELECT or WITH query")
             }
-        
-        result = self._execute_query(query, database=database)
 
-        return result
-        
+        result = self._execute_query(query, database = database)
+
+        if result["success"]:
+            return{
+                "success": True,
+                "database": database,
+                "query": query,
+                "columns": result["columns"],
+                "row_count": len(result["rows"]),
+                "rows": result["rows"]
+            }
+        #Query fallita
+        return{
+            "success": False,
+            "database": database,
+            "query": query,
+            "error_type": "SQL_EXECUTION_ERROR",
+            "error": result["error"],
+            "action_required":("Do NOT repeat the failed SQL query. "
+                               "Inspect the schema of the relevant table using describe_table before generating another SQL query. "
+                               "Verify table and column names, then generate a corrected query.")
+        }

@@ -1,0 +1,255 @@
+[
+        {
+            "id":1,
+            "question": "Come si chiama e quanti passeggeri ha l'aeroporto con meno passeggeri?",
+            "expected_database": ["DBVOLI"],
+            "expected_query":["SELECT nome, passeggeri FROM AEROPORTO ORDER BY passeggeri ASC LIMIT 1;"],
+            "expected_columns":["nome", "passeggeri"],
+            "expected_result": [
+                {
+                    "nome": "Qingdao Jiaodong International Airport",
+                    "passeggeri": 26.2
+                }
+            ]
+        },
+            
+        {
+            "id":2, 
+            "question": "Quale citta ha la previsione con il valore di precipitazioni più alto per il 18/08/2026?",
+            "expected_database": ["DBMETEO"],
+            "expected_query": ["SELECT citta, precipitazioni FROM PREVISIONE WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1;"],
+            "expected_columns":["citta", "precipitazioni"],
+            "expected_result": [
+                {
+                    "citta": "Hanoi",
+                    "precipitazioni": 20.1
+                }
+            ]
+        },
+
+        {
+            "id":3,
+            "question": "Quali sono i nomi, le città ed i codici degli aeroporti che sono destinazioni di rotte che partono da aeroporti in Oceania?",
+            "expected_database": ["DBVOLI"],
+            "expected_query": ["SELECT arrivo.iata, arrivo.nome, arrivo.citta FROM AEROPORTO partenza JOIN ROTTA r ON partenza.iata = r.iata_partenza JOIN AEROPORTO arrivo ON arrivo.iata = r.iata_arrivo WHERE partenza.continente = 'OC'"],
+            "expected_columns":["iata_arrivo", "nome", "citta"],
+            "expected_result":[
+                {
+                    "iata":"SYD",
+                    "nome":"Sydney Kingsford Smith International Airport",
+                    "citta":"Sydney"
+                },
+                {
+                    "iata":"HKG",
+                    "nome":"Hong Kong International Airport",
+                    "citta":"Hong Kong"
+                },
+                {
+                    "iata":"DXB",
+                    "nome":"Dubai International Airport",
+                    "citta":"Dubai"
+                },
+                {
+                    "iata":"SIN",
+                    "nome":"Singapore Changi Airport",
+                    "citta":"Singapore"
+                },
+                {
+                    "iata":"KUL",
+                    "nome":"Kuala Lumpur International Airport",
+                    "citta":"Kuala Lumpur"
+                },
+                {
+                    "iata":"MEL",
+                    "nome":"Melbourne Airport",
+                    "citta":"Melbourne"
+                },
+                {
+                    "iata":"HND",
+                    "nome":"Tokyo Haneda International Airport",
+                    "citta":"Tokyo" 
+                },
+                {
+                    "iata":"TFU",
+                    "nome":"Chengdu Tianfu International Airport",
+                    "citta":"Chengdu"
+                }
+
+            ]
+        },
+
+        {
+            "id":4,
+            "question": "Qual è la citta con il costo medio minore di camere di hotel?",
+            "expected_database": ["DBHOTEL"],
+            "expected_query": ["SELECT h.citta, AVG(c.prezzo) AS costo_medio FROM HOTEL h JOIN CAMERA c ON h.nome = c.hotel GROUP BY h.citta ORDER BY costo_medio DESC LIMIT 1;"],
+            "expected_columns":["citta", "costo_medio"],
+            "expected_result":[
+                {
+                    "citta":"San Paolo",
+                    "costo_medio":219.50
+                }
+            ]
+        },
+
+        
+        {
+            "id":5,
+            "question": "Quali sono le previsioni meteo della citta con la stazione meteo con più ricercatori?",
+            "expected_database": ["DBMETEO"],
+            "expected_query": ["SELECT p.id, p.stato, p.citta, p.stazione, p.temperatura, p.precipitazioni, p.vento, p.data FROM PREVISIONE p JOIN STAZIONE s ON p.stazione = s.icao WHERE s.ricercatori = (SELECT MAX(ricercatori) FROM STAZIONE);"],
+            "expected_columns":["id", "stato", "citta", "stazione", "temperatura", "precipitazioni", "vento", "data"],
+            "expected_result":[
+                {
+                    "id": 15, 
+                    "stato": "Regno Unito", 
+                    "citta": "Londra",
+                    "stazione": "EGLL",
+                    "temperatura": 19.80,
+                    "precitazioni": 2.6,
+                    "vento":22,
+                    "data":"2026-08-17"                
+                },
+                {
+                    "id":16,
+                    "stato":"Regno Unito",
+                    "citta":"Londra",
+                    "stazione": "EGLL",
+                    "temperatura":18.50,
+                    "precipitazioni": 7.4,
+                    "vento":25,
+                    "data": "2026-08-18"
+                }
+            ]
+        },
+
+        {
+            "id": 6,
+            "question": "Qual è la compagnia dei voli che ha operato più voli con un aereo B737-800",
+            "expected_database": ["DBVOLI"],
+            "expected_query": ["SELECT r.compagnia, COUNT(*) AS numero_voli FROM VOLO v JOIN ROTTA r ON v.rotta = r.id WHERE v.modello_aereo = 'B737-800' GROUP BY r.compagnia ORDER BY numero_voli DESC LIMIT 1;"],
+            "expected_columns":["compagnia", "numero_voli"],
+            "expected_result":[
+                {
+                    "compagnia": "Ryanair",
+                    "numero_voli":5
+                }
+            ]
+        },
+
+        {
+            "id":7,
+            "question": "Quali sono gli hotel con camere disponibili situati in citta con temperature inferiori a 17 gradi il 17/08/2026?",
+            "expected_database": ["DBMETEO", "DBHOTEL"],
+            "expected_query": ["SELECT DISTINCT citta FROM PREVISIONE WHERE data = '2026-08-17' AND temperatura < 17;",
+                            "SELECT DISTINCT h.nome, h.citta FROM HOTEL h JOIN CAMERA c ON h.nome = c.hotel WHERE c.disponibilita = 'true' AND h.citta IN (...);"],
+            "expected_columns":["nome", "citta"],
+            "expected_result":[
+                {
+                    "nome": "Grand Hyatt Bogota",
+                    "citta": "Bogota"
+                },{
+                    "nome":"Park Hyatt Melbourne",
+                    "citta":"Melbourne"
+                },{
+                    "nome":"Park Hyatt Sydney",
+                    "citta":"Sydney"
+                },{
+                    "nome":"Shangri-La Sydney",
+                    "citta":"Sydney"
+                },{
+                    "nome":"Travelodge Hotel Sydney",
+                    "citta":"Sydney"
+                },{
+
+                }
+            ]
+        },
+
+        {
+            "id":8,
+            "question": "Quali sono gli hotel a 5 stelle situati in citta che posso raggiungere con un volo diretto da Barcellona?",
+            "expected_database": ["DBVOLI", "DBHOTEL"],
+            "expected_query": ["SELECT DISTINCT arrivo.citta FROM AEROPORTO partenza JOIN ROTTA r ON partenza.iata = r.iata_partenza JOIN AEROPORTO arrivo ON r.iata_arrivo = arrivo.iata WHERE partenza.citta='Barcellona';",
+                               "SELECT nome, citta FROM HOTEL WHERE stelle = 5 AND citta IN (...);"],
+            "expected_columns":["nome", "citta"],
+            "expected_result":[
+                {
+                "nome":"Anantara Palazzo Naiadi",
+                 "citta":"Roma"
+                },
+                {
+                "nome":"Hotel Eden",
+                 "citta":"Roma"
+                },
+                {
+                "nome":"Hotel Lutetia Paris",
+                 "citta":"Parigi"
+                },
+                {
+                "nome":"Steigenberger Frankfurter Hof",
+                "citta":"Francoforte"
+                },
+                {
+                "nome":"Mandarin Oriental Ritz Madrid",
+                 "citta":"Madrid"
+                },
+                {
+                "nome":"JW Marriott Hotel Frankfurt",
+                 "citta":"Francoforte"
+                },
+                {
+                "nome":"The Plaza Hotel",
+                 "citta":"New York"
+                },
+                {
+                "nome":"Le Bristol Paris",
+                 "citta":"Parigi"
+                },
+                {
+                "nome":"The St. Regis New York",
+                 "citta":"New York"
+                },
+                {
+                "nome":"The Westin Palace Madrid",
+                 "citta":"Madrid"
+                }
+            ]
+        },
+
+        {
+            "id": 9,
+            "question": "Quale e dove si trovano gli aeroporti situati nelle 5 città piu calde nel giorno 17/08/2026?",
+            "expected_database": ["DBMETEO", "DBVOLI"],
+            "expected_query": ["SELECT DISTINCT citta, temperatura FROM PREVISIONE WHERE data = '2026-08-17' ORDER BY temperatura DESC LIMIT 5;",
+                               "SELECT DISTINCT iata, nome, citta FROM AEROPORTO WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai')"],
+            "expected_columns":["iata", "nome", "citta"],
+            "expected_result":[
+                {  
+                    "iata":"AUH",
+                    "nome":"Zayed International Airport",
+                    "citta":"Abu Dhabi"
+                },
+                {
+                    "iata":"DXB",
+                    "nome":"Dubai International Airport",
+                    "citta":"Dubai"
+                },
+                {
+                    "iata":"JED",
+                    "nome":"King Abdulaziz International Airport",
+                    "citta":"Jeddah"
+                },
+                {
+                    "iata":"PHX",
+                    "nome":"Phoenix Sky Harbor International Airport",
+                    "citta":"Phoenix"
+                },
+                {
+                    "iata":"RUH",
+                    "nome":"King Khalid International Airport",
+                    "citta":"Riyadh"
+                }
+            ]
+        }
+]
