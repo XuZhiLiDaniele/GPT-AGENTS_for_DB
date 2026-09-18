@@ -14,16 +14,20 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEST_CASES_FILE = os.path.join(
     BASE_DIR,
     "test_casesM.json"
+    #"test_casesS.json"
+    #"test_casesL.json"
 )
 
 RESULTS_FILE = os.path.join(
     BASE_DIR,
-    "savedResults/resultsQwen35_9B.json"
+    "savedResults/qwen_resultsM.json"
+    #"savedResults/testGemmaResults1.json"
 )
 
 OUTPUT_FILE = os.path.join(
     BASE_DIR,
-    "evaluation_results.json"
+    "qwen_resultsM_evaluation.json"
+    #"evaluation_Gemma_results.json"     
 )
 
 
@@ -660,6 +664,7 @@ def print_run(
 
     print()
     print("=" * 70)
+    print("risultati"+RESULTS_FILE+":")
 
     print(
         f"TEST {evaluation['test_id']} "

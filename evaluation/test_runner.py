@@ -6,22 +6,22 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 
-#from agentQwen_tester import Agent
-from autoTestAgent import Agent
+from agentQwen_tester import Agent
+#from autoTestAgent import Agent
 
 # ============================================================
 # CONFIGURAZIONE
 # ============================================================
 
 TEST_CASES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                               "test_casesM.json")
+                               "test_casesL.json")
 
 # Quante volte eseguire ogni test
 NUM_RUNS = 4
 
 # File in cui salvare i risultati
 RESULTS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                               "test_results.json")
+                               "qwen_resultsL.json")
 
 
 # ============================================================

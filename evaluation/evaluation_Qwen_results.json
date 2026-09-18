@@ -2,11 +2,11 @@
     "statistics": {
         "accuracy": {
             "database": 1.0,
-            "columns": 0.7951388888888888,
-            "overall": 0.8975694444444444
+            "columns": 0.8576388888888888,
+            "overall": 0.9288194444444444
         },
-        "precision": 0.8040509259259259,
-        "latency": 138.09945956666687
+        "precision": 0.9826388888888888,
+        "latency": 872.1915522916667
     },
     "runs": [
         {
@@ -48,10 +48,10 @@
                 ],
                 "value": 1.0
             },
-            "latency": 47.35661080000136,
+            "latency": 458.4263824999998,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, passeggeri FROM aeroporto ORDER BY passeggeri ASC LIMIT 1;"
+                "query": "SELECT nome, passeggeri FROM aeroporto ORDER BY passeggeri ASC LIMIT 1"
             }
         },
         {
@@ -93,10 +93,10 @@
                 ],
                 "value": 1.0
             },
-            "latency": 68.2346561000013,
+            "latency": 304.99936419999995,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, passeggeri FROM aeroporto ORDER BY passeggeri ASC LIMIT 1;"
+                "query": "SELECT nome, passeggeri FROM aeroporto ORDER BY passeggeri ASC LIMIT 1"
             }
         },
         {
@@ -138,7 +138,7 @@
                 ],
                 "value": 1.0
             },
-            "latency": 40.096791899999516,
+            "latency": 308.23951339999985,
             "final_sql": {
                 "database": "DBVOLI",
                 "query": "SELECT nome, passeggeri FROM aeroporto ORDER BY passeggeri ASC LIMIT 1"
@@ -183,7 +183,7 @@
                 ],
                 "value": 1.0
             },
-            "latency": 46.543711900001654,
+            "latency": 284.7837658999997,
             "final_sql": {
                 "database": "DBVOLI",
                 "query": "SELECT nome, passeggeri FROM aeroporto ORDER BY passeggeri ASC LIMIT 1"
@@ -206,11 +206,12 @@
                         "precipitazioni"
                     ],
                     "actual": [
-                        "citta"
+                        "citta",
+                        "precipitazioni"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -221,15 +222,16 @@
                 ],
                 "actual": [
                     {
-                        "citta": "Hanoi"
+                        "citta": "Hanoi",
+                        "precipitazioni": "20.1"
                     }
                 ],
-                "value": 0.5
+                "value": 1.0
             },
-            "latency": 51.36300770000162,
+            "latency": 700.3074334999992,
             "final_sql": {
                 "database": "DBMETEO",
-                "query": "SELECT citta FROM previsione WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1;"
+                "query": "SELECT citta, precipitazioni FROM previsione WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1"
             }
         },
         {
@@ -271,10 +273,10 @@
                 ],
                 "value": 1.0
             },
-            "latency": 49.27848929999891,
+            "latency": 363.0783161999998,
             "final_sql": {
                 "database": "DBMETEO",
-                "query": "SELECT citta, precipitazioni FROM previsione WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1;"
+                "query": "SELECT citta, precipitazioni FROM previsione WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1"
             }
         },
         {
@@ -316,10 +318,10 @@
                 ],
                 "value": 1.0
             },
-            "latency": 58.81647720000183,
+            "latency": 417.26644939999915,
             "final_sql": {
                 "database": "DBMETEO",
-                "query": "SELECT citta, precipitazioni FROM previsione WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1;"
+                "query": "SELECT citta, precipitazioni \nFROM previsione \nWHERE data = '2026-08-18' \nORDER BY precipitazioni DESC \nLIMIT 1"
             }
         },
         {
@@ -339,11 +341,12 @@
                         "precipitazioni"
                     ],
                     "actual": [
-                        "citta"
+                        "citta",
+                        "precipitazioni"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -354,15 +357,16 @@
                 ],
                 "actual": [
                     {
-                        "citta": "Hanoi"
+                        "citta": "Hanoi",
+                        "precipitazioni": "20.1"
                     }
                 ],
-                "value": 0.5
+                "value": 1.0
             },
-            "latency": 49.77144640000188,
+            "latency": 423.1460569000001,
             "final_sql": {
                 "database": "DBMETEO",
-                "query": "SELECT citta FROM previsione WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1;"
+                "query": "SELECT citta, precipitazioni FROM DBMETEO.previsione WHERE data = '2026-08-18' ORDER BY precipitazioni DESC LIMIT 1;"
             }
         },
         {
@@ -383,13 +387,13 @@
                         "citta"
                     ],
                     "actual": [
-                        "nome",
-                        "citta",
-                        "iata"
+                        "codice",
+                        "nome_aeroporto",
+                        "citta"
                     ],
-                    "accuracy": 0.6666666666666666
+                    "accuracy": 0.3333333333333333
                 },
-                "overall": 0.8333333333333333
+                "overall": 0.6666666666666666
             },
             "precision": {
                 "expected": [
@@ -436,52 +440,52 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai",
-                        "iata": "DXB"
+                        "codice": "TFU",
+                        "nome_aeroporto": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu"
                     },
                     {
-                        "nome": "Hong Kong International Airport",
-                        "citta": "Hong Kong",
-                        "iata": "HKG"
+                        "codice": "DXB",
+                        "nome_aeroporto": "Dubai International Airport",
+                        "citta": "Dubai"
                     },
                     {
-                        "nome": "Tokyo Haneda International Airport",
-                        "citta": "Tokyo",
-                        "iata": "HND"
+                        "codice": "HKG",
+                        "nome_aeroporto": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
                     },
                     {
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur",
-                        "iata": "KUL"
+                        "codice": "KUL",
+                        "nome_aeroporto": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
                     },
                     {
-                        "nome": "Melbourne Airport",
-                        "citta": "Melbourne",
-                        "iata": "MEL"
+                        "codice": "MEL",
+                        "nome_aeroporto": "Melbourne Airport",
+                        "citta": "Melbourne"
                     },
                     {
-                        "nome": "Singapore Changi Airport",
-                        "citta": "Singapore",
-                        "iata": "SIN"
+                        "codice": "SIN",
+                        "nome_aeroporto": "Singapore Changi Airport",
+                        "citta": "Singapore"
                     },
                     {
-                        "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney",
-                        "iata": "SYD"
+                        "codice": "SYD",
+                        "nome_aeroporto": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney"
                     },
                     {
-                        "nome": "Chengdu Tianfu International Airport",
-                        "citta": "Chengdu",
-                        "iata": "TFU"
+                        "codice": "HND",
+                        "nome_aeroporto": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 186.77420390000043,
+            "latency": 951.1267667999991,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, citta, iata FROM aeroporto WHERE iata IN ('SYD', 'HKG', 'DXB', 'SIN', 'KUL', 'MEL', 'HND', 'TFU')"
+                "query": "SELECT DISTINCT \n    a.iata AS codice,\n    a.nome AS nome_aeroporto,\n    a.citta AS citta\nFROM rotta r\nJOIN aeroporto a ON r.iata_arrivo = a.iata\nWHERE r.iata_partenza IN (\n    SELECT iata FROM aeroporto WHERE continente = 'OC'\n)\nORDER BY a.nome"
             }
         },
         {
@@ -555,14 +559,9 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney",
-                        "iata": "SYD"
-                    },
-                    {
-                        "nome": "Hong Kong International Airport",
-                        "citta": "Hong Kong",
-                        "iata": "HKG"
+                        "nome": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu",
+                        "iata": "TFU"
                     },
                     {
                         "nome": "Dubai International Airport",
@@ -570,9 +569,9 @@
                         "iata": "DXB"
                     },
                     {
-                        "nome": "Singapore Changi Airport",
-                        "citta": "Singapore",
-                        "iata": "SIN"
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong",
+                        "iata": "HKG"
                     },
                     {
                         "nome": "Kuala Lumpur International Airport",
@@ -585,32 +584,27 @@
                         "iata": "MEL"
                     },
                     {
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai",
-                        "iata": "DXB"
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore",
+                        "iata": "SIN"
                     },
                     {
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur",
-                        "iata": "KUL"
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney",
+                        "iata": "SYD"
                     },
                     {
                         "nome": "Tokyo Haneda International Airport",
                         "citta": "Tokyo",
                         "iata": "HND"
-                    },
-                    {
-                        "nome": "Chengdu Tianfu International Airport",
-                        "citta": "Chengdu",
-                        "iata": "TFU"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 181.8104428000006,
+            "latency": 813.9586755,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT T1.nome, T1.citta, T1.iata FROM aeroporto AS T1 INNER JOIN rotta AS T2 ON T1.iata = T2.iata_arrivo WHERE T2.iata_partenza IN (SELECT iata FROM aeroporto WHERE continente = 'OC')"
+                "query": "SELECT DISTINCT d.nome, d.citta, d.iata\nFROM rotta r\nJOIN aeroporto o ON r.iata_partenza = o.iata\nJOIN aeroporto d ON r.iata_arrivo = d.iata\nWHERE o.continente = 'OC'\nORDER BY d.citta"
             }
         },
         {
@@ -631,9 +625,9 @@
                         "citta"
                     ],
                     "actual": [
+                        "iata",
                         "nome",
-                        "citta",
-                        "iata"
+                        "citta"
                     ],
                     "accuracy": 0.6666666666666666
                 },
@@ -684,52 +678,62 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai",
-                        "iata": "DXB"
-                    },
-                    {
-                        "nome": "Hong Kong International Airport",
-                        "citta": "Hong Kong",
-                        "iata": "HKG"
-                    },
-                    {
-                        "nome": "Tokyo Haneda International Airport",
-                        "citta": "Tokyo",
-                        "iata": "HND"
-                    },
-                    {
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur",
-                        "iata": "KUL"
-                    },
-                    {
-                        "nome": "Melbourne Airport",
-                        "citta": "Melbourne",
-                        "iata": "MEL"
-                    },
-                    {
-                        "nome": "Singapore Changi Airport",
-                        "citta": "Singapore",
-                        "iata": "SIN"
-                    },
-                    {
+                        "iata": "SYD",
                         "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney",
-                        "iata": "SYD"
+                        "citta": "Sydney"
                     },
                     {
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore"
+                    },
+                    {
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
+                    },
+                    {
+                        "iata": "TFU",
                         "nome": "Chengdu Tianfu International Airport",
-                        "citta": "Chengdu",
-                        "iata": "TFU"
+                        "citta": "Chengdu"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 193.73944370000027,
+            "latency": 918.6219686000004,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, citta, iata FROM aeroporto WHERE iata IN ('SYD', 'HKG', 'DXB', 'SIN', 'KUL', 'MEL', 'HND', 'TFU');"
+                "query": "SELECT a_dest.iata, a_dest.nome, a_dest.citta \nFROM aeroporto a_partenza\nINNER JOIN rotta r ON a_partenza.iata = r.iata_partenza\nINNER JOIN aeroporto a_dest ON r.iata_arrivo = a_dest.iata\nWHERE a_partenza.continente = 'OC'"
             }
         },
         {
@@ -752,11 +756,11 @@
                     "actual": [
                         "nome",
                         "citta",
-                        "iata"
+                        "iata_arrivo"
                     ],
-                    "accuracy": 0.6666666666666666
+                    "accuracy": 1.0
                 },
-                "overall": 0.8333333333333333
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -803,52 +807,52 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai",
-                        "iata": "DXB"
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney",
+                        "iata_arrivo": "SYD"
                     },
                     {
                         "nome": "Hong Kong International Airport",
                         "citta": "Hong Kong",
-                        "iata": "HKG"
+                        "iata_arrivo": "HKG"
                     },
                     {
-                        "nome": "Tokyo Haneda International Airport",
-                        "citta": "Tokyo",
-                        "iata": "HND"
-                    },
-                    {
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur",
-                        "iata": "KUL"
-                    },
-                    {
-                        "nome": "Melbourne Airport",
-                        "citta": "Melbourne",
-                        "iata": "MEL"
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai",
+                        "iata_arrivo": "DXB"
                     },
                     {
                         "nome": "Singapore Changi Airport",
                         "citta": "Singapore",
-                        "iata": "SIN"
+                        "iata_arrivo": "SIN"
                     },
                     {
-                        "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney",
-                        "iata": "SYD"
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur",
+                        "iata_arrivo": "KUL"
+                    },
+                    {
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne",
+                        "iata_arrivo": "MEL"
+                    },
+                    {
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo",
+                        "iata_arrivo": "HND"
                     },
                     {
                         "nome": "Chengdu Tianfu International Airport",
                         "citta": "Chengdu",
-                        "iata": "TFU"
+                        "iata_arrivo": "TFU"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 192.20135879999725,
+            "latency": 1254.2404342999998,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, citta, iata FROM aeroporto WHERE iata IN ('SYD', 'HKG', 'DXB', 'SIN', 'KUL', 'MEL', 'HND', 'TFU')"
+                "query": "SELECT DISTINCT a_dest.nome, a_dest.citta, r.iata_arrivo \nFROM rotta r\nINNER JOIN aeroporto a_partenza ON r.iata_partenza = a_partenza.iata\nINNER JOIN aeroporto a_dest ON r.iata_arrivo = a_dest.iata\nWHERE a_partenza.continente = 'OC'"
             }
         },
         {
@@ -869,11 +873,11 @@
                     ],
                     "actual": [
                         "citta",
-                        "costo_medio"
+                        "prezzo_medio_camera"
                     ],
-                    "accuracy": 1.0
+                    "accuracy": 0.5
                 },
-                "overall": 1.0
+                "overall": 0.75
             },
             "precision": {
                 "expected": [
@@ -885,15 +889,15 @@
                 "actual": [
                     {
                         "citta": "San Paolo",
-                        "costo_medio": "219.5000"
+                        "prezzo_medio_camera": "219.5000"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 75.15716050000265,
+            "latency": 750.2417884999995,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT T1.citta, AVG(T2.prezzo) AS costo_medio FROM hotel AS T1 JOIN camera AS T2 ON T1.nome = T2.hotel GROUP BY T1.citta ORDER BY costo_medio ASC LIMIT 1;"
+                "query": "SELECT h.citta, AVG(c.prezzo) AS prezzo_medio_camera \nFROM camera c \nJOIN hotel h ON c.hotel = h.nome \nGROUP BY h.citta \nORDER BY prezzo_medio_camera ASC \nLIMIT 1"
             }
         },
         {
@@ -914,11 +918,11 @@
                     ],
                     "actual": [
                         "citta",
-                        "costo_medio"
+                        "costo_medio_camera"
                     ],
-                    "accuracy": 1.0
+                    "accuracy": 0.5
                 },
-                "overall": 1.0
+                "overall": 0.75
             },
             "precision": {
                 "expected": [
@@ -930,15 +934,51 @@
                 "actual": [
                     {
                         "citta": "San Paolo",
-                        "costo_medio": "219.5000"
+                        "costo_medio_camera": "219.5000"
+                    },
+                    {
+                        "citta": "Copenhagen",
+                        "costo_medio_camera": "274.8000"
+                    },
+                    {
+                        "citta": "Francoforte",
+                        "costo_medio_camera": "286.0000"
+                    },
+                    {
+                        "citta": "Parigi",
+                        "costo_medio_camera": "294.5000"
+                    },
+                    {
+                        "citta": "Taipei",
+                        "costo_medio_camera": "302.8000"
+                    },
+                    {
+                        "citta": "Minneapolis",
+                        "costo_medio_camera": "306.0000"
+                    },
+                    {
+                        "citta": "Seattle",
+                        "costo_medio_camera": "323.8000"
+                    },
+                    {
+                        "citta": "Hyderabad",
+                        "costo_medio_camera": "326.5000"
+                    },
+                    {
+                        "citta": "Newark",
+                        "costo_medio_camera": "329.3333"
+                    },
+                    {
+                        "citta": "Miami",
+                        "costo_medio_camera": "330.1429"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 73.14150769999833,
+            "latency": 791.7285520000005,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT T1.citta, AVG(T2.prezzo) AS costo_medio FROM hotel AS T1 JOIN camera AS T2 ON T1.nome = T2.hotel GROUP BY T1.citta ORDER BY costo_medio ASC LIMIT 1;"
+                "query": "SELECT h.citta, AVG(c.prezzo) as costo_medio_camera \nFROM hotel h \nJOIN camera c ON h.nome = c.hotel \nGROUP BY h.citta \nORDER BY costo_medio_camera ASC \nLIMIT 10"
             }
         },
         {
@@ -980,10 +1020,10 @@
                 ],
                 "value": 1.0
             },
-            "latency": 60.5714095000003,
+            "latency": 438.1384546999998,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT T1.citta, AVG(T2.prezzo) AS costo_medio FROM hotel AS T1 JOIN camera AS T2 ON T1.nome = T2.hotel GROUP BY T1.citta ORDER BY costo_medio ASC LIMIT 1;"
+                "query": "SELECT h.citta, AVG(c.prezzo) as costo_medio FROM camera c JOIN hotel h ON c.hotel = h.nome GROUP BY h.citta ORDER BY costo_medio ASC LIMIT 1"
             }
         },
         {
@@ -1025,15 +1065,184 @@
                 ],
                 "value": 1.0
             },
-            "latency": 61.98078650000025,
+            "latency": 807.3694440999989,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT T1.citta, AVG(T2.prezzo) AS costo_medio FROM hotel AS T1 JOIN camera AS T2 ON T1.nome = T2.hotel GROUP BY T1.citta ORDER BY costo_medio ASC LIMIT 1;"
+                "query": "SELECT h.citta, AVG(c.prezzo) as costo_medio\nFROM camera c\nJOIN hotel h ON c.hotel = h.nome\nGROUP BY h.citta\nORDER BY costo_medio ASC\nLIMIT 1;"
             }
         },
         {
             "test_id": 5,
             "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": "DBMETEO",
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "id",
+                        "stato",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "accuracy": 0.875
+                },
+                "overall": 0.9375
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    }
+                ],
+                "actual": [
+                    {
+                        "citta": "Londra",
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "temperatura": "19.80",
+                        "precipitazioni": "2.6",
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "citta": "Londra",
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "temperatura": "18.50",
+                        "precipitazioni": "7.4",
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    }
+                ],
+                "value": 0.875
+            },
+            "latency": 829.6121348000015,
+            "final_sql": {
+                "database": "DBMETEO",
+                "query": "SELECT citta, id, stato, temperatura, precipitazioni, vento, data FROM previsione WHERE stazione = 'EGLL'"
+            }
+        },
+        {
+            "test_id": 5,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": "DBMETEO",
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "stato",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "accuracy": 0.75
+                },
+                "overall": 0.875
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    }
+                ],
+                "actual": [
+                    {
+                        "citta": "Londra",
+                        "stato": "Regno Unito",
+                        "temperatura": "18.50",
+                        "precipitazioni": "7.4",
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "citta": "Londra",
+                        "stato": "Regno Unito",
+                        "temperatura": "19.80",
+                        "precipitazioni": "2.6",
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    }
+                ],
+                "value": 0.75
+            },
+            "latency": 679.6969974999993,
+            "final_sql": {
+                "database": "DBMETEO",
+                "query": "SELECT citta, stato, temperatura, precipitazioni, vento, data FROM previsione WHERE stazione = 'EGLL' ORDER BY data DESC"
+            }
+        },
+        {
+            "test_id": 5,
+            "run": 3,
             "accuracy": {
                 "database": {
                     "expected": [
@@ -1091,16 +1300,6 @@
                     }
                 ],
                 "actual": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": "19.80",
-                        "precipitazioni": "2.6",
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    },
                     {
                         "id": 16,
                         "stato": "Regno Unito",
@@ -1110,166 +1309,24 @@
                         "precipitazioni": "7.4",
                         "vento": 25,
                         "data": "2026-08-18"
+                    },
+                    {
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": "19.80",
+                        "precipitazioni": "2.6",
+                        "vento": 22,
+                        "data": "2026-08-17"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 102.63525219999792,
+            "latency": 1073.795341500001,
             "final_sql": {
                 "database": "DBMETEO",
-                "query": "SELECT * FROM previsione WHERE stazione = 'EGLL';"
-            }
-        },
-        {
-            "test_id": 5,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": "DBMETEO",
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "id",
-                        "stato",
-                        "citta",
-                        "stazione",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "actual": [
-                        "stato",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "accuracy": 0.625
-                },
-                "overall": 0.8125
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 19.8,
-                        "precitazioni": 2.6,
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    },
-                    {
-                        "id": 16,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "vento": 25,
-                        "data": "2026-08-18"
-                    }
-                ],
-                "actual": [
-                    {
-                        "stato": "Regno Unito",
-                        "temperatura": "19.80",
-                        "precipitazioni": "2.6",
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    }
-                ],
-                "value": 0.3125
-            },
-            "latency": 104.19126370000231,
-            "final_sql": {
-                "database": "DBMETEO",
-                "query": "SELECT stato, temperatura, precipitazioni, vento, data FROM previsione WHERE stazione = 'EGLL' LIMIT 1"
-            }
-        },
-        {
-            "test_id": 5,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": "DBMETEO",
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "id",
-                        "stato",
-                        "citta",
-                        "stazione",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "actual": [
-                        "id",
-                        "stato",
-                        "citta",
-                        "stazione",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 1.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 19.8,
-                        "precitazioni": 2.6,
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    },
-                    {
-                        "id": 16,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "vento": 25,
-                        "data": "2026-08-18"
-                    }
-                ],
-                "actual": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": "19.80",
-                        "precipitazioni": "2.6",
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    }
-                ],
-                "value": 0.5
-            },
-            "latency": 103.84197439999843,
-            "final_sql": {
-                "database": "DBMETEO",
-                "query": "SELECT * FROM previsione WHERE stazione = 'EGLL' LIMIT 1"
+                "query": "SELECT id, stato, citta, stazione, temperatura, precipitazioni, vento, data FROM previsione WHERE stazione = 'EGLL' ORDER BY data DESC"
             }
         },
         {
@@ -1295,18 +1352,16 @@
                         "data"
                     ],
                     "actual": [
-                        "id",
-                        "stato",
                         "citta",
-                        "stazione",
+                        "stato",
                         "temperatura",
                         "precipitazioni",
                         "vento",
                         "data"
                     ],
-                    "accuracy": 1.0
+                    "accuracy": 0.75
                 },
-                "overall": 1.0
+                "overall": 0.875
             },
             "precision": {
                 "expected": [
@@ -1333,32 +1388,28 @@
                 ],
                 "actual": [
                     {
-                        "id": 15,
-                        "stato": "Regno Unito",
                         "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": "19.80",
-                        "precipitazioni": "2.6",
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    },
-                    {
-                        "id": 16,
                         "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
                         "temperatura": "18.50",
                         "precipitazioni": "7.4",
                         "vento": 25,
                         "data": "2026-08-18"
+                    },
+                    {
+                        "citta": "Londra",
+                        "stato": "Regno Unito",
+                        "temperatura": "19.80",
+                        "precipitazioni": "2.6",
+                        "vento": 22,
+                        "data": "2026-08-17"
                     }
                 ],
-                "value": 1.0
+                "value": 0.75
             },
-            "latency": 121.42434890000004,
+            "latency": 810.6594812000003,
             "final_sql": {
                 "database": "DBMETEO",
-                "query": "SELECT * FROM previsione WHERE stazione = 'EGLL'"
+                "query": "SELECT citta, stato, temperatura, precipitazioni, vento, data FROM previsione WHERE stazione = 'EGLL' ORDER BY data DESC"
             }
         },
         {
@@ -1379,11 +1430,11 @@
                     ],
                     "actual": [
                         "compagnia",
-                        "numero_voli"
+                        "num_voli"
                     ],
-                    "accuracy": 1.0
+                    "accuracy": 0.5
                 },
-                "overall": 1.0
+                "overall": 0.75
             },
             "precision": {
                 "expected": [
@@ -1395,15 +1446,15 @@
                 "actual": [
                     {
                         "compagnia": "Ryanair",
-                        "numero_voli": 5
+                        "num_voli": 5
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 127.69486730000062,
+            "latency": 731.5714155000023,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT T2.compagnia, COUNT(T1.id) AS numero_voli FROM volo AS T1 INNER JOIN rotta AS T2 ON T1.rotta = T2.id WHERE T1.modello_aereo = 'B737-800' GROUP BY T2.compagnia ORDER BY numero_voli DESC LIMIT 1;"
+                "query": "SELECT r.compagnia, COUNT(*) as num_voli \nFROM volo v\nJOIN rotta r ON v.rotta = r.id\nWHERE v.modello_aereo = 'B737-800'\nGROUP BY r.compagnia\nORDER BY num_voli DESC\nLIMIT 1"
             }
         },
         {
@@ -1445,10 +1496,10 @@
                 ],
                 "value": 1.0
             },
-            "latency": 107.44523750000008,
+            "latency": 839.3405495000006,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT T2.compagnia, COUNT(T1.id) AS numero_voli\nFROM volo AS T1\nJOIN rotta AS T2 ON T1.rotta = T2.id\nWHERE T1.modello_aereo = 'B737-800'\nGROUP BY T2.compagnia\nORDER BY numero_voli DESC\nLIMIT 1;"
+                "query": "SELECT r.compagnia, COUNT(*) as numero_voli\nFROM volo v\nINNER JOIN rotta r ON v.rotta = r.id\nWHERE v.modello_aereo = 'B737-800'\nGROUP BY r.compagnia\nORDER BY numero_voli DESC\nLIMIT 1"
             }
         },
         {
@@ -1486,14 +1537,42 @@
                     {
                         "compagnia": "Ryanair",
                         "numero_voli": 5
+                    },
+                    {
+                        "compagnia": "China Southern Airlines",
+                        "numero_voli": 4
+                    },
+                    {
+                        "compagnia": "China Eastern Airlines",
+                        "numero_voli": 2
+                    },
+                    {
+                        "compagnia": "American Airlines",
+                        "numero_voli": 1
+                    },
+                    {
+                        "compagnia": "Qantas",
+                        "numero_voli": 1
+                    },
+                    {
+                        "compagnia": "Delta Airlines",
+                        "numero_voli": 1
+                    },
+                    {
+                        "compagnia": "Republic Airways",
+                        "numero_voli": 1
+                    },
+                    {
+                        "compagnia": "Southwest",
+                        "numero_voli": 1
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 152.18930890000047,
+            "latency": 1382.1064302000013,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT T2.compagnia, COUNT(T1.id) AS numero_voli \nFROM volo AS T1 \nINNER JOIN rotta AS T2 ON T1.rotta = T2.id \nWHERE T1.modello_aereo = 'B737-800' \nGROUP BY T2.compagnia \nORDER BY numero_voli DESC \nLIMIT 1;"
+                "query": "SELECT \n    r.compagnia,\n    COUNT(*) as numero_voli\nFROM volo v\nJOIN rotta r ON v.rotta = r.id\nWHERE v.modello_aereo = 'B737-800'\nGROUP BY r.compagnia\nORDER BY numero_voli DESC\n"
             }
         },
         {
@@ -1514,11 +1593,11 @@
                     ],
                     "actual": [
                         "compagnia",
-                        "numero_voli"
+                        "conteggio_voli"
                     ],
-                    "accuracy": 1.0
+                    "accuracy": 0.5
                 },
-                "overall": 1.0
+                "overall": 0.75
             },
             "precision": {
                 "expected": [
@@ -1530,15 +1609,15 @@
                 "actual": [
                     {
                         "compagnia": "Ryanair",
-                        "numero_voli": 5
+                        "conteggio_voli": 5
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 105.82474010000078,
+            "latency": 903.6410684000002,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT rotta.compagnia, COUNT(volo.id) AS numero_voli\nFROM volo\nJOIN rotta ON volo.rotta = rotta.id\nWHERE volo.modello_aereo = 'B737-800'\nGROUP BY rotta.compagnia\nORDER BY numero_voli DESC\nLIMIT 1;"
+                "query": "SELECT r.compagnia, COUNT(*) as conteggio_voli\nFROM volo v\nJOIN rotta r ON v.rotta = r.id\nWHERE v.modello_aereo = 'B737-800'\nGROUP BY r.compagnia\nORDER BY conteggio_voli DESC\nLIMIT 1"
             }
         },
         {
@@ -1559,11 +1638,14 @@
                         "citta"
                     ],
                     "actual": [
-                        "hotel"
+                        "nome",
+                        "citta",
+                        "numero",
+                        "disponibilita"
                     ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
-                "overall": 0.5
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -1589,13 +1671,50 @@
                     },
                     {}
                 ],
-                "actual": [],
-                "value": 0.0
+                "actual": [
+                    {
+                        "nome": "Grand Hyatt Bogota",
+                        "citta": "Bogota",
+                        "numero": "234",
+                        "disponibilita": "true"
+                    },
+                    {
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne",
+                        "numero": "785",
+                        "disponibilita": "true"
+                    },
+                    {
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne",
+                        "numero": "357",
+                        "disponibilita": "true"
+                    },
+                    {
+                        "nome": "Park Hyatt Sydney",
+                        "citta": "Sydney",
+                        "numero": "667",
+                        "disponibilita": "true"
+                    },
+                    {
+                        "nome": "Shangri-La Sydney",
+                        "citta": "Sydney",
+                        "numero": "809",
+                        "disponibilita": "true"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney",
+                        "numero": "205",
+                        "disponibilita": "true"
+                    }
+                ],
+                "value": 1.0
             },
-            "latency": 209.7184984000014,
+            "latency": 1234.7554275000002,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT DISTINCT hotel FROM camera WHERE hotel IN ('Grand Hyatt Bogota', 'Great Southern Hotel Melbourne', 'Hilton Bogota', 'Hotel Estelar La Fontana', 'Park Hyatt Melbourne', 'Park Hyatt Sydney', 'Shangri-La Sydney', 'The Langham Melbourne', 'Travelodge Hotel Sydney') AND disponibilita = 'YES';"
+                "query": "SELECT h.nome, h.citta, c.numero, c.disponibilita \nFROM hotel h \nINNER JOIN camera c ON h.nome = c.hotel \nWHERE h.citta IN ('Bogota', 'Sydney', 'Melbourne') AND c.disponibilita = 'true'"
             }
         },
         {
@@ -1616,11 +1735,12 @@
                         "citta"
                     ],
                     "actual": [
-                        "nome"
+                        "nome",
+                        "citta"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -1648,27 +1768,32 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Grand Hyatt Bogota"
+                        "nome": "Grand Hyatt Bogota",
+                        "citta": "Bogota"
                     },
                     {
-                        "nome": "Park Hyatt Melbourne"
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne"
                     },
                     {
-                        "nome": "Park Hyatt Sydney"
+                        "nome": "Park Hyatt Sydney",
+                        "citta": "Sydney"
                     },
                     {
-                        "nome": "Shangri-La Sydney"
+                        "nome": "Shangri-La Sydney",
+                        "citta": "Sydney"
                     },
                     {
-                        "nome": "Travelodge Hotel Sydney"
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney"
                     }
                 ],
-                "value": 0.5
+                "value": 1.0
             },
-            "latency": 254.48235810000187,
+            "latency": 953.5501035000016,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT DISTINCT T1.nome FROM hotel AS T1 INNER JOIN camera AS T2 ON T1.nome = T2.hotel WHERE T1.citta IN ('Bogota', 'Sydney', 'Melbourne') AND T2.disponibilita = 'true'"
+                "query": "SELECT DISTINCT h.nome, h.citta FROM hotel h JOIN camera c ON h.nome = c.hotel WHERE h.citta IN ('Bogota', 'Sydney', 'Melbourne') AND c.disponibilita = 'true'"
             }
         },
         {
@@ -1689,7 +1814,8 @@
                         "citta"
                     ],
                     "actual": [
-                        "nome"
+                        "hotel",
+                        "citta"
                     ],
                     "accuracy": 0.5
                 },
@@ -1721,27 +1847,32 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Grand Hyatt Bogota"
+                        "hotel": "Grand Hyatt Bogota",
+                        "citta": "Bogota"
                     },
                     {
-                        "nome": "Park Hyatt Melbourne"
+                        "hotel": "Park Hyatt Melbourne",
+                        "citta": "Melbourne"
                     },
                     {
-                        "nome": "Park Hyatt Sydney"
+                        "hotel": "Park Hyatt Sydney",
+                        "citta": "Sydney"
                     },
                     {
-                        "nome": "Shangri-La Sydney"
+                        "hotel": "Shangri-La Sydney",
+                        "citta": "Sydney"
                     },
                     {
-                        "nome": "Travelodge Hotel Sydney"
+                        "hotel": "Travelodge Hotel Sydney",
+                        "citta": "Sydney"
                     }
                 ],
-                "value": 0.5
+                "value": 1.0
             },
-            "latency": 207.60154580000017,
+            "latency": 1031.8861241999984,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT DISTINCT T1.nome FROM hotel AS T1 INNER JOIN camera AS T2 ON T1.nome = T2.hotel WHERE T1.citta IN ('Bogota', 'Sydney', 'Melbourne') AND T2.disponibilita = 'true';"
+                "query": "SELECT DISTINCT h.nome AS hotel, h.citta FROM camera c JOIN hotel h ON c.hotel = h.nome WHERE h.citta IN ('Bogota', 'Melbourne', 'Sydney') AND c.disponibilita = 'true' ORDER BY h.nome, h.citta"
             }
         },
         {
@@ -1762,11 +1893,12 @@
                         "citta"
                     ],
                     "actual": [
-                        "nome"
+                        "nome",
+                        "citta"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -1794,27 +1926,32 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Grand Hyatt Bogota"
+                        "nome": "Grand Hyatt Bogota",
+                        "citta": "Bogota"
                     },
                     {
-                        "nome": "Park Hyatt Melbourne"
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne"
                     },
                     {
-                        "nome": "Park Hyatt Sydney"
+                        "nome": "Park Hyatt Sydney",
+                        "citta": "Sydney"
                     },
                     {
-                        "nome": "Shangri-La Sydney"
+                        "nome": "Shangri-La Sydney",
+                        "citta": "Sydney"
                     },
                     {
-                        "nome": "Travelodge Hotel Sydney"
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney"
                     }
                 ],
-                "value": 0.5
+                "value": 1.0
             },
-            "latency": 198.10100239999883,
+            "latency": 830.6112959999991,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT DISTINCT T1.nome FROM hotel AS T1 INNER JOIN camera AS T2 ON T1.nome = T2.hotel WHERE T1.citta IN ('Bogota', 'Sydney', 'Melbourne') AND T2.disponibilita = 'true';"
+                "query": "SELECT DISTINCT h.nome, h.citta FROM hotel h JOIN camera c ON h.nome = c.hotel WHERE h.citta IN ('Bogota', 'Sydney', 'Melbourne') AND c.disponibilita = 'true'"
             }
         },
         {
@@ -1836,7 +1973,9 @@
                     ],
                     "actual": [
                         "nome",
-                        "citta"
+                        "stato",
+                        "citta",
+                        "indirizzo"
                     ],
                     "accuracy": 1.0
                 },
@@ -1888,281 +2027,76 @@
                 "actual": [
                     {
                         "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Piazza della Repubblica 48"
                     },
                     {
                         "nome": "Hotel Eden",
-                        "citta": "Roma"
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Via Ludovisi 49"
                     },
                     {
                         "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Boulevard Raspail 45"
                     },
                     {
                         "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Thurn-und-Taxis-Platz 2"
                     },
                     {
                         "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Rue du Faubourg Saint-Honore 112"
                     },
                     {
                         "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de la Lealtad 5"
                     },
                     {
                         "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Am Kaiserplatz"
                     },
                     {
                         "nome": "The Plaza Hotel",
-                        "citta": "New York"
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "768 5th Avenue"
                     },
                     {
                         "nome": "The St. Regis New York",
-                        "citta": "New York"
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "2 East 55th Street"
                     },
                     {
                         "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de las Cortes 7"
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 230.13331670000116,
+            "latency": 910.1215282000012,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT nome, citta FROM hotel WHERE stelle = 5 AND citta IN ('Madrid', 'Francoforte', 'Roma', 'Parigi', 'New York');"
+                "query": "SELECT nome, stato, citta, indirizzo FROM hotel WHERE stelle = 5 AND citta IN ('Madrid', 'Francoforte', 'Roma', 'Parigi', 'New York')"
             }
         },
         {
             "test_id": 8,
             "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI",
-                        "DBHOTEL"
-                    ],
-                    "actual": "DBHOTEL",
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "nome",
-                        "citta"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 1.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    }
-                ],
-                "actual": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 213.15648359999977,
-            "final_sql": {
-                "database": "DBHOTEL",
-                "query": "SELECT nome, citta FROM hotel WHERE stelle = 5 AND citta IN ('Madrid', 'Roma', 'Parigi', 'Francoforte', 'New York');"
-            }
-        },
-        {
-            "test_id": 8,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI",
-                        "DBHOTEL"
-                    ],
-                    "actual": "DBHOTEL",
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "nome"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.75
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    }
-                ],
-                "actual": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi"
-                    },
-                    {
-                        "nome": "Hotel Eden"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt"
-                    },
-                    {
-                        "nome": "Le Bristol Paris"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof"
-                    },
-                    {
-                        "nome": "The Plaza Hotel"
-                    },
-                    {
-                        "nome": "The St. Regis New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid"
-                    }
-                ],
-                "value": 0.5
-            },
-            "latency": 291.84674749999976,
-            "final_sql": {
-                "database": "DBHOTEL",
-                "query": "SELECT nome FROM hotel WHERE citta IN ('Parigi', 'Roma', 'Francoforte', 'New York', 'Madrid') AND stelle = 5;"
-            }
-        },
-        {
-            "test_id": 8,
-            "run": 4,
             "accuracy": {
                 "database": {
                     "expected": [
@@ -2246,6 +2180,11 @@
                         "indirizzo": "Boulevard Raspail 45"
                     },
                     {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte",
+                        "indirizzo": "Thurn-und-Taxis-Platz 2"
+                    },
+                    {
                         "nome": "Le Bristol Paris",
                         "citta": "Parigi",
                         "indirizzo": "Rue du Faubourg Saint-Honore 112"
@@ -2254,6 +2193,11 @@
                         "nome": "Mandarin Oriental Ritz Madrid",
                         "citta": "Madrid",
                         "indirizzo": "Plaza de la Lealtad 5"
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte",
+                        "indirizzo": "Am Kaiserplatz"
                     },
                     {
                         "nome": "The Plaza Hotel",
@@ -2271,12 +2215,292 @@
                         "indirizzo": "Plaza de las Cortes 7"
                     }
                 ],
-                "value": 0.8
+                "value": 1.0
             },
-            "latency": 225.2909499999987,
+            "latency": 1159.5391124999987,
             "final_sql": {
                 "database": "DBHOTEL",
-                "query": "SELECT nome, citta, indirizzo FROM hotel WHERE stelle = 5 AND citta IN ('Madrid', 'Frankfurt', 'Roma', 'Parigi', 'New York');"
+                "query": "SELECT nome, citta, indirizzo FROM hotel WHERE stelle = 5 AND citta IN ('Madrid', 'Francoforte', 'Roma', 'Parigi', 'New York')"
+            }
+        },
+        {
+            "test_id": 8,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": "DBHOTEL",
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "nome",
+                        "citta",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "citta": "Madrid"
+                    },
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "citta": "Madrid"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "citta": "Madrid",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "citta": "Madrid",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "citta": "New York",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "citta": "New York",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "citta": "Parigi",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "citta": "Parigi",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "citta": "Roma",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "citta": "Roma",
+                        "stelle": 5
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 1180.2993408000002,
+            "final_sql": {
+                "database": "DBHOTEL",
+                "query": "SELECT nome, citta, stelle FROM hotel WHERE stelle = 5 AND citta IN ('Madrid', 'Francoforte', 'Roma', 'Parigi', 'New York') ORDER BY citta, nome"
+            }
+        },
+        {
+            "test_id": 8,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": "DBHOTEL",
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "nome",
+                        "stato",
+                        "citta",
+                        "indirizzo",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "citta": "Madrid"
+                    },
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "citta": "Madrid"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Piazza della Repubblica 48",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Via Ludovisi 49",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Boulevard Raspail 45",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Thurn-und-Taxis-Platz 2",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Rue du Faubourg Saint-Honore 112",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de la Lealtad 5",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Am Kaiserplatz",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "768 5th Avenue",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "2 East 55th Street",
+                        "stelle": 5
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de las Cortes 7",
+                        "stelle": 5
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 1030.8416832000003,
+            "final_sql": {
+                "database": "DBHOTEL",
+                "query": "SELECT * FROM hotel WHERE stelle = 5 AND (citta = 'Madrid' OR citta = 'Francoforte' OR citta = 'Roma' OR citta = 'Parigi' OR citta = 'New York')"
             }
         },
         {
@@ -2298,8 +2522,12 @@
                         "citta"
                     ],
                     "actual": [
-                        "nome",
-                        "iata"
+                        "citta",
+                        "iata",
+                        "nome_aeroporto",
+                        "continente",
+                        "stato_paese",
+                        "temperatura"
                     ],
                     "accuracy": 0.6666666666666666
                 },
@@ -2335,32 +2563,52 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Zayed International Airport",
-                        "iata": "AUH"
+                        "citta": "Riyadh",
+                        "iata": "RUH",
+                        "nome_aeroporto": "King Khalid International Airport",
+                        "continente": "AS",
+                        "stato_paese": "Arabia Saudita",
+                        "temperatura": "40.80"
                     },
                     {
-                        "nome": "Dubai International Airport",
-                        "iata": "DXB"
+                        "citta": "Abu Dhabi",
+                        "iata": "AUH",
+                        "nome_aeroporto": "Zayed International Airport",
+                        "continente": "AS",
+                        "stato_paese": "Emirati Arabi Uniti",
+                        "temperatura": "39.70"
                     },
                     {
-                        "nome": "King Abdulaziz International Airport",
-                        "iata": "JED"
+                        "citta": "Phoenix",
+                        "iata": "PHX",
+                        "nome_aeroporto": "Phoenix Sky Harbor International Airport",
+                        "continente": "NA",
+                        "stato_paese": "Stati Uniti",
+                        "temperatura": "39.50"
                     },
                     {
-                        "nome": "Phoenix Sky Harbor International Airport",
-                        "iata": "PHX"
+                        "citta": "Jeddah",
+                        "iata": "JED",
+                        "nome_aeroporto": "King Abdulaziz International Airport",
+                        "continente": "AS",
+                        "stato_paese": "Arabia Saudita",
+                        "temperatura": "39.40"
                     },
                     {
-                        "nome": "King Khalid International Airport",
-                        "iata": "RUH"
+                        "citta": "Dubai",
+                        "iata": "DXB",
+                        "nome_aeroporto": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato_paese": "Emirati Arabi Uniti",
+                        "temperatura": "39.20"
                     }
                 ],
-                "value": 0.6666666666666666
+                "value": 1.0
             },
-            "latency": 175.76393349999853,
+            "latency": 3096.9712115999973,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, iata FROM aeroporto WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai');"
+                "query": "SELECT \n    a.citta AS citta,\n    a.iata,\n    a.nome AS nome_aeroporto,\n    a.continente,\n    a.stato AS stato_paese,\n    p.temperatura AS temperatura\nFROM DBVOLI.aeroporto a\nINNER JOIN DBMETEO.previsione p ON a.citta = p.citta\nWHERE p.data = '2026-08-17'\nORDER BY p.temperatura DESC\nLIMIT 5;"
             }
         },
         {
@@ -2382,11 +2630,13 @@
                         "citta"
                     ],
                     "actual": [
-                        "nome"
+                        "iata",
+                        "aeroporto_nome",
+                        "citta"
                     ],
-                    "accuracy": 0.3333333333333333
+                    "accuracy": 0.6666666666666666
                 },
-                "overall": 0.6666666666666666
+                "overall": 0.8333333333333333
             },
             "precision": {
                 "expected": [
@@ -2418,27 +2668,37 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Zayed International Airport"
+                        "iata": "AUH",
+                        "aeroporto_nome": "Zayed International Airport",
+                        "citta": "Abu Dhabi"
                     },
                     {
-                        "nome": "Dubai International Airport"
+                        "iata": "DXB",
+                        "aeroporto_nome": "Dubai International Airport",
+                        "citta": "Dubai"
                     },
                     {
-                        "nome": "King Abdulaziz International Airport"
+                        "iata": "JED",
+                        "aeroporto_nome": "King Abdulaziz International Airport",
+                        "citta": "Jeddah"
                     },
                     {
-                        "nome": "Phoenix Sky Harbor International Airport"
+                        "iata": "PHX",
+                        "aeroporto_nome": "Phoenix Sky Harbor International Airport",
+                        "citta": "Phoenix"
                     },
                     {
-                        "nome": "King Khalid International Airport"
+                        "iata": "RUH",
+                        "aeroporto_nome": "King Khalid International Airport",
+                        "citta": "Riyadh"
                     }
                 ],
-                "value": 0.3333333333333333
+                "value": 1.0
             },
-            "latency": 247.8364933999983,
+            "latency": 940.8104769999991,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome FROM aeroporto WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai');"
+                "query": "SELECT a.iata, a.nome as aeroporto_nome, a.citta \nFROM aeroporto a \nWHERE a.citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai')\nORDER BY a.citta"
             }
         },
         {
@@ -2460,12 +2720,17 @@
                         "citta"
                     ],
                     "actual": [
+                        "iata",
                         "nome",
-                        "iata"
+                        "continente",
+                        "stato",
+                        "citta",
+                        "passeggeri",
+                        "corsie"
                     ],
-                    "accuracy": 0.6666666666666666
+                    "accuracy": 1.0
                 },
-                "overall": 0.8333333333333333
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -2497,32 +2762,57 @@
                 ],
                 "actual": [
                     {
+                        "iata": "AUH",
                         "nome": "Zayed International Airport",
-                        "iata": "AUH"
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Abu Dhabi",
+                        "passeggeri": "28.8",
+                        "corsie": 2
                     },
                     {
+                        "iata": "DXB",
                         "nome": "Dubai International Airport",
-                        "iata": "DXB"
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Dubai",
+                        "passeggeri": "92.3",
+                        "corsie": 2
                     },
                     {
+                        "iata": "JED",
                         "nome": "King Abdulaziz International Airport",
-                        "iata": "JED"
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Jeddah",
+                        "passeggeri": "48.9",
+                        "corsie": 3
                     },
                     {
+                        "iata": "PHX",
                         "nome": "Phoenix Sky Harbor International Airport",
-                        "iata": "PHX"
+                        "continente": "NA",
+                        "stato": "Stati Uniti",
+                        "citta": "Phoenix",
+                        "passeggeri": "52.3",
+                        "corsie": 3
                     },
                     {
+                        "iata": "RUH",
                         "nome": "King Khalid International Airport",
-                        "iata": "RUH"
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Riyadh",
+                        "passeggeri": "37.0",
+                        "corsie": 2
                     }
                 ],
-                "value": 0.6666666666666666
+                "value": 1.0
             },
-            "latency": 170.55103579999923,
+            "latency": 844.9143638000023,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, iata FROM aeroporto WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai');"
+                "query": "SELECT * FROM aeroporto WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai') ORDER BY citta"
             }
         },
         {
@@ -2544,12 +2834,13 @@
                         "citta"
                     ],
                     "actual": [
+                        "iata",
                         "nome",
-                        "iata"
+                        "citta"
                     ],
-                    "accuracy": 0.6666666666666666
+                    "accuracy": 1.0
                 },
-                "overall": 0.8333333333333333
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -2581,32 +2872,37 @@
                 ],
                 "actual": [
                     {
+                        "iata": "AUH",
                         "nome": "Zayed International Airport",
-                        "iata": "AUH"
+                        "citta": "Abu Dhabi"
                     },
                     {
+                        "iata": "DXB",
                         "nome": "Dubai International Airport",
-                        "iata": "DXB"
+                        "citta": "Dubai"
                     },
                     {
+                        "iata": "JED",
                         "nome": "King Abdulaziz International Airport",
-                        "iata": "JED"
+                        "citta": "Jeddah"
                     },
                     {
+                        "iata": "PHX",
                         "nome": "Phoenix Sky Harbor International Airport",
-                        "iata": "PHX"
+                        "citta": "Phoenix"
                     },
                     {
+                        "iata": "RUH",
                         "nome": "King Khalid International Airport",
-                        "iata": "RUH"
+                        "citta": "Riyadh"
                     }
                 ],
-                "value": 0.6666666666666666
+                "value": 1.0
             },
-            "latency": 185.01368150000053,
+            "latency": 948.4984291000001,
             "final_sql": {
                 "database": "DBVOLI",
-                "query": "SELECT nome, iata FROM aeroporto WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai');"
+                "query": "SELECT iata, nome, citta FROM DBVOLI.aeroporto WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai') ORDER BY citta"
             }
         }
     ]
