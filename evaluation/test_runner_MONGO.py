@@ -3,27 +3,30 @@ import json
 import time
 import sys
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 
-#from agent_Qwen import Agent
-from agent_Gemma import Agent
+from agent_Gemma_MONGO import Agent
+
 
 # ============================================================
 # CONFIGURAZIONE
 # ============================================================
 
-TEST_CASES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                            #  "test_casesL.json")
-                              "test_casesM.json")
-                            #  "test_casesS.json")
+TEST_CASES_FILE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "test_casesS.json"
+)
+
 # Quante volte eseguire ogni test
-NUM_RUNS = 4
+NUM_RUNS = 1
 
 # File in cui salvare i risultati
-RESULTS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                               "results/gemma_resultsM_2.json")
-
+RESULTS_FILE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "results/gemma_mongo_resultsS.json"
+)
 
 
 # ============================================================
@@ -49,7 +52,7 @@ async def run_tests():
     all_results = []
 
     print("\n========================================")
-    print("        AVVIO TEST AGENTE")
+    print("      AVVIO TEST AGENTE MONGODB")
     print("========================================")
 
     print(f"Test cases: {len(test_cases)}")
@@ -67,9 +70,15 @@ async def run_tests():
 
         test_id = test_case["id"]
         question = test_case["question"]
-        ground_truth = test_case.get(
-            "ground_truth",
-            None
+
+        expected_database = test_case.get(
+            "expected_database",
+            []
+        )
+
+        expected_result = test_case.get(
+            "expected_result",
+            []
         )
 
         print("\n----------------------------------------")
@@ -85,9 +94,7 @@ async def run_tests():
 
         for run in range(1, NUM_RUNS + 1):
 
-            print(
-                f"\n  Run {run}/{NUM_RUNS}"
-            )
+            print(f"\n  Run {run}/{NUM_RUNS}")
 
             start = time.perf_counter()
 
@@ -95,42 +102,39 @@ async def run_tests():
 
             end = time.perf_counter()
 
-            # Questo tempo misura anche l'eventuale
-            # overhead del runner.
-            # La metrica ufficiale rimane quella
-            # restituita dall'Agent.
+            # Tempo misurato dal runner.
+            # La metrica ufficiale rimane quella dell'Agent.
             runner_latency = end - start
 
+            latency_total = result.get("latency_total")
+            if latency_total is not None:
+                try:
+                    latency_total = float(latency_total)
+                except(ValueError, TypeError):
+                    pass
             run_result = {
                 "run": run,
                 "answer": result.get("answer"),
                 "agent_completion": result.get("agent_completion"),
-
-                "latency_total": result.get(
-                    "latency_total"
-                ),
-
-                "tool_calls_count": result.get(
-                    "tool_calls_count"
-                ),
-
+                "latency_total": result.get("latency_total"),
+                "runner_latency": runner_latency,
+                "tool_calls_count": result.get("tool_calls_count"),
                 "tool_calls": result.get(
                     "tool_calls",
                     []
                 )
             }
 
-            # Se Agent ha restituito un errore
+            # ------------------------------------------------
+            # Errore dell'agente
+            # ------------------------------------------------
             if not result.get("agent_completion"):
-
-                run_result["error"] = result.get(
-                    "error"
-                )
+                run_result["error"] = result.get("error")
 
             test_runs.append(run_result)
-
             print(
-                f"  Completed: {run_result['agent_completion']}"
+                f"  Completed: "
+                f"{run_result['agent_completion']}"
             )
 
             print(
@@ -150,7 +154,8 @@ async def run_tests():
         all_results.append({
             "id": test_id,
             "question": question,
-            "ground_truth": ground_truth,
+            "expected_database": expected_database,
+            "expected_result": expected_result,
             "runs": test_runs
         })
 
@@ -164,19 +169,14 @@ async def run_tests():
 def calculate_statistics(results):
 
     statistics = []
-
     for test in results:
-
         runs = test["runs"]
-
         completed_runs = [
             run
             for run in runs
             if run["agent_completion"]
         ]
-
         if not completed_runs:
-
             statistics.append({
                 "id": test["id"],
                 "completion_rate": 0,
@@ -205,7 +205,7 @@ def calculate_statistics(results):
         ) / len(completed_runs)
 
         # --------------------------------------------
-        # completion rate
+        # Completion rate
         # --------------------------------------------
 
         completion_rate = (
@@ -265,7 +265,7 @@ async def main():
     # --------------------------------------------------------
 
     print("\n\n========================================")
-    print("           RISULTATI TEST")
+    print("       RISULTATI TEST MONGODB")
     print("========================================")
 
     for stat in statistics:
@@ -298,12 +298,17 @@ async def main():
             )
 
     print("\n========================================")
+
     print(
-        f"Risultati salvati in: {RESULTS_FILE}"
+        f"Risultati salvati in: "
+        f"{RESULTS_FILE}"
     )
+
     print(
-        f"Tempo totale runner: {total_time:.3f}s"
+        f"Tempo totale runner: "
+        f"{total_time:.3f}s"
     )
+
     print("========================================")
 
 
@@ -312,4 +317,5 @@ async def main():
 # ============================================================
 
 if __name__ == "__main__":
+
     asyncio.run(main())

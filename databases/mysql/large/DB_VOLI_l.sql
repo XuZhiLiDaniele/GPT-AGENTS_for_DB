@@ -608,7 +608,7 @@ VALUES
 ('MEX','BCN','Iberia'),
 ('MEX','JFK','Southwest'),
 ('MEX','IST','Turkish Airlines'),
-('MEX','AMS','KLM Royal Dutch Airlines');
+('MEX','AMS','KLM Royal Dutch Airlines'),
 ('BOS','JFK','JetBlue'),
 ('BOS','LGA','JetBlue'),
 ('BOS','LHR','British Airways'),
