@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 
 from agent_Gemma_MONGO import Agent
-from normalizer_MONGO import normalize_agent_result
+
 
 # ============================================================
 # CONFIGURAZIONE
@@ -35,7 +35,12 @@ RESULTS_FILE = os.path.join(
 
 def load_test_cases():
 
-    with open(TEST_CASES_FILE, "r", encoding="utf-8") as file:
+    with open(
+        TEST_CASES_FILE,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
         return json.load(file)
 
 
@@ -55,8 +60,14 @@ async def run_tests():
     print("      AVVIO TEST AGENTE MONGODB")
     print("========================================")
 
-    print(f"Test cases: {len(test_cases)}")
-    print(f"Run per test: {NUM_RUNS}")
+    print(
+        f"Test cases: {len(test_cases)}"
+    )
+
+    print(
+        f"Run per test: {NUM_RUNS}"
+    )
+
     print(
         f"Esecuzioni totali: "
         f"{len(test_cases) * NUM_RUNS}"
@@ -71,14 +82,11 @@ async def run_tests():
         test_id = test_case["id"]
         question = test_case["question"]
 
-        expected_database = test_case.get(
-            "expected_database",
-            []
-        )
-
-        expected_result = test_case.get(
-            "expected_result",
-            []
+        # Il MongoDB test case deve avere lo stesso
+        # campo usato dal benchmark MySQL.
+        ground_truth = test_case.get(
+            "ground_truth",
+            None
         )
 
         print("\n----------------------------------------")
@@ -94,67 +102,74 @@ async def run_tests():
 
         for run in range(1, NUM_RUNS + 1):
 
-            print(f"\n  Run {run}/{NUM_RUNS}")
-
-            start = time.perf_counter()
+            print(
+                f"\n  Run {run}/{NUM_RUNS}"
+            )
 
             result = await agent.run(question)
 
-            normalized_result = normalize_agent_result(result)
-
-            if not result.get("agent_completion"):
-                print("\n========== RAW ANSWER ==========")
-                print(repr(result.get("raw_answer")))
-                print("================================\n")
-            
-            end = time.perf_counter()
-
-            # Tempo misurato dal runner.
-            # La metrica ufficiale rimane quella dell'Agent.
-            runner_latency = end - start
-
-            latency_total = result.get("latency_total")
-            if latency_total is not None:
-                try:
-                    latency_total = float(latency_total)
-                except(ValueError, TypeError):
-                    pass
             run_result = {
                 "run": run,
                 "answer": result.get("answer"),
-                "normalized_answer": normalized_result,
-                "agent_completion": result.get("agent_completion"),
-                "latency_total": result.get("latency_total"),
-                "runner_latency": runner_latency,
-                "tool_calls_count": result.get("tool_calls_count"),
+                "agent_completion": result.get(
+                    "agent_completion"
+                ),
+                "latency_total": result.get(
+                    "latency_total"
+                ),
+                "tool_calls_count": result.get(
+                    "tool_calls_count"
+                ),
                 "tool_calls": result.get(
                     "tool_calls",
                     []
-                ),
-                "raw_answer": result.get("raw_answer")
+                )
             }
 
             # ------------------------------------------------
             # Errore dell'agente
             # ------------------------------------------------
+
             if not result.get("agent_completion"):
-                run_result["error"] = result.get("error")
+
+                run_result["error"] = result.get(
+                    "error"
+                )
 
             test_runs.append(run_result)
+
             print(
                 f"  Completed: "
                 f"{run_result['agent_completion']}"
             )
 
-            print(
-                f"  Latenza: "
-                f"{run_result['latency_total']:.3f}s"
-            )
+            latency = run_result["latency_total"]
+
+            if latency is not None:
+
+                print(
+                    f"  Latenza: "
+                    f"{latency:.3f}s"
+                )
 
             print(
                 f"  Tool chiamati: "
                 f"{run_result['tool_calls_count']}"
             )
+
+            # Debug utile per capire quale risultato
+            # è stato selezionato dall'agente.
+            if run_result["answer"] is not None:
+
+                print(
+                    "  Risultato query recuperato."
+                )
+
+            else:
+
+                print(
+                    "  Nessun risultato query recuperato."
+                )
 
         # ----------------------------------------------------
         # Risultato del test case
@@ -163,8 +178,7 @@ async def run_tests():
         all_results.append({
             "id": test_id,
             "question": question,
-            "expected_database": expected_database,
-            "expected_result": expected_result,
+            "ground_truth": ground_truth,
             "runs": test_runs
         })
 
@@ -178,14 +192,19 @@ async def run_tests():
 def calculate_statistics(results):
 
     statistics = []
+
     for test in results:
+
         runs = test["runs"]
+
         completed_runs = [
             run
             for run in runs
             if run["agent_completion"]
         ]
+
         if not completed_runs:
+
             statistics.append({
                 "id": test["id"],
                 "completion_rate": 0,

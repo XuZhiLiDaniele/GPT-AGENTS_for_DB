@@ -1,9 +1,11 @@
 import json
 import os
+import math
 from decimal import Decimal
 from datetime import datetime, date
 from collections import Counter
-
+from statistics import mean, stdev
+from scipy.stats import t
 
 # ============================================================
 # FILE
@@ -13,20 +15,20 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 TEST_CASES_FILE = os.path.join(
     BASE_DIR,
-    "test_casesM.json"
+    #"test_casesM.json"
     #"test_casesS.json"
-    #"test_casesL.json"
+    "test_casesM.json"
 )
 
 RESULTS_FILE = os.path.join(
     BASE_DIR,
-    "savedResults/qwen_resultsM.json"
-    #"savedResults/gemma_resultsM.json"
+    "results/qwen_resultsM.json"
+    #"results/gemma_resultsM.json"
 )
 
 OUTPUT_FILE = os.path.join(
     BASE_DIR,
-    "evaluations/qwen_resultsM_evaluation.json"
+    "evaluations/confidence_evaluation.json"
     #"evaluations/evaluation_Gemma_results.json"     
 )
 
@@ -520,7 +522,65 @@ def evaluate_run(
     }
 
     return evaluation
+# ============================================================
+# CONFIDENCE INTERVAL
+# ============================================================
+def calculate_confidence_interval(values, confidence = 0.97):
+    """
+    Calcolo media e intervallo di confidenza
+    Restituisce:
+        {
+            "mean": ...,
+            "ci_lower": ...,
+            "ci_upper": ...,
+            "margin": ...,
+            "n": ...
+        }
+    """
+    if not values:
+        return {
+            "mean": 0.0,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0,
+            "margin": 0.0,
+            "n": 0
+        }
 
+    n = len(values)
+    average = mean(values)
+
+    # Con una sola osservazione non è possibile stimare la deviazione standard.
+    if n == 1:
+        return {
+            "mean": average,
+            "ci_lower": average,
+            "ci_upper": average,
+            "margin": 0.0,
+            "n": 1
+        }
+
+    standard_deviation = stdev(values)
+    standard_error = standard_deviation / math.sqrt(n)
+
+    # Quantile della distribuzione t di Student
+    t_critical = t.ppf(1 - (1 - confidence) / 2, df=n - 1)
+
+    margin = t_critical * standard_error
+    ci_lower = max(0.0, average - margin)
+    ci_upper = min(1.0, average + margin)
+
+    return {
+        "mean": average,
+        "ci_lower": ci_lower,
+        "ci_upper": ci_upper,
+        "margin": margin,
+        "n": n
+    }
+
+
+# ============================================================
+# GLOBAL BENCHMARK STATISTICS
+# ============================================================
 
 # ============================================================
 # GLOBAL BENCHMARK STATISTICS
@@ -533,229 +593,137 @@ def calculate_statistics(
     if not evaluations:
 
         return {
-
             "accuracy": {
-                "database": 0.0,
-                "columns": 0.0,
-                "overall": 0.0
+                "database": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.0,
+                    "margin": 0.0,
+                    "n": 0
+                },
+                "columns": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.0,
+                    "margin": 0.0,
+                    "n": 0
+                },
+                "overall": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.0,
+                    "margin": 0.0,
+                    "n": 0
+                }
             },
-
-            "precision": 0.0,
-
-            "latency": 0.0
+            "precision": {
+                "mean": 0.0,
+                "ci_lower": 0.0,
+                "ci_upper": 0.0,
+                "margin": 0.0,
+                "n": 0
+            },
+            "latency": {
+                "mean": 0.0,
+                "ci_lower": 0.0,
+                "ci_upper": 0.0,
+                "margin": 0.0,
+                "n": 0
+            }
         }
 
-    # --------------------------------------------------------
     # DATABASE ACCURACY
-    # --------------------------------------------------------
-
     database_values = [
-
         evaluation["accuracy"]["database"]["accuracy"]
-
         for evaluation in evaluations
     ]
 
-    # --------------------------------------------------------
     # COLUMNS ACCURACY
-    # --------------------------------------------------------
-
     columns_values = [
-
         evaluation["accuracy"]["columns"]["accuracy"]
-
         for evaluation in evaluations
     ]
 
-    # --------------------------------------------------------
     # OVERALL ACCURACY
-    # --------------------------------------------------------
-
     overall_values = [
-
         evaluation["accuracy"]["overall"]
-
         for evaluation in evaluations
     ]
 
-    # --------------------------------------------------------
     # PRECISION
-    # --------------------------------------------------------
-
     precision_values = [
-
         evaluation["precision"]["value"]
-
         for evaluation in evaluations
     ]
 
-    # --------------------------------------------------------
     # LATENCY
-    # --------------------------------------------------------
-
     latency_values = [
-
         evaluation["latency"]
-
         for evaluation in evaluations
-
         if evaluation["latency"] is not None
     ]
 
-    # --------------------------------------------------------
-    # AVERAGES
-    # --------------------------------------------------------
+    # CONFIDENCE INTERVALS
+    database_accuracy = calculate_confidence_interval(database_values)
 
-    database_accuracy = (
-        sum(database_values)
-        / len(database_values)
-    )
+    columns_accuracy = calculate_confidence_interval(columns_values)
 
-    columns_accuracy = (
-        sum(columns_values)
-        / len(columns_values)
-    )
+    overall_accuracy = calculate_confidence_interval(overall_values)
 
-    overall_accuracy = (
-        sum(overall_values)
-        / len(overall_values)
-    )
+    precision = calculate_confidence_interval(precision_values)
 
-    precision = (
-        sum(precision_values)
-        / len(precision_values)
-    )
+    latency = calculate_confidence_interval(latency_values)
 
-    if latency_values:
-
-        latency = (
-            sum(latency_values)
-            / len(latency_values)
-        )
-
-    else:
-
-        latency = 0.0
-
+    # RETURN
     return {
-
         "accuracy": {
-
             "database": database_accuracy,
-
             "columns": columns_accuracy,
-
             "overall": overall_accuracy
         },
-
         "precision": precision,
-
         "latency": latency
     }
 
-
-# ============================================================
 # PRINT ONE RUN
-# ============================================================
-
-def print_run(
-    evaluation
-):
-
+def print_run(evaluation):
     print()
     print("=" * 70)
     print("risultati"+RESULTS_FILE+":")
-
     print(
         f"TEST {evaluation['test_id']} "
         f"- RUN {evaluation['run']}"
     )
-
     print("=" * 70)
-
-    # ========================================================
+    
     # ACCURACY
-    # ========================================================
-
     print("\nACCURACY")
 
-    # --------------------------------------------------------
     # Database
-    # --------------------------------------------------------
-
-    database = evaluation[
-        "accuracy"
-    ][
-        "database"
-    ]
-
+    database = evaluation["accuracy"]["database"]
     print("\n  Database:")
+    print(f"    Expected: {database['expected']}")
+    print(f"    Actual:   {database['actual']}")
+    print(f"    Accuracy: {database['accuracy'] * 100:.2f}%")
 
-    print(
-        f"    Expected: {database['expected']}"
-    )
-
-    print(
-        f"    Actual:   {database['actual']}"
-    )
-
-    print(
-        f"    Accuracy: "
-        f"{database['accuracy'] * 100:.2f}%"
-    )
-
-    # --------------------------------------------------------
     # Columns
-    # --------------------------------------------------------
-
-    columns = evaluation[
-        "accuracy"
-    ][
-        "columns"
-    ]
-
+    columns = evaluation["accuracy"]["columns"]
     print("\n  Columns:")
+    print(f"    Expected: {columns['expected']}")
+    print(f"    Actual:   {columns['actual']}")
+    print(f"    Accuracy: {columns['accuracy'] * 100:.2f}%")
 
-    print(
-        f"    Expected: {columns['expected']}"
-    )
-
-    print(
-        f"    Actual:   {columns['actual']}"
-    )
-
-    print(
-        f"    Accuracy: "
-        f"{columns['accuracy'] * 100:.2f}%"
-    )
-
-    # --------------------------------------------------------
     # Overall
-    # --------------------------------------------------------
-
-    overall = evaluation[
-        "accuracy"
-    ][
-        "overall"
-    ]
-
+    overall = evaluation["accuracy"]["overall"]
     print(
         f"\n  Overall Accuracy: "
         f"{overall * 100:.2f}%"
     )
 
-    # ========================================================
     # PRECISION
-    # ========================================================
-
-    precision = evaluation[
-        "precision"
-    ]
-
+    precision = evaluation["precision"]
     print("\nPRECISION")
-
     print("\n  Expected:")
-
     print(
         json.dumps(
             precision["expected"],
@@ -763,9 +731,7 @@ def print_run(
             ensure_ascii=False
         )
     )
-
     print("\n  Actual:")
-
     print(
         json.dumps(
             precision["actual"],
@@ -773,18 +739,13 @@ def print_run(
             ensure_ascii=False
         )
     )
-
     print(
         f"\n  Precision: "
         f"{precision['value'] * 100:.2f}%"
     )
 
-    # ========================================================
     # LATENCY
-    # ========================================================
-
     print("\nLATENCY")
-
     print(
         f"  {evaluation['latency']:.2f} ms"
         if evaluation["latency"] is not None
@@ -961,27 +922,42 @@ def evaluate():
 
     print(
         f"\nAccuracy Database: "
-        f"{statistics['accuracy']['database'] * 100:.2f}%"
+        f"{statistics['accuracy']['database']['mean'] * 100:.2f}% "
+        f"(97% CI: "
+        f"{statistics['accuracy']['database']['ci_lower'] * 100:.2f}% - "
+        f"{statistics['accuracy']['database']['ci_upper'] * 100:.2f}%)"
     )
 
     print(
-        f"Accuracy Columns:  "
-        f"{statistics['accuracy']['columns'] * 100:.2f}%"
+        f"Accuracy Columns:  "  
+        f"{statistics['accuracy']['columns']['mean'] * 100:.2f}% "
+        f"(97% CI: "
+        f"{statistics['accuracy']['columns']['ci_lower'] * 100:.2f}% - "
+        f"{statistics['accuracy']['columns']['ci_upper'] * 100:.2f}%)"
     )
 
     print(
         f"Accuracy Overall:   "
-        f"{statistics['accuracy']['overall'] * 100:.2f}%"
+        f"{statistics['accuracy']['overall']['mean'] * 100:.2f}% "
+        f"(97% CI: "
+        f"{statistics['accuracy']['overall']['ci_lower'] * 100:.2f}% - "
+        f"{statistics['accuracy']['overall']['ci_upper'] * 100:.2f}%)"
     )
 
     print(
         f"Precision:          "
-        f"{statistics['precision'] * 100:.2f}%"
+        f"{statistics['precision']['mean'] * 100:.2f}%"
+        f"(97% CI: "
+        f"{statistics['precision']['ci_lower'] * 100:.2f}% - "
+        f"{statistics['precision']['ci_upper'] * 100:.2f}%)"
     )
 
     print(
         f"Latency:            "
-        f"{statistics['latency']:.2f} ms"
+        f"{statistics['latency']['mean']:.2f} ms"
+        f"(97% CI: "
+        f"{statistics['latency']['ci_lower']:.2f}ms - "
+        f"{statistics['latency']['ci_upper']:.2f}ms)"
     )
 
     print("=" * 70)

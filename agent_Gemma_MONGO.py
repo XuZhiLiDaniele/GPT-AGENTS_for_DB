@@ -55,24 +55,6 @@ def parse_tool_output(tool_output):
     except json.JSONDecodeError:
         return tool_output
 
-#----------------------- ESTRAZIONE TOOL CALL FINALE
-def parse_final_tool_call(content):
-    """
-    Estrae il numero del tool call indicato dal modello
-    """
-    if not content:
-        raise ValueError("Empty final message")
-    match = re.search(r"FINAL_TOOL_CALL\s*:\s*(\d+)", content, flags=re.IGNORECASE)
-
-    if not match:
-        raise ValueError("Final message does not contain a valid FINAL_TOOL_CALL")
-
-    tool_call_number = int(match.group(1))
-    if tool_call_number <1:
-        raise ValueError("FINAL_TOOL_CALL must be greater than or equal to 1")
-
-    return tool_call_number
-
 #----------------------- SYSTEM PROMPT
 SYSTEM_PROMPT = """
                 Sei un agente intelligente che interagisce con un database MongoDB tramite strumenti MCP.
@@ -136,11 +118,8 @@ SYSTEM_PROMPT = """
                     NON USARE MAI IL REASONING per analizzare manualmente liste di risultati. USA SEMPRE $sort + $limit per trovare MINIMI O MASSIMI.
                 
                 14. Il tool get_distinct_values va USATO SOLO su campi CATEGORIALI per capire il formato dei valori. NON usarlo per campi che contengono valori univoci come nomi, id, o valori numerici.
-
-                15. I risultati dei tool vengono numerati come TOOL_CALL_1, TOOL_CALL_2 ecc..
-                    Una volta terminato il ragionamento, devi indicare quale tool call contiene il risultato finale per rispondere alla domanda ESCLUSIVAMENTE con:
-                        FINAL_TOOL_CALL: N
-                    Dove N è il numero della tool call che contiene il risultato finale.
+                
+                15. Quando hai completato la ricerca e hai ottenuto un risultato tramite find_documents o aggregate_documents, non effettuare ulteriori tool call. Termina la risposta.
                 """
 #----------------------- AGENTE
 class Agent:
@@ -218,56 +197,37 @@ class Agent:
                                     "tool_calls_count": tool_calls_count,
                                     "tool_calls": tool_calls_log
                                 }
-                            try:
-                                final_tool_call_number = (parse_final_tool_call(raw_final_message))
-                            except ValueError as e:      
-                                return{
+                            #RECUPERO AUTOMATICO RISULTATO ULTIMA QUERY
+                            final_output = None
+                            for tool_calls in reversed(tool_calls_log):
+                                if tool_call["tool"] in ("find_documents", "aggregate_documents"):
+                                    output = tool_call["output"]
+                                    if (isinstance(output, dict) and output.get("success") is True):
+                                        final_output = output
+                                        break
+                            if final_output is None: #SE NESSUNA QUERY VALIDA ESEGUITA
+                                return {
                                     "question": question,
                                     "answer": None,
                                     "agent_completion": False,
-                                    "error": str(e),
+                                    "error": "No successful MongoDB query found",
                                     "finish_reason": finish_reason,
                                     "raw_final_message": raw_final_message,
-                                    "latency_total": (total_end - total_start),
+                                    "latency_total": total_end - total_start,
                                     "tool_calls_count": tool_calls_count,
                                     "tool_calls": tool_calls_log
                                 }
-
-                            if(final_tool_call_number>len(tool_calls_log)):
-                                return{
-                                    "question": question,
-                                    "answer": None,
-                                    "agent_completion": False,
-                                    "error":("FINAL_TOOL_CALL refers to a non existing tool call"),
-                                    "finish_reason": finish_reason,
-                                    "final_tool_call":(final_tool_call_number),
-                                    "raw_final_message": raw_final_message,
-                                    "latency_total":(tool_end-tool_start),
-                                    "tool_calls_count":tool_calls_count,
-                                    "tool_calls": tool_calls_log
-                                }
-                            
-                            # RECUPERO RISULTATO FINALE
-                            selected_tool = tool_calls_log[final_tool_call_number - 1]
-                            final_output = selected_tool["output"]
-                            
-                            # RISULTATO AGENTE
-
-                            return {
+                            return { # RISULTATO AGENTE
                                 "question": question,
-                                "answer": final_output,
+                                "answer": final_output.get("documents",[]),
                                 "agent_completion": True,
                                 "finish_reason": finish_reason,
-                                "final_tool_call": (
-                                    final_tool_call_number
-                                ),
                                 "final_message": raw_final_message,
-                                "latency_total": (
-                                    total_end - total_start
-                                ),
+                                "latency_total": (total_end - total_start),
                                 "tool_calls_count": tool_calls_count,
                                 "tool_calls": tool_calls_log
                             }
+                        
                         messages.append(message)#aggiunta messaggio
 
                         # ESECUZIONE TOOL
