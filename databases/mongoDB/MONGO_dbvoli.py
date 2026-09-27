@@ -9,13 +9,13 @@ from pymongo import MongoClient
 # ============================================================
 BASE_DIR = Path(__file__).resolve().parents[2]
 #SQL_FILE = (BASE_DIR / "databases" / "mysql" / "large" / "DB_VOLI_l.sql")
-#SQL_FILE = (BASE_DIR / "databases" / "mysql" / "medium" / "DB_VOLI.sql")
-SQL_FILE = (BASE_DIR / "databases" / "mysql" / "small" / "DB_VOLI_s.sql")
+SQL_FILE = (BASE_DIR / "databases" / "mysql" / "medium" / "DB_VOLI.sql")
+#SQL_FILE = (BASE_DIR / "databases" / "mysql" / "small" / "DB_VOLI_s.sql")
 
 MONGO_URI = "mongodb://localhost:27017/"
 #DATABASE_NAME = "DBVOLI_l"
-#DATABASE_NAME = "DBVOLI"
-DATABASE_NAME = "DBVOLI_s"
+DATABASE_NAME = "DBVOLI"
+#DATABASE_NAME = "DBVOLI_s"
 
 # ============================================================
 # LETTURA FILE SQL

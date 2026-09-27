@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 
 from agent_Gemma_MONGO import Agent
-
+from normalizer_MONGO import normalize_agent_result
 
 # ============================================================
 # CONFIGURAZIONE
@@ -16,16 +16,16 @@ from agent_Gemma_MONGO import Agent
 
 TEST_CASES_FILE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
-    "test_casesS.json"
+    "temp_test_case.json"
 )
 
 # Quante volte eseguire ogni test
-NUM_RUNS = 1
+NUM_RUNS = 2
 
 # File in cui salvare i risultati
 RESULTS_FILE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
-    "results/gemma_mongo_resultsS.json"
+    "results/gemma_mongo_results.json"
 )
 
 
@@ -100,6 +100,13 @@ async def run_tests():
 
             result = await agent.run(question)
 
+            normalized_result = normalize_agent_result(result)
+
+            if not result.get("agent_completion"):
+                print("\n========== RAW ANSWER ==========")
+                print(repr(result.get("raw_answer")))
+                print("================================\n")
+            
             end = time.perf_counter()
 
             # Tempo misurato dal runner.
@@ -115,6 +122,7 @@ async def run_tests():
             run_result = {
                 "run": run,
                 "answer": result.get("answer"),
+                "normalized_answer": normalized_result,
                 "agent_completion": result.get("agent_completion"),
                 "latency_total": result.get("latency_total"),
                 "runner_latency": runner_latency,
@@ -122,7 +130,8 @@ async def run_tests():
                 "tool_calls": result.get(
                     "tool_calls",
                     []
-                )
+                ),
+                "raw_answer": result.get("raw_answer")
             }
 
             # ------------------------------------------------

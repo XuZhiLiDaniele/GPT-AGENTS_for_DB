@@ -1,4 +1,5 @@
-[
+[      
+    
         {
             "id":1,
             "question": "Come si chiama e quanti passeggeri ha l'aeroporto con meno passeggeri?",
@@ -12,7 +13,6 @@
                 }
             ]
         },
-            
         {
             "id":2, 
             "question": "Quale citta ha la previsione con il valore di precipitazioni più alto per il 18/08/2026?",
@@ -26,7 +26,6 @@
                 }
             ]
         },
-
         {
             "id":3,
             "question": "Quali sono i nomi, le città ed i codici degli aeroporti che sono destinazioni di rotte che partono da aeroporti in Oceania?",
@@ -77,7 +76,6 @@
 
             ]
         },
-
         {
             "id":4,
             "question": "Qual è la citta con il costo medio minore di camere di hotel?",
@@ -91,38 +89,6 @@
                 }
             ]
         },
-
-        
-        {
-            "id":5,
-            "question": "Quali sono le previsioni meteo della citta con la stazione meteo con più ricercatori?",
-            "expected_database": ["DBMETEO"],
-            "expected_query": ["SELECT p.id, p.stato, p.citta, p.stazione, p.temperatura, p.precipitazioni, p.vento, p.data FROM PREVISIONE p JOIN STAZIONE s ON p.stazione = s.icao WHERE s.ricercatori = (SELECT MAX(ricercatori) FROM STAZIONE);"],
-            "expected_columns":["id", "stato", "citta", "stazione", "temperatura", "precipitazioni", "vento", "data"],
-            "expected_result":[
-                {
-                    "id": 15, 
-                    "stato": "Regno Unito", 
-                    "citta": "Londra",
-                    "stazione": "EGLL",
-                    "temperatura": 19.80,
-                    "precipitazioni": 2.6,
-                    "vento":22,
-                    "data":"2026-08-17"                
-                },
-                {
-                    "id":16,
-                    "stato":"Regno Unito",
-                    "citta":"Londra",
-                    "stazione": "EGLL",
-                    "temperatura":18.50,
-                    "precipitazioni": 7.4,
-                    "vento":25,
-                    "data": "2026-08-18"
-                }
-            ]
-        },
-
         {
             "id": 6,
             "question": "Qual è la compagnia dei voli che ha operato più voli con un aereo B737-800",
@@ -136,8 +102,7 @@
                 }
             ]
         },
-
-        {
+                {
             "id":7,
             "question": "Quali sono gli hotel con camere disponibili situati in citta con temperature inferiori a 17 gradi il 17/08/2026?",
             "expected_database": ["DBMETEO", "DBHOTEL"],
@@ -213,41 +178,6 @@
                  "citta":"Madrid"
                 }
             ]
-        },
-
-        {
-            "id": 9,
-            "question": "Quale e dove si trovano gli aeroporti situati nelle 5 città piu calde nel giorno 17/08/2026?",
-            "expected_database": ["DBMETEO", "DBVOLI"],
-            "expected_query": ["SELECT DISTINCT citta, temperatura FROM PREVISIONE WHERE data = '2026-08-17' ORDER BY temperatura DESC LIMIT 5;",
-                               "SELECT DISTINCT iata, nome, citta FROM AEROPORTO WHERE citta IN ('Riyadh', 'Abu Dhabi', 'Phoenix', 'Jeddah', 'Dubai')"],
-            "expected_columns":["iata", "nome", "citta"],
-            "expected_result":[
-                {  
-                    "iata":"AUH",
-                    "nome":"Zayed International Airport",
-                    "citta":"Abu Dhabi"
-                },
-                {
-                    "iata":"DXB",
-                    "nome":"Dubai International Airport",
-                    "citta":"Dubai"
-                },
-                {
-                    "iata":"JED",
-                    "nome":"King Abdulaziz International Airport",
-                    "citta":"Jeddah"
-                },
-                {
-                    "iata":"PHX",
-                    "nome":"Phoenix Sky Harbor International Airport",
-                    "citta":"Phoenix"
-                },
-                {
-                    "iata":"RUH",
-                    "nome":"King Khalid International Airport",
-                    "citta":"Riyadh"
-                }
-            ]
         }
+
 ]

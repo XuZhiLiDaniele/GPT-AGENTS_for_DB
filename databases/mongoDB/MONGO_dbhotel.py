@@ -8,14 +8,13 @@ from pymongo import MongoClient
 # ============================================================
 BASE_DIR = Path(__file__).resolve().parents[2]
 #SQL_FILE = (BASE_DIR / "databases" / "mysql" / "large" / "DB_HOTEL_l.sql")
-#SQL_FILE = (BASE_DIR / "databases" / "mysql" / "medium" / "DB_HOTEL.sql")
-SQL_FILE = (BASE_DIR / "databases" / "mysql" / "small" / "DB_HOTEL_s.sql")
-print(SQL_FILE)
+SQL_FILE = (BASE_DIR / "databases" / "mysql" / "medium" / "DB_HOTEL.sql")
+#SQL_FILE = (BASE_DIR / "databases" / "mysql" / "small" / "DB_HOTEL_s.sql")
 
 MONGO_URI = "mongodb://localhost:27017/"
 #DB_NAME = "DBHOTEL_l" 
-#DB_NAME = "DBHOTEL" 
-DB_NAME = "DBHOTEL_s"
+DB_NAME = "DBHOTEL" 
+#DB_NAME = "DBHOTEL_s"
 
 
 # ============================================================

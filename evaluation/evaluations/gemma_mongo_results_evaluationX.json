@@ -1,0 +1,4372 @@
+{
+    "statistics": {
+        "accuracy": {
+            "database": 0.9305555555555556,
+            "columns": 0.4444444444444444,
+            "overall": 0.6875
+        },
+        "precision": 0.4305555555555556,
+        "latency": 615.7667871305506
+    },
+    "runs": [
+        {
+            "test_id": 1,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOL"
+                    ],
+                    "accuracy": 0.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "passeggeri"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Qingdao Jiaodong International Airport",
+                        "passeggeri": 26.2
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 470.54936669999734,
+            "explanation": ""
+        },
+        {
+            "test_id": 1,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOL"
+                    ],
+                    "accuracy": 0.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "passeggeri"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Qingdao Jiaodong International Airport",
+                        "passeggeri": 26.2
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 476.21971670002677,
+            "explanation": ""
+        },
+        {
+            "test_id": 1,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "passeggeri"
+                    ],
+                    "actual": [
+                        "_id",
+                        "nome",
+                        "passeggeri"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Qingdao Jiaodong International Airport",
+                        "passeggeri": 26.2
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b682f",
+                        "nome": "Qingdao Jiaodong International Airport",
+                        "passeggeri": 26.2
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 147.767700000084,
+            "explanation": ""
+        },
+        {
+            "test_id": 1,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "passeggeri"
+                    ],
+                    "actual": [
+                        "_id",
+                        "iata",
+                        "nome",
+                        "continente",
+                        "stato",
+                        "citta",
+                        "passeggeri",
+                        "corsie"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Qingdao Jiaodong International Airport",
+                        "passeggeri": 26.2
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b682f",
+                        "iata": "TAO",
+                        "nome": "Qingdao Jiaodong International Airport",
+                        "continente": "AS",
+                        "stato": "Cina",
+                        "citta": "Qingdao",
+                        "passeggeri": 26.2,
+                        "corsie": 2
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 131.4925488999579,
+            "explanation": ""
+        },
+        {
+            "test_id": 2,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "precipitazioni"
+                    ],
+                    "actual": [
+                        "_id",
+                        "max_precipitazioni"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "Hanoi",
+                        "precipitazioni": 20.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "Hanoi",
+                        "max_precipitazioni": 20.1
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 236.57126879994757,
+            "explanation": ""
+        },
+        {
+            "test_id": 2,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "precipitazioni"
+                    ],
+                    "actual": [
+                        "_id",
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "Hanoi",
+                        "precipitazioni": 20.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab56368d648ad35c2d9298e",
+                        "id": 273,
+                        "stato": "Vietnam",
+                        "citta": "Hanoi",
+                        "stazione": "VVNB",
+                        "temperatura": 28.5,
+                        "precipitazioni": 20.1,
+                        "vento": 18,
+                        "data": "2026-08-18T00:00:00"
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 273.58695729996543,
+            "explanation": ""
+        },
+        {
+            "test_id": 2,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "precipitazioni"
+                    ],
+                    "actual": [
+                        "_id",
+                        "citta",
+                        "precipitazioni"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "Hanoi",
+                        "precipitazioni": 20.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab56368d648ad35c2d9298e",
+                        "citta": "Hanoi",
+                        "precipitazioni": 20.1
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 236.37826989998575,
+            "explanation": ""
+        },
+        {
+            "test_id": 2,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "precipitazioni"
+                    ],
+                    "actual": [
+                        "_id",
+                        "massima_precipitazione"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "Hanoi",
+                        "precipitazioni": 20.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "Chongqing",
+                        "massima_precipitazione": 17.2
+                    },
+                    {
+                        "_id": "Shanghai",
+                        "massima_precipitazione": 13.2
+                    },
+                    {
+                        "_id": "Fort Lauderdale",
+                        "massima_precipitazione": 16.4
+                    },
+                    {
+                        "_id": "Bangkok",
+                        "massima_precipitazione": 17.4
+                    },
+                    {
+                        "_id": "Toronto",
+                        "massima_precipitazione": 6.9
+                    },
+                    {
+                        "_id": "Atlantic City",
+                        "massima_precipitazione": 12.1
+                    },
+                    {
+                        "_id": "Kunming",
+                        "massima_precipitazione": 9.6
+                    },
+                    {
+                        "_id": "Milano",
+                        "massima_precipitazione": 12.4
+                    },
+                    {
+                        "_id": "Ho Chi Minh City",
+                        "massima_precipitazione": 17.2
+                    },
+                    {
+                        "_id": "Barcellona",
+                        "massima_precipitazione": 1.3
+                    },
+                    {
+                        "_id": "Zurigo",
+                        "massima_precipitazione": 12.9
+                    },
+                    {
+                        "_id": "Chengdu",
+                        "massima_precipitazione": 14.2
+                    },
+                    {
+                        "_id": "Guangzhou",
+                        "massima_precipitazione": 15.3
+                    },
+                    {
+                        "_id": "Hanoi",
+                        "massima_precipitazione": 20.1
+                    },
+                    {
+                        "_id": "Zhengzhou",
+                        "massima_precipitazione": 14.3
+                    },
+                    {
+                        "_id": "Francoforte",
+                        "massima_precipitazione": 6.2
+                    },
+                    {
+                        "_id": "Monaco",
+                        "massima_precipitazione": 7.5
+                    },
+                    {
+                        "_id": "Copenaghen",
+                        "massima_precipitazione": 11.4
+                    },
+                    {
+                        "_id": "Houston",
+                        "massima_precipitazione": 15.8
+                    },
+                    {
+                        "_id": "Wuhan",
+                        "massima_precipitazione": 15.9
+                    },
+                    {
+                        "_id": "Denver",
+                        "massima_precipitazione": 4.8
+                    },
+                    {
+                        "_id": "Doha",
+                        "massima_precipitazione": 1.5
+                    },
+                    {
+                        "_id": "Shenzhen",
+                        "massima_precipitazione": 16.5
+                    },
+                    {
+                        "_id": "Minneapolis",
+                        "massima_precipitazione": 10.7
+                    },
+                    {
+                        "_id": "Abu Dhabi",
+                        "massima_precipitazione": 0.3
+                    },
+                    {
+                        "_id": "Orlando",
+                        "massima_precipitazione": 11.4
+                    },
+                    {
+                        "_id": "Nuova Delhi",
+                        "massima_precipitazione": 7.2
+                    },
+                    {
+                        "_id": "Seattle",
+                        "massima_precipitazione": 3.6
+                    },
+                    {
+                        "_id": "Detroit",
+                        "massima_precipitazione": 11.3
+                    },
+                    {
+                        "_id": "Hangzhou",
+                        "massima_precipitazione": 10.8
+                    },
+                    {
+                        "_id": "Dallas",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Cancún",
+                        "massima_precipitazione": 15.7
+                    },
+                    {
+                        "_id": "New York",
+                        "massima_precipitazione": 4.5
+                    },
+                    {
+                        "_id": "Bengaluru",
+                        "massima_precipitazione": 15.2
+                    },
+                    {
+                        "_id": "Jeju",
+                        "massima_precipitazione": 16.5
+                    },
+                    {
+                        "_id": "Los Angeles",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Antalya",
+                        "massima_precipitazione": 1.9
+                    },
+                    {
+                        "_id": "Seul",
+                        "massima_precipitazione": 11.3
+                    },
+                    {
+                        "_id": "Amsterdam",
+                        "massima_precipitazione": 8.2
+                    },
+                    {
+                        "_id": "Mumbai",
+                        "massima_precipitazione": 18.3
+                    },
+                    {
+                        "_id": "Il Cairo",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Dubai",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Città del Messico",
+                        "massima_precipitazione": 4.1
+                    },
+                    {
+                        "_id": "Istanbul",
+                        "massima_precipitazione": 6.9
+                    },
+                    {
+                        "_id": "Philadelphia",
+                        "massima_precipitazione": 13.4
+                    },
+                    {
+                        "_id": "San Paolo",
+                        "massima_precipitazione": 12.7
+                    },
+                    {
+                        "_id": "Madrid",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Boston",
+                        "massima_precipitazione": 6.7
+                    },
+                    {
+                        "_id": "Hyderabad",
+                        "massima_precipitazione": 17.1
+                    },
+                    {
+                        "_id": "San Francisco",
+                        "massima_precipitazione": 2.1
+                    },
+                    {
+                        "_id": "Mosca",
+                        "massima_precipitazione": 11.2
+                    },
+                    {
+                        "_id": "Sydney",
+                        "massima_precipitazione": 9.1
+                    },
+                    {
+                        "_id": "Londra",
+                        "massima_precipitazione": 12.6
+                    },
+                    {
+                        "_id": "Manchester",
+                        "massima_precipitazione": 13.1
+                    },
+                    {
+                        "_id": "Miami",
+                        "massima_precipitazione": 11.4
+                    },
+                    {
+                        "_id": "Melbourne",
+                        "massima_precipitazione": 12.5
+                    },
+                    {
+                        "_id": "Changsha",
+                        "massima_precipitazione": 16.2
+                    },
+                    {
+                        "_id": "Washington",
+                        "massima_precipitazione": 14.6
+                    },
+                    {
+                        "_id": "Jakarta",
+                        "massima_precipitazione": 14.7
+                    },
+                    {
+                        "_id": "Palma di Maiorca",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Taipei",
+                        "massima_precipitazione": 17.5
+                    },
+                    {
+                        "_id": "Fukuoka",
+                        "massima_precipitazione": 16.9
+                    },
+                    {
+                        "_id": "Manila",
+                        "massima_precipitazione": 8.2
+                    },
+                    {
+                        "_id": "Jeddah",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Vienna",
+                        "massima_precipitazione": 11.7
+                    },
+                    {
+                        "_id": "Xi an",
+                        "massima_precipitazione": 3.9
+                    },
+                    {
+                        "_id": "Charlotte",
+                        "massima_precipitazione": 9.5
+                    },
+                    {
+                        "_id": "Tokyo",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Newark",
+                        "massima_precipitazione": 5.8
+                    },
+                    {
+                        "_id": "Salt Lake City",
+                        "massima_precipitazione": 5.8
+                    },
+                    {
+                        "_id": "Chicago",
+                        "massima_precipitazione": 3.5
+                    },
+                    {
+                        "_id": "Phoenix",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Roma",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Bogota",
+                        "massima_precipitazione": 8.2
+                    },
+                    {
+                        "_id": "Singapore",
+                        "massima_precipitazione": 12.4
+                    },
+                    {
+                        "_id": "Pechino",
+                        "massima_precipitazione": 3.4
+                    },
+                    {
+                        "_id": "Atene",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Baltimora",
+                        "massima_precipitazione": 14.2
+                    },
+                    {
+                        "_id": "Lisbona",
+                        "massima_precipitazione": 0.0
+                    },
+                    {
+                        "_id": "Las Vegas",
+                        "massima_precipitazione": 13.4
+                    },
+                    {
+                        "_id": "Riyadh",
+                        "massima_precipitazione": 0.4
+                    },
+                    {
+                        "_id": "Hong Kong",
+                        "massima_precipitazione": 14.6
+                    },
+                    {
+                        "_id": "Parigi",
+                        "massima_precipitazione": 9.4
+                    },
+                    {
+                        "_id": "Qingdao",
+                        "massima_precipitazione": 13.8
+                    },
+                    {
+                        "_id": "Kuala Lumpur",
+                        "massima_precipitazione": 13.8
+                    },
+                    {
+                        "_id": "Xiamen",
+                        "massima_precipitazione": 16.8
+                    },
+                    {
+                        "_id": "Dublino",
+                        "massima_precipitazione": 8.9
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 463.76552079990506,
+            "explanation": ""
+        },
+        {
+            "test_id": 3,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore"
+                    },
+                    {
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
+                    },
+                    {
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ea",
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cf",
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e5",
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67da",
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore"
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e9",
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu"
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 486.52044619992375,
+            "explanation": ""
+        },
+        {
+            "test_id": 3,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "citta_destino",
+                        "codice_iata_destino",
+                        "nome_aeroporto_destino"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore"
+                    },
+                    {
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
+                    },
+                    {
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b6988",
+                        "citta_destino": "Melbourne",
+                        "codice_iata_destino": "MEL",
+                        "nome_aeroporto_destino": "Melbourne Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b6989",
+                        "citta_destino": "Dubai",
+                        "codice_iata_destino": "DXB",
+                        "nome_aeroporto_destino": "Dubai International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b698a",
+                        "citta_destino": "Kuala Lumpur",
+                        "codice_iata_destino": "KUL",
+                        "nome_aeroporto_destino": "Kuala Lumpur International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b698b",
+                        "citta_destino": "Tokyo",
+                        "codice_iata_destino": "HND",
+                        "nome_aeroporto_destino": "Tokyo Haneda International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b698c",
+                        "citta_destino": "Chengdu",
+                        "codice_iata_destino": "TFU",
+                        "nome_aeroporto_destino": "Chengdu Tianfu International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b0",
+                        "citta_destino": "Sydney",
+                        "codice_iata_destino": "SYD",
+                        "nome_aeroporto_destino": "Sydney Kingsford Smith International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b1",
+                        "citta_destino": "Hong Kong",
+                        "codice_iata_destino": "HKG",
+                        "nome_aeroporto_destino": "Hong Kong International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b2",
+                        "citta_destino": "Dubai",
+                        "codice_iata_destino": "DXB",
+                        "nome_aeroporto_destino": "Dubai International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b3",
+                        "citta_destino": "Singapore",
+                        "codice_iata_destino": "SIN",
+                        "nome_aeroporto_destino": "Singapore Changi Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b4",
+                        "citta_destino": "Kuala Lumpur",
+                        "codice_iata_destino": "KUL",
+                        "nome_aeroporto_destino": "Kuala Lumpur International Airport"
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 812.3326671000104,
+            "explanation": ""
+        },
+        {
+            "test_id": 3,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "iata",
+                        "nome",
+                        "continente",
+                        "stato",
+                        "citta",
+                        "passeggeri",
+                        "corsie"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore"
+                    },
+                    {
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
+                    },
+                    {
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Dubai",
+                        "passeggeri": 92.3,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ea",
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "continente": "AS",
+                        "stato": "Hong Kong",
+                        "citta": "Hong Kong",
+                        "passeggeri": 53.1,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cf",
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "continente": "AS",
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "passeggeri": 85,
+                        "corsie": 4
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e5",
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "continente": "AS",
+                        "stato": "Malesia",
+                        "citta": "Kuala Lumpur",
+                        "passeggeri": 57.1,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "continente": "OC",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "passeggeri": 35.1,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67da",
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "continente": "AS",
+                        "stato": "Singapore",
+                        "citta": "Singapore",
+                        "passeggeri": 67.7,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "continente": "OC",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "passeggeri": 41.4,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e9",
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "continente": "AS",
+                        "stato": "Cina",
+                        "citta": "Chengdu",
+                        "passeggeri": 54.9,
+                        "corsie": 3
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 597.055556199979,
+            "explanation": ""
+        },
+        {
+            "test_id": 3,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "destination_citta",
+                        "destination_iata",
+                        "destination_nome"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore"
+                    },
+                    {
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
+                    },
+                    {
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b6988",
+                        "destination_citta": "Melbourne",
+                        "destination_iata": "MEL",
+                        "destination_nome": "Melbourne Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b6989",
+                        "destination_citta": "Dubai",
+                        "destination_iata": "DXB",
+                        "destination_nome": "Dubai International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b698a",
+                        "destination_citta": "Kuala Lumpur",
+                        "destination_iata": "KUL",
+                        "destination_nome": "Kuala Lumpur International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b698b",
+                        "destination_citta": "Tokyo",
+                        "destination_iata": "HND",
+                        "destination_nome": "Tokyo Haneda International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b698c",
+                        "destination_citta": "Chengdu",
+                        "destination_iata": "TFU",
+                        "destination_nome": "Chengdu Tianfu International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b0",
+                        "destination_citta": "Sydney",
+                        "destination_iata": "SYD",
+                        "destination_nome": "Sydney Kingsford Smith International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b1",
+                        "destination_citta": "Hong Kong",
+                        "destination_iata": "HKG",
+                        "destination_nome": "Hong Kong International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b2",
+                        "destination_citta": "Dubai",
+                        "destination_iata": "DXB",
+                        "destination_nome": "Dubai International Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b3",
+                        "destination_citta": "Singapore",
+                        "destination_iata": "SIN",
+                        "destination_nome": "Singapore Changi Airport"
+                    },
+                    {
+                        "_id": "6ab563c9d7d6cc2ec70b69b4",
+                        "destination_citta": "Kuala Lumpur",
+                        "destination_iata": "KUL",
+                        "destination_nome": "Kuala Lumpur International Airport"
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 755.4928223000607,
+            "explanation": ""
+        },
+        {
+            "test_id": 4,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "costo_medio"
+                    ],
+                    "actual": [
+                        "_id",
+                        "avgPrezzoCamere"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "San Paolo",
+                        "costo_medio": 219.5
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "Osaka",
+                        "avgPrezzoCamere": 1081.1666666666667
+                    },
+                    {
+                        "_id": "Jeju",
+                        "avgPrezzoCamere": 337.85714285714283
+                    },
+                    {
+                        "_id": "Atlanta",
+                        "avgPrezzoCamere": 464.0
+                    },
+                    {
+                        "_id": "Zhengzhou",
+                        "avgPrezzoCamere": 440.6
+                    },
+                    {
+                        "_id": "Denver",
+                        "avgPrezzoCamere": 1244.1666666666667
+                    },
+                    {
+                        "_id": "Tokyo",
+                        "avgPrezzoCamere": 1381.375
+                    },
+                    {
+                        "_id": "Kunming",
+                        "avgPrezzoCamere": 567.25
+                    },
+                    {
+                        "_id": "Zurigo",
+                        "avgPrezzoCamere": 682.0
+                    },
+                    {
+                        "_id": "Guangzhou",
+                        "avgPrezzoCamere": 1489.2
+                    },
+                    {
+                        "_id": "Doha",
+                        "avgPrezzoCamere": 729.875
+                    },
+                    {
+                        "_id": "Chongqing",
+                        "avgPrezzoCamere": 481.42857142857144
+                    },
+                    {
+                        "_id": "Parigi",
+                        "avgPrezzoCamere": 294.5
+                    },
+                    {
+                        "_id": "Antalya",
+                        "avgPrezzoCamere": 484.25
+                    },
+                    {
+                        "_id": "Boston",
+                        "avgPrezzoCamere": 1520.2
+                    },
+                    {
+                        "_id": "Dublino",
+                        "avgPrezzoCamere": 383.8
+                    },
+                    {
+                        "_id": "Riyadh",
+                        "avgPrezzoCamere": 893.625
+                    },
+                    {
+                        "_id": "Dubai",
+                        "avgPrezzoCamere": 1334.7142857142858
+                    },
+                    {
+                        "_id": "Singapore",
+                        "avgPrezzoCamere": 362.42857142857144
+                    },
+                    {
+                        "_id": "Lisbona",
+                        "avgPrezzoCamere": 704.8571428571429
+                    },
+                    {
+                        "_id": "Manchester",
+                        "avgPrezzoCamere": 412.0
+                    },
+                    {
+                        "_id": "Nanjing",
+                        "avgPrezzoCamere": 405.6666666666667
+                    },
+                    {
+                        "_id": "San Paolo",
+                        "avgPrezzoCamere": 219.5
+                    },
+                    {
+                        "_id": "Copenhagen",
+                        "avgPrezzoCamere": 274.8
+                    },
+                    {
+                        "_id": "Shanghai",
+                        "avgPrezzoCamere": 921.3333333333334
+                    },
+                    {
+                        "_id": "Ürümqi",
+                        "avgPrezzoCamere": 370.0
+                    },
+                    {
+                        "_id": "Bangkok",
+                        "avgPrezzoCamere": 637.8333333333334
+                    },
+                    {
+                        "_id": "Jeddah",
+                        "avgPrezzoCamere": 682.8571428571429
+                    },
+                    {
+                        "_id": "Toronto",
+                        "avgPrezzoCamere": 806.3333333333334
+                    },
+                    {
+                        "_id": "Chicago",
+                        "avgPrezzoCamere": 1446.0
+                    },
+                    {
+                        "_id": "Abu Dhabi",
+                        "avgPrezzoCamere": 775.8571428571429
+                    },
+                    {
+                        "_id": "Amsterdam",
+                        "avgPrezzoCamere": 1135.6
+                    },
+                    {
+                        "_id": "Cancùn",
+                        "avgPrezzoCamere": 393.1666666666667
+                    },
+                    {
+                        "_id": "Manila",
+                        "avgPrezzoCamere": 432.0
+                    },
+                    {
+                        "_id": "Orlando",
+                        "avgPrezzoCamere": 1382.0
+                    },
+                    {
+                        "_id": "Kuala Lumpur",
+                        "avgPrezzoCamere": 1201.4
+                    },
+                    {
+                        "_id": "Detroit",
+                        "avgPrezzoCamere": 345.5
+                    },
+                    {
+                        "_id": "Los Angeles",
+                        "avgPrezzoCamere": 463.8
+                    },
+                    {
+                        "_id": "Phoenix",
+                        "avgPrezzoCamere": 437.0
+                    },
+                    {
+                        "_id": "Palma di Maiorca",
+                        "avgPrezzoCamere": 818.0
+                    },
+                    {
+                        "_id": "Minneapolis",
+                        "avgPrezzoCamere": 306.0
+                    },
+                    {
+                        "_id": "Hanoi",
+                        "avgPrezzoCamere": 441.7142857142857
+                    },
+                    {
+                        "_id": "Melbourne",
+                        "avgPrezzoCamere": 902.8333333333334
+                    },
+                    {
+                        "_id": "Xianyang",
+                        "avgPrezzoCamere": 359.6666666666667
+                    },
+                    {
+                        "_id": "Nuova Delhi",
+                        "avgPrezzoCamere": 637.0
+                    },
+                    {
+                        "_id": "Newark",
+                        "avgPrezzoCamere": 329.3333333333333
+                    },
+                    {
+                        "_id": "Charlotte",
+                        "avgPrezzoCamere": 781.3333333333334
+                    },
+                    {
+                        "_id": "Dulles",
+                        "avgPrezzoCamere": 386.3333333333333
+                    },
+                    {
+                        "_id": "Seattle",
+                        "avgPrezzoCamere": 323.8
+                    },
+                    {
+                        "_id": "Changsha",
+                        "avgPrezzoCamere": 521.25
+                    },
+                    {
+                        "_id": "Sydney",
+                        "avgPrezzoCamere": 717.5
+                    },
+                    {
+                        "_id": "Londra",
+                        "avgPrezzoCamere": 1293.0
+                    },
+                    {
+                        "_id": "Narita",
+                        "avgPrezzoCamere": 442.0
+                    },
+                    {
+                        "_id": "Roma",
+                        "avgPrezzoCamere": 400.85714285714283
+                    },
+                    {
+                        "_id": "Il Cairo",
+                        "avgPrezzoCamere": 647.25
+                    },
+                    {
+                        "_id": "Francoforte",
+                        "avgPrezzoCamere": 286.0
+                    },
+                    {
+                        "_id": "Baltimore",
+                        "avgPrezzoCamere": 468.0
+                    },
+                    {
+                        "_id": "Monaco",
+                        "avgPrezzoCamere": 1058.0
+                    },
+                    {
+                        "_id": "Mumbai",
+                        "avgPrezzoCamere": 620.1666666666666
+                    },
+                    {
+                        "_id": "Dallas",
+                        "avgPrezzoCamere": 498.85714285714283
+                    },
+                    {
+                        "_id": "New York",
+                        "avgPrezzoCamere": 910.5
+                    },
+                    {
+                        "_id": "Hong Kong",
+                        "avgPrezzoCamere": 1790.5
+                    },
+                    {
+                        "_id": "Philadelphia",
+                        "avgPrezzoCamere": 762.5
+                    },
+                    {
+                        "_id": "Xiamen",
+                        "avgPrezzoCamere": 883.2
+                    },
+                    {
+                        "_id": "Chengdu",
+                        "avgPrezzoCamere": 1216.8
+                    },
+                    {
+                        "_id": "Seoul",
+                        "avgPrezzoCamere": 815.6
+                    },
+                    {
+                        "_id": "Qingdao",
+                        "avgPrezzoCamere": 456.0
+                    },
+                    {
+                        "_id": "Washington DC",
+                        "avgPrezzoCamere": 472.8333333333333
+                    },
+                    {
+                        "_id": "Taipei",
+                        "avgPrezzoCamere": 302.8
+                    },
+                    {
+                        "_id": "Istanbul",
+                        "avgPrezzoCamere": 443.8333333333333
+                    },
+                    {
+                        "_id": "Madrid",
+                        "avgPrezzoCamere": 1478.857142857143
+                    },
+                    {
+                        "_id": "Houston",
+                        "avgPrezzoCamere": 467.8333333333333
+                    },
+                    {
+                        "_id": "Vienna",
+                        "avgPrezzoCamere": 555.6
+                    },
+                    {
+                        "_id": "Bogota",
+                        "avgPrezzoCamere": 452.4
+                    },
+                    {
+                        "_id": "Mosca",
+                        "avgPrezzoCamere": 747.8571428571429
+                    },
+                    {
+                        "_id": "Hyderabad",
+                        "avgPrezzoCamere": 326.5
+                    },
+                    {
+                        "_id": "Città del Messico",
+                        "avgPrezzoCamere": 879.6
+                    },
+                    {
+                        "_id": "Pechino",
+                        "avgPrezzoCamere": 990.1428571428571
+                    },
+                    {
+                        "_id": "Atene",
+                        "avgPrezzoCamere": 674.5
+                    },
+                    {
+                        "_id": "Barcellona",
+                        "avgPrezzoCamere": 336.85714285714283
+                    },
+                    {
+                        "_id": "Jakarta",
+                        "avgPrezzoCamere": 419.0
+                    },
+                    {
+                        "_id": "Las Vegas",
+                        "avgPrezzoCamere": 442.5
+                    },
+                    {
+                        "_id": "Miami",
+                        "avgPrezzoCamere": 330.14285714285717
+                    },
+                    {
+                        "_id": "San Francisco",
+                        "avgPrezzoCamere": 458.0
+                    },
+                    {
+                        "_id": "Hangzhou",
+                        "avgPrezzoCamere": 935.0
+                    },
+                    {
+                        "_id": "Bangaluru",
+                        "avgPrezzoCamere": 930.8
+                    },
+                    {
+                        "_id": "Ho Chi Minh",
+                        "avgPrezzoCamere": 1145.4
+                    },
+                    {
+                        "_id": "Milano",
+                        "avgPrezzoCamere": 425.4
+                    },
+                    {
+                        "_id": "Shenzhen",
+                        "avgPrezzoCamere": 1031.0
+                    },
+                    {
+                        "_id": "Salt Lake City",
+                        "avgPrezzoCamere": 434.2
+                    },
+                    {
+                        "_id": "Fukuoka",
+                        "avgPrezzoCamere": 413.8333333333333
+                    },
+                    {
+                        "_id": "Fort Lauderdale",
+                        "avgPrezzoCamere": 1057.2
+                    },
+                    {
+                        "_id": "Wuhan",
+                        "avgPrezzoCamere": 502.0
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 658.9611754999496,
+            "explanation": ""
+        },
+        {
+            "test_id": 4,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "costo_medio"
+                    ],
+                    "actual": [
+                        "_id",
+                        "media_prezzo"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "San Paolo",
+                        "costo_medio": 219.5
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "Bangkok",
+                        "media_prezzo": 637.8333333333334
+                    },
+                    {
+                        "_id": "Toronto",
+                        "media_prezzo": 806.3333333333334
+                    },
+                    {
+                        "_id": "Houston",
+                        "media_prezzo": 467.8333333333333
+                    },
+                    {
+                        "_id": "Vienna",
+                        "media_prezzo": 555.6
+                    },
+                    {
+                        "_id": "Madrid",
+                        "media_prezzo": 1478.857142857143
+                    },
+                    {
+                        "_id": "Hyderabad",
+                        "media_prezzo": 326.5
+                    },
+                    {
+                        "_id": "Bogota",
+                        "media_prezzo": 452.4
+                    },
+                    {
+                        "_id": "Atene",
+                        "media_prezzo": 674.5
+                    },
+                    {
+                        "_id": "Hangzhou",
+                        "media_prezzo": 935.0
+                    },
+                    {
+                        "_id": "Pechino",
+                        "media_prezzo": 990.1428571428571
+                    },
+                    {
+                        "_id": "Città del Messico",
+                        "media_prezzo": 879.6
+                    },
+                    {
+                        "_id": "Bangaluru",
+                        "media_prezzo": 930.8
+                    },
+                    {
+                        "_id": "Ho Chi Minh",
+                        "media_prezzo": 1145.4
+                    },
+                    {
+                        "_id": "Las Vegas",
+                        "media_prezzo": 442.5
+                    },
+                    {
+                        "_id": "Jakarta",
+                        "media_prezzo": 419.0
+                    },
+                    {
+                        "_id": "Milano",
+                        "media_prezzo": 425.4
+                    },
+                    {
+                        "_id": "Barcellona",
+                        "media_prezzo": 336.85714285714283
+                    },
+                    {
+                        "_id": "Salt Lake City",
+                        "media_prezzo": 434.2
+                    },
+                    {
+                        "_id": "San Francisco",
+                        "media_prezzo": 458.0
+                    },
+                    {
+                        "_id": "Shenzhen",
+                        "media_prezzo": 1031.0
+                    },
+                    {
+                        "_id": "Fort Lauderdale",
+                        "media_prezzo": 1057.2
+                    },
+                    {
+                        "_id": "Miami",
+                        "media_prezzo": 330.14285714285717
+                    },
+                    {
+                        "_id": "Fukuoka",
+                        "media_prezzo": 413.8333333333333
+                    },
+                    {
+                        "_id": "Osaka",
+                        "media_prezzo": 1081.1666666666667
+                    },
+                    {
+                        "_id": "Wuhan",
+                        "media_prezzo": 502.0
+                    },
+                    {
+                        "_id": "Changsha",
+                        "media_prezzo": 521.25
+                    },
+                    {
+                        "_id": "Seattle",
+                        "media_prezzo": 323.8
+                    },
+                    {
+                        "_id": "Atlanta",
+                        "media_prezzo": 464.0
+                    },
+                    {
+                        "_id": "Denver",
+                        "media_prezzo": 1244.1666666666667
+                    },
+                    {
+                        "_id": "Sydney",
+                        "media_prezzo": 717.5
+                    },
+                    {
+                        "_id": "Londra",
+                        "media_prezzo": 1293.0
+                    },
+                    {
+                        "_id": "Monaco",
+                        "media_prezzo": 1058.0
+                    },
+                    {
+                        "_id": "Narita",
+                        "media_prezzo": 442.0
+                    },
+                    {
+                        "_id": "Il Cairo",
+                        "media_prezzo": 647.25
+                    },
+                    {
+                        "_id": "Baltimore",
+                        "media_prezzo": 468.0
+                    },
+                    {
+                        "_id": "Francoforte",
+                        "media_prezzo": 286.0
+                    },
+                    {
+                        "_id": "Roma",
+                        "media_prezzo": 400.85714285714283
+                    },
+                    {
+                        "_id": "Dallas",
+                        "media_prezzo": 498.85714285714283
+                    },
+                    {
+                        "_id": "New York",
+                        "media_prezzo": 910.5
+                    },
+                    {
+                        "_id": "Hong Kong",
+                        "media_prezzo": 1790.5
+                    },
+                    {
+                        "_id": "Philadelphia",
+                        "media_prezzo": 762.5
+                    },
+                    {
+                        "_id": "Chengdu",
+                        "media_prezzo": 1216.8
+                    },
+                    {
+                        "_id": "Seoul",
+                        "media_prezzo": 815.6
+                    },
+                    {
+                        "_id": "Mumbai",
+                        "media_prezzo": 620.1666666666666
+                    },
+                    {
+                        "_id": "Taipei",
+                        "media_prezzo": 302.8
+                    },
+                    {
+                        "_id": "Xiamen",
+                        "media_prezzo": 883.2
+                    },
+                    {
+                        "_id": "Washington DC",
+                        "media_prezzo": 472.8333333333333
+                    },
+                    {
+                        "_id": "Qingdao",
+                        "media_prezzo": 456.0
+                    },
+                    {
+                        "_id": "Abu Dhabi",
+                        "media_prezzo": 775.8571428571429
+                    },
+                    {
+                        "_id": "Mosca",
+                        "media_prezzo": 747.8571428571429
+                    },
+                    {
+                        "_id": "Manila",
+                        "media_prezzo": 432.0
+                    },
+                    {
+                        "_id": "Istanbul",
+                        "media_prezzo": 443.8333333333333
+                    },
+                    {
+                        "_id": "Cancùn",
+                        "media_prezzo": 393.1666666666667
+                    },
+                    {
+                        "_id": "Amsterdam",
+                        "media_prezzo": 1135.6
+                    },
+                    {
+                        "_id": "Detroit",
+                        "media_prezzo": 345.5
+                    },
+                    {
+                        "_id": "Palma di Maiorca",
+                        "media_prezzo": 818.0
+                    },
+                    {
+                        "_id": "Orlando",
+                        "media_prezzo": 1382.0
+                    },
+                    {
+                        "_id": "Los Angeles",
+                        "media_prezzo": 463.8
+                    },
+                    {
+                        "_id": "Hanoi",
+                        "media_prezzo": 441.7142857142857
+                    },
+                    {
+                        "_id": "Phoenix",
+                        "media_prezzo": 437.0
+                    },
+                    {
+                        "_id": "Minneapolis",
+                        "media_prezzo": 306.0
+                    },
+                    {
+                        "_id": "Xianyang",
+                        "media_prezzo": 359.6666666666667
+                    },
+                    {
+                        "_id": "Melbourne",
+                        "media_prezzo": 902.8333333333334
+                    },
+                    {
+                        "_id": "Kuala Lumpur",
+                        "media_prezzo": 1201.4
+                    },
+                    {
+                        "_id": "Nuova Delhi",
+                        "media_prezzo": 637.0
+                    },
+                    {
+                        "_id": "Dulles",
+                        "media_prezzo": 386.3333333333333
+                    },
+                    {
+                        "_id": "Charlotte",
+                        "media_prezzo": 781.3333333333334
+                    },
+                    {
+                        "_id": "Newark",
+                        "media_prezzo": 329.3333333333333
+                    },
+                    {
+                        "_id": "Jeju",
+                        "media_prezzo": 337.85714285714283
+                    },
+                    {
+                        "_id": "Zhengzhou",
+                        "media_prezzo": 440.6
+                    },
+                    {
+                        "_id": "Kunming",
+                        "media_prezzo": 567.25
+                    },
+                    {
+                        "_id": "Dublino",
+                        "media_prezzo": 383.8
+                    },
+                    {
+                        "_id": "Guangzhou",
+                        "media_prezzo": 1489.2
+                    },
+                    {
+                        "_id": "Doha",
+                        "media_prezzo": 729.875
+                    },
+                    {
+                        "_id": "Parigi",
+                        "media_prezzo": 294.5
+                    },
+                    {
+                        "_id": "Shanghai",
+                        "media_prezzo": 921.3333333333334
+                    },
+                    {
+                        "_id": "Antalya",
+                        "media_prezzo": 484.25
+                    },
+                    {
+                        "_id": "Zurigo",
+                        "media_prezzo": 682.0
+                    },
+                    {
+                        "_id": "Chongqing",
+                        "media_prezzo": 481.42857142857144
+                    },
+                    {
+                        "_id": "Boston",
+                        "media_prezzo": 1520.2
+                    },
+                    {
+                        "_id": "Tokyo",
+                        "media_prezzo": 1381.375
+                    },
+                    {
+                        "_id": "Manchester",
+                        "media_prezzo": 412.0
+                    },
+                    {
+                        "_id": "Singapore",
+                        "media_prezzo": 362.42857142857144
+                    },
+                    {
+                        "_id": "Dubai",
+                        "media_prezzo": 1334.7142857142858
+                    },
+                    {
+                        "_id": "Riyadh",
+                        "media_prezzo": 893.625
+                    },
+                    {
+                        "_id": "Lisbona",
+                        "media_prezzo": 704.8571428571429
+                    },
+                    {
+                        "_id": "San Paolo",
+                        "media_prezzo": 219.5
+                    },
+                    {
+                        "_id": "Nanjing",
+                        "media_prezzo": 405.6666666666667
+                    },
+                    {
+                        "_id": "Copenhagen",
+                        "media_prezzo": 274.8
+                    },
+                    {
+                        "_id": "Ürümqi",
+                        "media_prezzo": 370.0
+                    },
+                    {
+                        "_id": "Jeddah",
+                        "media_prezzo": 682.8571428571429
+                    },
+                    {
+                        "_id": "Chicago",
+                        "media_prezzo": 1446.0
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 694.8066409999738,
+            "explanation": ""
+        },
+        {
+            "test_id": 4,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "costo_medio"
+                    ],
+                    "actual": [
+                        "_id",
+                        "media_prezzo"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "San Paolo",
+                        "costo_medio": 219.5
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "Xiamen",
+                        "media_prezzo": 883.2
+                    },
+                    {
+                        "_id": "Qingdao",
+                        "media_prezzo": 456.0
+                    },
+                    {
+                        "_id": "Amsterdam",
+                        "media_prezzo": 1135.6
+                    },
+                    {
+                        "_id": "Manila",
+                        "media_prezzo": 432.0
+                    },
+                    {
+                        "_id": "Cancùn",
+                        "media_prezzo": 393.1666666666667
+                    },
+                    {
+                        "_id": "Istanbul",
+                        "media_prezzo": 443.8333333333333
+                    },
+                    {
+                        "_id": "Abu Dhabi",
+                        "media_prezzo": 775.8571428571429
+                    },
+                    {
+                        "_id": "Los Angeles",
+                        "media_prezzo": 463.8
+                    },
+                    {
+                        "_id": "Palma di Maiorca",
+                        "media_prezzo": 818.0
+                    },
+                    {
+                        "_id": "Phoenix",
+                        "media_prezzo": 437.0
+                    },
+                    {
+                        "_id": "Detroit",
+                        "media_prezzo": 345.5
+                    },
+                    {
+                        "_id": "Orlando",
+                        "media_prezzo": 1382.0
+                    },
+                    {
+                        "_id": "Melbourne",
+                        "media_prezzo": 902.8333333333334
+                    },
+                    {
+                        "_id": "Kuala Lumpur",
+                        "media_prezzo": 1201.4
+                    },
+                    {
+                        "_id": "Minneapolis",
+                        "media_prezzo": 306.0
+                    },
+                    {
+                        "_id": "Xianyang",
+                        "media_prezzo": 359.6666666666667
+                    },
+                    {
+                        "_id": "Hanoi",
+                        "media_prezzo": 441.7142857142857
+                    },
+                    {
+                        "_id": "Nuova Delhi",
+                        "media_prezzo": 637.0
+                    },
+                    {
+                        "_id": "Newark",
+                        "media_prezzo": 329.3333333333333
+                    },
+                    {
+                        "_id": "Charlotte",
+                        "media_prezzo": 781.3333333333334
+                    },
+                    {
+                        "_id": "Dulles",
+                        "media_prezzo": 386.3333333333333
+                    },
+                    {
+                        "_id": "Kunming",
+                        "media_prezzo": 567.25
+                    },
+                    {
+                        "_id": "Jeju",
+                        "media_prezzo": 337.85714285714283
+                    },
+                    {
+                        "_id": "Tokyo",
+                        "media_prezzo": 1381.375
+                    },
+                    {
+                        "_id": "Manchester",
+                        "media_prezzo": 412.0
+                    },
+                    {
+                        "_id": "Boston",
+                        "media_prezzo": 1520.2
+                    },
+                    {
+                        "_id": "Guangzhou",
+                        "media_prezzo": 1489.2
+                    },
+                    {
+                        "_id": "Shanghai",
+                        "media_prezzo": 921.3333333333334
+                    },
+                    {
+                        "_id": "Zurigo",
+                        "media_prezzo": 682.0
+                    },
+                    {
+                        "_id": "Parigi",
+                        "media_prezzo": 294.5
+                    },
+                    {
+                        "_id": "Doha",
+                        "media_prezzo": 729.875
+                    },
+                    {
+                        "_id": "Antalya",
+                        "media_prezzo": 484.25
+                    },
+                    {
+                        "_id": "Chongqing",
+                        "media_prezzo": 481.42857142857144
+                    },
+                    {
+                        "_id": "Dublino",
+                        "media_prezzo": 383.8
+                    },
+                    {
+                        "_id": "Dubai",
+                        "media_prezzo": 1334.7142857142858
+                    },
+                    {
+                        "_id": "Nanjing",
+                        "media_prezzo": 405.6666666666667
+                    },
+                    {
+                        "_id": "Riyadh",
+                        "media_prezzo": 893.625
+                    },
+                    {
+                        "_id": "Lisbona",
+                        "media_prezzo": 704.8571428571429
+                    },
+                    {
+                        "_id": "Copenhagen",
+                        "media_prezzo": 274.8
+                    },
+                    {
+                        "_id": "Singapore",
+                        "media_prezzo": 362.42857142857144
+                    },
+                    {
+                        "_id": "San Paolo",
+                        "media_prezzo": 219.5
+                    },
+                    {
+                        "_id": "Bangkok",
+                        "media_prezzo": 637.8333333333334
+                    },
+                    {
+                        "_id": "Zhengzhou",
+                        "media_prezzo": 440.6
+                    },
+                    {
+                        "_id": "Ürümqi",
+                        "media_prezzo": 370.0
+                    },
+                    {
+                        "_id": "Chicago",
+                        "media_prezzo": 1446.0
+                    },
+                    {
+                        "_id": "Jeddah",
+                        "media_prezzo": 682.8571428571429
+                    },
+                    {
+                        "_id": "Toronto",
+                        "media_prezzo": 806.3333333333334
+                    },
+                    {
+                        "_id": "Houston",
+                        "media_prezzo": 467.8333333333333
+                    },
+                    {
+                        "_id": "Vienna",
+                        "media_prezzo": 555.6
+                    },
+                    {
+                        "_id": "Bogota",
+                        "media_prezzo": 452.4
+                    },
+                    {
+                        "_id": "Madrid",
+                        "media_prezzo": 1478.857142857143
+                    },
+                    {
+                        "_id": "Hyderabad",
+                        "media_prezzo": 326.5
+                    },
+                    {
+                        "_id": "Barcellona",
+                        "media_prezzo": 336.85714285714283
+                    },
+                    {
+                        "_id": "Jakarta",
+                        "media_prezzo": 419.0
+                    },
+                    {
+                        "_id": "Città del Messico",
+                        "media_prezzo": 879.6
+                    },
+                    {
+                        "_id": "Bangaluru",
+                        "media_prezzo": 930.8
+                    },
+                    {
+                        "_id": "Pechino",
+                        "media_prezzo": 990.1428571428571
+                    },
+                    {
+                        "_id": "Las Vegas",
+                        "media_prezzo": 442.5
+                    },
+                    {
+                        "_id": "Atene",
+                        "media_prezzo": 674.5
+                    },
+                    {
+                        "_id": "Shenzhen",
+                        "media_prezzo": 1031.0
+                    },
+                    {
+                        "_id": "Hangzhou",
+                        "media_prezzo": 935.0
+                    },
+                    {
+                        "_id": "Milano",
+                        "media_prezzo": 425.4
+                    },
+                    {
+                        "_id": "Miami",
+                        "media_prezzo": 330.14285714285717
+                    },
+                    {
+                        "_id": "San Francisco",
+                        "media_prezzo": 458.0
+                    },
+                    {
+                        "_id": "Salt Lake City",
+                        "media_prezzo": 434.2
+                    },
+                    {
+                        "_id": "Ho Chi Minh",
+                        "media_prezzo": 1145.4
+                    },
+                    {
+                        "_id": "Wuhan",
+                        "media_prezzo": 502.0
+                    },
+                    {
+                        "_id": "Osaka",
+                        "media_prezzo": 1081.1666666666667
+                    },
+                    {
+                        "_id": "Fukuoka",
+                        "media_prezzo": 413.8333333333333
+                    },
+                    {
+                        "_id": "Fort Lauderdale",
+                        "media_prezzo": 1057.2
+                    },
+                    {
+                        "_id": "Denver",
+                        "media_prezzo": 1244.1666666666667
+                    },
+                    {
+                        "_id": "Narita",
+                        "media_prezzo": 442.0
+                    },
+                    {
+                        "_id": "Atlanta",
+                        "media_prezzo": 464.0
+                    },
+                    {
+                        "_id": "Dallas",
+                        "media_prezzo": 498.85714285714283
+                    },
+                    {
+                        "_id": "Londra",
+                        "media_prezzo": 1293.0
+                    },
+                    {
+                        "_id": "Seattle",
+                        "media_prezzo": 323.8
+                    },
+                    {
+                        "_id": "Changsha",
+                        "media_prezzo": 521.25
+                    },
+                    {
+                        "_id": "Sydney",
+                        "media_prezzo": 717.5
+                    },
+                    {
+                        "_id": "Baltimore",
+                        "media_prezzo": 468.0
+                    },
+                    {
+                        "_id": "Francoforte",
+                        "media_prezzo": 286.0
+                    },
+                    {
+                        "_id": "Il Cairo",
+                        "media_prezzo": 647.25
+                    },
+                    {
+                        "_id": "Roma",
+                        "media_prezzo": 400.85714285714283
+                    },
+                    {
+                        "_id": "Philadelphia",
+                        "media_prezzo": 762.5
+                    },
+                    {
+                        "_id": "Monaco",
+                        "media_prezzo": 1058.0
+                    },
+                    {
+                        "_id": "Hong Kong",
+                        "media_prezzo": 1790.5
+                    },
+                    {
+                        "_id": "Mumbai",
+                        "media_prezzo": 620.1666666666666
+                    },
+                    {
+                        "_id": "New York",
+                        "media_prezzo": 910.5
+                    },
+                    {
+                        "_id": "Washington DC",
+                        "media_prezzo": 472.8333333333333
+                    },
+                    {
+                        "_id": "Taipei",
+                        "media_prezzo": 302.8
+                    },
+                    {
+                        "_id": "Seoul",
+                        "media_prezzo": 815.6
+                    },
+                    {
+                        "_id": "Mosca",
+                        "media_prezzo": 747.8571428571429
+                    },
+                    {
+                        "_id": "Chengdu",
+                        "media_prezzo": 1216.8
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 640.2358029999305,
+            "explanation": ""
+        },
+        {
+            "test_id": 4,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta",
+                        "costo_medio"
+                    ],
+                    "actual": [
+                        "_id",
+                        "avg_cost"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "citta": "San Paolo",
+                        "costo_medio": 219.5
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "San Paolo",
+                        "avg_cost": 219.5
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 358.8566465000622,
+            "explanation": ""
+        },
+        {
+            "test_id": 5,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "_id",
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab56368d648ad35c2d9288c",
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17T00:00:00"
+                    },
+                    {
+                        "_id": "6ab56368d648ad35c2d9288d",
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18T00:00:00"
+                    }
+                ],
+                "value": 0.875
+            },
+            "latency": 413.1184387000976,
+            "explanation": ""
+        },
+        {
+            "test_id": 5,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "_id",
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab56368d648ad35c2d9288c",
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17T00:00:00"
+                    },
+                    {
+                        "_id": "6ab56368d648ad35c2d9288d",
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18T00:00:00"
+                    }
+                ],
+                "value": 0.875
+            },
+            "latency": 401.64977550006006,
+            "explanation": ""
+        },
+        {
+            "test_id": 5,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "_id",
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab56368d648ad35c2d9288c",
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17T00:00:00"
+                    },
+                    {
+                        "_id": "6ab56368d648ad35c2d9288d",
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18T00:00:00"
+                    }
+                ],
+                "value": 0.875
+            },
+            "latency": 381.18947500002105,
+            "explanation": ""
+        },
+        {
+            "test_id": 5,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "_id",
+                        "id",
+                        "stato",
+                        "citta",
+                        "stazione",
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab56368d648ad35c2d9288c",
+                        "id": 15,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 19.8,
+                        "precipitazioni": 2.6,
+                        "vento": 22,
+                        "data": "2026-08-17T00:00:00"
+                    },
+                    {
+                        "_id": "6ab56368d648ad35c2d9288d",
+                        "id": 16,
+                        "stato": "Regno Unito",
+                        "citta": "Londra",
+                        "stazione": "EGLL",
+                        "temperatura": 18.5,
+                        "precipitazioni": 7.4,
+                        "vento": 25,
+                        "data": "2026-08-18T00:00:00"
+                    }
+                ],
+                "value": 0.875
+            },
+            "latency": 375.1660148999654,
+            "explanation": ""
+        },
+        {
+            "test_id": 6,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "compagnia",
+                        "numero_voli"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "compagnia": "Ryanair",
+                        "numero_voli": 5
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 1285.283048399957,
+            "explanation": ""
+        },
+        {
+            "test_id": 6,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "compagnia",
+                        "numero_voli"
+                    ],
+                    "actual": [
+                        "_id",
+                        "conteggio_voli"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "compagnia": "Ryanair",
+                        "numero_voli": 5
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "Ryanair",
+                        "conteggio_voli": 5
+                    },
+                    {
+                        "_id": "China Southern Airlines",
+                        "conteggio_voli": 4
+                    },
+                    {
+                        "_id": "China Eastern Airlines",
+                        "conteggio_voli": 2
+                    },
+                    {
+                        "_id": "Delta Airlines",
+                        "conteggio_voli": 1
+                    },
+                    {
+                        "_id": "American Airlines",
+                        "conteggio_voli": 1
+                    },
+                    {
+                        "_id": "Republic Airways",
+                        "conteggio_voli": 1
+                    },
+                    {
+                        "_id": "Qantas",
+                        "conteggio_voli": 1
+                    },
+                    {
+                        "_id": "Southwest",
+                        "conteggio_voli": 1
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 428.0587690999964,
+            "explanation": ""
+        },
+        {
+            "test_id": 6,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI",
+                        "DBVOL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "compagnia",
+                        "numero_voli"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "compagnia": "Ryanair",
+                        "numero_voli": 5
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 1843.260191099951,
+            "explanation": ""
+        },
+        {
+            "test_id": 6,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "compagnia",
+                        "numero_voli"
+                    ],
+                    "actual": [
+                        "_id",
+                        "count_voli"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "compagnia": "Ryanair",
+                        "numero_voli": 5
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "Southwest",
+                        "count_voli": 1
+                    },
+                    {
+                        "_id": "Qantas",
+                        "count_voli": 1
+                    },
+                    {
+                        "_id": "American Airlines",
+                        "count_voli": 1
+                    },
+                    {
+                        "_id": "Ryanair",
+                        "count_voli": 5
+                    },
+                    {
+                        "_id": "China Southern Airlines",
+                        "count_voli": 4
+                    },
+                    {
+                        "_id": "Republic Airways",
+                        "count_voli": 1
+                    },
+                    {
+                        "_id": "Delta Airlines",
+                        "count_voli": 1
+                    },
+                    {
+                        "_id": "China Eastern Airlines",
+                        "count_voli": 2
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 373.7801250999328,
+            "explanation": ""
+        },
+        {
+            "test_id": 7,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Grand Hyatt Bogota",
+                        "citta": "Bogota"
+                    },
+                    {
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "nome": "Park Hyatt Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Shangri-La Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney"
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 1236.5350064999657,
+            "explanation": ""
+        },
+        {
+            "test_id": 7,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBVOLI",
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Grand Hyatt Bogota",
+                        "citta": "Bogota"
+                    },
+                    {
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "nome": "Park Hyatt Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Shangri-La Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney"
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 630.7852361999685,
+            "explanation": ""
+        },
+        {
+            "test_id": 7,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "numero",
+                        "hotel",
+                        "categoria",
+                        "prezzo",
+                        "max_ospiti",
+                        "disponibilita"
+                    ],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Grand Hyatt Bogota",
+                        "citta": "Bogota"
+                    },
+                    {
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "nome": "Park Hyatt Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Shangri-La Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563d68d5dba866077be1f",
+                        "numero": "234",
+                        "hotel": "Grand Hyatt Bogota",
+                        "categoria": "Panorama Penthouse",
+                        "prezzo": 404,
+                        "max_ospiti": 3,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077be6b",
+                        "numero": "785",
+                        "hotel": "Park Hyatt Melbourne",
+                        "categoria": "Ocean Corner Suite",
+                        "prezzo": 1380,
+                        "max_ospiti": 3,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077be6c",
+                        "numero": "357",
+                        "hotel": "Park Hyatt Melbourne",
+                        "categoria": "Royal Loft",
+                        "prezzo": 2087,
+                        "max_ospiti": 3,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077be40",
+                        "numero": "667",
+                        "hotel": "Park Hyatt Sydney",
+                        "categoria": "Club Queen Room",
+                        "prezzo": 2009,
+                        "max_ospiti": 4,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077be43",
+                        "numero": "809",
+                        "hotel": "Shangri-La Sydney",
+                        "categoria": "Grand King Room",
+                        "prezzo": 475,
+                        "max_ospiti": 2,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077be45",
+                        "numero": "205",
+                        "hotel": "Travelodge Hotel Sydney",
+                        "categoria": "Grand Junior Suite",
+                        "prezzo": 102,
+                        "max_ospiti": 2,
+                        "disponibilita": "true"
+                    }
+                ],
+                "value": 0.0
+            },
+            "latency": 744.6236599000404,
+            "explanation": ""
+        },
+        {
+            "test_id": 7,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Grand Hyatt Bogota",
+                        "citta": "Bogota"
+                    },
+                    {
+                        "nome": "Park Hyatt Melbourne",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "nome": "Park Hyatt Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Shangri-La Sydney",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney"
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 1061.9283562999917,
+            "explanation": ""
+        },
+        {
+            "test_id": 8,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "nome",
+                        "stato",
+                        "citta",
+                        "indirizzo",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "citta": "Madrid"
+                    },
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "citta": "Madrid"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563d68d5dba866077bc25",
+                        "nome": "Le Bristol Paris",
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Rue du Faubourg Saint-Honore 112",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc26",
+                        "nome": "Hotel Lutetia Paris",
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Boulevard Raspail 45",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc31",
+                        "nome": "The Westin Palace Madrid",
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de las Cortes 7",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc32",
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de la Lealtad 5",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc34",
+                        "nome": "The Plaza Hotel",
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "768 5th Avenue",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc35",
+                        "nome": "The St. Regis New York",
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "2 East 55th Street",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc3a",
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Am Kaiserplatz",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc3b",
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Thurn-und-Taxis-Platz 2",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc6a",
+                        "nome": "Hotel Eden",
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Via Ludovisi 49",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc6b",
+                        "nome": "Anantara Palazzo Naiadi",
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Piazza della Repubblica 48",
+                        "stelle": 5
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 563.885412100004,
+            "explanation": ""
+        },
+        {
+            "test_id": 8,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBVOL",
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 0.5
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.25
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "citta": "Madrid"
+                    },
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "citta": "Madrid"
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 551.0729652000591,
+            "explanation": ""
+        },
+        {
+            "test_id": 8,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "citta": "Madrid"
+                    },
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "citta": "Madrid"
+                    }
+                ],
+                "actual": [],
+                "value": 0.0
+            },
+            "latency": 771.2679622999858,
+            "explanation": ""
+        },
+        {
+            "test_id": 8,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "nome",
+                        "stato",
+                        "citta",
+                        "indirizzo",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "nome": "Anantara Palazzo Naiadi",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Eden",
+                        "citta": "Roma"
+                    },
+                    {
+                        "nome": "Hotel Lutetia Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "citta": "Madrid"
+                    },
+                    {
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "citta": "Francoforte"
+                    },
+                    {
+                        "nome": "The Plaza Hotel",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "Le Bristol Paris",
+                        "citta": "Parigi"
+                    },
+                    {
+                        "nome": "The St. Regis New York",
+                        "citta": "New York"
+                    },
+                    {
+                        "nome": "The Westin Palace Madrid",
+                        "citta": "Madrid"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563d68d5dba866077bc25",
+                        "nome": "Le Bristol Paris",
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Rue du Faubourg Saint-Honore 112",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc26",
+                        "nome": "Hotel Lutetia Paris",
+                        "stato": "Francia",
+                        "citta": "Parigi",
+                        "indirizzo": "Boulevard Raspail 45",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc31",
+                        "nome": "The Westin Palace Madrid",
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de las Cortes 7",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc32",
+                        "nome": "Mandarin Oriental Ritz Madrid",
+                        "stato": "Spagna",
+                        "citta": "Madrid",
+                        "indirizzo": "Plaza de la Lealtad 5",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc34",
+                        "nome": "The Plaza Hotel",
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "768 5th Avenue",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc35",
+                        "nome": "The St. Regis New York",
+                        "stato": "Stati Uniti",
+                        "citta": "New York",
+                        "indirizzo": "2 East 55th Street",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc3a",
+                        "nome": "Steigenberger Frankfurter Hof",
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Am Kaiserplatz",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc3b",
+                        "nome": "JW Marriott Hotel Frankfurt",
+                        "stato": "Germania",
+                        "citta": "Francoforte",
+                        "indirizzo": "Thurn-und-Taxis-Platz 2",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc6a",
+                        "nome": "Hotel Eden",
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Via Ludovisi 49",
+                        "stelle": 5
+                    },
+                    {
+                        "_id": "6ab563d68d5dba866077bc6b",
+                        "nome": "Anantara Palazzo Naiadi",
+                        "stato": "Italia",
+                        "citta": "Roma",
+                        "indirizzo": "Piazza della Repubblica 48",
+                        "stelle": 5
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 1126.6391980000772,
+            "explanation": ""
+        },
+        {
+            "test_id": 9,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "iata",
+                        "nome",
+                        "continente",
+                        "stato",
+                        "citta",
+                        "passeggeri",
+                        "corsie"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "citta": "Abu Dhabi"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "citta": "Jeddah"
+                    },
+                    {
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "citta": "Phoenix"
+                    },
+                    {
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "citta": "Riyadh"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Dubai",
+                        "passeggeri": 92.3,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ed",
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "continente": "NA",
+                        "stato": "Stati Uniti",
+                        "citta": "Phoenix",
+                        "passeggeri": 52.3,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67f3",
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Jeddah",
+                        "passeggeri": 48.9,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b680b",
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Riyadh",
+                        "passeggeri": 37,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6824",
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Abu Dhabi",
+                        "passeggeri": 28.8,
+                        "corsie": 2
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 435.6415250999853,
+            "explanation": ""
+        },
+        {
+            "test_id": 9,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "iata",
+                        "nome",
+                        "continente",
+                        "stato",
+                        "citta",
+                        "passeggeri",
+                        "corsie"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "citta": "Abu Dhabi"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "citta": "Jeddah"
+                    },
+                    {
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "citta": "Phoenix"
+                    },
+                    {
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "citta": "Riyadh"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Dubai",
+                        "passeggeri": 92.3,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ed",
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "continente": "NA",
+                        "stato": "Stati Uniti",
+                        "citta": "Phoenix",
+                        "passeggeri": 52.3,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67f3",
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Jeddah",
+                        "passeggeri": 48.9,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b680b",
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Riyadh",
+                        "passeggeri": 37,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6824",
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Abu Dhabi",
+                        "passeggeri": 28.8,
+                        "corsie": 2
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 1012.7205671999836,
+            "explanation": ""
+        },
+        {
+            "test_id": 9,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "iata",
+                        "nome",
+                        "continente",
+                        "stato",
+                        "citta",
+                        "passeggeri",
+                        "corsie"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "citta": "Abu Dhabi"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "citta": "Jeddah"
+                    },
+                    {
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "citta": "Phoenix"
+                    },
+                    {
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "citta": "Riyadh"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Dubai",
+                        "passeggeri": 92.3,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ed",
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "continente": "NA",
+                        "stato": "Stati Uniti",
+                        "citta": "Phoenix",
+                        "passeggeri": 52.3,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67f3",
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Jeddah",
+                        "passeggeri": 48.9,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b680b",
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Riyadh",
+                        "passeggeri": 37,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6824",
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Abu Dhabi",
+                        "passeggeri": 28.8,
+                        "corsie": 2
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 455.90414979995694,
+            "explanation": ""
+        },
+        {
+            "test_id": 9,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "_id",
+                        "iata",
+                        "nome",
+                        "continente",
+                        "stato",
+                        "citta",
+                        "passeggeri",
+                        "corsie"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "citta": "Abu Dhabi"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "citta": "Jeddah"
+                    },
+                    {
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "citta": "Phoenix"
+                    },
+                    {
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "citta": "Riyadh"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Dubai",
+                        "passeggeri": 92.3,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ed",
+                        "iata": "PHX",
+                        "nome": "Phoenix Sky Harbor International Airport",
+                        "continente": "NA",
+                        "stato": "Stati Uniti",
+                        "citta": "Phoenix",
+                        "passeggeri": 52.3,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67f3",
+                        "iata": "JED",
+                        "nome": "King Abdulaziz International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Jeddah",
+                        "passeggeri": 48.9,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b680b",
+                        "iata": "RUH",
+                        "nome": "King Khalid International Airport",
+                        "continente": "AS",
+                        "stato": "Arabia Saudita",
+                        "citta": "Riyadh",
+                        "passeggeri": 37,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6824",
+                        "iata": "AUH",
+                        "nome": "Zayed International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Abu Dhabi",
+                        "passeggeri": 28.8,
+                        "corsie": 2
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 634.5013534000609,
+            "explanation": ""
+        }
+    ]
+}

@@ -2,6 +2,7 @@ import json
 import time
 import sys
 import os
+import re
 
 from openai import OpenAI
 from mcp import ClientSession, StdioServerParameters
@@ -35,52 +36,112 @@ def mcp_to_openai(tool):
     return{
         "type": "function",
         "function": {
-            "name": tool.name,
+            "name": tool.name, 
             "description": tool.description or "",
             "parameters": tool.input_schema
         }
     }
 
+#----------------------- PARSING DEL RISULTATO DI UN TOOL
+def parse_tool_output(tool_output):
+    """
+    Trasforma l'output testuale dal tool in un oggetto Python. 
+    Se l'output non è JSON valido, lo lascia come stringa.
+    """
+    if not isinstance(tool_output, str):
+        return tool_output
+    try:
+        return json.loads(tool_output)
+    except json.JSONDecodeError:
+        return tool_output
+
+#----------------------- ESTRAZIONE TOOL CALL FINALE
+def parse_final_tool_call(content):
+    """
+    Estrae il numero del tool call indicato dal modello
+    """
+    if not content:
+        raise ValueError("Empty final message")
+    match = re.search(r"FINAL_TOOL_CALL\s*:\s*(\d+)", content, flags=re.IGNORECASE)
+
+    if not match:
+        raise ValueError("Final message does not contain a valid FINAL_TOOL_CALL")
+
+    tool_call_number = int(match.group(1))
+    if tool_call_number <1:
+        raise ValueError("FINAL_TOOL_CALL must be greater than or equal to 1")
+
+    return tool_call_number
+
 #----------------------- SYSTEM PROMPT
 SYSTEM_PROMPT = """
-                Sei un agente intelligente che può interagire con database MongoDB tramite strumenti MCP.
-                Il tuo compito è rispondere alle richieste dell'utente utilizzando esclusivamente i dati realmente presenti nei database MongoDB.
-                Non inventare mai dati, database, collection, campi, relazioni o valori.
-                Agisci in modo autonomo: non chiedere conferma all'utente ed utilizza tutti gli strumenti necessari prima di fornire la risposta finale.
-                
+                Sei un agente intelligente che interagisce con un database MongoDB tramite strumenti MCP.
+                Rispondi alle richieste utilizzando esclusivamente i dati realmente nei database.
+                I nomi di database, collection e campi sono in italiano e sono case-sensitive per cui devono essere usati ESATTAMENTE come restituiti dagli strumenti.
+
                 DATABASE DISPONIBILI:
-                    - DBVOLI: contiene informazioni su aeroporti, compagnie rotte e voli.
-                    - DBMETEO: contiene informazioni sulle stazioni meteorologiche e le previsioni
-                    - DBHOTEL: contiene informazioni sugli hotel e sulle camere.
+                    - DBVOLI: info su aeroporti, compagnie rotte e voli.
+                    - DBMETEO: info stazioni meteorologiche e le previsioni
+                    - DBHOTEL: info su hotel e camere.
 
-                Prima di costruire una query MongoDB assicurati di conoscere il database e la struttura necessaria usando gli strumenti:
-                    - list_collections per identificare le collection presenti nel database;
-                    - describe_collection per verificare campi e tipi dei documenti;
-                    - sample_documents per osservare documenti reali;
-                    - get_distinct_values per verificare i valori effettivamente presenti in un campo;
-                    - find_documents per query semplici tramite find();
-                    - aggregate_documents per query complesse tramite aggregation pipeline.
+                REGOLE:
+                1. NON inventare MAI database, collection, campi, valori o relazioni. Usa solo esattamente nomi e valori restituiti dagli strumenti MCP. 
+
+                2. PRIMA DI COSTRUIRE UNA QUERY:
+                        - list_collections -> conoscere le collection presenti nel database;
+                        - describe_collection -> conoscere i campi e tipi di una collection;
+                        - sample_documents -> verificare la struttura e formato dei documenti;
+                        - get_distinct_values -> verificare i valori reali per un determinato campo.
+                        - find_documents -> query semplici;
+                        - aggregate_documents -> query complesse che richiedono aggregation.
+
+                3. NON ASSUMERE IL VALORE DI UN CAMPO DAL SUO NOME O SIGNIFICATO. 
+                   Se devi filtrare per un valore che non hai osservato, verifica prima il formato dei valori con get_distinct_values o sample_documents.
+
+                4. QUANDO OSSERVI UN VALORE USA ESATTAMENTE QUEL VALORE E QUEL TIPO. NON MODIFICARE INFORMAZIONI GIA VERIFICATE, come tipo o valore di un campo.
+
+                5. NON ASSUMERE MAI COME SONO COLLEGATE DUE COLLECTION. 
+                   Verifica prima i campi di collegamento nei documenti e NON sostituire automaticamente un valore con "_id".
+
+                6. PER find_documents USA SINTASSI STANDARD DEI FILTRI MONGO:
+                        - {"campo": valore}
+                        - {"campo": {"$in": [valore1, valore2]}}
+                        - {"campo": {"$gte": valore, "$lt": valore}}
+                        - {"$or": [{"campo": valore1}, {"campo": valore2}]}
+                    NON INVENTARE MAI operatori come "and", "or", "eq", "operator". QUANDO PIU VALORI APPARTENGONO AD UNO STESSO CAMPO USA "$in";
+
+                7. Per i campi datetime usa ESCLUSIVAMENTE stringhe nel formato: "YYYY-MM-DDTHH:MM:SS"
+
+                8. NON USARE MAI IL CAMPO "_id" creato automaticamente da MongoDB PER I FILTRI. USA INVECE I NOMI O I CODICI IDENTIFICATIVI COME FILTRI
+
+                9. QUANDO UNA QUERY RESTITUISCE ZERO RISULTATI, NON SIGNIFICA CHE I DATI NON ESISTANO. FAI SEMPRE i seguenti controlli:
+                        - USA SEMPRE get_distinct_values o sample_documents per comprendere il formato dei valori E describe_collection per capirne il tipo.
+                        - In caso di aggregazione CONTROLLA SEMPRE la correttezza della pipeline e di CIASCUN operatore.
+                        - CONTROLLA SEMPRE anche la correttezza delle relazioni. 
+                        - CONTROLLA SEMPRE l'uso dei CAMPI CORRETTI per ciascuna collection verificando con describe_collection quali campi possiede la collection su cui fai la query.
+                    NON FORNIRE MAI COME RISPOSTA FINALE UN RISULTATO VUOTO SE NON HAI PRIMA FATTO CIASCUNO DI QUESTI CONTROLLI.
+
+                10. QUANDO UN TOOL DA ERRORE, NON SIGNIFICA "NESSUN RISULTATO".
+                    VERIFICA SEMPRE SE I NOMI USATI SIANO CORRETTI.
+
+                11. Quando usi $lookup, il campo "as" contiene un array. Per accedere ad esso devi fare $unwind sul CAMPO AS, e solo dopo potrai accedere ai suoi campi.
+                    (es. "$unwind":"$X" e NON  "$unwind":"$X.y").
+
+                12. COSTRUISCI QUERY SEMPLICI.
+                    Non usare $group, $or, $and, $lookup o altri operatori se non sono necessari.
+                    Preferisci find_documents se una richiesta può essere risolta con quello.
+                    Se serve un collegamento tra collection, è preferito usare $lookup + $unwind + $project.
+
+                13. DELEGA SEMPRE AL DATABASE LE OPERAZIONI DI CALCOLO, ORDINAMENTO, FILTRAGGIO E SELEZIONE DEL RISULTATO FINALE.
+                    NON USARE MAI IL REASONING per analizzare manualmente liste di risultati. USA SEMPRE $sort + $limit per trovare MINIMI O MASSIMI.
                 
-                Non assumere mai l'esistenza di un database, collection o campo.
-                Utilizza esclusivamente i nomi restituiti dagli strumenti MCP.
-                Non tradurre, abbreviare, normalizzare o reinterpretare autonomamente i nomi delle collection.
-                
-                Se una query restituisce zero documenti, non concludere immediatamente che la risposta sia vuota.
-                Prima verifica:
-                    - database utilizzato;
-                    - collection utilizzata;
-                    - nomi dei campi;
-                    - valori utilizzati nei filtri;
-                    - date;
-                    - condizioni $match;
-                    - relazioni tra collection;
-                    - eventuali $lookup;
-                    - struttura dei documenti.
-                Se necessario, correggi la query ed eseguila nuovamente.
-                Se una query restituisce risultati inattesi, analizzali e verifica lo schema e i valori prima di concludere.
-                Non dichiarare che una risposta non è presente nel database finché non hai effettuato le verifiche necessarie.
+                14. Il tool get_distinct_values va USATO SOLO su campi CATEGORIALI per capire il formato dei valori. NON usarlo per campi che contengono valori univoci come nomi, id, o valori numerici.
+
+                15. I risultati dei tool vengono numerati come TOOL_CALL_1, TOOL_CALL_2 ecc..
+                    Una volta terminato il ragionamento, devi indicare quale tool call contiene il risultato finale per rispondere alla domanda ESCLUSIVAMENTE con:
+                        FINAL_TOOL_CALL: N
+                    Dove N è il numero della tool call che contiene il risultato finale.
                 """
-
 #----------------------- AGENTE
 class Agent:
     async def run(self, question):
@@ -118,7 +179,7 @@ class Agent:
                                 "answer": None,
                                 "agent_completion": False,
                                 "error": ("Maximum number of tool calls exceede"),
-                                "latency_total": ("total_end - total_start"),
+                                "latency_total": (total_end - total_start),
                                 "tool_calls_count": tool_calls_count,
                                 "tool_calls": tool_calls_log
                             }
@@ -132,75 +193,162 @@ class Agent:
                             temperature = 0.7
                         )
                         message = completion.choices[0].message
+                        finish_reason = completion.choices[0].finish_reason
+
+                        print("\n========== MODEL RESPONSE ==========", file=sys.stderr)
+                        print("CONTENT:", repr(message.content), file=sys.stderr)
+                        print("TOOL CALLS:", message.tool_calls, file=sys.stderr)
+                        print("FINISH REASON:", finish_reason, file=sys.stderr)
+                        print("====================================\n", file=sys.stderr)
 
                         #risposta finale
                         if not message.tool_calls:
                             total_end = time.perf_counter()
-                            answer = message.content or ""
-                            agent_completion = (answer.strip()!="")
-                            return{
+                            raw_final_message = message.content or ""
+                            
+                            if finish_reason == "length":
+                                return{
+                                    "question": question,
+                                    "answer": None,
+                                    "agent_completion": False,
+                                    "error": "Final response truncated",
+                                    "finish_reason": finish_reason,
+                                    "raw_final_message": raw_final_message,
+                                    "latency_total": total_end-total_start,
+                                    "tool_calls_count": tool_calls_count,
+                                    "tool_calls": tool_calls_log
+                                }
+                            try:
+                                final_tool_call_number = (parse_final_tool_call(raw_final_message))
+                            except ValueError as e:      
+                                return{
+                                    "question": question,
+                                    "answer": None,
+                                    "agent_completion": False,
+                                    "error": str(e),
+                                    "finish_reason": finish_reason,
+                                    "raw_final_message": raw_final_message,
+                                    "latency_total": (total_end - total_start),
+                                    "tool_calls_count": tool_calls_count,
+                                    "tool_calls": tool_calls_log
+                                }
+
+                            if(final_tool_call_number>len(tool_calls_log)):
+                                return{
+                                    "question": question,
+                                    "answer": None,
+                                    "agent_completion": False,
+                                    "error":("FINAL_TOOL_CALL refers to a non existing tool call"),
+                                    "finish_reason": finish_reason,
+                                    "final_tool_call":(final_tool_call_number),
+                                    "raw_final_message": raw_final_message,
+                                    "latency_total":(tool_end-tool_start),
+                                    "tool_calls_count":tool_calls_count,
+                                    "tool_calls": tool_calls_log
+                                }
+                            
+                            # RECUPERO RISULTATO FINALE
+                            selected_tool = tool_calls_log[final_tool_call_number - 1]
+                            final_output = selected_tool["output"]
+                            
+                            # RISULTATO AGENTE
+
+                            return {
                                 "question": question,
-                                "answer": answer,
-                                "agent_completion": agent_completion,
-                                "latency_total": (total_end - total_start),
+                                "answer": final_output,
+                                "agent_completion": True,
+                                "finish_reason": finish_reason,
+                                "final_tool_call": (
+                                    final_tool_call_number
+                                ),
+                                "final_message": raw_final_message,
+                                "latency_total": (
+                                    total_end - total_start
+                                ),
                                 "tool_calls_count": tool_calls_count,
                                 "tool_calls": tool_calls_log
                             }
+                        messages.append(message)#aggiunta messaggio
 
-                        #aggiunta messaggio del modello
-                        messages.append(message)
-
-                        #esecuzione tool
+                        # ESECUZIONE TOOL
                         for tool_call in message.tool_calls:
                             tool_name = tool_call.function.name
-                            try:
+                            try: # PARSING ARGOMENTI TOOL
                                 tool_arguments = json.loads(tool_call.function.arguments)
                             except json.JSONDecodeError:
                                 total_end = time.perf_counter()
-                                return{
+                                return {
                                     "question": question,
                                     "answer": None,
                                     "agent_completion": False,
                                     "error": "Invalid tool arguments",
                                     "latency_total": (total_end - total_start),
-                                    "total_calls_count": (tool_calls_count),
+                                    "tool_calls_count": tool_calls_count,
                                     "tool_calls": tool_calls_log
                                 }
+                            
+                            current_tool_number = tool_calls_count + 1 # NUMERO TOOL CALL
 
-                            #calcolo latenza tool
+                            # ESECUZIONE TOOL
                             tool_start = time.perf_counter()
-                            result = await mcp_client.call_tool(tool_name, arguments = tool_arguments)
+                            result = await mcp_client.call_tool(tool_name, arguments=tool_arguments)
                             tool_end = time.perf_counter()
                             tool_latency = (tool_end - tool_start)
                             tool_calls_count += 1
 
-                            #output del tool
+                            # ESTRAZIONE OUTPUT TOOL
                             tool_content = []
                             for content in result.content:
+
                                 if hasattr(content, "text"):
                                     tool_content.append(content.text)
                                 else:
                                     tool_content.append(str(content))
+
                             tool_output = "\n".join(tool_content)
 
-                            #log
+                            # PARSING OUTPUT TOOL
+                            parsed_tool_output = parse_tool_output(tool_output)
+                            
+                            # LOG
                             tool_calls_log.append({
-                                "tool": tool_name,
-                                "arguments": tool_arguments,
-                                "output": tool_output,
-                                "latency": tool_latency
+                                "tool_call_number":
+                                    current_tool_number,
+                                "tool":
+                                    tool_name,
+                                "arguments":
+                                    tool_arguments,
+                                "output":
+                                    parsed_tool_output,
+                                "raw_output":
+                                    tool_output,
+                                "latency":
+                                    tool_latency
                             })
 
-                            #risposta del tool al modello
-                            messages.append({"role":"tool",
-                                             "tool_call_id": tool_call.id,
-                                             "content": tool_output})
-                        
+                            # OUTPUT VISIBILE AL MODELLO
+                            tool_message_content = (
+                                f"TOOL_CALL_{current_tool_number}\n"
+                                f"{tool_output}"
+                            )
+
+                            messages.append({
+                                "role": "tool",
+                                "tool_call_id": tool_call.id,
+                                "content": tool_message_content
+                            })
+
+        # ============================================================
+        # ERRORE GENERALE
+        # ============================================================
+
         except Exception as e:
+
             import traceback
-            print("\n======ERRORE AGENTE MONGO======", file = sys.stderr)
+
+            print("\n====== ERRORE AGENTE MONGO ======", file=sys.stderr)
             traceback.print_exc()
-            print("========================\n", file = sys.stderr)
+            print("=================================\n", file=sys.stderr)
             return {
                 "question": question,
                 "answer": None,
@@ -211,19 +359,18 @@ class Agent:
                 "tool_calls": tool_calls_log
             }
 
+# TEST
 if __name__ == "__main__":
+
     import asyncio
-
     agent = Agent()
-
     question = "Quanti aeroporti ci sono in Italia?"
-
     result = asyncio.run(agent.run(question))
-
     print("\n========== RISULTATO ==========")
     print("Domanda:", result["question"])
     print("Risposta:", result["answer"])
     print("Completato:", result["agent_completion"])
     print("Tool calls:", result["tool_calls_count"])
+    print("Final tool call:", result.get("final_tool_call"))
+    print("Final message:", result.get("final_message"))
     print("Latenza:", result["latency_total"])
-

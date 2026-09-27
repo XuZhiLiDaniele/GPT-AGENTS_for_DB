@@ -69,7 +69,19 @@ def get_distinct_values(database: str, collection_name: str, field_name: str) ->
 @mcp.tool()
 def find_documents(database: str, collection_name: str, filter: dict | None = None, projection: dict | None = None) -> dict:
     """
-    Esegue una query MongoDB find() sulla collezione specificata
+    Esegue db[collection_name].find(filter, projection).
+    IMPORTANTE: 'filter' deve essere un normale filtro MongoDB. Gli operatori vanno usati direttamente come CHIAVI.
+    Esempio corretto:
+    {
+        "temperatura": {"$lt": 17},
+        "data": {
+            "$gte": "2026-08-17T00:00:00Z",
+            "$lt": "2026-08-18T00:00:00Z"
+        }
+    }
+    Non usare strutture come: {"label": "$lt", "value": 17}
+    Non usare {"$date": "..."} 
+    (le date devono essere espresse come stringhe ISO 8601)
     """
     if database not in dbs:
         return{"error": f"Database '{database}' non disponibile"}

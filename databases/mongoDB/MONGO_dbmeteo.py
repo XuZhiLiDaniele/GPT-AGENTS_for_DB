@@ -10,13 +10,13 @@ from pymongo import MongoClient
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 #SQL_FILE = (BASE_DIR / "databases" / "mysql" / "large" / "DB_METEO_l.sql")
-#SQL_FILE = (BASE_DIR / "databases" / "mysql" / "medium" / "DB_METEO.sql")
-SQL_FILE = (BASE_DIR / "databases" / "mysql" / "small" / "DB_METEO_s.sql")
+SQL_FILE = (BASE_DIR / "databases" / "mysql" / "medium" / "DB_METEO.sql")
+#SQL_FILE = (BASE_DIR / "databases" / "mysql" / "small" / "DB_METEO_s.sql")
 
 MONGO_URI = "mongodb://localhost:27017/"
 #DB_NAME = "DBMETEO_l"
-#DB_NAME = "DBMETEO"
-DB_NAME = "DBMETEO_s"
+DB_NAME = "DBMETEO"
+#DB_NAME = "DBMETEO_s"
 
 
 # ============================================================
