@@ -2,273 +2,1036 @@
     "num_runs": 2,
     "results": [
         {
-            "id": 1,
-            "question": "Come si chiama e quanti passeggeri ha l'aeroporto con meno passeggeri?",
+            "id": 3,
+            "question": "Quali sono i nomi, le città ed i codici degli aeroporti che sono destinazioni di rotte che partono da aeroporti in Oceania?",
             "ground_truth": null,
             "runs": [
                 {
                     "run": 1,
-                    "answer": null,
-                    "agent_completion": false,
-                    "latency_total": 396.8060372999171,
-                    "tool_calls_count": 18,
+                    "answer": [
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67cd",
+                            "iata": "DXB",
+                            "nome": "Dubai International Airport",
+                            "citta": "Dubai"
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67ea",
+                            "iata": "HKG",
+                            "nome": "Hong Kong International Airport",
+                            "citta": "Hong Kong"
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67cf",
+                            "iata": "HND",
+                            "nome": "Tokyo Haneda International Airport",
+                            "citta": "Tokyo"
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67e5",
+                            "iata": "KUL",
+                            "nome": "Kuala Lumpur International Airport",
+                            "citta": "Kuala Lumpur"
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b680d",
+                            "iata": "MEL",
+                            "nome": "Melbourne Airport",
+                            "citta": "Melbourne"
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67da",
+                            "iata": "SIN",
+                            "nome": "Singapore Changi Airport",
+                            "citta": "Singapore"
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b6805",
+                            "iata": "SYD",
+                            "nome": "Sydney Kingsford Smith International Airport",
+                            "citta": "Sydney"
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67e9",
+                            "iata": "TFU",
+                            "nome": "Chengdu Tianfu International Airport",
+                            "citta": "Chengdu"
+                        }
+                    ],
+                    "agent_completion": true,
+                    "latency_total": 611.8007056999486,
+                    "tool_calls_count": 8,
                     "tool_calls": [
                         {
                             "tool_call_number": 1,
-                            "tool": "list_collections",
-                            "arguments": {
-                                "database": "DBVOL"
-                            },
+                            "tool": "list_databases",
+                            "arguments": {},
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "databases": [
+                                    "DBVOLI",
+                                    "DBMETEO",
+                                    "DBHOTEL"
+                                ]
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.003980599925853312
+                            "raw_output": "{\n  \"success\": true,\n  \"databases\": [\n    \"DBVOLI\",\n    \"DBMETEO\",\n    \"DBHOTEL\"\n  ]\n}",
+                            "latency": 0.01109549985267222
                         },
                         {
                             "tool_call_number": 2,
                             "tool": "list_collections",
                             "arguments": {
-                                "database": "DBVOL"
+                                "database": "DBVOLI"
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collections": [
+                                    "aeroporto",
+                                    "compagnia",
+                                    "rotta",
+                                    "volo"
+                                ]
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.003458700026385486
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collections\": [\n    \"aeroporto\",\n    \"compagnia\",\n    \"rotta\",\n    \"volo\"\n  ]\n}",
+                            "latency": 0.0703822998329997
                         },
                         {
                             "tool_call_number": 3,
-                            "tool": "list_collections",
+                            "tool": "describe_collection",
                             "arguments": {
-                                "database": "DBVOL"
+                                "collection_name": "rotta",
+                                "database": "DBVOLI"
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "rotta",
+                                "fields": [
+                                    {
+                                        "name": "_id",
+                                        "types": [
+                                            "ObjectId"
+                                        ]
+                                    },
+                                    {
+                                        "name": "compagnia",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "iata_arrivo",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "iata_partenza",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "id",
+                                        "types": [
+                                            "int"
+                                        ]
+                                    }
+                                ],
+                                "sample_size": 20
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.003490299917757511
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"rotta\",\n  \"fields\": [\n    {\n      \"name\": \"_id\",\n      \"types\": [\n        \"ObjectId\"\n      ]\n    },\n    {\n      \"name\": \"compagnia\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"iata_arrivo\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"iata_partenza\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"id\",\n      \"types\": [\n        \"int\"\n      ]\n    }\n  ],\n  \"sample_size\": 20\n}",
+                            "latency": 0.051970799919217825
                         },
                         {
                             "tool_call_number": 4,
-                            "tool": "list_collections",
+                            "tool": "describe_collection",
                             "arguments": {
-                                "database": "DBVOL"
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI"
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "fields": [
+                                    {
+                                        "name": "_id",
+                                        "types": [
+                                            "ObjectId"
+                                        ]
+                                    },
+                                    {
+                                        "name": "citta",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "continente",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "corsie",
+                                        "types": [
+                                            "int"
+                                        ]
+                                    },
+                                    {
+                                        "name": "iata",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "nome",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "passeggeri",
+                                        "types": [
+                                            "float",
+                                            "int"
+                                        ]
+                                    },
+                                    {
+                                        "name": "stato",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    }
+                                ],
+                                "sample_size": 20
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.0034726999001577497
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"fields\": [\n    {\n      \"name\": \"_id\",\n      \"types\": [\n        \"ObjectId\"\n      ]\n    },\n    {\n      \"name\": \"citta\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"continente\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"corsie\",\n      \"types\": [\n        \"int\"\n      ]\n    },\n    {\n      \"name\": \"iata\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"nome\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"passeggeri\",\n      \"types\": [\n        \"float\",\n        \"int\"\n      ]\n    },\n    {\n      \"name\": \"stato\",\n      \"types\": [\n        \"str\"\n      ]\n    }\n  ],\n  \"sample_size\": 20\n}",
+                            "latency": 0.03905939985997975
                         },
                         {
                             "tool_call_number": 5,
-                            "tool": "list_collections",
+                            "tool": "get_distinct_values",
                             "arguments": {
-                                "database": "DBVOL"
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI",
+                                "field_name": "continente"
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "field": "continente",
+                                "values": [
+                                    "AF",
+                                    "AS",
+                                    "EU",
+                                    "NA",
+                                    "OC",
+                                    "SA"
+                                ]
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.0030740000074729323
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"field\": \"continente\",\n  \"values\": [\n    \"AF\",\n    \"AS\",\n    \"EU\",\n    \"NA\",\n    \"OC\",\n    \"SA\"\n  ]\n}",
+                            "latency": 0.04363830015063286
                         },
                         {
                             "tool_call_number": 6,
-                            "tool": "list_collections",
+                            "tool": "find_documents",
                             "arguments": {
-                                "database": "DBVOL"
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI",
+                                "filter": {
+                                    "continente": "OC"
+                                }
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "filter": {
+                                    "continente": "OC"
+                                },
+                                "row_count": 2,
+                                "documents": [
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                                        "iata": "SYD",
+                                        "nome": "Sydney Kingsford Smith International Airport",
+                                        "continente": "OC",
+                                        "stato": "Australia",
+                                        "citta": "Sydney",
+                                        "passeggeri": 41.4,
+                                        "corsie": 3
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                                        "iata": "MEL",
+                                        "nome": "Melbourne Airport",
+                                        "continente": "OC",
+                                        "stato": "Australia",
+                                        "citta": "Melbourne",
+                                        "passeggeri": 35.1,
+                                        "corsie": 2
+                                    }
+                                ]
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.004107999964617193
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"filter\": {\n    \"continente\": \"OC\"\n  },\n  \"row_count\": 2,\n  \"documents\": [\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b6805\",\n      \"iata\": \"SYD\",\n      \"nome\": \"Sydney Kingsford Smith International Airport\",\n      \"continente\": \"OC\",\n      \"stato\": \"Australia\",\n      \"citta\": \"Sydney\",\n      \"passeggeri\": 41.4,\n      \"corsie\": 3\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b680d\",\n      \"iata\": \"MEL\",\n      \"nome\": \"Melbourne Airport\",\n      \"continente\": \"OC\",\n      \"stato\": \"Australia\",\n      \"citta\": \"Melbourne\",\n      \"passeggeri\": 35.1,\n      \"corsie\": 2\n    }\n  ]\n}",
+                            "latency": 0.07315260008908808
                         },
                         {
                             "tool_call_number": 7,
-                            "tool": "list_collections",
+                            "tool": "find_documents",
                             "arguments": {
-                                "database": "DBVOL"
+                                "collection_name": "rotta",
+                                "database": "DBVOLI",
+                                "filter": {
+                                    "iata_partenza": {
+                                        "$in": [
+                                            "SYD",
+                                            "MEL"
+                                        ]
+                                    }
+                                }
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "rotta",
+                                "filter": {
+                                    "iata_partenza": {
+                                        "$in": [
+                                            "SYD",
+                                            "MEL"
+                                        ]
+                                    }
+                                },
+                                "row_count": 10,
+                                "documents": [
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b0",
+                                        "id": 326,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "SYD",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b1",
+                                        "id": 327,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "HKG",
+                                        "compagnia": "Cathay Pacific"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b2",
+                                        "id": 328,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "DXB",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b3",
+                                        "id": 329,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "SIN",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b4",
+                                        "id": 330,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "KUL",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b6988",
+                                        "id": 286,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "MEL",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b6989",
+                                        "id": 287,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "DXB",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b698a",
+                                        "id": 288,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "KUL",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b698b",
+                                        "id": 289,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "HND",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b698c",
+                                        "id": 290,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "TFU",
+                                        "compagnia": "Qantas"
+                                    }
+                                ]
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.00376909994520247
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"rotta\",\n  \"filter\": {\n    \"iata_partenza\": {\n      \"$in\": [\n        \"SYD\",\n        \"MEL\"\n      ]\n    }\n  },\n  \"row_count\": 10,\n  \"documents\": [\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b0\",\n      \"id\": 326,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"SYD\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b1\",\n      \"id\": 327,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"HKG\",\n      \"compagnia\": \"Cathay Pacific\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b2\",\n      \"id\": 328,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"DXB\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b3\",\n      \"id\": 329,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"SIN\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b4\",\n      \"id\": 330,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"KUL\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b6988\",\n      \"id\": 286,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"MEL\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b6989\",\n      \"id\": 287,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"DXB\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b698a\",\n      \"id\": 288,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"KUL\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b698b\",\n      \"id\": 289,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"HND\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b698c\",\n      \"id\": 290,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"TFU\",\n      \"compagnia\": \"Qantas\"\n    }\n  ]\n}",
+                            "latency": 0.02479439997114241
                         },
                         {
                             "tool_call_number": 8,
-                            "tool": "list_collections",
+                            "tool": "find_documents",
                             "arguments": {
-                                "database": "DBVOL"
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI",
+                                "filter": {
+                                    "iata": {
+                                        "$in": [
+                                            "SYD",
+                                            "HKG",
+                                            "DXB",
+                                            "SIN",
+                                            "KUL",
+                                            "MEL",
+                                            "HND",
+                                            "TFU"
+                                        ]
+                                    }
+                                },
+                                "projection": {
+                                    "nome": 1,
+                                    "citta": 1,
+                                    "iata": 1
+                                }
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "filter": {
+                                    "iata": {
+                                        "$in": [
+                                            "SYD",
+                                            "HKG",
+                                            "DXB",
+                                            "SIN",
+                                            "KUL",
+                                            "MEL",
+                                            "HND",
+                                            "TFU"
+                                        ]
+                                    }
+                                },
+                                "row_count": 8,
+                                "documents": [
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                                        "iata": "DXB",
+                                        "nome": "Dubai International Airport",
+                                        "citta": "Dubai"
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67ea",
+                                        "iata": "HKG",
+                                        "nome": "Hong Kong International Airport",
+                                        "citta": "Hong Kong"
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67cf",
+                                        "iata": "HND",
+                                        "nome": "Tokyo Haneda International Airport",
+                                        "citta": "Tokyo"
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67e5",
+                                        "iata": "KUL",
+                                        "nome": "Kuala Lumpur International Airport",
+                                        "citta": "Kuala Lumpur"
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                                        "iata": "MEL",
+                                        "nome": "Melbourne Airport",
+                                        "citta": "Melbourne"
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67da",
+                                        "iata": "SIN",
+                                        "nome": "Singapore Changi Airport",
+                                        "citta": "Singapore"
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                                        "iata": "SYD",
+                                        "nome": "Sydney Kingsford Smith International Airport",
+                                        "citta": "Sydney"
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67e9",
+                                        "iata": "TFU",
+                                        "nome": "Chengdu Tianfu International Airport",
+                                        "citta": "Chengdu"
+                                    }
+                                ]
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.0037420999724417925
-                        },
-                        {
-                            "tool_call_number": 9,
-                            "tool": "list_collections",
-                            "arguments": {
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.004006700008176267
-                        },
-                        {
-                            "tool_call_number": 10,
-                            "tool": "list_collections",
-                            "arguments": {
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.003171399934217334
-                        },
-                        {
-                            "tool_call_number": 11,
-                            "tool": "list_collections",
-                            "arguments": {
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.0047775000566616654
-                        },
-                        {
-                            "tool_call_number": 12,
-                            "tool": "list_collections",
-                            "arguments": {
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.002879299921914935
-                        },
-                        {
-                            "tool_call_number": 13,
-                            "tool": "describe_collection",
-                            "arguments": {
-                                "database": "DBVOL",
-                                "collection_name": "aeroporti"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.005299400072544813
-                        },
-                        {
-                            "tool_call_number": 14,
-                            "tool": "describe_collection",
-                            "arguments": {
-                                "collection_name": "aeroporti",
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.003346799989230931
-                        },
-                        {
-                            "tool_call_number": 15,
-                            "tool": "describe_collection",
-                            "arguments": {
-                                "collection_name": "aeroporti",
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.0028285000007599592
-                        },
-                        {
-                            "tool_call_number": 16,
-                            "tool": "describe_collection",
-                            "arguments": {
-                                "collection_name": "aeroporti",
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.004432799993082881
-                        },
-                        {
-                            "tool_call_number": 17,
-                            "tool": "describe_collection",
-                            "arguments": {
-                                "collection_name": "aeroporti",
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.006849600002169609
-                        },
-                        {
-                            "tool_call_number": 18,
-                            "tool": "describe_collection",
-                            "arguments": {
-                                "collection_name": "aeroporti",
-                                "database": "DBVOL"
-                            },
-                            "output": {
-                                "error": "Database 'DBVOL' non disponibile"
-                            },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.004185199970379472
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"filter\": {\n    \"iata\": {\n      \"$in\": [\n        \"SYD\",\n        \"HKG\",\n        \"DXB\",\n        \"SIN\",\n        \"KUL\",\n        \"MEL\",\n        \"HND\",\n        \"TFU\"\n      ]\n    }\n  },\n  \"row_count\": 8,\n  \"documents\": [\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67cd\",\n      \"iata\": \"DXB\",\n      \"nome\": \"Dubai International Airport\",\n      \"citta\": \"Dubai\"\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67ea\",\n      \"iata\": \"HKG\",\n      \"nome\": \"Hong Kong International Airport\",\n      \"citta\": \"Hong Kong\"\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67cf\",\n      \"iata\": \"HND\",\n      \"nome\": \"Tokyo Haneda International Airport\",\n      \"citta\": \"Tokyo\"\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67e5\",\n      \"iata\": \"KUL\",\n      \"nome\": \"Kuala Lumpur International Airport\",\n      \"citta\": \"Kuala Lumpur\"\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b680d\",\n      \"iata\": \"MEL\",\n      \"nome\": \"Melbourne Airport\",\n      \"citta\": \"Melbourne\"\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67da\",\n      \"iata\": \"SIN\",\n      \"nome\": \"Singapore Changi Airport\",\n      \"citta\": \"Singapore\"\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b6805\",\n      \"iata\": \"SYD\",\n      \"nome\": \"Sydney Kingsford Smith International Airport\",\n      \"citta\": \"Sydney\"\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67e9\",\n      \"iata\": \"TFU\",\n      \"nome\": \"Chengdu Tianfu International Airport\",\n      \"citta\": \"Chengdu\"\n    }\n  ]\n}",
+                            "latency": 0.036117699928581715
                         }
-                    ],
-                    "error": "ExceptionGroup('unhandled errors in a TaskGroup', [ExceptionGroup('unhandled errors in a TaskGroup', [TypeError(\"'ChatCompletionMessageFunctionToolCall' object is not subscriptable\")])])"
+                    ]
                 },
                 {
                     "run": 2,
-                    "answer": null,
-                    "agent_completion": false,
-                    "latency_total": 68.89166939991992,
-                    "tool_calls_count": 1,
+                    "answer": [
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67cd",
+                            "iata": "DXB",
+                            "nome": "Dubai International Airport",
+                            "continente": "AS",
+                            "stato": "Emirati Arabi Uniti",
+                            "citta": "Dubai",
+                            "passeggeri": 92.3,
+                            "corsie": 2
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67ea",
+                            "iata": "HKG",
+                            "nome": "Hong Kong International Airport",
+                            "continente": "AS",
+                            "stato": "Hong Kong",
+                            "citta": "Hong Kong",
+                            "passeggeri": 53.1,
+                            "corsie": 3
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67cf",
+                            "iata": "HND",
+                            "nome": "Tokyo Haneda International Airport",
+                            "continente": "AS",
+                            "stato": "Giappone",
+                            "citta": "Tokyo",
+                            "passeggeri": 85,
+                            "corsie": 4
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67e5",
+                            "iata": "KUL",
+                            "nome": "Kuala Lumpur International Airport",
+                            "continente": "AS",
+                            "stato": "Malesia",
+                            "citta": "Kuala Lumpur",
+                            "passeggeri": 57.1,
+                            "corsie": 3
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b680d",
+                            "iata": "MEL",
+                            "nome": "Melbourne Airport",
+                            "continente": "OC",
+                            "stato": "Australia",
+                            "citta": "Melbourne",
+                            "passeggeri": 35.1,
+                            "corsie": 2
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67da",
+                            "iata": "SIN",
+                            "nome": "Singapore Changi Airport",
+                            "continente": "AS",
+                            "stato": "Singapore",
+                            "citta": "Singapore",
+                            "passeggeri": 67.7,
+                            "corsie": 2
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b6805",
+                            "iata": "SYD",
+                            "nome": "Sydney Kingsford Smith International Airport",
+                            "continente": "OC",
+                            "stato": "Australia",
+                            "citta": "Sydney",
+                            "passeggeri": 41.4,
+                            "corsie": 3
+                        },
+                        {
+                            "_id": "6ab563c8d7d6cc2ec70b67e9",
+                            "iata": "TFU",
+                            "nome": "Chengdu Tianfu International Airport",
+                            "continente": "AS",
+                            "stato": "Cina",
+                            "citta": "Chengdu",
+                            "passeggeri": 54.9,
+                            "corsie": 3
+                        }
+                    ],
+                    "agent_completion": true,
+                    "latency_total": 605.3826580999885,
+                    "tool_calls_count": 8,
                     "tool_calls": [
                         {
                             "tool_call_number": 1,
+                            "tool": "list_databases",
+                            "arguments": {},
+                            "output": {
+                                "success": true,
+                                "databases": [
+                                    "DBVOLI",
+                                    "DBMETEO",
+                                    "DBHOTEL"
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"databases\": [\n    \"DBVOLI\",\n    \"DBMETEO\",\n    \"DBHOTEL\"\n  ]\n}",
+                            "latency": 0.004551800200715661
+                        },
+                        {
+                            "tool_call_number": 2,
                             "tool": "list_collections",
                             "arguments": {
-                                "database": "DBVOL"
+                                "database": "DBVOLI"
                             },
                             "output": {
-                                "error": "Database 'DBVOL' non disponibile"
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collections": [
+                                    "aeroporto",
+                                    "compagnia",
+                                    "rotta",
+                                    "volo"
+                                ]
                             },
-                            "raw_output": "{\n  \"error\": \"Database 'DBVOL' non disponibile\"\n}",
-                            "latency": 0.26777499995660037
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collections\": [\n    \"aeroporto\",\n    \"compagnia\",\n    \"rotta\",\n    \"volo\"\n  ]\n}",
+                            "latency": 0.08064289996400476
+                        },
+                        {
+                            "tool_call_number": 3,
+                            "tool": "describe_collection",
+                            "arguments": {
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "fields": [
+                                    {
+                                        "name": "_id",
+                                        "types": [
+                                            "ObjectId"
+                                        ]
+                                    },
+                                    {
+                                        "name": "citta",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "continente",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "corsie",
+                                        "types": [
+                                            "int"
+                                        ]
+                                    },
+                                    {
+                                        "name": "iata",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "nome",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "passeggeri",
+                                        "types": [
+                                            "float",
+                                            "int"
+                                        ]
+                                    },
+                                    {
+                                        "name": "stato",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    }
+                                ],
+                                "sample_size": 20
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"fields\": [\n    {\n      \"name\": \"_id\",\n      \"types\": [\n        \"ObjectId\"\n      ]\n    },\n    {\n      \"name\": \"citta\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"continente\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"corsie\",\n      \"types\": [\n        \"int\"\n      ]\n    },\n    {\n      \"name\": \"iata\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"nome\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"passeggeri\",\n      \"types\": [\n        \"float\",\n        \"int\"\n      ]\n    },\n    {\n      \"name\": \"stato\",\n      \"types\": [\n        \"str\"\n      ]\n    }\n  ],\n  \"sample_size\": 20\n}",
+                            "latency": 0.024580500088632107
+                        },
+                        {
+                            "tool_call_number": 4,
+                            "tool": "describe_collection",
+                            "arguments": {
+                                "collection_name": "rotta",
+                                "database": "DBVOLI"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "rotta",
+                                "fields": [
+                                    {
+                                        "name": "_id",
+                                        "types": [
+                                            "ObjectId"
+                                        ]
+                                    },
+                                    {
+                                        "name": "compagnia",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "iata_arrivo",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "iata_partenza",
+                                        "types": [
+                                            "str"
+                                        ]
+                                    },
+                                    {
+                                        "name": "id",
+                                        "types": [
+                                            "int"
+                                        ]
+                                    }
+                                ],
+                                "sample_size": 20
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"rotta\",\n  \"fields\": [\n    {\n      \"name\": \"_id\",\n      \"types\": [\n        \"ObjectId\"\n      ]\n    },\n    {\n      \"name\": \"compagnia\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"iata_arrivo\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"iata_partenza\",\n      \"types\": [\n        \"str\"\n      ]\n    },\n    {\n      \"name\": \"id\",\n      \"types\": [\n        \"int\"\n      ]\n    }\n  ],\n  \"sample_size\": 20\n}",
+                            "latency": 0.04210600000806153
+                        },
+                        {
+                            "tool_call_number": 5,
+                            "tool": "get_distinct_values",
+                            "arguments": {
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI",
+                                "field_name": "continente"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "field": "continente",
+                                "values": [
+                                    "AF",
+                                    "AS",
+                                    "EU",
+                                    "NA",
+                                    "OC",
+                                    "SA"
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"field\": \"continente\",\n  \"values\": [\n    \"AF\",\n    \"AS\",\n    \"EU\",\n    \"NA\",\n    \"OC\",\n    \"SA\"\n  ]\n}",
+                            "latency": 0.01958199986256659
+                        },
+                        {
+                            "tool_call_number": 6,
+                            "tool": "find_documents",
+                            "arguments": {
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI",
+                                "filter": {
+                                    "continente": "OC"
+                                }
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "filter": {
+                                    "continente": "OC"
+                                },
+                                "row_count": 2,
+                                "documents": [
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                                        "iata": "SYD",
+                                        "nome": "Sydney Kingsford Smith International Airport",
+                                        "continente": "OC",
+                                        "stato": "Australia",
+                                        "citta": "Sydney",
+                                        "passeggeri": 41.4,
+                                        "corsie": 3
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                                        "iata": "MEL",
+                                        "nome": "Melbourne Airport",
+                                        "continente": "OC",
+                                        "stato": "Australia",
+                                        "citta": "Melbourne",
+                                        "passeggeri": 35.1,
+                                        "corsie": 2
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"filter\": {\n    \"continente\": \"OC\"\n  },\n  \"row_count\": 2,\n  \"documents\": [\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b6805\",\n      \"iata\": \"SYD\",\n      \"nome\": \"Sydney Kingsford Smith International Airport\",\n      \"continente\": \"OC\",\n      \"stato\": \"Australia\",\n      \"citta\": \"Sydney\",\n      \"passeggeri\": 41.4,\n      \"corsie\": 3\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b680d\",\n      \"iata\": \"MEL\",\n      \"nome\": \"Melbourne Airport\",\n      \"continente\": \"OC\",\n      \"stato\": \"Australia\",\n      \"citta\": \"Melbourne\",\n      \"passeggeri\": 35.1,\n      \"corsie\": 2\n    }\n  ]\n}",
+                            "latency": 0.027797500137239695
+                        },
+                        {
+                            "tool_call_number": 7,
+                            "tool": "find_documents",
+                            "arguments": {
+                                "collection_name": "rotta",
+                                "database": "DBVOLI",
+                                "filter": {
+                                    "iata_partenza": {
+                                        "$in": [
+                                            "SYD",
+                                            "MEL"
+                                        ]
+                                    }
+                                }
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "rotta",
+                                "filter": {
+                                    "iata_partenza": {
+                                        "$in": [
+                                            "SYD",
+                                            "MEL"
+                                        ]
+                                    }
+                                },
+                                "row_count": 10,
+                                "documents": [
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b0",
+                                        "id": 326,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "SYD",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b1",
+                                        "id": 327,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "HKG",
+                                        "compagnia": "Cathay Pacific"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b2",
+                                        "id": 328,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "DXB",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b3",
+                                        "id": 329,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "SIN",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b69b4",
+                                        "id": 330,
+                                        "iata_partenza": "MEL",
+                                        "iata_arrivo": "KUL",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b6988",
+                                        "id": 286,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "MEL",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b6989",
+                                        "id": 287,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "DXB",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b698a",
+                                        "id": 288,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "KUL",
+                                        "compagnia": "Qantas"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b698b",
+                                        "id": 289,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "HND",
+                                        "compagnia": "Virgin Airlines"
+                                    },
+                                    {
+                                        "_id": "6ab563c9d7d6cc2ec70b698c",
+                                        "id": 290,
+                                        "iata_partenza": "SYD",
+                                        "iata_arrivo": "TFU",
+                                        "compagnia": "Qantas"
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"rotta\",\n  \"filter\": {\n    \"iata_partenza\": {\n      \"$in\": [\n        \"SYD\",\n        \"MEL\"\n      ]\n    }\n  },\n  \"row_count\": 10,\n  \"documents\": [\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b0\",\n      \"id\": 326,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"SYD\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b1\",\n      \"id\": 327,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"HKG\",\n      \"compagnia\": \"Cathay Pacific\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b2\",\n      \"id\": 328,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"DXB\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b3\",\n      \"id\": 329,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"SIN\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b69b4\",\n      \"id\": 330,\n      \"iata_partenza\": \"MEL\",\n      \"iata_arrivo\": \"KUL\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b6988\",\n      \"id\": 286,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"MEL\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b6989\",\n      \"id\": 287,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"DXB\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b698a\",\n      \"id\": 288,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"KUL\",\n      \"compagnia\": \"Qantas\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b698b\",\n      \"id\": 289,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"HND\",\n      \"compagnia\": \"Virgin Airlines\"\n    },\n    {\n      \"_id\": \"6ab563c9d7d6cc2ec70b698c\",\n      \"id\": 290,\n      \"iata_partenza\": \"SYD\",\n      \"iata_arrivo\": \"TFU\",\n      \"compagnia\": \"Qantas\"\n    }\n  ]\n}",
+                            "latency": 0.019730999832972884
+                        },
+                        {
+                            "tool_call_number": 8,
+                            "tool": "find_documents",
+                            "arguments": {
+                                "collection_name": "aeroporto",
+                                "database": "DBVOLI",
+                                "filter": {
+                                    "iata": {
+                                        "$in": [
+                                            "SYD",
+                                            "HKG",
+                                            "DXB",
+                                            "SIN",
+                                            "KUL",
+                                            "MEL",
+                                            "HND",
+                                            "TFU"
+                                        ]
+                                    }
+                                }
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "collection": "aeroporto",
+                                "filter": {
+                                    "iata": {
+                                        "$in": [
+                                            "SYD",
+                                            "HKG",
+                                            "DXB",
+                                            "SIN",
+                                            "KUL",
+                                            "MEL",
+                                            "HND",
+                                            "TFU"
+                                        ]
+                                    }
+                                },
+                                "row_count": 8,
+                                "documents": [
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                                        "iata": "DXB",
+                                        "nome": "Dubai International Airport",
+                                        "continente": "AS",
+                                        "stato": "Emirati Arabi Uniti",
+                                        "citta": "Dubai",
+                                        "passeggeri": 92.3,
+                                        "corsie": 2
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67ea",
+                                        "iata": "HKG",
+                                        "nome": "Hong Kong International Airport",
+                                        "continente": "AS",
+                                        "stato": "Hong Kong",
+                                        "citta": "Hong Kong",
+                                        "passeggeri": 53.1,
+                                        "corsie": 3
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67cf",
+                                        "iata": "HND",
+                                        "nome": "Tokyo Haneda International Airport",
+                                        "continente": "AS",
+                                        "stato": "Giappone",
+                                        "citta": "Tokyo",
+                                        "passeggeri": 85,
+                                        "corsie": 4
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67e5",
+                                        "iata": "KUL",
+                                        "nome": "Kuala Lumpur International Airport",
+                                        "continente": "AS",
+                                        "stato": "Malesia",
+                                        "citta": "Kuala Lumpur",
+                                        "passeggeri": 57.1,
+                                        "corsie": 3
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                                        "iata": "MEL",
+                                        "nome": "Melbourne Airport",
+                                        "continente": "OC",
+                                        "stato": "Australia",
+                                        "citta": "Melbourne",
+                                        "passeggeri": 35.1,
+                                        "corsie": 2
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67da",
+                                        "iata": "SIN",
+                                        "nome": "Singapore Changi Airport",
+                                        "continente": "AS",
+                                        "stato": "Singapore",
+                                        "citta": "Singapore",
+                                        "passeggeri": 67.7,
+                                        "corsie": 2
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                                        "iata": "SYD",
+                                        "nome": "Sydney Kingsford Smith International Airport",
+                                        "continente": "OC",
+                                        "stato": "Australia",
+                                        "citta": "Sydney",
+                                        "passeggeri": 41.4,
+                                        "corsie": 3
+                                    },
+                                    {
+                                        "_id": "6ab563c8d7d6cc2ec70b67e9",
+                                        "iata": "TFU",
+                                        "nome": "Chengdu Tianfu International Airport",
+                                        "continente": "AS",
+                                        "stato": "Cina",
+                                        "citta": "Chengdu",
+                                        "passeggeri": 54.9,
+                                        "corsie": 3
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"collection\": \"aeroporto\",\n  \"filter\": {\n    \"iata\": {\n      \"$in\": [\n        \"SYD\",\n        \"HKG\",\n        \"DXB\",\n        \"SIN\",\n        \"KUL\",\n        \"MEL\",\n        \"HND\",\n        \"TFU\"\n      ]\n    }\n  },\n  \"row_count\": 8,\n  \"documents\": [\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67cd\",\n      \"iata\": \"DXB\",\n      \"nome\": \"Dubai International Airport\",\n      \"continente\": \"AS\",\n      \"stato\": \"Emirati Arabi Uniti\",\n      \"citta\": \"Dubai\",\n      \"passeggeri\": 92.3,\n      \"corsie\": 2\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67ea\",\n      \"iata\": \"HKG\",\n      \"nome\": \"Hong Kong International Airport\",\n      \"continente\": \"AS\",\n      \"stato\": \"Hong Kong\",\n      \"citta\": \"Hong Kong\",\n      \"passeggeri\": 53.1,\n      \"corsie\": 3\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67cf\",\n      \"iata\": \"HND\",\n      \"nome\": \"Tokyo Haneda International Airport\",\n      \"continente\": \"AS\",\n      \"stato\": \"Giappone\",\n      \"citta\": \"Tokyo\",\n      \"passeggeri\": 85,\n      \"corsie\": 4\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67e5\",\n      \"iata\": \"KUL\",\n      \"nome\": \"Kuala Lumpur International Airport\",\n      \"continente\": \"AS\",\n      \"stato\": \"Malesia\",\n      \"citta\": \"Kuala Lumpur\",\n      \"passeggeri\": 57.1,\n      \"corsie\": 3\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b680d\",\n      \"iata\": \"MEL\",\n      \"nome\": \"Melbourne Airport\",\n      \"continente\": \"OC\",\n      \"stato\": \"Australia\",\n      \"citta\": \"Melbourne\",\n      \"passeggeri\": 35.1,\n      \"corsie\": 2\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67da\",\n      \"iata\": \"SIN\",\n      \"nome\": \"Singapore Changi Airport\",\n      \"continente\": \"AS\",\n      \"stato\": \"Singapore\",\n      \"citta\": \"Singapore\",\n      \"passeggeri\": 67.7,\n      \"corsie\": 2\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b6805\",\n      \"iata\": \"SYD\",\n      \"nome\": \"Sydney Kingsford Smith International Airport\",\n      \"continente\": \"OC\",\n      \"stato\": \"Australia\",\n      \"citta\": \"Sydney\",\n      \"passeggeri\": 41.4,\n      \"corsie\": 3\n    },\n    {\n      \"_id\": \"6ab563c8d7d6cc2ec70b67e9\",\n      \"iata\": \"TFU\",\n      \"nome\": \"Chengdu Tianfu International Airport\",\n      \"continente\": \"AS\",\n      \"stato\": \"Cina\",\n      \"citta\": \"Chengdu\",\n      \"passeggeri\": 54.9,\n      \"corsie\": 3\n    }\n  ]\n}",
+                            "latency": 0.039461900014430285
                         }
-                    ],
-                    "error": "ExceptionGroup('unhandled errors in a TaskGroup', [ExceptionGroup('unhandled errors in a TaskGroup', [TypeError(\"'ChatCompletionMessageFunctionToolCall' object is not subscriptable\")])])"
+                    ]
                 }
             ]
         }
     ],
     "statistics": [
         {
-            "id": 1,
-            "completion_rate": 0,
-            "average_latency": null,
-            "average_tool_calls": null
+            "id": 3,
+            "completion_rate": 1.0,
+            "average_latency": 608.5916818999685,
+            "average_tool_calls": 8.0
         }
     ]
 }

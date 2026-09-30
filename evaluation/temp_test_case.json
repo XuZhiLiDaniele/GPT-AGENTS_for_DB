@@ -1,16 +1,52 @@
 [      
             {
-            "id":1,
-            "question": "Come si chiama e quanti passeggeri ha l'aeroporto con meno passeggeri?",
+            "id":3,
+            "question": "Quali sono i nomi, le città ed i codici degli aeroporti che sono destinazioni di rotte che partono da aeroporti in Oceania?",
             "expected_database": ["DBVOLI"],
-            "expected_query":["SELECT nome, passeggeri FROM AEROPORTO ORDER BY passeggeri ASC LIMIT 1;"],
-            "expected_columns":["nome", "passeggeri"],
-            "expected_result": [
+            "expected_query": ["SELECT arrivo.iata, arrivo.nome, arrivo.citta FROM AEROPORTO partenza JOIN ROTTA r ON partenza.iata = r.iata_partenza JOIN AEROPORTO arrivo ON arrivo.iata = r.iata_arrivo WHERE partenza.continente = 'OC'"],
+            "expected_columns":["iata", "nome", "citta"],
+            "expected_result":[
                 {
-                    "nome": "Qingdao Jiaodong International Airport",
-                    "passeggeri": 26.2
+                    "iata":"SYD",
+                    "nome":"Sydney Kingsford Smith International Airport",
+                    "citta":"Sydney"
+                },
+                {
+                    "iata":"HKG",
+                    "nome":"Hong Kong International Airport",
+                    "citta":"Hong Kong"
+                },
+                {
+                    "iata":"DXB",
+                    "nome":"Dubai International Airport",
+                    "citta":"Dubai"
+                },
+                {
+                    "iata":"SIN",
+                    "nome":"Singapore Changi Airport",
+                    "citta":"Singapore"
+                },
+                {
+                    "iata":"KUL",
+                    "nome":"Kuala Lumpur International Airport",
+                    "citta":"Kuala Lumpur"
+                },
+                {
+                    "iata":"MEL",
+                    "nome":"Melbourne Airport",
+                    "citta":"Melbourne"
+                },
+                {
+                    "iata":"HND",
+                    "nome":"Tokyo Haneda International Airport",
+                    "citta":"Tokyo" 
+                },
+                {
+                    "iata":"TFU",
+                    "nome":"Chengdu Tianfu International Airport",
+                    "citta":"Chengdu"
                 }
+
             ]
         }
-
 ]

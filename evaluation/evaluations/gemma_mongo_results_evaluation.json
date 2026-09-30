@@ -1,376 +1,171 @@
 {
     "statistics": {
-        "accuracy": {
-            "database": 0.1111111111111111,
-            "columns": 0.5949074074074074,
-            "overall": 0.3530092592592593
+        "confidence_level": 0.95,
+        "overall": {
+            "confidence_level": 0.95,
+            "accuracy": {
+                "database": {
+                    "mean": 1.0,
+                    "ci_lower": 1.0,
+                    "ci_upper": 1.0,
+                    "margin": 0.0,
+                    "n": 2
+                },
+                "columns": {
+                    "mean": 1.0,
+                    "ci_lower": 1.0,
+                    "ci_upper": 1.0,
+                    "margin": 0.0,
+                    "n": 2
+                },
+                "overall": {
+                    "mean": 1.0,
+                    "ci_lower": 1.0,
+                    "ci_upper": 1.0,
+                    "margin": 0.0,
+                    "n": 2
+                }
+            },
+            "precision": {
+                "mean": 1.0,
+                "ci_lower": 1.0,
+                "ci_upper": 1.0,
+                "margin": 0.0,
+                "n": 2
+            },
+            "latency": {
+                "mean": 986.3396551000187,
+                "ci_lower": -3743.399024259741,
+                "ci_upper": 5716.0783344597785,
+                "margin": 4729.73867935976,
+                "n": 2
+            }
         },
-        "precision": 0.7270833333333333,
-        "latency": 792.6947243166796
+        "by_difficulty": {
+            "Semplice": {
+                "confidence_level": 0.95,
+                "accuracy": {
+                    "database": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 2
+                    },
+                    "columns": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 2
+                    },
+                    "overall": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 2
+                    }
+                },
+                "precision": {
+                    "mean": 1.0,
+                    "ci_lower": 1.0,
+                    "ci_upper": 1.0,
+                    "margin": 0.0,
+                    "n": 2
+                },
+                "latency": {
+                    "mean": 986.3396551000187,
+                    "ci_lower": -3743.399024259741,
+                    "ci_upper": 5716.0783344597785,
+                    "margin": 4729.73867935976,
+                    "n": 2
+                }
+            },
+            "Intermedio": {
+                "confidence_level": 0.95,
+                "accuracy": {
+                    "database": {
+                        "mean": 0.0,
+                        "ci_lower": 0.0,
+                        "ci_upper": 0.0,
+                        "margin": 0.0,
+                        "n": 0
+                    },
+                    "columns": {
+                        "mean": 0.0,
+                        "ci_lower": 0.0,
+                        "ci_upper": 0.0,
+                        "margin": 0.0,
+                        "n": 0
+                    },
+                    "overall": {
+                        "mean": 0.0,
+                        "ci_lower": 0.0,
+                        "ci_upper": 0.0,
+                        "margin": 0.0,
+                        "n": 0
+                    }
+                },
+                "precision": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.0,
+                    "margin": 0.0,
+                    "n": 0
+                },
+                "latency": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.0,
+                    "margin": 0.0,
+                    "n": 0
+                }
+            },
+            "Complesso": {
+                "confidence_level": 0.95,
+                "accuracy": {
+                    "database": {
+                        "mean": 0.0,
+                        "ci_lower": 0.0,
+                        "ci_upper": 0.0,
+                        "margin": 0.0,
+                        "n": 0
+                    },
+                    "columns": {
+                        "mean": 0.0,
+                        "ci_lower": 0.0,
+                        "ci_upper": 0.0,
+                        "margin": 0.0,
+                        "n": 0
+                    },
+                    "overall": {
+                        "mean": 0.0,
+                        "ci_lower": 0.0,
+                        "ci_upper": 0.0,
+                        "margin": 0.0,
+                        "n": 0
+                    }
+                },
+                "precision": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.0,
+                    "margin": 0.0,
+                    "n": 0
+                },
+                "latency": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.0,
+                    "margin": 0.0,
+                    "n": 0
+                }
+            }
+        }
     },
     "runs": [
         {
-            "test_id": 1,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "passeggeri"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Qingdao Jiaodong International Airport",
-                        "passeggeri": 26.2
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 294.9630510000279,
-            "explanation": ""
-        },
-        {
-            "test_id": 1,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "passeggeri"
-                    ],
-                    "actual": [
-                        "nome",
-                        "passeggeri"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Qingdao Jiaodong International Airport",
-                        "passeggeri": 26.2
-                    }
-                ],
-                "actual": [
-                    {
-                        "nome": "Qingdao Jiaodong International Airport",
-                        "passeggeri": 26.2
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 175.46711189998314,
-            "explanation": "È stato utilizzato il database DBVOLI e la collezione aeroporto per trovare l'aeroporto con il minor numero di passeggeri. Tramite un'aggregazione, ho ordinato i risultati per 'passeggeri' in ordine crescente, limitando il risultato al primo documento, che rappresenta l'aeroporto con meno passeggeri."
-        },
-        {
-            "test_id": 1,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "passeggeri"
-                    ],
-                    "actual": [
-                        "nome",
-                        "passeggeri"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Qingdao Jiaodong International Airport",
-                        "passeggeri": 26.2
-                    }
-                ],
-                "actual": [
-                    {
-                        "nome": "Qingdao Jiaodong International Airport",
-                        "passeggeri": 26.2
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 212.21712839999236,
-            "explanation": "Ho utilizzato il database DBVOLI e la collezione aeroporto. Ho eseguito una pipeline di aggregazione per ordinare tutti gli aeroporti in base al campo 'passeggeri' in ordine ascendente ($sort:{passeggeri:1}) e ho limitato i risultati al primo documento ($limit:1), che rappresenta l'aeroporto con il minor numero di passeggeri."
-        },
-        {
-            "test_id": 1,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "passeggeri"
-                    ],
-                    "actual": [
-                        "nome",
-                        "passeggeri"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Qingdao Jiaodong International Airport",
-                        "passeggeri": 26.2
-                    }
-                ],
-                "actual": [
-                    {
-                        "nome": "Qingdao Jiaodong International Airport",
-                        "passeggeri": 26.2
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 147.20203250006307,
-            "explanation": "Ho utilizzato la collezione \"aeroporto\" nel database DBVOLI per trovare l'aeroporto con il minor numero di passeggeri. Ho eseguito un'aggregazione ordinando i documenti per il campo \"passeggeri\" in ordine crescente, limitandomi al primo risultato e proiettando solo nome e passeggeri."
-        },
-        {
-            "test_id": 2,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "collections": [
-                                "previsione"
-                            ]
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "precipitazioni"
-                    ],
-                    "actual": [
-                        "citta",
-                        "precipitazioni"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni": 20.1
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni": 20.1
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 345.7776170000434,
-            "explanation": "Ho utilizzato il database DBMETEO e la collezione previsione per filtrare i dati relativi al 18/08/2026. Tramite una pipeline di aggregazione, ho ordinato tutti i record in base alle precipitazioni in ordine decrescente e limitato il risultato al primo elemento, che rappresenta la città con il valore massimo di precipitazioni."
-        },
-        {
-            "test_id": 2,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "collection": "previsione"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "precipitazioni"
-                    ],
-                    "actual": [
-                        "citta",
-                        "precipitazioni_max"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni": 20.1
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni_max": 20.1
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 268.8672161999857,
-            "explanation": "È stata eseguita un'aggregazione sulla collezione 'previsione' nel database 'DBMETEO'. Il filtro è stato impostato per selezionare le previsioni relative al giorno 18/08/2026. L'aggregazione ha raggruppato i risultati per città, calcolando la massima precipitazione ('max_precipitazioni') per ciascuna e successivamente ordinato i risultati in ordine decrescente di questa metrica. Il risultato mostra che Hanoi è la città con il valore di precipitazioni più alto (20.1) per quella data."
-        },
-        {
-            "test_id": 2,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "description": "contiene informazioni sulle stazioni meteorologiche e le previsioni"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "precipitazioni"
-                    ],
-                    "actual": [
-                        "citta",
-                        "precipitazioni"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni": 20.1
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni": 20.1
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 1229.0768480999395,
-            "explanation": "Ho utilizzato il database DBMETEO e la collezione meteo per filtrare tutte le previsioni relative alla data '2026-08-18'. Analizzando i risultati, ho trovato che la città di Hanoi ha il valore di precipitazioni più alto (20.1) per quella specifica data."
-        },
-        {
-            "test_id": 2,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "precipitazioni"
-                    ],
-                    "actual": [
-                        "citta",
-                        "precipitazioni_max"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni": 20.1
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Hanoi",
-                        "precipitazioni_max": 20.1
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 316.41806689999066,
-            "explanation": "È stata eseguita una query di aggregazione sulla collezione 'previsione' nel database 'DBMETEO'. La pipeline ha filtrato i documenti per la data del 18/08/2026 e successivamente ha ordinato i risultati in base al valore delle precipitazioni in ordine decrescente, limitando il risultato al primo record. Il risultato indica che Hanoi è la città con la previsione di precipitazioni più alta (20.1) per quella data."
-        },
-        {
             "test_id": 3,
             "run": 1,
             "accuracy": {
@@ -379,237 +174,9 @@
                         "DBVOLI"
                     ],
                     "actual": [
-                        {
-                            "name": "DBVOLI"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "iata",
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "iata": "SYD",
-                        "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "iata": "HKG",
-                        "nome": "Hong Kong International Airport",
-                        "citta": "Hong Kong"
-                    },
-                    {
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai"
-                    },
-                    {
-                        "iata": "SIN",
-                        "nome": "Singapore Changi Airport",
-                        "citta": "Singapore"
-                    },
-                    {
-                        "iata": "KUL",
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur"
-                    },
-                    {
-                        "iata": "MEL",
-                        "nome": "Melbourne Airport",
-                        "citta": "Melbourne"
-                    },
-                    {
-                        "iata": "HND",
-                        "nome": "Tokyo Haneda International Airport",
-                        "citta": "Tokyo"
-                    },
-                    {
-                        "iata": "TFU",
-                        "nome": "Chengdu Tianfu International Airport",
-                        "citta": "Chengdu"
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 858.3160278000869,
-            "explanation": "Sono stati eseguiti controlli sui database disponibili per trovare gli aeroporti destinazione di rotte che partono da paesi in Oceania. Ho identificato la collezione \"aeroporto\" e ho verificato i valori distinti per il campo \"continente\", scoprendo che l'abbreviazione corretta per l'Oceania è \"OC\". Ho quindi eseguito un'aggregazione complessa sulla collezione \"rotta\", filtrando le rotte di partenza (iata_partenza) solo dagli aeroporti con continente \"OC\" e recuperando i dettagli dell'aeroporto di arrivo (destinazione). Nonostante la query sia stata costruita correttamente seguendo lo schema dei dati, l'aggregazione ha restituito zero risultati. Ciò indica che, secondo i dati presenti nel database, non esistono rotte registrate che partono da un aeroporto situato in Oceania."
-        },
-        {
-            "test_id": 3,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
                         "DBVOLI"
                     ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "iata",
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "iata": "SYD",
-                        "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "iata": "HKG",
-                        "nome": "Hong Kong International Airport",
-                        "citta": "Hong Kong"
-                    },
-                    {
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai"
-                    },
-                    {
-                        "iata": "SIN",
-                        "nome": "Singapore Changi Airport",
-                        "citta": "Singapore"
-                    },
-                    {
-                        "iata": "KUL",
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur"
-                    },
-                    {
-                        "iata": "MEL",
-                        "nome": "Melbourne Airport",
-                        "citta": "Melbourne"
-                    },
-                    {
-                        "iata": "HND",
-                        "nome": "Tokyo Haneda International Airport",
-                        "citta": "Tokyo"
-                    },
-                    {
-                        "iata": "TFU",
-                        "nome": "Chengdu Tianfu International Airport",
-                        "citta": "Chengdu"
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 1875.5603061000584,
-            "explanation": ""
-        },
-        {
-            "test_id": 3,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI",
-                            "description": "Database contenente informazioni su aeroporti, compagnie rotte e voli."
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "iata",
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "iata": "SYD",
-                        "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "iata": "HKG",
-                        "nome": "Hong Kong International Airport",
-                        "citta": "Hong Kong"
-                    },
-                    {
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai"
-                    },
-                    {
-                        "iata": "SIN",
-                        "nome": "Singapore Changi Airport",
-                        "citta": "Singapore"
-                    },
-                    {
-                        "iata": "KUL",
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur"
-                    },
-                    {
-                        "iata": "MEL",
-                        "nome": "Melbourne Airport",
-                        "citta": "Melbourne"
-                    },
-                    {
-                        "iata": "HND",
-                        "nome": "Tokyo Haneda International Airport",
-                        "citta": "Tokyo"
-                    },
-                    {
-                        "iata": "TFU",
-                        "nome": "Chengdu Tianfu International Airport",
-                        "citta": "Chengdu"
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 2031.0621171999956,
-            "explanation": "Sono stati eseguiti i seguenti passaggi per identificare gli aeroporti di destinazione: \n1. Ho prima elencato le collection disponibili nel database DBVOLI (aeroporto, compagnia, rotta, volo).\n2. Ho descritto la struttura delle collection 'aeroporto' e 'rotta', scoprendo che 'continente' è il campo rilevante per filtrare l'Oceania.\n3. Ho verificato i valori distinti del campo 'continente' nell'aeroporto, identificando \"OC\" come valore per l'Oceania.\n4. Ho eseguito una query di ricerca sugli aeroporti con continente=\"OC\", ottenendo gli IATA code SYD e MEL.\n5. Per trovare le destinazioni, è stato costruito un complesso pipeline di aggregazione su 'rotta', che filtrava le rotte in partenza da \"SYD\" o \"MEL\" e utilizzava $lookup per recuperare i dettagli della destinazione dalla collection 'aeroporto'.\n\nNonostante la struttura logica del pipeline fosse corretta, l'esecuzione dell'aggregazione è fallita ripetutamente a causa di errori strutturali nell'interprete degli operatori MongoDB ($Location40323). Di conseguenza, non è stato possibile recuperare i dati finali richiesti."
-        },
-        {
-            "test_id": 3,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI",
-                            "used_collections": [
-                                "aeroporto",
-                                "rotta"
-                            ]
-                        }
-                    ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
                 "columns": {
                     "expected": [
@@ -618,13 +185,17 @@
                         "citta"
                     ],
                     "actual": [
-                        "nome",
                         "citta",
-                        "codice"
+                        "continente",
+                        "corsie",
+                        "iata",
+                        "nome",
+                        "passeggeri",
+                        "stato"
                     ],
-                    "accuracy": 0.6666666666666666
+                    "accuracy": 1.0
                 },
-                "overall": 0.3333333333333333
+                "overall": 1.0
             },
             "precision": {
                 "expected": [
@@ -671,1997 +242,254 @@
                 ],
                 "actual": [
                     {
-                        "nome": "Melbourne Airport",
-                        "citta": "Melbourne",
-                        "codice": "MEL"
-                    },
-                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
                         "nome": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
                         "citta": "Dubai",
-                        "codice": "DXB"
+                        "passeggeri": 92.3,
+                        "corsie": 2
                     },
                     {
-                        "nome": "Kuala Lumpur International Airport",
-                        "citta": "Kuala Lumpur",
-                        "codice": "KUL"
-                    },
-                    {
-                        "nome": "Tokyo Haneda International Airport",
-                        "citta": "Tokyo",
-                        "codice": "HND"
-                    },
-                    {
-                        "nome": "Chengdu Tianfu International Airport",
-                        "citta": "Chengdu",
-                        "codice": "TFU"
-                    },
-                    {
-                        "nome": "Sydney Kingsford Smith International Airport",
-                        "citta": "Sydney",
-                        "codice": "SYD"
-                    },
-                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ea",
+                        "iata": "HKG",
                         "nome": "Hong Kong International Airport",
+                        "continente": "AS",
+                        "stato": "Hong Kong",
                         "citta": "Hong Kong",
-                        "codice": "HKG"
+                        "passeggeri": 53.1,
+                        "corsie": 3
                     },
                     {
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai",
-                        "codice": "DXB"
+                        "_id": "6ab563c8d7d6cc2ec70b67cf",
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "continente": "AS",
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "passeggeri": 85,
+                        "corsie": 4
                     },
                     {
-                        "nome": "Singapore Changi Airport",
-                        "citta": "Singapore",
-                        "codice": "SIN"
-                    },
-                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e5",
+                        "iata": "KUL",
                         "nome": "Kuala Lumpur International Airport",
+                        "continente": "AS",
+                        "stato": "Malesia",
                         "citta": "Kuala Lumpur",
-                        "codice": "KUL"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 866.2480794000439,
-            "explanation": "Per determinare i nomi, le città e i codici degli aeroporti destinazione che ricevono rotte da aeroporti in Oceania, è stato utilizzato un'aggregazione pipeline sul database DBVOLI. È stato necessario prima identificare gli aeroporti di origine nell'Oceania (utilizzando il codice continente 'OC') e poi eseguire due operazioni di $lookup: la prima per collegare l'origine alle rotte uscenti ($rotta) e la seconda per trovare i dettagli degli aeroporti destinazione ($aeroporto), utilizzando i codici IATA trovati nel campo 'iata_arrivo' delle rotte. Tutti i risultati sono stati proiettati per mostrare solo il nome, la città e il codice della destinazione."
-        },
-        {
-            "test_id": 4,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBHOTEL"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "costo_medio"
-                    ],
-                    "actual": [
-                        "citta",
-                        "costo_medio"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "San Paolo",
-                        "costo_medio": 219.5
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "San Paolo",
-                        "costo_medio": 219.5
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 307.37662260001525,
-            "explanation": "È stato necessario eseguire un'aggregazione sui dati di camere e hotel per trovare la media dei prezzi delle camere raggruppata per città. Le due collezioni, `camera` (contenente i prezzi) e `hotel` (contenente le città), sono state unite tramite il nome dell'hotel. Il risultato mostra che San Paolo è la città con il costo medio più basso per una camera di hotel."
-        },
-        {
-            "test_id": 4,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        "DBHOTEL"
-                    ],
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "costo_medio"
-                    ],
-                    "actual": [
-                        "citta",
-                        "media_prezzo"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.75
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "San Paolo",
-                        "costo_medio": 219.5
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "San Paolo",
-                        "media_prezzo": 219.5
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 700.0695323999971,
-            "explanation": "Per determinare la città con il costo medio minore delle camere d'hotel, è stata eseguita un'aggregazione sulla collezione 'camera' del database DBHOTEL. Questa aggregazione ha utilizzato '$lookup' per collegare i prezzi alle informazioni sulle città presenti nella collezione 'hotel', raggruppando poi i risultati per città e calcolando la media dei prezzi ('prezzo') per ciascuna città. Analizzando tutti i dati raccolti, la città con il costo medio più basso è stata identificata come San Paolo, con un prezzo medio di 219.5."
-        },
-        {
-            "test_id": 4,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        "DBHOTEL"
-                    ],
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "costo_medio"
-                    ],
-                    "actual": [
-                        "citta",
-                        "costo_medio"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 1.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "San Paolo",
-                        "costo_medio": 219.5
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "San Paolo",
-                        "costo_medio": 219.5
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 1244.6105085000163,
-            "explanation": "È stato utilizzato il database DBHOTEL per eseguire un'aggregazione sui dati delle camere e degli hotel. L'obiettivo era calcolare il costo medio delle camere raggruppato per città. Dopo aver unito i dati tra la collezione 'camera' (che contiene il prezzo) e la collezione 'hotel' (che contiene la città), è stata eseguita una pipeline di aggregazione che ha calcolato la media del campo 'prezzo' per ogni città. Infine, i risultati sono stati ordinati in base al costo medio crescente e limitati all'elemento più basso, rivelando San Paolo come la città con il costo medio minore."
-        },
-        {
-            "test_id": 4,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBHOTEL"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "citta",
-                        "costo_medio"
-                    ],
-                    "actual": [
-                        "citta",
-                        "prezzo_medio"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "citta": "San Paolo",
-                        "costo_medio": 219.5
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "San Paolo",
-                        "prezzo_medio": 219.5
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 383.9288274999708,
-            "explanation": "È stata eseguita un'aggregazione sui dati delle camere degli hotel (DBHOTEL) per calcolare il prezzo medio di ogni città, utilizzando la collezione 'hotel' per ottenere il nome della città ('citta') e la collezione 'camera' per ottenere i prezzi ('prezzo'). I risultati sono stati ordinati in base al prezzo medio crescente. La città con il costo medio minore è San Paolo."
-        },
-        {
-            "test_id": 5,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "collections": [
-                                "stazione",
-                                "previsione"
-                            ]
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "id",
-                        "stato",
-                        "citta",
-                        "stazione",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "actual": [
-                        "citta",
-                        "data",
-                        "temperatura",
-                        "precipitazioni",
-                        "stato",
-                        "vento"
-                    ],
-                    "accuracy": 0.75
-                },
-                "overall": 0.375
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 19.8,
-                        "precipitazioni": 2.6,
-                        "vento": 22,
-                        "data": "2026-08-17"
+                        "passeggeri": 57.1,
+                        "corsie": 3
                     },
                     {
-                        "id": 16,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "vento": 25,
-                        "data": "2026-08-18"
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Londra",
-                        "data": "2026-08-17T00:00:00",
-                        "temperatura": 19.8,
-                        "precipitazioni": 2.6,
-                        "stato": "Regno Unito",
-                        "vento": 22
-                    },
-                    {
-                        "citta": "Londra",
-                        "data": "2026-08-18T00:00:00",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "stato": "Regno Unito",
-                        "vento": 25
-                    }
-                ],
-                "value": 0.625
-            },
-            "latency": 469.4863652000204,
-            "explanation": "È stata prima identificata la stazione meteo con il maggior numero di ricercatori all'interno del database DBMETEO. La stazione più ricercata è EGLL, che si trova a Londra e ha 24 ricercatori. Successivamente, sono state recuperate le previsioni meteo per questa stazione utilizzando i dati della collezione 'previsione'. I risultati mostrano le previsioni per due date consecutive."
-        },
-        {
-            "test_id": 5,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "id",
-                        "stato",
-                        "citta",
-                        "stazione",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 19.8,
-                        "precipitazioni": 2.6,
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    },
-                    {
-                        "id": 16,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "vento": 25,
-                        "data": "2026-08-18"
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 1202.6215791000286,
-            "explanation": ""
-        },
-        {
-            "test_id": 5,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "id",
-                        "stato",
-                        "citta",
-                        "stazione",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "actual": [
-                        "citta",
-                        "data",
-                        "temperatura",
-                        "precipitazioni",
-                        "stato",
-                        "vento"
-                    ],
-                    "accuracy": 0.75
-                },
-                "overall": 0.375
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 19.8,
-                        "precipitazioni": 2.6,
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    },
-                    {
-                        "id": 16,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "vento": 25,
-                        "data": "2026-08-18"
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Londra",
-                        "data": "2026-08-17T00:00:00",
-                        "temperatura": 19.8,
-                        "precipitazioni": 2.6,
-                        "stato": "Regno Unito",
-                        "vento": 22
-                    },
-                    {
-                        "citta": "Londra",
-                        "data": "2026-08-18T00:00:00",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "stato": "Regno Unito",
-                        "vento": 25
-                    }
-                ],
-                "value": 0.625
-            },
-            "latency": 329.90879130002577,
-            "explanation": "La stazione meteo con il maggior numero di ricercatori è quella identificata dall'ICAO 'EGLL', che si trova a Londra e vanta 24 ricercatori. Sono state recuperate le previsioni meteo per questa stazione, relative alle date disponibili nei dati."
-        },
-        {
-            "test_id": 5,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "id",
-                        "stato",
-                        "citta",
-                        "stazione",
-                        "temperatura",
-                        "precipitazioni",
-                        "vento",
-                        "data"
-                    ],
-                    "actual": [
-                        "citta",
-                        "data",
-                        "precipitazioni",
-                        "stato",
-                        "temperatura",
-                        "vento"
-                    ],
-                    "accuracy": 0.75
-                },
-                "overall": 0.375
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "id": 15,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 19.8,
-                        "precipitazioni": 2.6,
-                        "vento": 22,
-                        "data": "2026-08-17"
-                    },
-                    {
-                        "id": 16,
-                        "stato": "Regno Unito",
-                        "citta": "Londra",
-                        "stazione": "EGLL",
-                        "temperatura": 18.5,
-                        "precipitazioni": 7.4,
-                        "vento": 25,
-                        "data": "2026-08-18"
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Londra",
-                        "data": "2026-08-17T00:00:00",
-                        "precipitazioni": 2.6,
-                        "stato": "Regno Unito",
-                        "temperatura": 19.8,
-                        "vento": 22
-                    },
-                    {
-                        "citta": "Londra",
-                        "data": "2026-08-18T00:00:00",
-                        "precipitazioni": 7.4,
-                        "stato": "Regno Unito",
-                        "temperatura": 18.5,
-                        "vento": 25
-                    }
-                ],
-                "value": 0.625
-            },
-            "latency": 431.0312078000279,
-            "explanation": "È stato prima identificato il database DBMETEO e la collezione 'stazione'. Mediante l'aggregazione dei dati, è stato determinato che la stazione con più ricercatori ha l'ICAO code EGLL. Successivamente, sono state recuperate le previsioni meteo per questa stazione (EGLL) dalla collezione 'previsione', relative a Londra."
-        },
-        {
-            "test_id": 6,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "compagnia",
-                        "numero_voli"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "compagnia": "Ryanair",
-                        "numero_voli": 5
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 1780.0173656000989,
-            "explanation": ""
-        },
-        {
-            "test_id": 6,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "compagnia",
-                        "numero_voli"
-                    ],
-                    "actual": [
-                        "compagnia",
-                        "voli_operati"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "compagnia": "Ryanair",
-                        "numero_voli": 5
-                    }
-                ],
-                "actual": [
-                    {
-                        "compagnia": "Ryanair",
-                        "voli_operati": 5
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 461.9089394999901,
-            "explanation": "È stato utilizzato il database DBVOLI e la pipeline di aggregazione sui documenti della collezione 'volo'. La query ha filtrato tutti i voli operati con modello B737-800, li ha collegati (lookup) alla collezione 'rotta' per ottenere il nome della compagnia ('compagnia') e infine raggruppato i risultati per contare il numero totale di voli per ciascuna compagnia. La compagnia con il maggior numero di voli operati è Ryanair, con un totale di 5 voli."
-        },
-        {
-            "test_id": 6,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "compagnia",
-                        "numero_voli"
-                    ],
-                    "actual": [
-                        "compagnia",
-                        "voli_operati"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "compagnia": "Ryanair",
-                        "numero_voli": 5
-                    }
-                ],
-                "actual": [
-                    {
-                        "compagnia": "Ryanair",
-                        "voli_operati": 5
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 396.61715920001734,
-            "explanation": "È stata eseguita un'aggregazione sui voli per filtrare tutti i record con modello di aereo 'B737-800'. Successivamente, è stato effettuato un join con la collezione 'rotta' tramite l'ID della rotta. I risultati sono stati raggruppati e contati in base al nome della compagnia associata alla rotta per determinare quale compagnia ha operato il maggior numero di voli con quel modello specifico."
-        },
-        {
-            "test_id": 6,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "compagnia",
-                        "numero_voli"
-                    ],
-                    "actual": [
-                        "compagnia",
-                        "voli_operati"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "compagnia": "Ryanair",
-                        "numero_voli": 5
-                    }
-                ],
-                "actual": [
-                    {
-                        "compagnia": "Ryanair",
-                        "voli_operati": 5
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 555.9006642999593,
-            "explanation": "È stata eseguita una pipeline di aggregazione sul database DBVOLI per filtrare i voli che utilizzano il modello B737-800. I risultati sono stati poi uniti con la collezione 'rotta' per recuperare il nome della compagnia aerea associata ad ogni rotta e infine raggruppati per contare i voli operati da ciascuna compagnia. La compagnia che ha operato più voli è Ryanair, con 5 voli registrati."
-        },
-        {
-            "test_id": 7,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "collections": [
-                                "previsione"
-                            ]
-                        },
-                        {
-                            "name": "DBHOTEL",
-                            "collections": [
-                                "camera",
-                                "hotel"
-                            ]
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "camera_numero",
-                        "categoria",
-                        "citta",
-                        "disponibile",
-                        "nome_hotel",
-                        "prezzo"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Grand Hyatt Bogota",
-                        "citta": "Bogota"
-                    },
-                    {
-                        "nome": "Park Hyatt Melbourne",
-                        "citta": "Melbourne"
-                    },
-                    {
-                        "nome": "Park Hyatt Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Shangri-La Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Travelodge Hotel Sydney",
-                        "citta": "Sydney"
-                    }
-                ],
-                "actual": [
-                    {
-                        "camera_numero": "234",
-                        "categoria": "Panorama Penthouse",
-                        "citta": "Bogota",
-                        "disponibile": true,
-                        "nome_hotel": "Grand Hyatt Bogota",
-                        "prezzo": 404
-                    },
-                    {
-                        "camera_numero": "667",
-                        "categoria": "Club Queen Room",
-                        "citta": "Sydney",
-                        "disponibile": true,
-                        "nome_hotel": "Park Hyatt Sydney",
-                        "prezzo": 2009
-                    },
-                    {
-                        "camera_numero": "809",
-                        "categoria": "Grand King Room",
-                        "citta": "Sydney",
-                        "disponibile": true,
-                        "nome_hotel": "Shangri-La Sydney",
-                        "prezzo": 475
-                    },
-                    {
-                        "camera_numero": "205",
-                        "categoria": "Grand Junior Suite",
-                        "citta": "Sydney",
-                        "disponibile": true,
-                        "nome_hotel": "Travelodge Hotel Sydney",
-                        "prezzo": 102
-                    },
-                    {
-                        "camera_numero": "785",
-                        "categoria": "Ocean Corner Suite",
+                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "continente": "OC",
+                        "stato": "Australia",
                         "citta": "Melbourne",
-                        "disponibile": true,
-                        "nome_hotel": "Park Hyatt Melbourne",
-                        "prezzo": 1380
+                        "passeggeri": 35.1,
+                        "corsie": 2
                     },
                     {
-                        "camera_numero": "357",
-                        "categoria": "Royal Loft",
+                        "_id": "6ab563c8d7d6cc2ec70b67da",
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "continente": "AS",
+                        "stato": "Singapore",
+                        "citta": "Singapore",
+                        "passeggeri": 67.7,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "continente": "OC",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "passeggeri": 41.4,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e9",
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "continente": "AS",
+                        "stato": "Cina",
+                        "citta": "Chengdu",
+                        "passeggeri": 54.9,
+                        "corsie": 3
+                    }
+                ],
+                "value": 1.0
+            },
+            "latency": 1358.578162000049,
+            "agent_completion": true,
+            "tool_calls_count": 8
+        },
+        {
+            "test_id": 3,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "iata",
+                        "nome",
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta",
+                        "continente",
+                        "corsie",
+                        "iata",
+                        "nome",
+                        "passeggeri",
+                        "stato"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "precision": {
+                "expected": [
+                    {
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "citta": "Sydney"
+                    },
+                    {
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "citta": "Hong Kong"
+                    },
+                    {
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "citta": "Dubai"
+                    },
+                    {
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "citta": "Singapore"
+                    },
+                    {
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "citta": "Kuala Lumpur"
+                    },
+                    {
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "citta": "Melbourne"
+                    },
+                    {
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "citta": "Tokyo"
+                    },
+                    {
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "citta": "Chengdu"
+                    }
+                ],
+                "actual": [
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cd",
+                        "iata": "DXB",
+                        "nome": "Dubai International Airport",
+                        "continente": "AS",
+                        "stato": "Emirati Arabi Uniti",
+                        "citta": "Dubai",
+                        "passeggeri": 92.3,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67ea",
+                        "iata": "HKG",
+                        "nome": "Hong Kong International Airport",
+                        "continente": "AS",
+                        "stato": "Hong Kong",
+                        "citta": "Hong Kong",
+                        "passeggeri": 53.1,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67cf",
+                        "iata": "HND",
+                        "nome": "Tokyo Haneda International Airport",
+                        "continente": "AS",
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "passeggeri": 85,
+                        "corsie": 4
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e5",
+                        "iata": "KUL",
+                        "nome": "Kuala Lumpur International Airport",
+                        "continente": "AS",
+                        "stato": "Malesia",
+                        "citta": "Kuala Lumpur",
+                        "passeggeri": 57.1,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b680d",
+                        "iata": "MEL",
+                        "nome": "Melbourne Airport",
+                        "continente": "OC",
+                        "stato": "Australia",
                         "citta": "Melbourne",
-                        "disponibile": true,
-                        "nome_hotel": "Park Hyatt Melbourne",
-                        "prezzo": 2087
+                        "passeggeri": 35.1,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67da",
+                        "iata": "SIN",
+                        "nome": "Singapore Changi Airport",
+                        "continente": "AS",
+                        "stato": "Singapore",
+                        "citta": "Singapore",
+                        "passeggeri": 67.7,
+                        "corsie": 2
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b6805",
+                        "iata": "SYD",
+                        "nome": "Sydney Kingsford Smith International Airport",
+                        "continente": "OC",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "passeggeri": 41.4,
+                        "corsie": 3
+                    },
+                    {
+                        "_id": "6ab563c8d7d6cc2ec70b67e9",
+                        "iata": "TFU",
+                        "nome": "Chengdu Tianfu International Airport",
+                        "continente": "AS",
+                        "stato": "Cina",
+                        "citta": "Chengdu",
+                        "passeggeri": 54.9,
+                        "corsie": 3
                     }
                 ],
                 "value": 1.0
             },
-            "latency": 1044.6984250999521,
-            "explanation": "Sono state identificate le città (Bogota, Sydney e Melbourne) che avranno temperature inferiori a 17 gradi il 17/08/2026 consultando il database DBMETEO. Successivamente, è stata eseguita una ricerca nel database DBHOTEL per trovare camere disponibili ('disponibilita': 'true') in queste città."
-        },
-        {
-            "test_id": 7,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO"
-                        },
-                        {
-                            "name": "DBHOTEL"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "categoria",
-                        "disponibilita",
-                        "hotel",
-                        "max_ospiti",
-                        "numero",
-                        "prezzo"
-                    ],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Grand Hyatt Bogota",
-                        "citta": "Bogota"
-                    },
-                    {
-                        "nome": "Park Hyatt Melbourne",
-                        "citta": "Melbourne"
-                    },
-                    {
-                        "nome": "Park Hyatt Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Shangri-La Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Travelodge Hotel Sydney",
-                        "citta": "Sydney"
-                    }
-                ],
-                "actual": [
-                    {
-                        "categoria": "Panorama Penthouse",
-                        "disponibilita": "true",
-                        "hotel": "Grand Hyatt Bogota",
-                        "max_ospiti": 3,
-                        "numero": "234",
-                        "prezzo": 404
-                    },
-                    {
-                        "categoria": "Ocean Corner Suite",
-                        "disponibilita": "true",
-                        "hotel": "Park Hyatt Melbourne",
-                        "max_ospiti": 3,
-                        "numero": "785",
-                        "prezzo": 1380
-                    },
-                    {
-                        "categoria": "Royal Loft",
-                        "disponibilita": "true",
-                        "hotel": "Park Hyatt Melbourne",
-                        "max_ospiti": 3,
-                        "numero": "357",
-                        "prezzo": 2087
-                    },
-                    {
-                        "categoria": "Club Queen Room",
-                        "disponibilita": "true",
-                        "hotel": "Park Hyatt Sydney",
-                        "max_ospiti": 4,
-                        "numero": "667",
-                        "prezzo": 2009
-                    },
-                    {
-                        "categoria": "Grand King Room",
-                        "disponibilita": "true",
-                        "hotel": "Shangri-La Sydney",
-                        "max_ospiti": 2,
-                        "numero": "809",
-                        "prezzo": 475
-                    },
-                    {
-                        "categoria": "Grand Junior Suite",
-                        "disponibilita": "true",
-                        "hotel": "Travelodge Hotel Sydney",
-                        "max_ospiti": 2,
-                        "numero": "205",
-                        "prezzo": 102
-                    }
-                ],
-                "value": 0.5
-            },
-            "latency": 1016.1340672000078,
-            "explanation": "Sono state eseguite due fasi di verifica. In primo luogo, è stato identificato che le città con temperature inferiori a 17 gradi il 17/08/2026 sono Melbourne, Bogota e Sydney (DBMETEO). Successivamente, è stata cercata la disponibilità di camere ('disponibilita': 'true') negli hotel situati in queste tre città (DBHOTEL)."
-        },
-        {
-            "test_id": 7,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO"
-                        },
-                        {
-                            "name": "DBHOTEL"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Grand Hyatt Bogota",
-                        "citta": "Bogota"
-                    },
-                    {
-                        "nome": "Park Hyatt Melbourne",
-                        "citta": "Melbourne"
-                    },
-                    {
-                        "nome": "Park Hyatt Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Shangri-La Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Travelodge Hotel Sydney",
-                        "citta": "Sydney"
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 2596.2873653999995,
-            "explanation": "I prima identificato le città con previsioni di temperatura inferiori a 17 gradi il 17/08/2026, che sono: Sydney, Melbourne e Bogota. Successivamente, ho cercato hotel disponibili in queste tre città all'interno del database DBHOTEL. Nonostante la presenza di strutture alberghiere in queste località è stata confermata, non sono stati trovati risultati per hotel con camere attualmente disponibili (filtrando sul campo 'disponibilita'). Pertanto, al momento non ci sono hotel che soddisfano tutti i criteri richiesti."
-        },
-        {
-            "test_id": 7,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "description": "Contiene informazioni sulle stazioni meteorologiche e le previsioni."
-                        },
-                        {
-                            "name": "DBHOTEL",
-                            "description": "Contiene informazioni sugli hotel e sulle camere."
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [],
-                    "accuracy": 0.0
-                },
-                "overall": 0.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Grand Hyatt Bogota",
-                        "citta": "Bogota"
-                    },
-                    {
-                        "nome": "Park Hyatt Melbourne",
-                        "citta": "Melbourne"
-                    },
-                    {
-                        "nome": "Park Hyatt Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Shangri-La Sydney",
-                        "citta": "Sydney"
-                    },
-                    {
-                        "nome": "Travelodge Hotel Sydney",
-                        "citta": "Sydney"
-                    }
-                ],
-                "actual": [],
-                "value": 0.0
-            },
-            "latency": 1127.5476715000113,
-            "explanation": "Sono stati eseguiti i seguenti passaggi:\n1.  **Determinazione delle città:** È stata interrogata la collezione `previsione` di DBMETEO per trovare tutte le città che avranno una temperatura inferiore a 17 gradi il 2026-08-17.\n    *   Risultato: Le città sono Melbourne, Bogota e Sydney.\n2.  **Ricerca degli hotel disponibili:** È stata eseguita un'aggregazione sui database DBMETEO e DBHOTEL per trovare hotel in queste tre città che abbiano camere disponibili (status 'true').\n    *   La ricerca ha confermato l'esistenza di hotel nelle città richieste.\n    *   Tuttavia, la pipeline di aggregazione non ha restituito alcun risultato. Questo indica che, sebbene esistano hotel nelle città selezionate e che queste città soddisfino il criterio meteorologico, *nessuna camera associata a questi hotel è attualmente contrassegnata come disponibile* ('true') nei database forniti."
-        },
-        {
-            "test_id": 8,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI",
-                            "description": "Contiene informazioni su aeroporti, compagnie rotte e voli."
-                        },
-                        {
-                            "name": "DBHOTEL",
-                            "description": "Contiene informazioni sugli hotel e sulle camere."
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "nome",
-                        "citta"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    }
-                ],
-                "actual": [
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 586.9790691001108,
-            "explanation": "Sono stati identificati i voli diretti da Barcellona (BCN) verso diverse destinazioni (MAD, FRA, FCO, CDG, JFK). Successivamente, è stata interrogata la collezione 'hotel' nel database DBHOTEL per trovare strutture a 5 stelle in queste città. I risultati includono hotel di lusso situati a Parigi, Madrid, New York, Francoforte e Roma."
-        },
-        {
-            "test_id": 8,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI",
-                            "used_collections": [
-                                "rotta"
-                            ]
-                        },
-                        {
-                            "name": "DBHOTEL",
-                            "used_collections": [
-                                "hotel"
-                            ]
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "hotel_nome",
-                        "citta",
-                        "stelle",
-                        "origine_volo"
-                    ],
-                    "accuracy": 0.5
-                },
-                "overall": 0.25
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    }
-                ],
-                "actual": [
-                    {
-                        "hotel_nome": "The Westin Palace Madrid",
-                        "citta": "Madrid",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "Hotel Eden",
-                        "citta": "Roma",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "Le Bristol Paris",
-                        "citta": "Parigi",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "The Plaza Hotel",
-                        "citta": "New York",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    },
-                    {
-                        "hotel_nome": "The St. Regis New York",
-                        "citta": "New York",
-                        "stelle": 5,
-                        "origine_volo": "Barcellona (BCN)"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 1062.3411788999802,
-            "explanation": "Sono stati identificati i voli diretti da Barcellona (BCN) verso diverse destinazioni internazionali nei database DBVOLI. Successivamente, è stata eseguita una ricerca nel database DBHOTEL per hotel con 5 stelle in quelle città di arrivo: Madrid, Francoforte, Roma, Parigi e New York. I risultati riportano gli hotel trovati che soddisfano i criteri richiesti."
-        },
-        {
-            "test_id": 8,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI"
-                        },
-                        {
-                            "name": "DBHOTEL"
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "_id",
-                        "citta",
-                        "indirizzo",
-                        "nome",
-                        "stato",
-                        "stelle"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    }
-                ],
-                "actual": [
-                    {
-                        "_id": "6ab563d68d5dba866077bc25",
-                        "citta": "Parigi",
-                        "indirizzo": "Rue du Faubourg Saint-Honore 112",
-                        "nome": "Le Bristol Paris",
-                        "stato": "Francia",
-                        "stelle": 5
-                    },
-                    {
-                        "_id": "6ab563d68d5dba866077bc26",
-                        "citta": "Parigi",
-                        "indirizzo": "Boulevard Raspail 45",
-                        "nome": "Hotel Lutetia Paris",
-                        "stato": "Francia",
-                        "stelle": 5
-                    },
-                    {
-                        "_id": "6ab563d68d5dba866077bc31",
-                        "citta": "Madrid",
-                        "indirizzo": "Plaza de las Cortes 7",
-                        "nome": "The Westin Palace Madrid",
-                        "stato": "Spagna",
-                        "stelle": 5
-                    },
-                    {
-                        "_id": "6ab563d68d5dba866077bc32",
-                        "citta": "Madrid",
-                        "indirizzo": "Plaza de la Lealtad 5",
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "stato": "Spagna",
-                        "stelle": 5
-                    },
-                    {
-                        "_id": "6ab563d68d5dba866077bc34",
-                        "citta": "New York",
-                        "indirizzo": "768 5th Avenue",
-                        "nome": "The Plaza Hotel",
-                        "stato": "Stati Uniti",
-                        "stelle": 5
-                    },
-                    {
-                        "_id": "6ab563d68d5dba866077bc35",
-                        "citta": "New York",
-                        "indirizzo": "2 East 55th Street",
-                        "nome": "The St. Regis New York",
-                        "stato": "Stati Uniti",
-                        "stelle": 5
-                    },
-                    {
-                        "_id": "6ab563d68d5dba866077bc6a",
-                        "citta": "Roma",
-                        "indirizzo": "Via Ludovisi 49",
-                        "nome": "Hotel Eden",
-                        "stato": "Italia",
-                        "stelle": 5
-                    },
-                    {
-                        "_id": "6ab563d68d5dba866077bc6b",
-                        "citta": "Roma",
-                        "indirizzo": "Piazza della Repubblica 48",
-                        "nome": "Anantara Palazzo Naiadi",
-                        "stato": "Italia",
-                        "stelle": 5
-                    }
-                ],
-                "value": 0.8
-            },
-            "latency": 1025.0431580999866,
-            "explanation": "Per rispondere alla richiesta, sono stati utilizzati due database: DBVOLI per determinare le destinazioni raggiungibili da Barcellona (BCN) e DBHOTEL per trovare gli hotel. \n\n1.  **Identificazione delle Destinazioni:** Ho prima interrogato la collezione 'rotta' nel database DBVOLI, filtrando per partenza da BCN. Questo ha restituito diverse destinazioni internazionali (es. MAD, FCO, CDG, JFK).\n2.  **Ricerca Hotel:** Ho poi utilizzato le città corrispondenti ai codici IATA trovati (Madrid, Roma, Parigi, New York) e ho cercato nella collezione 'hotel' del database DBHOTEL tutti gli alloggi con 5 stelle in quelle località.\n\nI risultati mostrano un elenco di hotel a 5 stelle situati nelle principali città internazionali raggiungibili tramite volo diretto da Barcellona."
-        },
-        {
-            "test_id": 8,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBVOLI",
-                        "DBHOTEL"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBVOLI",
-                            "explanation_used": "Identificazione delle destinazioni raggiungibili direttamente da Barcellona (BCN) consultando la collezione 'rotta' per i codici IATA di arrivo."
-                        },
-                        {
-                            "name": "DBHOTEL",
-                            "explanation_used": "Ricerca degli hotel a 5 stelle nelle città corrispondenti ai codici IATA di arrivo trovati."
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "nome",
-                        "citta"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    }
-                ],
-                "actual": [
-                    {
-                        "nome": "Le Bristol Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "Hotel Lutetia Paris",
-                        "citta": "Parigi"
-                    },
-                    {
-                        "nome": "The Westin Palace Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "Mandarin Oriental Ritz Madrid",
-                        "citta": "Madrid"
-                    },
-                    {
-                        "nome": "The Plaza Hotel",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "The St. Regis New York",
-                        "citta": "New York"
-                    },
-                    {
-                        "nome": "Steigenberger Frankfurter Hof",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "JW Marriott Hotel Frankfurt",
-                        "citta": "Francoforte"
-                    },
-                    {
-                        "nome": "Hotel Eden",
-                        "citta": "Roma"
-                    },
-                    {
-                        "nome": "Anantara Palazzo Naiadi",
-                        "citta": "Roma"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 795.8391046000179,
-            "explanation": "Sono stati identificati i voli diretti da Barcellona (BCN) verso destinazioni come Parigi, Madrid, New York, Francoforte e Roma. Successivamente, è stata eseguita una ricerca nel database degli hotel per trovare strutture classificate 5 stelle in queste città di destinazione."
-        },
-        {
-            "test_id": 9,
-            "run": 1,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "explanation_used": "Utilizzato per identificare le 5 città più calde il giorno 17/08/2026 analizzando la collezione 'previsione' e filtrando per temperatura massima."
-                        },
-                        {
-                            "name": "DBVOLI",
-                            "explanation_used": "Utilizzato per recuperare i dettagli degli aeroporti nelle città identificate, dalla collezione 'aeroporto'."
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "iata",
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "citta",
-                        "iata",
-                        "nome"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "iata": "AUH",
-                        "nome": "Zayed International Airport",
-                        "citta": "Abu Dhabi"
-                    },
-                    {
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai"
-                    },
-                    {
-                        "iata": "JED",
-                        "nome": "King Abdulaziz International Airport",
-                        "citta": "Jeddah"
-                    },
-                    {
-                        "iata": "PHX",
-                        "nome": "Phoenix Sky Harbor International Airport",
-                        "citta": "Phoenix"
-                    },
-                    {
-                        "iata": "RUH",
-                        "nome": "King Khalid International Airport",
-                        "citta": "Riyadh"
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Dubai",
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport"
-                    },
-                    {
-                        "citta": "Phoenix",
-                        "iata": "PHX",
-                        "nome": "Phoenix Sky Harbor International Airport"
-                    },
-                    {
-                        "citta": "Jeddah",
-                        "iata": "JED",
-                        "nome": "King Abdulaziz International Airport"
-                    },
-                    {
-                        "citta": "Riyadh",
-                        "iata": "RUH",
-                        "nome": "King Khalid International Airport"
-                    },
-                    {
-                        "citta": "Abu Dhabi",
-                        "iata": "AUH",
-                        "nome": "Zayed International Airport"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 603.7892384999432,
-            "explanation": "Sono state identificate le 5 città più calde il giorno 17/08/2026 analizzando i dati meteo (DBMETEO). Le città sono: Riyadh, Abu Dhabi, Phoenix, Jeddah e Dubai. Di seguito sono elencati gli aeroporti situati in queste cinque località."
-        },
-        {
-            "test_id": 9,
-            "run": 2,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        {
-                            "name": "DBMETEO",
-                            "description": "Utilizzato per identificare le 5 città più calde il 17/08/2026."
-                        },
-                        {
-                            "name": "DBVOLI",
-                            "description": "Utilizzato per recuperare gli aeroporti associati alle città più calde trovate in DBMETEO."
-                        }
-                    ],
-                    "accuracy": 0.0
-                },
-                "columns": {
-                    "expected": [
-                        "iata",
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "citta",
-                        "nome",
-                        "iata"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 0.5
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "iata": "AUH",
-                        "nome": "Zayed International Airport",
-                        "citta": "Abu Dhabi"
-                    },
-                    {
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai"
-                    },
-                    {
-                        "iata": "JED",
-                        "nome": "King Abdulaziz International Airport",
-                        "citta": "Jeddah"
-                    },
-                    {
-                        "iata": "PHX",
-                        "nome": "Phoenix Sky Harbor International Airport",
-                        "citta": "Phoenix"
-                    },
-                    {
-                        "iata": "RUH",
-                        "nome": "King Khalid International Airport",
-                        "citta": "Riyadh"
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Dubai",
-                        "nome": "Dubai International Airport",
-                        "iata": "DXB"
-                    },
-                    {
-                        "citta": "Phoenix",
-                        "nome": "Phoenix Sky Harbor International Airport",
-                        "iata": "PHX"
-                    },
-                    {
-                        "citta": "Jeddah",
-                        "nome": "King Abdulaziz International Airport",
-                        "iata": "JED"
-                    },
-                    {
-                        "citta": "Riyadh",
-                        "nome": "King Khalid International Airport",
-                        "iata": "RUH"
-                    },
-                    {
-                        "citta": "Abu Dhabi",
-                        "nome": "Zayed International Airport",
-                        "iata": "AUH"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 537.5136074000038,
-            "explanation": "È stato prima interrogato il database DBMETEO per identificare le 5 città con la temperatura massima prevista per il 17/08/2026. Le città più calde sono: Riyadh (40.8°C), Abu Dhabi (39.7°C), Phoenix (39.5°C), Jeddah (39.4°C) e Dubai (39.2°C). Successivamente, è stato utilizzato il database DBVOLI per trovare gli aeroporti che si trovano in queste cinque città."
-        },
-        {
-            "test_id": 9,
-            "run": 3,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        "DBMETEO",
-                        "DBVOLI"
-                    ],
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "iata",
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "citta",
-                        "iata",
-                        "nome"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 1.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "iata": "AUH",
-                        "nome": "Zayed International Airport",
-                        "citta": "Abu Dhabi"
-                    },
-                    {
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai"
-                    },
-                    {
-                        "iata": "JED",
-                        "nome": "King Abdulaziz International Airport",
-                        "citta": "Jeddah"
-                    },
-                    {
-                        "iata": "PHX",
-                        "nome": "Phoenix Sky Harbor International Airport",
-                        "citta": "Phoenix"
-                    },
-                    {
-                        "iata": "RUH",
-                        "nome": "King Khalid International Airport",
-                        "citta": "Riyadh"
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Dubai",
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport"
-                    },
-                    {
-                        "citta": "Phoenix",
-                        "iata": "PHX",
-                        "nome": "Phoenix Sky Harbor International Airport"
-                    },
-                    {
-                        "citta": "Jeddah",
-                        "iata": "JED",
-                        "nome": "King Abdulaziz International Airport"
-                    },
-                    {
-                        "citta": "Riyadh",
-                        "iata": "RUH",
-                        "nome": "King Khalid International Airport"
-                    },
-                    {
-                        "citta": "Abu Dhabi",
-                        "iata": "AUH",
-                        "nome": "Zayed International Airport"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 589.7160329000326,
-            "explanation": "Per determinare gli aeroporti delle 5 città più calde il giorno 17/08/2026, è stata prima eseguita una query nel database DBMETEO sulla collezione 'previsione' per trovare le 5 località con la temperatura massima in quella data. Le città identificate sono: Riyadh (40.8°), Abu Dhabi (39.7°), Phoenix (39.5°), Jeddah (39.4°) e Dubai (39.2°). Successivamente, è stata utilizzata questa lista di città per cercare gli aeroporti corrispondenti nel database DBVOLI sulla collezione 'aeroporto', ottenendo i seguenti risultati."
-        },
-        {
-            "test_id": 9,
-            "run": 4,
-            "accuracy": {
-                "database": {
-                    "expected": [
-                        "DBMETEO",
-                        "DBVOLI"
-                    ],
-                    "actual": [
-                        "DBMETEO",
-                        "DBVOLI"
-                    ],
-                    "accuracy": 1.0
-                },
-                "columns": {
-                    "expected": [
-                        "iata",
-                        "nome",
-                        "citta"
-                    ],
-                    "actual": [
-                        "citta",
-                        "nome",
-                        "iata"
-                    ],
-                    "accuracy": 1.0
-                },
-                "overall": 1.0
-            },
-            "precision": {
-                "expected": [
-                    {
-                        "iata": "AUH",
-                        "nome": "Zayed International Airport",
-                        "citta": "Abu Dhabi"
-                    },
-                    {
-                        "iata": "DXB",
-                        "nome": "Dubai International Airport",
-                        "citta": "Dubai"
-                    },
-                    {
-                        "iata": "JED",
-                        "nome": "King Abdulaziz International Airport",
-                        "citta": "Jeddah"
-                    },
-                    {
-                        "iata": "PHX",
-                        "nome": "Phoenix Sky Harbor International Airport",
-                        "citta": "Phoenix"
-                    },
-                    {
-                        "iata": "RUH",
-                        "nome": "King Khalid International Airport",
-                        "citta": "Riyadh"
-                    }
-                ],
-                "actual": [
-                    {
-                        "citta": "Riyadh",
-                        "nome": "King Khalid International Airport",
-                        "iata": "RUH"
-                    },
-                    {
-                        "citta": "Abu Dhabi",
-                        "nome": "Zayed International Airport",
-                        "iata": "AUH"
-                    },
-                    {
-                        "citta": "Phoenix",
-                        "nome": "Phoenix Sky Harbor International Airport",
-                        "iata": "PHX"
-                    },
-                    {
-                        "citta": "Jeddah",
-                        "nome": "King Abdulaziz International Airport",
-                        "iata": "JED"
-                    },
-                    {
-                        "citta": "Dubai",
-                        "nome": "Dubai International Airport",
-                        "iata": "DXB"
-                    }
-                ],
-                "value": 1.0
-            },
-            "latency": 666.4679912000429,
-            "explanation": "Sono stati prima identificate le 5 città più calde nel giorno 17/08/2026, consultando la collezione 'previsione' del database DBMETEO. Le città sono: Riyadh (40.8°C), Abu Dhabi (39.7°C), Phoenix (39.5°C), Jeddah (39.4°C) e Dubai (39.2°C). Successivamente, è stata eseguita una ricerca nella collezione 'aeroporto' del database DBVOLI per trovare gli aeroporti associati a queste cinque città."
+            "latency": 614.1011481999885,
+            "agent_completion": true,
+            "tool_calls_count": 8
         }
     ]
 }

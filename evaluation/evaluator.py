@@ -12,44 +12,39 @@ from scipy.stats import t
 # ============================================================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 TEST_CASES_FILE = os.path.join(
     BASE_DIR,
     #"test_casesM.json"
     #"test_casesS.json"
     "test_casesM.json"
 )
-
 RESULTS_FILE = os.path.join(
     BASE_DIR,
     "results/qwen_resultsM.json"
     #"results/gemma_resultsM.json"
 )
-
 OUTPUT_FILE = os.path.join(
     BASE_DIR,
     "evaluations/confidence_evaluation.json"
     #"evaluations/evaluation_Gemma_results.json"     
 )
 
+DEFAULT_LEVELS = {
+    "Semplice": list(range(1, 4)),
+    "Intermedio": list(range(4, 7)),
+    "Complesso": list(range(7, 10))
+}
 
 # ============================================================
 # JSON UTILITY
 # ============================================================
-
 def load_json(filename):
     with open(filename, "r", encoding="utf-8") as file:
         return json.load(file)
 
-
 def save_json(filename, data):
     with open(filename, "w", encoding="utf-8") as file:
-        json.dump(
-            data,
-            file,
-            indent=4,
-            ensure_ascii=False
-        )
+        json.dump(data, file, indent=4, ensure_ascii=False)
 
 
 # ============================================================
@@ -115,10 +110,7 @@ def normalize_rows(rows):
 # ACCURACY - DATABASE
 # ============================================================
 
-def calculate_database_accuracy(
-    expected_database,
-    actual_database
-):
+def calculate_database_accuracy(expected_database, actual_database):
 
     if isinstance(expected_database, str):
         expected_database = [expected_database]
@@ -145,10 +137,7 @@ def calculate_database_accuracy(
 # ACCURACY - COLUMNS
 # ============================================================
 
-def calculate_column_accuracy(
-    expected_columns,
-    actual_columns
-):
+def calculate_column_accuracy(expected_columns, actual_columns):
 
     expected = set(expected_columns or [])
     actual = set(actual_columns or [])
@@ -156,9 +145,7 @@ def calculate_column_accuracy(
     if not expected:
         return 1.0 if not actual else 0.0
 
-    correct_columns = len(
-        expected & actual
-    )
+    correct_columns = len(expected & actual)
 
     return correct_columns / len(expected)
 
@@ -167,21 +154,18 @@ def calculate_column_accuracy(
 # GET ACTUAL COLUMNS
 # ============================================================
 
-def get_actual_columns(
-    tool_call,
-    output
-):
+def get_actual_columns(tool_call, output):
 
     if not isinstance(output, dict):
         return []
-
+    
     # Normal case:
     # execute_sql restituisce direttamente "columns"
     columns = output.get("columns")
 
     if columns is not None:
         return columns
-
+    
     # Fallback:
     # se columns non è presente, ricaviamo
     # le colonne dalla prima riga.
@@ -196,211 +180,122 @@ def get_actual_columns(
 # ============================================================
 # PRECISION
 # ============================================================
-
 def values_to_counter(rows):
 
     counter = Counter()
-
     for row in rows:
-
         if not isinstance(row, dict):
             continue
-
         for value in row.values():
-
             normalized = normalize_value(value)
-
             counter[normalized] += 1
-
     return counter
 
+def calculate_precision(expected_rows, actual_rows):
 
-def calculate_precision(
-    expected_rows,
-    actual_rows
-):
-
-    expected = values_to_counter(
-        normalize_rows(expected_rows)
-    )
-
-    actual = values_to_counter(
-        normalize_rows(actual_rows)
-    )
-
+    expected = values_to_counter(normalize_rows(expected_rows))
+    actual = values_to_counter(normalize_rows(actual_rows))
     # Nessun risultato atteso
     if not expected:
-
         if not actual:
             return 1.0
-
         return 0.0
 
     correct_values = 0
-
     for value, expected_count in expected.items():
+        actual_count = actual.get(value, 0)
+        correct_values += min(expected_count, actual_count)
 
-        actual_count = actual.get(
-            value,
-            0
-        )
-
-        correct_values += min(
-            expected_count,
-            actual_count
-        )
-
-    total_expected_values = sum(
-        expected.values()
-    )
+    total_expected_values = sum(expected.values())
 
     if total_expected_values == 0:
         return 0.0
-
-    return (
-        correct_values
-        / total_expected_values
-    )
-
+    return (correct_values / total_expected_values)
 
 # ============================================================
 # FINAL EXECUTE SQL
 # ============================================================
-
 def get_final_execute_sql(run):
 
     final_execute_sql = None
 
-    for tool_call in run.get(
-        "tool_calls",
-        []
-    ):
-
+    for tool_call in run.get("tool_calls", []):
         if tool_call.get("tool") == "execute_sql":
-
             final_execute_sql = tool_call
 
     return final_execute_sql
 
-
 # ============================================================
 # PARSE TOOL OUTPUT
 # ============================================================
-
 def parse_tool_output(tool_call):
-
     if tool_call is None:
         return None
 
-    output = tool_call.get(
-        "output"
-    )
+    output = tool_call.get("output")
 
     if output is None:
         return None
-
     # Già un dizionario
     if isinstance(output, dict):
         return output
-
     # JSON sotto forma di stringa
     if isinstance(output, str):
-
         try:
             return json.loads(output)
-
         except json.JSONDecodeError:
             return None
-
     return None
-
 
 # ============================================================
 # EVALUATE ONE RUN
 # ============================================================
-
-def evaluate_run(
-    test_case,
-    run
-):
-
+def evaluate_run(test_case, run):
     # --------------------------------------------------------
     # EXPECTED
     # --------------------------------------------------------
-
-    expected_database = test_case.get(
-        "expected_database"
-    )
-
-    expected_columns = test_case.get(
-        "expected_columns",
-        []
-    )
-
-    expected_result = test_case.get(
-        "expected_result",
-        []
-    )
+    expected_database = test_case.get("expected_database")
+    expected_columns = test_case.get("expected_columns", [])
+    expected_result = test_case.get("expected_result", [])
 
     # --------------------------------------------------------
     # LATENCY
     # --------------------------------------------------------
-
-    latency = run.get(
-        "latency_total"
-    )
+    latency = run.get("latency_total")
 
     # --------------------------------------------------------
     # DEFAULT EVALUATION
     # --------------------------------------------------------
-
     evaluation = {
-
-        "test_id": test_case.get(
-            "id"
-        ),
-
-        "run": run.get(
-            "run"
-        ),
-
+        "test_id": test_case.get("id"),
+        "run": run.get("run"),
         "accuracy": {
-
             "database": {
                 "expected": expected_database,
                 "actual": None,
                 "accuracy": 0.0
             },
-
             "columns": {
                 "expected": expected_columns,
                 "actual": [],
                 "accuracy": 0.0
             },
-
             "overall": 0.0
         },
 
         "precision": {
-
             "expected": expected_result,
             "actual": [],
             "value": 0.0
         },
-
         "latency": latency,
-
         "final_sql": None
     }
 
     # --------------------------------------------------------
     # CERCA L'ULTIMO execute_sql
     # --------------------------------------------------------
-
-    final_execute_sql = get_final_execute_sql(
-        run
-    )
-
+    final_execute_sql = get_final_execute_sql(run)
     # Nessun execute_sql
     if final_execute_sql is None:
         return evaluation
@@ -408,135 +303,70 @@ def evaluate_run(
     # --------------------------------------------------------
     # SQL INFORMATION
     # --------------------------------------------------------
-
-    arguments = final_execute_sql.get(
-        "arguments",
-        {}
-    )
-
-    actual_database = arguments.get(
-        "database"
-    )
-
-    actual_query = arguments.get(
-        "query"
-    )
-
+    arguments = final_execute_sql.get("arguments", {})
+    actual_database = arguments.get("database")
+    actual_query = arguments.get("query")
     evaluation["final_sql"] = {
-
         "database": actual_database,
-
         "query": actual_query
     }
 
     # --------------------------------------------------------
     # TOOL OUTPUT
     # --------------------------------------------------------
-
-    output = parse_tool_output(
-        final_execute_sql
-    )
-
+    output = parse_tool_output(final_execute_sql)
     if output is None:
         return evaluation
 
     # --------------------------------------------------------
     # ACTUAL RESULT
     # --------------------------------------------------------
-
-    actual_rows = output.get(
-        "rows",
-        []
-    )
-
-    actual_columns = get_actual_columns(
-        final_execute_sql,
-        output
-    )
+    actual_rows = output.get("rows", [])
+    actual_columns = get_actual_columns(final_execute_sql,output)
 
     # ========================================================
     # DATABASE ACCURACY
     # ========================================================
-
-    database_accuracy = calculate_database_accuracy(
-        expected_database,
-        actual_database
-    )
+    database_accuracy = calculate_database_accuracy(expected_database, actual_database)
 
     evaluation["accuracy"]["database"] = {
-
         "expected": expected_database,
-
         "actual": actual_database,
-
         "accuracy": database_accuracy
     }
 
     # ========================================================
     # COLUMNS ACCURACY
     # ========================================================
-
-    columns_accuracy = calculate_column_accuracy(
-        expected_columns,
-        actual_columns
-    )
+    columns_accuracy = calculate_column_accuracy(expected_columns, actual_columns)
 
     evaluation["accuracy"]["columns"] = {
-
         "expected": expected_columns,
-
         "actual": actual_columns,
-
         "accuracy": columns_accuracy
     }
 
     # ========================================================
     # OVERALL ACCURACY
     # ========================================================
-
-    overall_accuracy = (
-        database_accuracy
-        + columns_accuracy
-    ) / 2
-
-    evaluation["accuracy"]["overall"] = (
-        overall_accuracy
-    )
+    overall_accuracy = (database_accuracy + columns_accuracy) / 2
+    evaluation["accuracy"]["overall"] = (overall_accuracy)
 
     # ========================================================
     # PRECISION
     # ========================================================
-
-    precision = calculate_precision(
-        expected_result,
-        actual_rows
-    )
-
+    precision = calculate_precision(expected_result, actual_rows)
     evaluation["precision"] = {
-
         "expected": expected_result,
-
         "actual": actual_rows,
-
         "value": precision
     }
-
     return evaluation
 # ============================================================
 # CONFIDENCE INTERVAL
 # ============================================================
-def calculate_confidence_interval(values, confidence = 0.97):
-    """
-    Calcolo media e intervallo di confidenza
-    Restituisce:
-        {
-            "mean": ...,
-            "ci_lower": ...,
-            "ci_upper": ...,
-            "margin": ...,
-            "n": ...
-        }
-    """
+def calculate_confidence_interval(values, confidence=0.97, bounded=False):
+
     if not values:
         return {
             "mean": 0.0,
@@ -545,11 +375,8 @@ def calculate_confidence_interval(values, confidence = 0.97):
             "margin": 0.0,
             "n": 0
         }
-
     n = len(values)
     average = mean(values)
-
-    # Con una sola osservazione non è possibile stimare la deviazione standard.
     if n == 1:
         return {
             "mean": average,
@@ -558,17 +385,15 @@ def calculate_confidence_interval(values, confidence = 0.97):
             "margin": 0.0,
             "n": 1
         }
-
     standard_deviation = stdev(values)
     standard_error = standard_deviation / math.sqrt(n)
-
-    # Quantile della distribuzione t di Student
     t_critical = t.ppf(1 - (1 - confidence) / 2, df=n - 1)
-
     margin = t_critical * standard_error
-    ci_lower = max(0.0, average - margin)
-    ci_upper = min(1.0, average + margin)
-
+    ci_lower = average - margin
+    ci_upper = average + margin
+    if bounded:
+        ci_lower = max(0.0, ci_lower)
+        ci_upper = min(1.0, ci_upper)
     return {
         "mean": average,
         "ci_lower": ci_lower,
@@ -577,59 +402,37 @@ def calculate_confidence_interval(values, confidence = 0.97):
         "n": n
     }
 
+# ============================================================
+# BENCHMARK STATISTICS PER LEVEL
+# ============================================================
+def calculate_level_statistics(evaluations, levels=DEFAULT_LEVELS, confidence=0.97):
+
+    results = {}
+    for level_name, test_ids in levels.items():
+        test_ids = set(test_ids)
+        level_evaluations = [
+            evaluation
+            for evaluation in evaluations
+            if evaluation.get("test_id") in test_ids
+        ]
+        results[level_name] = calculate_statistics(level_evaluations, confidence=confidence)
+    return results
 
 # ============================================================
 # GLOBAL BENCHMARK STATISTICS
 # ============================================================
-
-# ============================================================
-# GLOBAL BENCHMARK STATISTICS
-# ============================================================
-
-def calculate_statistics(
-    evaluations
-):
+def calculate_statistics(evaluations, confidence=0.97):
 
     if not evaluations:
-
         return {
+            "confidence_level": confidence,
             "accuracy": {
-                "database": {
-                    "mean": 0.0,
-                    "ci_lower": 0.0,
-                    "ci_upper": 0.0,
-                    "margin": 0.0,
-                    "n": 0
-                },
-                "columns": {
-                    "mean": 0.0,
-                    "ci_lower": 0.0,
-                    "ci_upper": 0.0,
-                    "margin": 0.0,
-                    "n": 0
-                },
-                "overall": {
-                    "mean": 0.0,
-                    "ci_lower": 0.0,
-                    "ci_upper": 0.0,
-                    "margin": 0.0,
-                    "n": 0
-                }
+                "database": calculate_confidence_interval([], confidence=confidence, bounded=True),
+                "columns": calculate_confidence_interval([], confidence=confidence, bounded=True),
+                "overall": calculate_confidence_interval([], confidence=confidence, bounded=True)
             },
-            "precision": {
-                "mean": 0.0,
-                "ci_lower": 0.0,
-                "ci_upper": 0.0,
-                "margin": 0.0,
-                "n": 0
-            },
-            "latency": {
-                "mean": 0.0,
-                "ci_lower": 0.0,
-                "ci_upper": 0.0,
-                "margin": 0.0,
-                "n": 0
-            }
+            "precision": calculate_confidence_interval([], confidence=confidence, bounded=True),
+            "latency": calculate_confidence_interval([], confidence=confidence, bounded=False)
         }
 
     # DATABASE ACCURACY
@@ -664,18 +467,15 @@ def calculate_statistics(
     ]
 
     # CONFIDENCE INTERVALS
-    database_accuracy = calculate_confidence_interval(database_values)
-
-    columns_accuracy = calculate_confidence_interval(columns_values)
-
-    overall_accuracy = calculate_confidence_interval(overall_values)
-
-    precision = calculate_confidence_interval(precision_values)
-
-    latency = calculate_confidence_interval(latency_values)
+    database_accuracy = calculate_confidence_interval(database_values, confidence=confidence, bounded = True)
+    columns_accuracy = calculate_confidence_interval(columns_values, confidence=confidence, bounded = True)
+    overall_accuracy = calculate_confidence_interval(overall_values, confidence=confidence, bounded = True)
+    precision = calculate_confidence_interval(precision_values, confidence=confidence, bounded = True)
+    latency = calculate_confidence_interval(latency_values, confidence=confidence, bounded = False)
 
     # RETURN
     return {
+        "confidence_level": confidence,
         "accuracy": {
             "database": database_accuracy,
             "columns": columns_accuracy,
@@ -762,14 +562,8 @@ def evaluate():
     # --------------------------------------------------------
     # LOAD FILES
     # --------------------------------------------------------
-
-    test_cases = load_json(
-        TEST_CASES_FILE
-    )
-
-    test_results = load_json(
-        RESULTS_FILE
-    )
+    test_cases = load_json(TEST_CASES_FILE)
+    test_results = load_json(RESULTS_FILE)
 
     # --------------------------------------------------------
     # SUPPORTA EVENTUALE STRUTTURA:
@@ -785,15 +579,10 @@ def evaluate():
     #     "test_cases": [...]
     # }
     # --------------------------------------------------------
-
     if isinstance(test_cases, dict):
-
         test_cases = test_cases.get(
             "test_cases",
-            test_cases.get(
-                "results",
-                []
-            )
+            test_cases.get("results", [])
         )
 
     # --------------------------------------------------------
@@ -810,111 +599,70 @@ def evaluate():
     #     ]
     # }
     # --------------------------------------------------------
-
     if isinstance(test_results, dict):
-
-        results = test_results.get(
-            "results",
-            []
-        )
-
+        results = test_results.get("results", [])
     else:
-
         results = test_results
 
     # --------------------------------------------------------
     # EVALUATIONS
     # --------------------------------------------------------
-
     all_evaluations = []
 
     # ========================================================
     # CICLO SUI TEST
     # ========================================================
-
     for test_case in test_cases:
-
-        test_id = test_case.get(
-            "id"
-        )
-
+        test_id = test_case.get("id")
         # ----------------------------------------------------
         # Trova il risultato corrispondente
         # ----------------------------------------------------
-
         result_entry = next(
             (
                 result
-
                 for result in results
-
                 if result.get("id") == test_id
             ),
             None
         )
 
         if result_entry is None:
-
-            print(
-                f"\nATTENZIONE: "
-                f"nessun risultato trovato "
-                f"per il test {test_id}"
-            )
-
+            print(f"\nATTENZIONE: nessun risultato trovato per il test {test_id}")
             continue
 
         # ----------------------------------------------------
         # RUNS
         # ----------------------------------------------------
-
-        runs = result_entry.get(
-            "runs",
-            []
-        )
-
+        runs = result_entry.get("runs", [])
+        
         for run in runs:
-
-            evaluation = evaluate_run(
-                test_case,
-                run
-            )
-
-            all_evaluations.append(
-                evaluation
-            )
-
-            print_run(
-                evaluation
-            )
+            evaluation = evaluate_run(test_case, run)
+            all_evaluations.append(evaluation)
+            print_run(evaluation)
 
     # ========================================================
     # STATISTICHE
     # ========================================================
+    confidence = 0.97
 
-    statistics = calculate_statistics(
-        all_evaluations
-    )
-
+    statistics_overall = calculate_statistics(all_evaluations, confidence=confidence)
+    statistics_by_difficulty = calculate_level_statistics(all_evaluations, levels=DEFAULT_LEVELS, confidence=confidence)
     # ========================================================
     # OUTPUT JSON
     # ========================================================
-
     output = {
-
-        "statistics": statistics,
-
+        "statistics": {
+            "confidence_level":confidence,
+            "overall": statistics_overall,
+            "by_difficulty": statistics_by_difficulty
+        },
         "runs": all_evaluations
     }
-
-    save_json(
-        OUTPUT_FILE,
-        output
-    )
+    save_json(OUTPUT_FILE, output)
 
     # ========================================================
     # SUMMARY
     # ========================================================
-
     print()
     print("=" * 70)
     print("BENCHMARK SUMMARY")
@@ -922,55 +670,47 @@ def evaluate():
 
     print(
         f"\nAccuracy Database: "
-        f"{statistics['accuracy']['database']['mean'] * 100:.2f}% "
+        f"{statistics_overall['accuracy']['database']['mean'] * 100:.2f}% "
         f"(97% CI: "
-        f"{statistics['accuracy']['database']['ci_lower'] * 100:.2f}% - "
-        f"{statistics['accuracy']['database']['ci_upper'] * 100:.2f}%)"
+        f"{statistics_overall['accuracy']['database']['ci_lower'] * 100:.2f}% - "
+        f"{statistics_overall['accuracy']['database']['ci_upper'] * 100:.2f}%)"
     )
-
     print(
         f"Accuracy Columns:  "  
-        f"{statistics['accuracy']['columns']['mean'] * 100:.2f}% "
+        f"{statistics_overall['accuracy']['columns']['mean'] * 100:.2f}% "
         f"(97% CI: "
-        f"{statistics['accuracy']['columns']['ci_lower'] * 100:.2f}% - "
-        f"{statistics['accuracy']['columns']['ci_upper'] * 100:.2f}%)"
+        f"{statistics_overall['accuracy']['columns']['ci_lower'] * 100:.2f}% - "
+        f"{statistics_overall['accuracy']['columns']['ci_upper'] * 100:.2f}%)"
     )
-
     print(
         f"Accuracy Overall:   "
-        f"{statistics['accuracy']['overall']['mean'] * 100:.2f}% "
+        f"{statistics_overall['accuracy']['overall']['mean'] * 100:.2f}% "
         f"(97% CI: "
-        f"{statistics['accuracy']['overall']['ci_lower'] * 100:.2f}% - "
-        f"{statistics['accuracy']['overall']['ci_upper'] * 100:.2f}%)"
+        f"{statistics_overall['accuracy']['overall']['ci_lower'] * 100:.2f}% - "
+        f"{statistics_overall['accuracy']['overall']['ci_upper'] * 100:.2f}%)"
     )
-
     print(
         f"Precision:          "
-        f"{statistics['precision']['mean'] * 100:.2f}%"
+        f"{statistics_overall['precision']['mean'] * 100:.2f}%"
         f"(97% CI: "
-        f"{statistics['precision']['ci_lower'] * 100:.2f}% - "
-        f"{statistics['precision']['ci_upper'] * 100:.2f}%)"
+        f"{statistics_overall['precision']['ci_lower'] * 100:.2f}% - "
+        f"{statistics_overall['precision']['ci_upper'] * 100:.2f}%)"
     )
-
     print(
         f"Latency:            "
-        f"{statistics['latency']['mean']:.2f} ms"
+        f"{statistics_overall['latency']['mean']:.2f} ms"
         f"(97% CI: "
-        f"{statistics['latency']['ci_lower']:.2f}ms - "
-        f"{statistics['latency']['ci_upper']:.2f}ms)"
+        f"{statistics_overall['latency']['ci_lower']:.2f}ms - "
+        f"{statistics_overall['latency']['ci_upper']:.2f}ms)"
     )
-
     print("=" * 70)
-
     print(
         f"\nRisultati salvati in: "
         f"{OUTPUT_FILE}"
     )
 
-
 # ============================================================
 # ENTRY POINT
 # ============================================================
-
 if __name__ == "__main__":
     evaluate()
