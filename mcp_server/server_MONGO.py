@@ -20,7 +20,16 @@ dbs = {
                                 port=27017)                          
     }
 mcp = MCPServer("MongoDB Database")
-
+# ----------------- LIST DATABASES
+@mcp.tool()
+def list_databases() -> dict:
+    """
+    Restituisce l'elenco dei database MongoDB su cui fare le query
+    """
+    return{
+        "success": True,
+        "databases": ["DBVOLI", "DBMETEO", "DBHOTEL"]
+    }
 # ----------------- LIST COLLECTIONS
 @mcp.tool()
 def list_collections(database: str) -> dict:

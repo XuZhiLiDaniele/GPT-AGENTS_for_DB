@@ -12,23 +12,14 @@ Sono disponibili due modalità:
 import json
 import os
 import argparse
-
 import matplotlib.pyplot as plt
 import numpy as np
-
 
 #--------------------CONFIGURAZIONE 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_GEMMA_FILE = os.path.join(BASE_DIR, "evaluation/gemma_resultsM_evaluation.json")
 DEFAULT_QWEN_FILE = os.path.join(BASE_DIR, "evaluation/qwen_resultsM_evaluation.json")
 OUTPUT_DIR = os.path.join(BASE_DIR,"plots")
-
-
-DEFAULT_LEVELS = {
-    "Semplice": list(range(1, 4)),
-    "Intermedio": list(range(4, 7)),
-    "Complesso": list(range(7, 10))
-}
 
 #--------------------LETTURA FILE
 def load_json(filename):
@@ -40,115 +31,11 @@ def load_json(filename):
 
     with open(filename, "r", encoding="utf-8") as file:
         return json.load(file)
-
-#--------------------ESTRAZIONE RUN
-def get_runs(data):
-    """
-    Estrae tutte le valutazioni individuali dal file di valutazione.
-    Per ogni run restituisce una lista del tipo:
-    [
-        {
-            "test_id": 1,
-            "run": 1,
-            "accuracy": {...},
-            "precision": {...},
-            "latency": ...
-        },
-        ...
-    ]
-    """
-
-    if not isinstance(data, dict):
-        raise ValueError("Il file dei risultati deve contenere un oggetto JSON.")
-
-    runs = data.get("runs", [])
-    if not isinstance(runs, list):
-        raise ValueError("Il campo 'runs' deve essere una lista.")
     
-    return runs
-
-#--------------------RAGGRUPPAMENTO PER TEST
-def filter_runs(runs, test_ids):
-    """
-    Mantiene solamente le run appartenenti ai test richiesti.
-    """
-    test_ids = set(test_ids)
-    return [
-        run
-        for run in runs
-        if run.get("test_id") in test_ids
-    ]
-
-#--------------------CALCOLO STATISTICHE
-def calculate_statistics(runs):
-    """
-    Calcola le statistiche medie sulle run ricevute.
-    """
-
-    if not runs:
-        return {
-            "accuracy": 0.0,
-            "precision": 0.0,
-            "latency": 0.0
-        }
-
-    accuracy_values = []
-    precision_values = []
-    latency_values = []
-
-    for run in runs:
-        #Accuracy
-        accuracy = run.get("accuracy", {})
-        overall_accuracy = accuracy.get("overall")
-        if overall_accuracy is not None:
-            accuracy_values.append(float(overall_accuracy))
-
-        #Precision
-        precision = run.get("precision", {})
-        precision_value = precision.get("value")
-        if precision_value is not None:
-            precision_values.append(float(precision_value))
-
-        #Latenza
-        latency = run.get("latency")
-        if latency is not None:
-            latency_values.append(float(latency))
-
-    return {
-        "accuracy": (sum(accuracy_values) / len(accuracy_values)
-                     if accuracy_values else 0.0
-                    ),
-        "precision": (sum(precision_values) / len(precision_values)
-                      if precision_values else 0.0
-                     ),
-        "latency": (sum(latency_values) / len(latency_values)
-                    if latency_values else 0.0
-                   )
-        }
-
-#--------------------CALCOLO STATISTICHE PER LIVELLO
-def calculate_level_statistics(data, levels):
-    """
-    Calcola le statistiche per ciascun livello di difficoltà.
-    """
-    runs = get_runs(data)
-    results = {}
-    for level_name, test_ids in levels.items():
-        selected_runs = filter_runs(runs, test_ids)
-        results[level_name] = calculate_statistics(selected_runs)
-    return results
-#--------------------CALCOLO STATISTICHE TOTALI
-def calculate_total_statistics(data):
-    """
-    Calcola le statistiche medie considerando tutti i test presenti nel file
-    """
-    runs = get_runs(data)
-    return calculate_statistics(runs)
-
 #--------------------STAMPA STATISTICHE
 def print_statistics(agent_name, statistics):
     """
-    Stampa le statistiche in maniera leggibile.
+    Stampa le statistiche già calcolate dall'evaluator.
     """
     print()
     print("=" * 70)
@@ -158,21 +45,35 @@ def print_statistics(agent_name, statistics):
     for level, values in statistics.items():
         print()
         print(level)
-        print(f"  Accuracy:  " 
-              f"{values['accuracy'] * 100:.2f}%"
-             )
-        print(f"  Precision: "
-              f"{values['precision'] * 100:.2f}%"
-             )
-        print(f"  Latency:   "
-              f"{values['latency']:.2f} ms"
-             )
+
+        accuracy = values["accuracy"]["overall"]
+        precision = values["precision"]
+        latency = values["latency"]
+
+        print(
+            f"  Accuracy: {accuracy['mean'] * 100:.2f}% "
+            f"[{accuracy['ci_lower'] * 100:.2f}%, "
+            f"{accuracy['ci_upper'] * 100:.2f}%]"
+        )
+
+        print(
+            f"  Precision: {precision['mean'] * 100:.2f}% "
+            f"[{precision['ci_lower'] * 100:.2f}%, "
+            f"{precision['ci_upper'] * 100:.2f}%]"
+        )
+
+        print(
+            f"  Latency: {latency['mean']:.2f} ms "
+            f"[{latency['ci_lower']:.2f}, "
+            f"{latency['ci_upper']:.2f}] ms"
+        )
 
 #--------------------STAMPA CONFRONTO
 def print_comparison(gemma_stats, qwen_stats):
     """
     Stampa il confronto Gemma vs Qwen.
     """
+
     print()
     print("=" * 70)
     print("CONFRONTO GEMMA VS QWEN")
@@ -181,20 +82,34 @@ def print_comparison(gemma_stats, qwen_stats):
     for level in gemma_stats.keys():
         gemma = gemma_stats[level]
         qwen = qwen_stats[level]
+
+        gemma_accuracy = gemma["accuracy"]["overall"]["mean"]
+        qwen_accuracy = qwen["accuracy"]["overall"]["mean"]
+
+        gemma_precision = gemma["precision"]["mean"]
+        qwen_precision = qwen["precision"]["mean"]
+
+        gemma_latency = gemma["latency"]["mean"]
+        qwen_latency = qwen["latency"]["mean"]
+
         print()
-        print(f"{level}")
-        print(f"  Accuracy:  "
-              f"Gemma {gemma['accuracy'] * 100:.2f}%  |  "
-              f"Qwen {qwen['accuracy'] * 100:.2f}%"
-             )
-        print(f"  Precision: "
-              f"Gemma {gemma['precision'] * 100:.2f}%  |  "
-              f"Qwen {qwen['precision'] * 100:.2f}%"
-             )
-        print(f"  Latency:   "
-              f"Gemma {gemma['latency']:.2f} ms  |  "
-              f"Qwen {qwen['latency']:.2f} ms"
-             )
+        print(level)
+
+        print(
+            f"  Accuracy:  "
+            f"Gemma {gemma_accuracy * 100:.2f}%  |  "
+            f"Qwen {qwen_accuracy * 100:.2f}%"
+        )
+        print(
+            f"  Precision: "
+            f"Gemma {gemma_precision * 100:.2f}%  |  "
+            f"Qwen {qwen_precision * 100:.2f}%"
+        )
+        print(
+            f"  Latency:   "
+            f"Gemma {gemma_latency:.2f} ms  |  "
+            f"Qwen {qwen_latency:.2f} ms"
+        )
 
 #--------------------CREAZIONE CARTELLA OUTPUT
 def create_output_directory():
@@ -206,60 +121,131 @@ def create_output_directory():
 #--------------------CREAZIONE CARTELLA OUTPUT
 def plot_metric(gemma_stats, qwen_stats, metric, title, xlabel, filename, percentage=False):
     """
-    Crea un bar chart Gemma vs Qwen.
+    Crea un bar chart Gemma vs Qwen per livello di difficoltà.
+
+    Le statistiche e gli intervalli di confidenza vengono
+    letti direttamente dal file prodotto dall'evaluator.
     """
+
     levels = list(gemma_stats.keys())
 
-    gemma_values = [gemma_stats[level][metric]
-                    for level in levels
-                   ]
-    qwen_values = [qwen_stats[level][metric]
-                   for level in levels
-                  ]
+    # ========================================================
+    # ESTRAZIONE STATISTICHE
+    # ========================================================
+    if metric == "accuracy":
+        gemma_metric = [
+            gemma_stats[level]["accuracy"]["overall"]
+            for level in levels
+        ]
+        qwen_metric = [
+            qwen_stats[level]["accuracy"]["overall"]
+            for level in levels
+        ]
+    else:
+        gemma_metric = [
+            gemma_stats[level][metric]
+            for level in levels
+        ]
+        qwen_metric = [
+            qwen_stats[level][metric]
+            for level in levels
+        ]
 
+    # ========================================================
+    # MEDIA
+    # ========================================================
+    gemma_values = [value["mean"] for value in gemma_metric]
+    qwen_values = [value["mean"] for value in qwen_metric]
+    # ========================================================
+    # MARGINE CI
+    # ========================================================
+    gemma_errors = [value["margin"] for value in gemma_metric]
+    qwen_errors = [value["margin"] for value in qwen_metric]
+    # ========================================================
+    # CONVERSIONE PERCENTUALE
+    # ========================================================
     if percentage:
-        gemma_values = [value * 100
-                        for value in gemma_values
-                       ]
-        qwen_values = [value * 100
-                       for value in qwen_values
-                      ]
+        gemma_values = [value * 100 for value in gemma_values]
+        qwen_values = [value * 100 for value in qwen_values]
+        gemma_errors = [error * 100 for error in gemma_errors]
+        qwen_errors = [error * 100 for error in qwen_errors]
+    # ========================================================
+    # BAR CHART
+    # ========================================================
     y = np.arange(len(levels))
     height = 0.35
     fig, ax = plt.subplots(figsize=(9, 6))
+    bars_gemma = ax.barh(
+        y - height / 2,
+        gemma_values,
+        height,
+        xerr=gemma_errors,
+        capsize=4,
+        label="Gemma"
+    )
 
-    bars_gemma = ax.barh( y - height / 2, gemma_values, height, label="Gemma" ) 
-    bars_qwen = ax.barh( y + height / 2, qwen_values, height, label="Qwen" )
+    bars_qwen = ax.barh(
+        y + height / 2,
+        qwen_values,
+        height,
+        xerr=qwen_errors,
+        capsize=4,
+        label="Qwen"
+    )
+
+    # ========================================================
+    # ASSI
+    # ========================================================
+
     ax.set_title(title, fontsize=14, fontweight="bold")
-
     ax.set_yticks(y)
     ax.set_yticklabels(levels)
     ax.set_xlabel(xlabel)
     ax.legend()
-    ax.grid(axis="x", linestyle="--", alpha=0.4)
 
+    ax.grid(axis="x", linestyle="--", alpha=0.4)
     if percentage:
         ax.set_xlim(0, 100)
 
-#--------------------VALORI BARRE
+    # ========================================================
+    # LABEL VALORI
+    # ========================================================
     def add_labels(bars):
         for bar in bars:
             width = bar.get_width()
-
             if percentage:
                 text = f"{width:.1f}%"
             else:
                 text = f"{width:.0f} ms"
 
-            ax.annotate(text, xy=(width, bar.get_y() + bar.get_height()/2), xytext=(5, 0), textcoords="offset points", ha="left", va="center", fontsize=9)
+            ax.annotate(
+                text,
+                xy=(width, bar.get_y() + bar.get_height() / 2),
+                xytext=(5, 0),
+                textcoords="offset points",
+                ha="left",
+                va="center",
+                fontsize=9
+            )
+
     add_labels(bars_gemma)
     add_labels(bars_qwen)
+
+    # ========================================================
+    # SALVATAGGIO
+    # ========================================================
+
     fig.tight_layout()
-    output_path = os.path.join(OUTPUT_DIR, filename)
+
+    output_path = os.path.join(OUTPUT_DIR,filename)
+
     fig.savefig(output_path, dpi=300, bbox_inches="tight")
+
     plt.show()
     plt.close(fig)
+
     print(f"\nGrafico salvato: {output_path}")
+
 
 #--------------------PLOT DEL CHART TOTALE
 # #def plot_total_statistics(gemma_stats, qwen_stats):
@@ -314,102 +300,154 @@ def plot_metric(gemma_stats, qwen_stats, metric, title, xlabel, filename, percen
     #     plt.show()
     #     plt.close(fig)
     #     print(f"\nGrafico salvato: {output_path}")
-def plot_total_accuracy_precision( gemma_stats, qwen_stats ):
-    """ 
-    Crea un unico grafico orizzontale per Accuracy e Precision. 
-    Per ogni metrica vengono mostrate due barre: Gemma Qwen 
-    """ 
-    create_output_directory() 
-    metrics = [ "Accuracy", "Precision" ] 
-    gemma_values = [ gemma_stats["accuracy"] * 100, 
-                    gemma_stats["precision"] * 100 ] 
-    qwen_values = [ qwen_stats["accuracy"] * 100, 
-                   qwen_stats["precision"] * 100 ] 
-    y = np.arange( len(metrics) ) 
-    height = 0.35 
-    fig, ax = plt.subplots( figsize=(9, 5) ) 
-    # ----------------------------------- BARRE 
-    bars_gemma = ax.barh( y - height / 2, gemma_values, height, label="Gemma" ) 
-    bars_qwen = ax.barh( y + height / 2, qwen_values, height, label="Qwen" ) 
-    # ----------------------------------- ASSE Y 
-    ax.set_yticks(y) 
-    ax.set_yticklabels(metrics) 
-    # ----------------------------------- ASSE X
-    ax.set_xlabel( "Valore (%)" ) 
-    ax.set_xlim( 0, 100 ) 
-    # ------------------------------------ TITOLO 
-    ax.set_title( "Accuracy e Precision - Gemma vs Qwen", fontsize=14, fontweight="bold" ) 
-    # ------------------------------------ GRIGLIA 
-    ax.grid( axis="x", linestyle="--", alpha=0.4 ) 
-    # -------------------------------------LEGENDA 
-    ax.legend() 
-    # ------------------------------------- VALORI 
+    
+def plot_total_accuracy_precision(gemma_stats, qwen_stats):
+
+    """
+    Crea un grafico orizzontale per Accuracy e Precision.
+    Usa direttamente media e CI prodotti dall'evaluator.
+    """
+    create_output_directory()
+    metrics = ["Accuracy", "Precision"]
+
+    gemma_accuracy = gemma_stats["accuracy"]["overall"]
+    qwen_accuracy = qwen_stats["accuracy"]["overall"]
+
+    gemma_precision = gemma_stats["precision"]
+    qwen_precision = qwen_stats["precision"]
+
+    gemma_values = [gemma_accuracy["mean"] * 100, gemma_precision["mean"] * 100]
+
+    qwen_values = [qwen_accuracy["mean"] * 100, qwen_precision["mean"] * 100]
+
+    gemma_errors = [gemma_accuracy["margin"] * 100, gemma_precision["margin"] * 100]
+
+    qwen_errors = [qwen_accuracy["margin"] * 100, qwen_precision["margin"] * 100]
+
+    y = np.arange(len(metrics))
+    height = 0.35
+
+    fig, ax = plt.subplots(figsize=(9, 5))
+
+    bars_gemma = ax.barh(
+        y - height / 2,
+        gemma_values,
+        height,
+        xerr=gemma_errors,
+        capsize=4,
+        label="Gemma"
+    )
+
+    bars_qwen = ax.barh(
+        y + height / 2,
+        qwen_values,
+        height,
+        xerr=qwen_errors,
+        capsize=4,
+        label="Qwen"
+    )
+
+    ax.set_yticks(y)
+    ax.set_yticklabels(metrics)
+
+    ax.set_xlabel("Valore (%)")
+    ax.set_xlim(0, 100)
+
+    ax.set_title(
+        "Accuracy e Precision - Gemma vs Qwen",
+        fontsize=14,
+        fontweight="bold"
+    )
+
+    ax.grid(axis="x", linestyle="--", alpha=0.4)
+    ax.legend()
     for bar in bars_gemma:
-        width = bar.get_width() 
-        ax.annotate( f"{width:.2f}%",
-                     xy=( width, bar.get_y() + bar.get_height() / 2 ),
-                     xytext=( 5, 0 ), 
-                     textcoords="offset points", 
-                     ha="left", 
-                     va="center" ) 
-    for bar in bars_qwen: 
         width = bar.get_width()
-        ax.annotate( f"{width:.2f}%", 
-                    xy=( width, bar.get_y() + bar.get_height() / 2 ),
-                    xytext=( 5, 0 ), 
-                    textcoords="offset points", 
-                    ha="left", 
-                    va="center" ) 
-    # ------------------------------------------ SALVATAGGIO 
-    fig.tight_layout() 
-    output_path = os.path.join( OUTPUT_DIR, "accuracy_precision_total_comparison.png" ) 
-    fig.savefig( output_path, dpi=300, bbox_inches="tight" ) 
-    plt.show() 
-    plt.close(fig) 
-    print( f"\nGrafico salvato: {output_path}" ) 
-    # ========================================== GRAFICO TOTALE LATENZA 
-def plot_total_latency( gemma_stats, qwen_stats ): 
-    """ 
-    Crea un grafico orizzontale per la latenza. 
-    """ 
-    create_output_directory() 
-    labels = [ "Gemma", "Qwen" ] 
-    values = [ gemma_stats["latency"],
-                qwen_stats["latency"] ] 
-    y = np.arange( len(labels) ) 
-    height = 0.5 
-    fig, ax = plt.subplots( figsize=(9, 4) ) 
-    # ---------------------------------------- BARRE 
-    bars = ax.barh( y, values, height ) 
-    # ---------------------------------------- ASSE Y 
-    ax.set_yticks(y) 
+        ax.annotate(
+            f"{width:.2f}%",
+            xy=(width, bar.get_y() + bar.get_height() / 2),
+            xytext=(5, 0),
+            textcoords="offset points",
+            ha="left",
+            va="center"
+        )
+
+    for bar in bars_qwen:
+        width = bar.get_width()
+        ax.annotate(
+            f"{width:.2f}%",
+            xy=(width, bar.get_y() + bar.get_height() / 2),
+            xytext=(5, 0),
+            textcoords="offset points",
+            ha="left",
+            va="center"
+        )
+
+    fig.tight_layout()
+
+    output_path = os.path.join(OUTPUT_DIR, "accuracy_precision_total_comparison.png")
+
+    fig.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.show()
+    plt.close(fig)
+
+    print(f"\nGrafico salvato: {output_path}")
+
+# ========================================== GRAFICO TOTALE LATENZA 
+def plot_total_latency(gemma_stats, qwen_stats):
+    """
+    Crea un grafico orizzontale per la latenza
+    con intervallo di confidenza al 97%.
+    """
+
+    create_output_directory()
+    labels = ["Gemma", "Qwen"]
+    gemma_latency = gemma_stats["latency"]
+    qwen_latency = qwen_stats["latency"]
+    values = [
+        gemma_latency["mean"],
+        qwen_latency["mean"]
+    ]
+
+    errors = [
+        gemma_latency["margin"],
+        qwen_latency["margin"]
+    ]
+
+    y = np.arange(len(labels))
+    height = 0.5
+    fig, ax = plt.subplots(figsize=(9, 4))
+    bars = ax.barh(
+        y,
+        values,
+        height,
+        xerr=errors,
+        capsize=4
+    )
+
+    ax.set_yticks(y)
     ax.set_yticklabels(labels)
-    # ---------------------------------------- ASSE X
-    ax.set_xlabel( "Latency (ms)" ) 
-    # ---------------------------------------- TITOLO 
-    ax.set_title( "Latency - Gemma vs Qwen", fontsize=14, fontweight="bold" ) 
-    # ---------------------------------------- GRIGLIA
-    ax.grid( axis="x", linestyle="--", alpha=0.4 ) 
-    # ---------------------------------------- COLORI COERENTI CON GEMMA/QWEN 
-    # Creiamo le barre singolarmente in modo che Gemma e Qwen abbiano gli stessi colori usati negli altri grafici. 
-    bars[0].set_color( plt.rcParams["axes.prop_cycle"].by_key()["color"][0] ) 
-    bars[1].set_color( plt.rcParams["axes.prop_cycle"].by_key()["color"][1] ) 
-    # ----------------------------------------- VALORI 
-    for bar in bars: 
-        width = bar.get_width() 
-        ax.annotate( f"{width:.2f} ms", 
-                    xy=( width, bar.get_y() + bar.get_height() / 2 ), 
-                    xytext=( 5, 0 ), 
-                    textcoords="offset points", 
-                    ha="left", 
-                    va="center" ) 
-    # ------------------------------------------ SALVATAGGIO 
-    fig.tight_layout() 
-    output_path = os.path.join( OUTPUT_DIR, "latency_total_comparison.png" ) 
-    fig.savefig( output_path, dpi=300, bbox_inches="tight" )
-    plt.show() 
-    plt.close(fig) 
-    print( f"\nGrafico salvato: {output_path}" )
+    ax.set_xlabel("Latency (ms)")
+    ax.set_title("Latency - Gemma vs Qwen", fontsize=14, fontweight="bold")
+    ax.grid(axis="x", linestyle="--", alpha=0.4)
+
+    for bar in bars:
+        width = bar.get_width()
+        ax.annotate(
+            f"{width:.2f} ms",
+            xy=(width, bar.get_y() + bar.get_height() / 2),
+            xytext=(5, 0),
+            textcoords="offset points",
+            ha="left",
+            va="center"
+        )
+
+    fig.tight_layout()
+    output_path = os.path.join(OUTPUT_DIR, "latency_total_comparison.png")
+    fig.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.show()
+    plt.close(fig)
+    print(f"\nGrafico salvato: {output_path}")
 
 #--------------------CREAZIONE DI TUTTI I GRAFICI
 def create_plots(gemma_stats, qwen_stats):
@@ -437,31 +475,26 @@ def main():
     parser.add_argument("--qwen", default=DEFAULT_QWEN_FILE, help=("File evaluation_results di Qwen"))
     parser.add_argument("--levels", action ="store_true", help="Confronta Gemma e Qwen per livello di difficolta")
     args = parser.parse_args()
-
     # --------------------------------------------------------
     # Caricamento dati
     # --------------------------------------------------------
-
     gemma_data = load_json(args.gemma)
     qwen_data = load_json(args.qwen)
     #confronto per difficoltà
     if args.levels:
-        gemma_stats = calculate_level_statistics(gemma_data, DEFAULT_LEVELS)
-        qwen_stats = calculate_level_statistics(qwen_data, DEFAULT_LEVELS)
+        gemma_stats = gemma_data["statistics"]["by_difficulty"]
+        qwen_stats = qwen_data["statistics"]["by_difficulty"]
         print_statistics("Gemma", gemma_stats)
-        print_statistics("Qwen",qwen_stats)
+        print_statistics("Qwen", qwen_stats)
         print_comparison(gemma_stats, qwen_stats)
         create_plots(gemma_stats, qwen_stats)
-
     #confronto totale
     else:
-        gemma_stats = calculate_total_statistics(gemma_data)
-        qwen_stats = calculate_total_statistics(qwen_data)
-        total_gemma = {"Totale": gemma_stats}
-        total_qwen = {"Totale": qwen_stats}
+        gemma_stats = gemma_data["statistics"]["overall"]
+        qwen_stats = qwen_data["statistics"]["overall"]
         print_statistics("Gemma - Totale", {"Totale": gemma_stats})
         print_statistics("Qwen - Totale", {"Totale": qwen_stats})
-        print_comparison(total_gemma, total_qwen)
+        print_comparison({"Totale": gemma_stats}, {"Totale": qwen_stats})
         plot_total_accuracy_precision(gemma_stats, qwen_stats)
         plot_total_latency(gemma_stats,qwen_stats)
 # ============================================================
