@@ -7,8 +7,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 
-from agent_Gemma_MONGO import Agent
-#from agent_Qwen_MONGO import Agent
+#from agent_Gemma_MONGO import Agent
+from agent_Qwen_MONGO import Agent
 
 
 # ============================================================
@@ -26,7 +26,7 @@ NUM_RUNS = 4
 # File in cui salvare i risultati
 RESULTS_FILE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
-    "results/gemma_mongo_resultsY.json"
+    "results/gemma_mongo_resultsY4.json"
 )
 
 

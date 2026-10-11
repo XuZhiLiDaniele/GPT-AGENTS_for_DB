@@ -37,6 +37,20 @@ def mcp_to_openai(tool):
             "parameters": tool.input_schema
         }
     }
+
+def parse_tool_output(tool_output):
+    """
+    Converte l'output testuale di un tool in un oggetto Python,
+    se contiene JSON valido. Altrimenti restituisce il testo originale.
+    """
+    if not isinstance(tool_output, str):
+        return tool_output
+
+    try:
+        return json.loads(tool_output)
+    except (json.JSONDecodeError, TypeError):
+        return tool_output
+
 SYSTEM_PROMPT = """
                 Sei un agente intelligente che può interagire con database MySQL tramite strumenti MCP. 
                 Il tuo compito è rispondere alle richieste dell'utente utilizzando esclusivamente i dati presenti nei database. 
@@ -92,6 +106,8 @@ class Agent:
         tool_calls_count = 0 #numero di tool chiamate
         tool_calls_log = [] #lista delle chiamate ai tool
         MAX_TOOL_COUNT = 20
+        SQL_QUERY_TOOLS = {"execute_sql", "mysql_execute_sql"}
+
 
         messages = [
             {
@@ -135,22 +151,66 @@ class Agent:
                             messages=messages,
                             tools=tools,
                             tool_choice="auto",
-                            temperature=0.7
+                            temperature=0.2
                         )
 
                         message = completion.choices[0].message
+                        finish_reason = completion.choices[0].finish_reason
 
-                        # L'agente ha finito
+                        # L'agente ha terminato le chiamate ai tool
                         if not message.tool_calls:
 
                             total_end = time.perf_counter()
-                            answer = message.content or ""
-                            agent_completion = answer.strip() != ""
+                            final_message = message.content or ""
+                            if finish_reason == "length": #se la terminazione avviene per raggiungimento limite dei token
+                                return{
+                                    "question": question,
+                                    "answer": None,
+                                    "agent_completion": False,
+                                    "finish_reason": finish_reason,
+                                    "final_message": final_message,
+                                    "error": "Agent response truncated",
+                                    "latency_total": total_end - total_start,
+                                    "tool_calls_count": tool_calls_count,
+                                    "tool_calls": tool_calls_log
+                                }
+                            
+                            # Cerca dall'ultima chiamata ad un tool l'ultimo risultato di una query SQL riuscita
+                            final_output = None
+
+                            for tool_call_entry in reversed(tool_calls_log):
+                                if tool_call_entry["tool"] not in SQL_QUERY_TOOLS:
+                                    continue
+
+                                output = tool_call_entry["output"]
+
+                                if (isinstance(output, dict) and output.get("success") is True):
+                                    final_output = output
+                                    break
+
+                            # Nessuna query SQL riuscita disponibile.
+                            if final_output is None:
+                                return {
+                                    "question": question,
+                                    "answer": None,
+                                    "agent_completion": False,
+                                    "finish_reason": finish_reason,
+                                    "final_message": final_message,
+                                    "error": "No successful database query found",
+                                    "latency_total": total_end - total_start,
+                                    "tool_calls_count": tool_calls_count,
+                                    "tool_calls": tool_calls_log
+                                }
+
+                            # L'answer contiene dati strutturati, non il testo finale generato dal modello.
+                            answer = final_output.get("rows", final_output.get("documents", []))
 
                             return {
                                 "question": question,
                                 "answer": answer,
-                                "agent_completion": agent_completion,
+                                "agent_completion": True,
+                                "finish_reason": finish_reason,
+                                "final_message": final_message,
                                 "latency_total": total_end - total_start,
                                 "tool_calls_count": tool_calls_count,
                                 "tool_calls": tool_calls_log
@@ -187,7 +247,6 @@ class Agent:
                             )
 
                             tool_end = time.perf_counter()
-
                             tool_latency = tool_end - tool_start
 
                             tool_calls_count += 1
@@ -201,12 +260,13 @@ class Agent:
                                 else:
                                     tool_content.append(str(content))
 
-                            tool_output = "\n".join(tool_content)
-
+                            raw_tool_output = "\n".join(tool_content)
+                            parsed_output = parse_tool_output(raw_tool_output)
                             tool_calls_log.append({
                                 "tool": tool_name,
                                 "arguments": tool_arguments,
-                                "output": tool_output,
+                                "output": parsed_output,
+                                "raw_output": raw_tool_output,
                                 "latency": tool_latency
                             })
 
@@ -214,7 +274,7 @@ class Agent:
                                 {
                                     "role": "tool",
                                     "tool_call_id": tool_call.id,
-                                    "content": tool_output
+                                    "content": raw_tool_output
                                 }
                             )
         except Exception as e:

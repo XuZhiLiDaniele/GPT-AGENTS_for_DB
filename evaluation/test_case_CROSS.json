@@ -1,0 +1,134 @@
+[       
+        {
+            "id":1,
+            "question": "Qual è il main hub della compagnia aerea ITA Airways?",
+            "expected_database": ["DBVOLI"],
+            "expected_query":["SELECT main_hub FROM COMPAGNIA WHERE nome='ITA Airways';"],
+            "expected_columns":["main_hub"],
+            "expected_result": [
+                {
+                    "main_hub": "FCO"
+                }
+            ]
+        },
+        {
+            "id":2,
+            "question": "In quale posto si dovrà sedere il passeggero di nome Greta Romano?",
+            "expected_database": ["DBPASSEGGERI"],
+            "expected_query":["SELECT b.posto FROM BIGLIETTO b JOIN PASSEGGERO p ON b.passeggero = p.id WHERE p.nome = 'Greta', p.cognome = 'Romano', nome='ITA Airways';"],
+            "expected_columns":["posto"],
+            "expected_result": [
+                {
+                    "posto": "24C"
+                }
+            ]
+        },
+        {
+            "id":3,
+            "question": "Qual è il nome della città in cui atterrerà il volo del passeggero JP0004",
+            "expected_database": ["DBVOLI", "DBPASSEGGERI"],
+            "expected_query":["SELECT b.id_volo FROM BIGLIETTO b WHERE b.passeggero = 'JP0004'",
+                              "SELECT a.città FROM AEROPORTO a JOIN ROTTA r ON a.iata = r.iata_destinazione JOIN VOLO v ON r.id = v.rotta WHERE v.id = 37"],
+            "expected_columns":["citta"],
+            "expected_result": [
+                {
+                    "citta": "Xianyang"
+                }
+            ]
+        },
+        {
+            "id":4,
+            "question": "Quali sono le temperature previste per il 18/08/2026 a Tokyo?",
+            "expected_database": ["DBMETEO"],
+            "expected_query":[],
+            "expected_columns":["temperatura"],
+            "expected_result": [
+                {
+                    "temperatura": 30.10
+                }
+            ]
+        },
+        {
+            "id":5,
+            "question": "Qual è il prezzo e la categoria della singola camera più costosa disponibile nella città di Dubai?",
+            "expected_database": ["DBHOTEL"],
+            "expected_query":[""],
+            "expected_columns":["prezzo", "categoria"],
+            "expected_result": [
+                {
+                    "prezzo": 2498,
+                    "categoria": "Deluxe Penthouse"
+                }
+            ]
+        },
+        {
+            "id":6,
+            "question": "Quali sono gli Hotel a 3 stelle situate in città in cui il giorno 19/08/2026 ci saranno meno di 20 gradi?",
+            "expected_database": ["DBMETEO","DBHOTEL"],
+            "expected_query":[""],
+            "expected_columns":["nome"],
+            "expected_result": [
+                {
+                    "nome": "Cassidys Hotel"
+                },
+                {
+                    "nome": "Great Southern Hotel Melbourne"
+                },
+                {
+                    "nome": "Hotel Castropol"
+                },
+                {
+                    "nome": "Travelodge Hotel Sydney"
+                }
+            ]
+        },
+        {
+            "id":7,
+            "question": "Quali sono gli hotel a 5 stelle presenti nella città dell'aeroporto PVG?",
+            "expected_database": ["DBVOLI","DBHOTEL"],
+            "expected_query":[""],
+            "expected_columns":["nome"],
+            "expected_result": [
+                {
+                    "nome": "The Peninsula Shanghai"
+                },
+                {
+                    "nome": "Fairmont Peace Hotel"
+                }
+            ]
+        },
+        {
+            "id":8,
+            "question": "Quali sono le previsioni meteorologiche della città in cui atterrerà il passeggero CH0002?",
+            "expected_database": ["DBVOLI", "DBMETEO"],
+            "expected_query":[""],
+            "expected_columns":["temperatura", "precipitazioni", "vento", "data"],
+            "expected_result": [
+                {
+                    "temperatura": 21.60,
+                    "precipitazioni":3.8,
+                    "vento": 20,
+                    "data": "2026-08-17"
+                },
+                {
+                    "temperatura": 19.80,
+                    "precipitazioni":8.2,
+                    "vento": 24,
+                    "data": "2026-08-18"
+                },
+                {
+                    "temperatura": 22.40,
+                    "precipitazioni":0.0,
+                    "vento": 17,
+                    "data": "2026-08-19"
+                },                 
+                {
+                    "temperatura":  20.90,
+                    "precipitazioni":5.6,
+                    "vento": 21,
+                    "data": "2026-08-20"
+                }
+            ]
+        }
+]
+        

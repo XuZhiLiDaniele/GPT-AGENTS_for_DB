@@ -1,0 +1,386 @@
+{
+    "num_runs": 4,
+    "results": [
+        {
+            "id": 6,
+            "question": "Qual è la compagnia aerea che ha operato più voli con aerei B737-800?",
+            "ground_truth": null,
+            "runs": [
+                {
+                    "run": 1,
+                    "answer": null,
+                    "agent_completion": false,
+                    "latency_total": 18.270205599999827,
+                    "tool_calls_count": 0,
+                    "tool_calls": [],
+                    "error": "ExceptionGroup('unhandled errors in a TaskGroup', [ExceptionGroup('unhandled errors in a TaskGroup', [APIConnectionError('Connection error.')])])"
+                },
+                {
+                    "run": 2,
+                    "answer": null,
+                    "agent_completion": false,
+                    "latency_total": 14.972420299999612,
+                    "tool_calls_count": 0,
+                    "tool_calls": [],
+                    "error": "ExceptionGroup('unhandled errors in a TaskGroup', [ExceptionGroup('unhandled errors in a TaskGroup', [APIConnectionError('Connection error.')])])"
+                },
+                {
+                    "run": 3,
+                    "answer": [
+                        {
+                            "compagnia": "Ryanair",
+                            "numero_voli": 5
+                        }
+                    ],
+                    "agent_completion": true,
+                    "latency_total": 239.81477939999968,
+                    "tool_calls_count": 5,
+                    "tool_calls": [
+                        {
+                            "tool": "list_tables",
+                            "arguments": {
+                                "database": "DBVOLI"
+                            },
+                            "output": {
+                                "success": true,
+                                "tables": [
+                                    "aeroporto",
+                                    "compagnia",
+                                    "rotta",
+                                    "volo"
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"tables\": [\n    \"aeroporto\",\n    \"compagnia\",\n    \"rotta\",\n    \"volo\"\n  ]\n}",
+                            "latency": 1.1071769000000131
+                        },
+                        {
+                            "tool": "describe_table",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "table_name": "compagnia"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "table": "compagnia",
+                                "schema": [
+                                    {
+                                        "COLUMN_NAME": "nome",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "PRI",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "main_hub",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"table\": \"compagnia\",\n  \"schema\": [\n    {\n      \"COLUMN_NAME\": \"nome\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"PRI\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"main_hub\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    }\n  ]\n}",
+                            "latency": 0.10490329999993264
+                        },
+                        {
+                            "tool": "describe_table",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "table_name": "volo"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "table": "volo",
+                                "schema": [
+                                    {
+                                        "COLUMN_NAME": "id",
+                                        "DATA_TYPE": "int",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "PRI",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "rotta",
+                                        "DATA_TYPE": "int",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "modello_aereo",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "timestamp",
+                                        "DATA_TYPE": "datetime",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "",
+                                        "COLUMN_DEFAULT": null
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"table\": \"volo\",\n  \"schema\": [\n    {\n      \"COLUMN_NAME\": \"id\",\n      \"DATA_TYPE\": \"int\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"PRI\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"rotta\",\n      \"DATA_TYPE\": \"int\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"modello_aereo\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"timestamp\",\n      \"DATA_TYPE\": \"datetime\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"\",\n      \"COLUMN_DEFAULT\": null\n    }\n  ]\n}",
+                            "latency": 0.03017470000031608
+                        },
+                        {
+                            "tool": "describe_table",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "table_name": "rotta"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "table": "rotta",
+                                "schema": [
+                                    {
+                                        "COLUMN_NAME": "id",
+                                        "DATA_TYPE": "int",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "PRI",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "iata_partenza",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "iata_arrivo",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "compagnia",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"table\": \"rotta\",\n  \"schema\": [\n    {\n      \"COLUMN_NAME\": \"id\",\n      \"DATA_TYPE\": \"int\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"PRI\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"iata_partenza\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"iata_arrivo\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"compagnia\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    }\n  ]\n}",
+                            "latency": 0.01666979999981777
+                        },
+                        {
+                            "tool": "execute_sql",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "query": "SELECT rotta.compagnia, COUNT(volo.id) AS numero_voli\nFROM volo\nJOIN rotta ON volo.rotta = rotta.id\nWHERE volo.modello_aereo = 'B737-800'\nGROUP BY rotta.compagnia\nORDER BY numero_voli DESC\nLIMIT 1;"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "query": "SELECT rotta.compagnia, COUNT(volo.id) AS numero_voli\nFROM volo\nJOIN rotta ON volo.rotta = rotta.id\nWHERE volo.modello_aereo = 'B737-800'\nGROUP BY rotta.compagnia\nORDER BY numero_voli DESC\nLIMIT 1;",
+                                "columns": [
+                                    "compagnia",
+                                    "numero_voli"
+                                ],
+                                "row_count": 1,
+                                "rows": [
+                                    {
+                                        "compagnia": "Ryanair",
+                                        "numero_voli": 5
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"query\": \"SELECT rotta.compagnia, COUNT(volo.id) AS numero_voli\\nFROM volo\\nJOIN rotta ON volo.rotta = rotta.id\\nWHERE volo.modello_aereo = 'B737-800'\\nGROUP BY rotta.compagnia\\nORDER BY numero_voli DESC\\nLIMIT 1;\",\n  \"columns\": [\n    \"compagnia\",\n    \"numero_voli\"\n  ],\n  \"row_count\": 1,\n  \"rows\": [\n    {\n      \"compagnia\": \"Ryanair\",\n      \"numero_voli\": 5\n    }\n  ]\n}",
+                            "latency": 0.33371870000019044
+                        }
+                    ]
+                },
+                {
+                    "run": 4,
+                    "answer": [
+                        {
+                            "compagnia": "Ryanair",
+                            "numero_voli": 5
+                        }
+                    ],
+                    "agent_completion": true,
+                    "latency_total": 56.87713470000017,
+                    "tool_calls_count": 5,
+                    "tool_calls": [
+                        {
+                            "tool": "list_tables",
+                            "arguments": {
+                                "database": "DBVOLI"
+                            },
+                            "output": {
+                                "success": true,
+                                "tables": [
+                                    "aeroporto",
+                                    "compagnia",
+                                    "rotta",
+                                    "volo"
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"tables\": [\n    \"aeroporto\",\n    \"compagnia\",\n    \"rotta\",\n    \"volo\"\n  ]\n}",
+                            "latency": 0.0680237000001398
+                        },
+                        {
+                            "tool": "describe_table",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "table_name": "compagnia"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "table": "compagnia",
+                                "schema": [
+                                    {
+                                        "COLUMN_NAME": "nome",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "PRI",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "main_hub",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"table\": \"compagnia\",\n  \"schema\": [\n    {\n      \"COLUMN_NAME\": \"nome\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"PRI\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"main_hub\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    }\n  ]\n}",
+                            "latency": 0.016680799999903684
+                        },
+                        {
+                            "tool": "describe_table",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "table_name": "volo"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "table": "volo",
+                                "schema": [
+                                    {
+                                        "COLUMN_NAME": "id",
+                                        "DATA_TYPE": "int",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "PRI",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "rotta",
+                                        "DATA_TYPE": "int",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "modello_aereo",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "timestamp",
+                                        "DATA_TYPE": "datetime",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "",
+                                        "COLUMN_DEFAULT": null
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"table\": \"volo\",\n  \"schema\": [\n    {\n      \"COLUMN_NAME\": \"id\",\n      \"DATA_TYPE\": \"int\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"PRI\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"rotta\",\n      \"DATA_TYPE\": \"int\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"modello_aereo\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"timestamp\",\n      \"DATA_TYPE\": \"datetime\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"\",\n      \"COLUMN_DEFAULT\": null\n    }\n  ]\n}",
+                            "latency": 0.01599720000012894
+                        },
+                        {
+                            "tool": "describe_table",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "table_name": "rotta"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "table": "rotta",
+                                "schema": [
+                                    {
+                                        "COLUMN_NAME": "id",
+                                        "DATA_TYPE": "int",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "PRI",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "iata_partenza",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "iata_arrivo",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    },
+                                    {
+                                        "COLUMN_NAME": "compagnia",
+                                        "DATA_TYPE": "varchar",
+                                        "IS_NULLABLE": "NO",
+                                        "COLUMN_KEY": "MUL",
+                                        "COLUMN_DEFAULT": null
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"table\": \"rotta\",\n  \"schema\": [\n    {\n      \"COLUMN_NAME\": \"id\",\n      \"DATA_TYPE\": \"int\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"PRI\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"iata_partenza\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"iata_arrivo\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    },\n    {\n      \"COLUMN_NAME\": \"compagnia\",\n      \"DATA_TYPE\": \"varchar\",\n      \"IS_NULLABLE\": \"NO\",\n      \"COLUMN_KEY\": \"MUL\",\n      \"COLUMN_DEFAULT\": null\n    }\n  ]\n}",
+                            "latency": 0.018023200000243378
+                        },
+                        {
+                            "tool": "execute_sql",
+                            "arguments": {
+                                "database": "DBVOLI",
+                                "query": "SELECT T2.compagnia, COUNT(T1.id) AS numero_voli\nFROM volo AS T1\nINNER JOIN rotta AS T2 ON T1.rotta = T2.id\nWHERE T1.modello_aereo = 'B737-800'\nGROUP BY T2.compagnia\nORDER BY numero_voli DESC\nLIMIT 1;"
+                            },
+                            "output": {
+                                "success": true,
+                                "database": "DBVOLI",
+                                "query": "SELECT T2.compagnia, COUNT(T1.id) AS numero_voli\nFROM volo AS T1\nINNER JOIN rotta AS T2 ON T1.rotta = T2.id\nWHERE T1.modello_aereo = 'B737-800'\nGROUP BY T2.compagnia\nORDER BY numero_voli DESC\nLIMIT 1;",
+                                "columns": [
+                                    "compagnia",
+                                    "numero_voli"
+                                ],
+                                "row_count": 1,
+                                "rows": [
+                                    {
+                                        "compagnia": "Ryanair",
+                                        "numero_voli": 5
+                                    }
+                                ]
+                            },
+                            "raw_output": "{\n  \"success\": true,\n  \"database\": \"DBVOLI\",\n  \"query\": \"SELECT T2.compagnia, COUNT(T1.id) AS numero_voli\\nFROM volo AS T1\\nINNER JOIN rotta AS T2 ON T1.rotta = T2.id\\nWHERE T1.modello_aereo = 'B737-800'\\nGROUP BY T2.compagnia\\nORDER BY numero_voli DESC\\nLIMIT 1;\",\n  \"columns\": [\n    \"compagnia\",\n    \"numero_voli\"\n  ],\n  \"row_count\": 1,\n  \"rows\": [\n    {\n      \"compagnia\": \"Ryanair\",\n      \"numero_voli\": 5\n    }\n  ]\n}",
+                            "latency": 0.01828109999996741
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "statistics": [
+        {
+            "id": 6,
+            "completion_rate": 0.5,
+            "average_latency": 148.34595704999992,
+            "average_tool_calls": 5.0
+        }
+    ]
+}

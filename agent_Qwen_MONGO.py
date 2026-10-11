@@ -66,31 +66,41 @@ SYSTEM_PROMPT = """
                 - DBHOTEL: info su hotel e camere.
 
                 REGOLE:
-                - Prima di rispondere ad una richiesta FAI SEMPRE TUTTI i seguenti passaggi:
-                    1. Identifica le collezioni utili usando list_collections
-                    2. Identifica per ogni collezione utile i campi utili usando describe_collection
-                    3. Conosci il formato corretto dei dati di ciascun campo delle collezioni utili usando sample_documents
-                    4. Se hai dei dubbi sul formato di un determinato campo, utilizza get_distinct_values per scoprire tutti i valori disponibili per quel campo.
+                - Prima iniziare a ragionare per una richiesta, FAI SEMPRE TUTTI i seguenti passaggi:
+                    1. Identifica i database disponibili usando list_databases
+                    2. Identifica le collezioni utili usando list_collections
+                    3. Identifica per ogni collezione utile i campi utili usando describe_collection
+                    4. Conosci il formato corretto dei dati di ciascun campo delle collezioni utili usando sample_documents
+                    5. Se hai dei dubbi sul formato di un determinato campo, utilizza get_distinct_values per scoprire tutti i valori disponibili per quel campo.
                 - NON assumere mai l'esistenza di tabelle, colonne, valori o il formato dei dati di un campo.
                 - NON tradurre, abbreviare o reinterpretare autonomamente i valori del database.
+                - NON includere mai virgolette doppie o apici, o altre forme di quotazione per all'interno delle chiavi MongoDB che DEVONO essere stringhe JSON normali.
                 - Quando un valore necessario per un filtro non è noto con certezza, utilizza sample_documents o get_distinct_values per verificare i valori
-                effettivamente presenti.
-                In particolare usa get_distinct_values se:
+                  effettivamente presenti.
+                  In particolare usa get_distinct_values SOLO SE:
+                    > NON si tratta di un campo ad alta cardinalità (es, nomi, identificativi, codici).
                     > devi filtrare un campo categoriale
                     > il valore richiesto dall'utente potrebbe essere rappresentato diversamente nel database;
                     > il valore non è stato osservato precedentemente;
                     > una query restituisce risultati vuoti e il filtro potrebbe essere errato.
+                  PREFERISCI invece l'uso di sample_document per capire il formato, oppure di find_documents se CONOSCI i filtri adatti per ridurre l'output.
+                - Quando una richiesta richiede un minimo o un massimo singolo o multiplo rispondi sempre USANDO $sort INSIEME A $limit.
+                - Quando devi filtrare per una data, rappresentala SEMPRE come stringa ISO 8601. NON USARE $date, $year, $month etc...
                 - Quando una query restituisce zero risultati. NON CONCLUDERE MAI che non ci siano dati. FAI SEMPRE i seguenti controlli:
-                    1. USA SEMPRE get_distinct_values o sample_documents per comprendere il formato dei valori E describe_collection per capirne il tipo.
-                    2. In caso di aggregazione CONTROLLA SEMPRE la correttezza della pipeline e di CIASCUN operatore.
-                    3. CONTROLLA SEMPRE anche la correttezza delle relazioni. 
-                    4. CONTROLLA SEMPRE l'uso dei CAMPI CORRETTI per ciascuna collection verificando con describe_collection quali campi possiede la collection
-                    su cui fai la query.
-                NON FORNIRE MAI come risposta un risultato vuoto se prima non hai fatto questi controlli..
+                    1. USA SEMPRE list_databases e list_collections per verificare l'uso corretto dei nomi dei database e delle collezioni,
+                    2. USA SEMPRE sample_documents per comprendere il formato dei valori E describe_collection per capirne il tipo.
+                    3. In caso di aggregazione CONTROLLA SEMPRE la correttezza della pipeline e di CIASCUN operatore.
+                    4. CONTROLLA SEMPRE anche la correttezza delle relazioni. 
+                    5. CONTROLLA SEMPRE l'uso dei CAMPI CORRETTI per ciascuna collection verificando con describe_collection quali campi possiede la collection
+                       su cui fai la query.
+                NON FORNIRE MAI come risposta un risultato vuoto se prima non hai fatto questi controlli.
                 - Quando una query restituisce errore MongoDB, NON CONCLUDERE MAI che non ci siano dati. FAI SEMPRE i seguenti controlli:
-                    1. CONTROLLA SEMPRE tutti i nomi che hai usato per il database, la collection o i campi.
-                    2. CONTROLLA SEMPRE tutti gli operatori che hai usato.
-                    3. CONTROLLA SEMPRE la correttezza della pipeline che hai usato nella query.
+                    1. LEGGI BENE il messaggio di errore che ha restituito MongoDB.
+                    2. IDENTIFICA quale operatore o pipeline stage ha causato l'errore.
+                    3. CONTROLLA se l'operatore che causa l'errore sta esista veramente. FAI SEMPRE riferimento al messaggio di errore.
+                    4. CONTROLLA se l'operatore che causa l'errore è stato usato nella posizione corretta della sintassi e nel corretto stage della pipeline.
+                    5. RAGIONA e SPIEGA internamente come sarebbe corretto usare l'operatore o lo stage che causa l'errore.
+                    6. RICOSTRUISCI una NUOVA query da ZERO, tenendo conto degli errori precedenti.
                 """
 #----------------------- AGENTE
 class Agent:
@@ -140,7 +150,7 @@ class Agent:
                             messages=messages,
                             tools=tools,
                             tool_choice = "auto",
-                            temperature = 0.7
+                            temperature = 0.2
                         )
                         message = completion.choices[0].message
                         finish_reason = completion.choices[0].finish_reason
@@ -170,7 +180,7 @@ class Agent:
                                 }
                             #RECUPERO AUTOMATICO RISULTATO ULTIMA QUERY
                             final_output = None
-                            for tool_calls in reversed(tool_calls_log):
+                            for tool_call in reversed(tool_calls_log):
                                 if tool_call["tool"] in ("find_documents", "aggregate_documents"):
                                     output = tool_call["output"]
                                     if (isinstance(output, dict) and output.get("success") is True):

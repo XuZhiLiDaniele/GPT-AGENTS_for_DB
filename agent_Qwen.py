@@ -135,7 +135,7 @@ class Agent:
                             messages=messages,
                             tools=tools,
                             tool_choice="auto",
-                            temperature=0.7
+                            temperature=0.2
                         )
 
                         message = completion.choices[0].message

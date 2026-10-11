@@ -8,6 +8,10 @@ sys.path.insert(0, BASE_DIR)
 
 #from agent_Qwen import Agent
 from agent_Gemma import Agent
+#from agent_Gemma_MONGO import Agent
+#from agent_Qwen_MONGO import Agent
+#from agent_Gemma_CROSS import Agent
+#from agent_Qwen_CROSS import Agent
 
 # ============================================================
 # CONFIGURAZIONE
@@ -17,12 +21,13 @@ TEST_CASES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             #  "test_casesL.json")
                               "test_casesM.json")
                             #  "test_casesS.json")
+                            #"temp_test_case.json")
 # Quante volte eseguire ogni test
-NUM_RUNS = 4
+NUM_RUNS = 10
 
 # File in cui salvare i risultati
 RESULTS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                               "results/gemma_resultsM_2.json")
+                               "results/gemma_sql_RESULTS!.json")
 
 
 

@@ -174,9 +174,9 @@ class DatabaseTools:
 
 
     ################################################
-    # Esempi di valori distinti di una determinata colonna di una tabella
+    # Esempi di 10 valori distinti di una determinata colonna di una tabella
     ################################################
-    def get_distinct_values(self, database, table_name, column_name):
+    def get_distinct_values(self, database, table_name, column_name, limit = 10):
         """
         Restituisce i valori distinti presenti in una determinata colonna.
         """
@@ -205,9 +205,10 @@ class DatabaseTools:
         query = f"""
             SELECT DISTINCT `{column_name}`
             FROM `{table_name}`
-            ORDER BY `{column_name}`;
+            ORDER BY `{column_name}`
+            LIMIT %s;
         """
-        result = self._execute_query(query,database=database)
+        result = self._execute_query(query, (limit, ), database=database)
         return result
     
     ###############################################

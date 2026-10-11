@@ -74,21 +74,26 @@ SYSTEM_PROMPT = """
                     5. Se hai dei dubbi sul formato di un determinato campo, utilizza get_distinct_values per scoprire tutti i valori disponibili per quel campo.
                 - NON assumere mai l'esistenza di tabelle, colonne, valori o il formato dei dati di un campo.
                 - NON tradurre, abbreviare o reinterpretare autonomamente i valori del database.
+                - NON includere mai virgolette doppie o apici, o altre forme di quotazione per all'interno delle chiavi MongoDB che DEVONO essere stringhe JSON normali.
                 - Quando un valore necessario per un filtro non è noto con certezza, utilizza sample_documents o get_distinct_values per verificare i valori
-                effettivamente presenti.
-                In particolare usa get_distinct_values se:
+                  effettivamente presenti.
+                  In particolare usa get_distinct_values SOLO SE:
+                    > NON si tratta di un campo ad alta cardinalità (es, nomi, identificativi, codici).
                     > devi filtrare un campo categoriale
                     > il valore richiesto dall'utente potrebbe essere rappresentato diversamente nel database;
                     > il valore non è stato osservato precedentemente;
                     > una query restituisce risultati vuoti e il filtro potrebbe essere errato.
+                  PREFERISCI invece l'uso di sample_document per capire il formato, oppure di find_documents se CONOSCI i filtri adatti per ridurre l'output.
+                - Quando una richiesta richiede un minimo o un massimo singolo o multiplo rispondi sempre USANDO $sort INSIEME A $limit.
+                - Quando devi filtrare per una data, rappresentala SEMPRE come stringa ISO 8601. NON USARE $date, $year, $month etc...
                 - Quando una query restituisce zero risultati. NON CONCLUDERE MAI che non ci siano dati. FAI SEMPRE i seguenti controlli:
                     1. USA SEMPRE list_databases e list_collections per verificare l'uso corretto dei nomi dei database e delle collezioni,
-                    2. USA SEMPRE get_distinct_values o sample_documents per comprendere il formato dei valori E describe_collection per capirne il tipo.
+                    2. USA SEMPRE sample_documents per comprendere il formato dei valori E describe_collection per capirne il tipo.
                     3. In caso di aggregazione CONTROLLA SEMPRE la correttezza della pipeline e di CIASCUN operatore.
                     4. CONTROLLA SEMPRE anche la correttezza delle relazioni. 
                     5. CONTROLLA SEMPRE l'uso dei CAMPI CORRETTI per ciascuna collection verificando con describe_collection quali campi possiede la collection
                        su cui fai la query.
-                NON FORNIRE MAI come risposta un risultato vuoto se prima non hai fatto questi controlli..
+                NON FORNIRE MAI come risposta un risultato vuoto se prima non hai fatto questi controlli.
                 - Quando una query restituisce errore MongoDB, NON CONCLUDERE MAI che non ci siano dati. FAI SEMPRE i seguenti controlli:
                     1. LEGGI BENE il messaggio di errore che ha restituito MongoDB.
                     2. IDENTIFICA quale operatore o pipeline stage ha causato l'errore.
@@ -97,6 +102,7 @@ SYSTEM_PROMPT = """
                     5. RAGIONA e SPIEGA internamente come sarebbe corretto usare l'operatore o lo stage che causa l'errore.
                     6. RICOSTRUISCI una NUOVA query da ZERO, tenendo conto degli errori precedenti.
                 """
+
 #----------------------- AGENTE
 class Agent:
     async def run(self, question):
@@ -121,10 +127,18 @@ class Agent:
                     #inizializzazione MCP
                     await mcp_client.initialize()
                     response = await mcp_client.list_tools()
-                    tools = [mcp_to_openai(tool)
-                             for tool in response.tools
-                            ]
-                    
+                    print("\n========== MCP TOOLS RAW ==========", file=sys.stderr)
+                    for tool in response.tools:
+                        print("NAME:", tool.name, file=sys.stderr)
+                        print("DESCRIPTION:", repr(tool.description), file=sys.stderr)
+                        print("INPUT SCHEMA:", json.dumps(tool.input_schema, indent = 2, ensure_ascii=False), file = sys.stderr)
+                    print("====================================\n", file=sys.stderr)
+                    tools = [mcp_to_openai(tool) 
+                             for tool in response.tools]
+                    print("\n========== TOOLS SENT TO MODEL ==========", file=sys.stderr)
+                    print(json.dumps(tools, indent=2, ensure_ascii=False), file=sys.stderr)
+                    print("==========================================\n", file=sys.stderr)
+                
                     #loop dell'agente
                     while True:
                         if tool_calls_count >= MAX_TOOL_COUNT:
@@ -145,15 +159,32 @@ class Agent:
                             messages=messages,
                             tools=tools,
                             tool_choice = "auto",
-                            temperature = 0.7
+                            temperature = 0.2
                         )
                         message = completion.choices[0].message
                         finish_reason = completion.choices[0].finish_reason
-
                         print("\n========== MODEL RESPONSE ==========", file=sys.stderr)
                         print("CONTENT:", repr(message.content), file=sys.stderr)
-                        print("TOOL CALLS:", message.tool_calls, file=sys.stderr)
-                        print("FINISH REASON:", finish_reason, file=sys.stderr)
+                        print("FINISH REASON:", completion.choices[0].finish_reason, file=sys.stderr)
+
+                        if message.tool_calls:
+                            for tc in message.tool_calls:
+                                print(
+                                    "TOOL NAME:",
+                                    repr(tc.function.name),
+                                    file=sys.stderr
+                                )
+                                print(
+                                    "TOOL ARGUMENTS REPR:",
+                                    repr(tc.function.arguments),
+                                    file=sys.stderr
+                                )
+                                print(
+                                    "TOOL ARGUMENTS RAW:",
+                                    tc.function.arguments,
+                                    file=sys.stderr
+                                )
+
                         print("====================================\n", file=sys.stderr)
 
                         #risposta finale
@@ -300,7 +331,7 @@ if __name__ == "__main__":
 
     import asyncio
     agent = Agent()
-    question = "Quanti aeroporti ci sono in Italia?"
+    question = "Quali sono le previsioni meteo della citta con la stazione meteo con più ricercatori?"
     result = asyncio.run(agent.run(question))
     print("\n========== RISULTATO ==========")
     print("Domanda:", result["question"])

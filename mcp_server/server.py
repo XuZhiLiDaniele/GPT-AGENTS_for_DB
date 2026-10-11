@@ -32,7 +32,16 @@ dbs = {
         port=3306,
         user="root",
         password="pastacontonno123",
+    ),
+
+    "DBPASSEGGERI": DatabaseTools(
+          host = "localhost",
+          port = 3306,
+          user = "root",
+          password = "pastacontonno123"
     )
+
+
 }
 
 # ============MCP Server================
@@ -72,9 +81,7 @@ def sample_rows(database:str, table_name:str) -> dict:
 @mcp.tool()
 def get_distinct_values(database: str, table_name: str, column_name: str):
     """
-    Restituisce tutti i valori distinti presenti in una colonna.
-    Utile per conoscere i valori effettivamente memorizzati
-    nel database prima di costruire filtri SQL.
+    Restituisce 10 valori distinti per la colonna specificata. Utile per conoscere il formato dei dati in quella colonna
     """
     print("!!! TOOL MCP get_distinct_values !!!")
     if database not in dbs:

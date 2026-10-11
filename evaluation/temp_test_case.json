@@ -1,52 +1,15 @@
 [      
-            {
-            "id":3,
-            "question": "Quali sono i nomi, le città ed i codici degli aeroporti che sono destinazioni di rotte che partono da aeroporti in Oceania?",
+        {
+            "id":6,
+            "question": "Qual è la compagnia aerea che ha operato più voli con aerei B737-800?",
             "expected_database": ["DBVOLI"],
-            "expected_query": ["SELECT arrivo.iata, arrivo.nome, arrivo.citta FROM AEROPORTO partenza JOIN ROTTA r ON partenza.iata = r.iata_partenza JOIN AEROPORTO arrivo ON arrivo.iata = r.iata_arrivo WHERE partenza.continente = 'OC'"],
-            "expected_columns":["iata", "nome", "citta"],
-            "expected_result":[
+            "expected_query":[],
+            "expected_columns":["compagnia", ["numero_voli", "conta", "count", "num_voli", "conteggio"]],
+            "expected_result": [
                 {
-                    "iata":"SYD",
-                    "nome":"Sydney Kingsford Smith International Airport",
-                    "citta":"Sydney"
-                },
-                {
-                    "iata":"HKG",
-                    "nome":"Hong Kong International Airport",
-                    "citta":"Hong Kong"
-                },
-                {
-                    "iata":"DXB",
-                    "nome":"Dubai International Airport",
-                    "citta":"Dubai"
-                },
-                {
-                    "iata":"SIN",
-                    "nome":"Singapore Changi Airport",
-                    "citta":"Singapore"
-                },
-                {
-                    "iata":"KUL",
-                    "nome":"Kuala Lumpur International Airport",
-                    "citta":"Kuala Lumpur"
-                },
-                {
-                    "iata":"MEL",
-                    "nome":"Melbourne Airport",
-                    "citta":"Melbourne"
-                },
-                {
-                    "iata":"HND",
-                    "nome":"Tokyo Haneda International Airport",
-                    "citta":"Tokyo" 
-                },
-                {
-                    "iata":"TFU",
-                    "nome":"Chengdu Tianfu International Airport",
-                    "citta":"Chengdu"
+                    "compagnia": "Ryanair",
+                    "numero_voli":5
                 }
-
             ]
         }
 ]

@@ -1,0 +1,5516 @@
+{
+    "statistics": {
+        "confidence_level": 0.95,
+        "overall": {
+            "confidence_level": 0.95,
+            "accuracy": {
+                "database": {
+                    "mean": 1.0,
+                    "ci_lower": 1.0,
+                    "ci_upper": 1.0,
+                    "margin": 0.0,
+                    "n": 80
+                },
+                "columns": {
+                    "mean": 0.9625,
+                    "ci_lower": 0.9199544859052589,
+                    "ci_upper": 1.0,
+                    "margin": 0.042545514094741214,
+                    "n": 80
+                },
+                "overall": {
+                    "mean": 0.98125,
+                    "ci_lower": 0.9599772429526293,
+                    "ci_upper": 1.0,
+                    "margin": 0.021272757047370607,
+                    "n": 80
+                }
+            },
+            "exact_match": {
+                "mean": 0.9,
+                "ci_lower": 0.8148931119389591,
+                "ci_upper": 0.9484523844326191,
+                "margin_lower": 0.08510688806104094,
+                "margin_upper": 0.04845238443261912,
+                "n": 80
+            },
+            "partial_match": {
+                "mean": 0.0625,
+                "ci_lower": 0.026989375670841982,
+                "ci_upper": 0.13810148767274424,
+                "margin_lower": 0.03551062432915802,
+                "margin_upper": 0.07560148767274424,
+                "n": 80
+            },
+            "wrong": {
+                "mean": 0.0375,
+                "ci_lower": 0.012834568919911402,
+                "ci_upper": 0.10454720090045115,
+                "margin_lower": 0.024665431080088597,
+                "margin_upper": 0.06704720090045116,
+                "n": 80
+            },
+            "latency": {
+                "mean": 503.59427182874936,
+                "ci_lower": 446.55327700216253,
+                "ci_upper": 560.6352666553362,
+                "margin": 57.04099482658684,
+                "n": 80
+            }
+        },
+        "by_difficulty": {
+            "SQL": {
+                "confidence_level": 0.95,
+                "accuracy": {
+                    "database": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 30
+                    },
+                    "columns": {
+                        "mean": 0.9666666666666667,
+                        "ci_lower": 0.8984923452622432,
+                        "ci_upper": 1.0,
+                        "margin": 0.06817432140442346,
+                        "n": 30
+                    },
+                    "overall": {
+                        "mean": 0.9833333333333333,
+                        "ci_lower": 0.9492461726311215,
+                        "ci_upper": 1.0,
+                        "margin": 0.03408716070221173,
+                        "n": 30
+                    }
+                },
+                "exact_match": {
+                    "mean": 0.9666666666666667,
+                    "ci_lower": 0.8332960900859082,
+                    "ci_upper": 0.9940914096183874,
+                    "margin_lower": 0.13337057658075846,
+                    "margin_upper": 0.027424742951720704,
+                    "n": 30
+                },
+                "partial_match": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.11351339317396876,
+                    "margin_lower": 0.0,
+                    "margin_upper": 0.11351339317396876,
+                    "n": 30
+                },
+                "wrong": {
+                    "mean": 0.03333333333333333,
+                    "ci_lower": 0.005908590381612455,
+                    "ci_upper": 0.16670390991409173,
+                    "margin_lower": 0.027424742951720878,
+                    "margin_upper": 0.1333705765807584,
+                    "n": 30
+                },
+                "latency": {
+                    "mean": 350.5754072633339,
+                    "ci_lower": 273.50069311538306,
+                    "ci_upper": 427.6501214112847,
+                    "margin": 77.07471414795083,
+                    "n": 30
+                }
+            },
+            "MongoDB": {
+                "confidence_level": 0.95,
+                "accuracy": {
+                    "database": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 30
+                    },
+                    "columns": {
+                        "mean": 0.9333333333333333,
+                        "ci_lower": 0.8385971600102016,
+                        "ci_upper": 1.0,
+                        "margin": 0.09473617332313175,
+                        "n": 30
+                    },
+                    "overall": {
+                        "mean": 0.9666666666666667,
+                        "ci_lower": 0.9192985800051008,
+                        "ci_upper": 1.0,
+                        "margin": 0.047368086661565875,
+                        "n": 30
+                    }
+                },
+                "exact_match": {
+                    "mean": 0.7666666666666667,
+                    "ci_lower": 0.5907167384187784,
+                    "ci_upper": 0.8820761185551049,
+                    "margin_lower": 0.17594992824788835,
+                    "margin_upper": 0.11540945188843821,
+                    "n": 30
+                },
+                "partial_match": {
+                    "mean": 0.16666666666666666,
+                    "ci_lower": 0.0733654237184855,
+                    "ci_upper": 0.3356435050641603,
+                    "margin_lower": 0.09330124294818115,
+                    "margin_upper": 0.16897683839749364,
+                    "n": 30
+                },
+                "wrong": {
+                    "mean": 0.06666666666666667,
+                    "ci_lower": 0.018477023791270378,
+                    "ci_upper": 0.2132345836261692,
+                    "margin_lower": 0.04818964287539629,
+                    "margin_upper": 0.14656791695950255,
+                    "n": 30
+                },
+                "latency": {
+                    "mean": 583.0695925366662,
+                    "ci_lower": 517.2990245460217,
+                    "ci_upper": 648.8401605273107,
+                    "margin": 65.77056799064455,
+                    "n": 30
+                }
+            },
+            "CROSS": {
+                "confidence_level": 0.95,
+                "accuracy": {
+                    "database": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 20
+                    },
+                    "columns": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 20
+                    },
+                    "overall": {
+                        "mean": 1.0,
+                        "ci_lower": 1.0,
+                        "ci_upper": 1.0,
+                        "margin": 0.0,
+                        "n": 20
+                    }
+                },
+                "exact_match": {
+                    "mean": 1.0,
+                    "ci_lower": 0.8388748419471806,
+                    "ci_upper": 1.0,
+                    "margin_lower": 0.16112515805281935,
+                    "margin_upper": 0.0,
+                    "n": 20
+                },
+                "partial_match": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.16112515805281938,
+                    "margin_lower": 0.0,
+                    "margin_upper": 0.16112515805281938,
+                    "n": 20
+                },
+                "wrong": {
+                    "mean": 0.0,
+                    "ci_lower": 0.0,
+                    "ci_upper": 0.16112515805281938,
+                    "margin_lower": 0.0,
+                    "margin_upper": 0.16112515805281938,
+                    "n": 20
+                },
+                "latency": {
+                    "mean": 613.9095876149971,
+                    "ci_lower": 465.1457555880788,
+                    "ci_upper": 762.6734196419154,
+                    "margin": 148.76383202691827,
+                    "n": 20
+                }
+            }
+        }
+    },
+    "runs": [
+        {
+            "test_id": 1,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub",
+                        "nome"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "ITA Airways",
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 315.9134683000011,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 146.87266319999617,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub",
+                        "nome"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "ITA Airways",
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 232.56712289999996,
+            "agent_completion": true,
+            "tool_calls_count": 4
+        },
+        {
+            "test_id": 1,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub",
+                        "nome"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "ITA Airways",
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 135.40898619999643,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub",
+                        "nome"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "ITA Airways",
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 135.72620690000622,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 147.5047035000025,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 139.16484579999815,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub",
+                        "nome"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "ITA Airways",
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 146.1327450999961,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 164.14722430000256,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 1,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI"
+                    ],
+                    "actual": [
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "main_hub"
+                    ],
+                    "actual": [
+                        "main_hub"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ],
+                "actual": [
+                    {
+                        "main_hub": "FCO"
+                    }
+                ]
+            },
+            "latency": 140.5400368000046,
+            "agent_completion": true,
+            "tool_calls_count": 3
+        },
+        {
+            "test_id": 2,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "id",
+                        "id_volo",
+                        "passeggero",
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 3.0,
+                        "id_volo": 81.0,
+                        "passeggero": "IT0003",
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 325.15854679999757,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 2,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "id",
+                        "id_volo",
+                        "passeggero",
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 3.0,
+                        "id_volo": 81.0,
+                        "passeggero": "IT0003",
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 259.96979830000055,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 2,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "id",
+                        "id_volo",
+                        "passeggero",
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 3.0,
+                        "id_volo": 81.0,
+                        "passeggero": "IT0003",
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 339.95780209999793,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 2,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 279.3142861000015,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 2,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "id",
+                        "id_volo",
+                        "passeggero",
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 3.0,
+                        "id_volo": 81.0,
+                        "passeggero": "IT0003",
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 366.4379650000046,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 2,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "cognome",
+                        "nome",
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Greta",
+                        "cognome": "Romano",
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 232.30647989999852,
+            "agent_completion": true,
+            "tool_calls_count": 4
+        },
+        {
+            "test_id": 2,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "id",
+                        "id_volo",
+                        "passeggero",
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 3.0,
+                        "id_volo": 81.0,
+                        "passeggero": "IT0003",
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 330.50844320000033,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 2,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 314.79869640000106,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 2,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "cognome",
+                        "nome",
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "posto": "24C",
+                        "nome": "Greta",
+                        "cognome": "Romano"
+                    }
+                ]
+            },
+            "latency": 343.2341658000005,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 2,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "posto"
+                    ],
+                    "actual": [
+                        "posto"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "posto": "24C"
+                    }
+                ],
+                "actual": [
+                    {
+                        "posto": "24C"
+                    }
+                ]
+            },
+            "latency": 275.609483799999,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 3,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta",
+                        "continente",
+                        "corsie",
+                        "iata",
+                        "nome",
+                        "passeggeri",
+                        "stato"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "iata": "XIY",
+                        "nome": "Xi an Xianyang International Airport",
+                        "continente": "AS",
+                        "stato": "Cina",
+                        "citta": "Xianyang",
+                        "passeggeri": 47.0,
+                        "corsie": 4.0
+                    }
+                ]
+            },
+            "latency": 485.07350340000266,
+            "agent_completion": true,
+            "tool_calls_count": 11
+        },
+        {
+            "test_id": 3,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta",
+                        "continente",
+                        "corsie",
+                        "iata",
+                        "nome",
+                        "passeggeri",
+                        "stato"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "iata": "XIY",
+                        "nome": "Xi an Xianyang International Airport",
+                        "continente": "AS",
+                        "stato": "Cina",
+                        "citta": "Xianyang",
+                        "passeggeri": 47.0,
+                        "corsie": 4.0
+                    }
+                ]
+            },
+            "latency": 563.5312090000007,
+            "agent_completion": true,
+            "tool_calls_count": 12
+        },
+        {
+            "test_id": 3,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 0.0,
+                "wrong": 1.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": []
+            },
+            "latency": 1118.4599910000034,
+            "agent_completion": false,
+            "tool_calls_count": 20
+        },
+        {
+            "test_id": 3,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ]
+            },
+            "latency": 462.5744618000026,
+            "agent_completion": true,
+            "tool_calls_count": 8
+        },
+        {
+            "test_id": 3,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta",
+                        "iata",
+                        "nome"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "citta": "Xianyang",
+                        "nome": "Xi an Xianyang International Airport",
+                        "iata": "XIY"
+                    }
+                ]
+            },
+            "latency": 480.7003129000004,
+            "agent_completion": true,
+            "tool_calls_count": 10
+        },
+        {
+            "test_id": 3,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta",
+                        "continente",
+                        "corsie",
+                        "iata",
+                        "nome",
+                        "passeggeri",
+                        "stato"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "iata": "XIY",
+                        "nome": "Xi an Xianyang International Airport",
+                        "continente": "AS",
+                        "stato": "Cina",
+                        "citta": "Xianyang",
+                        "passeggeri": 47.0,
+                        "corsie": 4.0
+                    }
+                ]
+            },
+            "latency": 514.0000695999988,
+            "agent_completion": true,
+            "tool_calls_count": 11
+        },
+        {
+            "test_id": 3,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ]
+            },
+            "latency": 552.7966446999999,
+            "agent_completion": true,
+            "tool_calls_count": 12
+        },
+        {
+            "test_id": 3,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ]
+            },
+            "latency": 579.6275540999995,
+            "agent_completion": true,
+            "tool_calls_count": 11
+        },
+        {
+            "test_id": 3,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ]
+            },
+            "latency": 501.8157076999996,
+            "agent_completion": true,
+            "tool_calls_count": 9
+        },
+        {
+            "test_id": 3,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBPASSEGGERI"
+                    ],
+                    "actual": [
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "citta"
+                    ],
+                    "actual": [
+                        "citta",
+                        "iata_arrivo",
+                        "id",
+                        "rotta"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "citta": "Xianyang"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 37.0,
+                        "rotta": 183.0,
+                        "iata_arrivo": "XIY",
+                        "citta": "Xianyang"
+                    }
+                ]
+            },
+            "latency": 487.4090933000043,
+            "agent_completion": true,
+            "tool_calls_count": 10
+        },
+        {
+            "test_id": 4,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 520.1745127999966,
+            "agent_completion": true,
+            "tool_calls_count": 8
+        },
+        {
+            "test_id": 4,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 345.5118595000022,
+            "agent_completion": true,
+            "tool_calls_count": 4
+        },
+        {
+            "test_id": 4,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 334.3278333999988,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 4,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 1.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 11.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 29.4,
+                        "precipitazioni": 3.2,
+                        "vento": 14.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 13.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 28.7,
+                        "precipitazioni": 11.6,
+                        "vento": 18.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 14.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 29.8,
+                        "precipitazioni": 5.4,
+                        "vento": 15.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 331.9144324000008,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 4,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 697.2090867000006,
+            "agent_completion": true,
+            "tool_calls_count": 10
+        },
+        {
+            "test_id": 4,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 300.80861639999785,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 4,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 297.9633367999995,
+            "agent_completion": true,
+            "tool_calls_count": 5
+        },
+        {
+            "test_id": 4,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 480.36592389999714,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 4,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 441.86604429999716,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 4,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 30.1
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 12.0,
+                        "stato": "Giappone",
+                        "citta": "Tokyo",
+                        "stazione": "RJTT",
+                        "temperatura": 30.1,
+                        "precipitazioni": 0.0,
+                        "vento": 12.0,
+                        "data": "2026-08-18"
+                    }
+                ]
+            },
+            "latency": 426.10529159999714,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 5,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 662.5789830000067,
+            "agent_completion": true,
+            "tool_calls_count": 9
+        },
+        {
+            "test_id": 5,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "hotel_info",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true",
+                        "hotel_info": [
+                            [
+                                "_id",
+                                "6ab95aa26630ce273778565e"
+                            ],
+                            [
+                                "citta",
+                                "Dubai"
+                            ],
+                            [
+                                "indirizzo",
+                                "Crescent Road Palm Jumeirah"
+                            ],
+                            [
+                                "nome",
+                                "Atlantis The Palm"
+                            ],
+                            [
+                                "stato",
+                                "Emirati Arabi Uniti"
+                            ],
+                            [
+                                "stelle",
+                                5.0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "latency": 517.710874700002,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 5,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 1.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 101.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Ocean Loft",
+                        "prezzo": 1456.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "false"
+                    },
+                    {
+                        "numero": 401.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Standard Penthouse",
+                        "prezzo": 1776.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 401.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Elite Loft",
+                        "prezzo": 1342.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 720.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Cityview Room",
+                        "prezzo": 863.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 851.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Presidential Loft",
+                        "prezzo": 1196.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "false"
+                    },
+                    {
+                        "numero": 301.0,
+                        "hotel": "Rove Downtown Dubai",
+                        "categoria": "Executive Room",
+                        "prezzo": 212.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 649.5190440999941,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 5,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 470.0417640000014,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 5,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 1.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 401.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Standard Penthouse",
+                        "prezzo": 1776.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 401.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Elite Loft",
+                        "prezzo": 1342.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 720.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Cityview Room",
+                        "prezzo": 863.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 301.0,
+                        "hotel": "Rove Downtown Dubai",
+                        "categoria": "Executive Room",
+                        "prezzo": 212.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 469.54787199999555,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 5,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "hotel_info",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true",
+                        "hotel_info": [
+                            [
+                                [
+                                    "_id",
+                                    "6ab95aa26630ce273778565e"
+                                ],
+                                [
+                                    "citta",
+                                    "Dubai"
+                                ],
+                                [
+                                    "indirizzo",
+                                    "Crescent Road Palm Jumeirah"
+                                ],
+                                [
+                                    "nome",
+                                    "Atlantis The Palm"
+                                ],
+                                [
+                                    "stato",
+                                    "Emirati Arabi Uniti"
+                                ],
+                                [
+                                    "stelle",
+                                    5.0
+                                ]
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "latency": 471.81208999999944,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 5,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 794.3304427999974,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 5,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 1.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 401.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Standard Penthouse",
+                        "prezzo": 1776.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 401.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Elite Loft",
+                        "prezzo": 1342.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 720.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Cityview Room",
+                        "prezzo": 863.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 301.0,
+                        "hotel": "Rove Downtown Dubai",
+                        "categoria": "Executive Room",
+                        "prezzo": 212.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 772.5460445999997,
+            "agent_completion": true,
+            "tool_calls_count": 9
+        },
+        {
+            "test_id": 5,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 1.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 101.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Ocean Loft",
+                        "prezzo": 1456.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "false"
+                    },
+                    {
+                        "numero": 401.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Standard Penthouse",
+                        "prezzo": 1776.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 401.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Elite Loft",
+                        "prezzo": 1342.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 720.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Cityview Room",
+                        "prezzo": 863.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    },
+                    {
+                        "numero": 851.0,
+                        "hotel": "Burj Al Arab Jumeirah",
+                        "categoria": "Presidential Loft",
+                        "prezzo": 1196.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "false"
+                    },
+                    {
+                        "numero": 301.0,
+                        "hotel": "Rove Downtown Dubai",
+                        "categoria": "Executive Room",
+                        "prezzo": 212.0,
+                        "max_ospiti": 2.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 755.8021016999992,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 5,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "prezzo",
+                        "categoria"
+                    ],
+                    "actual": [
+                        "categoria",
+                        "disponibilita",
+                        "hotel",
+                        "max_ospiti",
+                        "numero",
+                        "prezzo"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "prezzo": 2498,
+                        "categoria": "Deluxe Penthouse"
+                    }
+                ],
+                "actual": [
+                    {
+                        "numero": 540.0,
+                        "hotel": "Atlantis The Palm",
+                        "categoria": "Deluxe Penthouse",
+                        "prezzo": 2498.0,
+                        "max_ospiti": 4.0,
+                        "disponibilita": "true"
+                    }
+                ]
+            },
+            "latency": 522.3844671999977,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 6,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "stato": "Messico",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "stato": "Irlanda",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street",
+                        "stelle": 3.0
+                    }
+                ]
+            },
+            "latency": 827.5288069000089,
+            "agent_completion": true,
+            "tool_calls_count": 11
+        },
+        {
+            "test_id": 6,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "stato": "Messico",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "stato": "Irlanda",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street",
+                        "stelle": 3.0
+                    }
+                ]
+            },
+            "latency": 614.4989956999925,
+            "agent_completion": true,
+            "tool_calls_count": 9
+        },
+        {
+            "test_id": 6,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "stato": "Messico",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "stato": "Irlanda",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street",
+                        "stelle": 3.0
+                    }
+                ]
+            },
+            "latency": 830.733138800002,
+            "agent_completion": true,
+            "tool_calls_count": 9
+        },
+        {
+            "test_id": 6,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "stato": "Messico",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue"
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "stato": "Irlanda",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street"
+                    }
+                ]
+            },
+            "latency": 522.8482550000044,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 6,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "stato": "Messico",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "stato": "Irlanda",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street",
+                        "stelle": 3.0
+                    }
+                ]
+            },
+            "latency": 645.4542496999929,
+            "agent_completion": true,
+            "tool_calls_count": 8
+        },
+        {
+            "test_id": 6,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue"
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street"
+                    }
+                ]
+            },
+            "latency": 651.9651701999974,
+            "agent_completion": true,
+            "tool_calls_count": 10
+        },
+        {
+            "test_id": 6,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "stato": "Messico",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "stato": "Irlanda",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street",
+                        "stelle": 3.0
+                    }
+                ]
+            },
+            "latency": 676.4530806000112,
+            "agent_completion": true,
+            "tool_calls_count": 9
+        },
+        {
+            "test_id": 6,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "Hotel Castropol",
+                        "stato": "Messico",
+                        "citta": "Città del Messico",
+                        "indirizzo": "Avenida Pino Suarez 58",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney",
+                        "stato": "Australia",
+                        "citta": "Sydney",
+                        "indirizzo": "27 Wentworth Avenue",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Cassidys Hotel",
+                        "stato": "Irlanda",
+                        "citta": "Dublino",
+                        "indirizzo": "Cavendish Row",
+                        "stelle": 3.0
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne",
+                        "stato": "Australia",
+                        "citta": "Melbourne",
+                        "indirizzo": "44 Spencer Street",
+                        "stelle": 3.0
+                    }
+                ]
+            },
+            "latency": 763.1681091999926,
+            "agent_completion": true,
+            "tool_calls_count": 11
+        },
+        {
+            "test_id": 6,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 0.0,
+                "wrong": 1.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": []
+            },
+            "latency": 818.6184300000023,
+            "agent_completion": true,
+            "tool_calls_count": 11
+        },
+        {
+            "test_id": 6,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBMETEO",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBMETEO"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [],
+                    "accuracy": 0.0
+                },
+                "overall": 0.5
+            },
+            "result_matching": {
+                "exact_match": 0.0,
+                "partial_match": 0.0,
+                "wrong": 1.0,
+                "expected": [
+                    {
+                        "nome": "Cassidys Hotel"
+                    },
+                    {
+                        "nome": "Great Southern Hotel Melbourne"
+                    },
+                    {
+                        "nome": "Hotel Castropol"
+                    },
+                    {
+                        "nome": "Travelodge Hotel Sydney"
+                    }
+                ],
+                "actual": []
+            },
+            "latency": 878.2989181000012,
+            "agent_completion": true,
+            "tool_calls_count": 12
+        },
+        {
+            "test_id": 7,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 407.20890299999155,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 7,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 382.0363202000008,
+            "agent_completion": true,
+            "tool_calls_count": 8
+        },
+        {
+            "test_id": 7,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 367.89138600000297,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 7,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 339.64022610000393,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 7,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 307.6696784999949,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 7,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 338.2372563999961,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 7,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 301.2589960000041,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 7,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 344.33112229999097,
+            "agent_completion": true,
+            "tool_calls_count": 7
+        },
+        {
+            "test_id": 7,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 302.89181239999016,
+            "agent_completion": true,
+            "tool_calls_count": 6
+        },
+        {
+            "test_id": 7,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBHOTEL"
+                    ],
+                    "actual": [
+                        "DBHOTEL",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "nome"
+                    ],
+                    "actual": [
+                        "citta",
+                        "indirizzo",
+                        "nome",
+                        "stato",
+                        "stelle"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "nome": "The Peninsula Shanghai"
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel"
+                    }
+                ],
+                "actual": [
+                    {
+                        "nome": "The Peninsula Shanghai",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "32 Zhongshan East 1st Road",
+                        "stelle": 5.0
+                    },
+                    {
+                        "nome": "Fairmont Peace Hotel",
+                        "stato": "Cina",
+                        "citta": "Shanghai",
+                        "indirizzo": "20 Nanjing East Road",
+                        "stelle": 5.0
+                    }
+                ]
+            },
+            "latency": 348.5613311000052,
+            "agent_completion": true,
+            "tool_calls_count": 8
+        },
+        {
+            "test_id": 8,
+            "run": 1,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 765.4847516999871,
+            "agent_completion": true,
+            "tool_calls_count": 17
+        },
+        {
+            "test_id": 8,
+            "run": 2,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 847.2400093999895,
+            "agent_completion": true,
+            "tool_calls_count": 17
+        },
+        {
+            "test_id": 8,
+            "run": 3,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 824.7288488000049,
+            "agent_completion": true,
+            "tool_calls_count": 15
+        },
+        {
+            "test_id": 8,
+            "run": 4,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 768.0989840999973,
+            "agent_completion": true,
+            "tool_calls_count": 17
+        },
+        {
+            "test_id": 8,
+            "run": 5,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 1054.0676224999916,
+            "agent_completion": true,
+            "tool_calls_count": 18
+        },
+        {
+            "test_id": 8,
+            "run": 6,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 759.1834952000063,
+            "agent_completion": true,
+            "tool_calls_count": 15
+        },
+        {
+            "test_id": 8,
+            "run": 7,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 720.7682830999984,
+            "agent_completion": true,
+            "tool_calls_count": 16
+        },
+        {
+            "test_id": 8,
+            "run": 8,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 801.4545244000037,
+            "agent_completion": true,
+            "tool_calls_count": 16
+        },
+        {
+            "test_id": 8,
+            "run": 9,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 1465.7266377999913,
+            "agent_completion": true,
+            "tool_calls_count": 19
+        },
+        {
+            "test_id": 8,
+            "run": 10,
+            "accuracy": {
+                "database": {
+                    "expected": [
+                        "DBVOLI",
+                        "DBMETEO"
+                    ],
+                    "actual": [
+                        "DBMETEO",
+                        "DBPASSEGGERI",
+                        "DBVOLI"
+                    ],
+                    "accuracy": 1.0
+                },
+                "columns": {
+                    "expected": [
+                        "temperatura",
+                        "precipitazioni",
+                        "vento",
+                        "data"
+                    ],
+                    "actual": [
+                        "citta",
+                        "data",
+                        "id",
+                        "precipitazioni",
+                        "stato",
+                        "stazione",
+                        "temperatura",
+                        "vento"
+                    ],
+                    "accuracy": 1.0
+                },
+                "overall": 1.0
+            },
+            "result_matching": {
+                "exact_match": 1.0,
+                "partial_match": 0.0,
+                "wrong": 0.0,
+                "expected": [
+                    {
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21,
+                        "data": "2026-08-20"
+                    }
+                ],
+                "actual": [
+                    {
+                        "id": 62.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 21.6,
+                        "precipitazioni": 3.8,
+                        "vento": 20.0,
+                        "data": "2026-08-17"
+                    },
+                    {
+                        "id": 63.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 19.8,
+                        "precipitazioni": 8.2,
+                        "vento": 24.0,
+                        "data": "2026-08-18"
+                    },
+                    {
+                        "id": 64.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 22.4,
+                        "precipitazioni": 0.0,
+                        "vento": 17.0,
+                        "data": "2026-08-19"
+                    },
+                    {
+                        "id": 65.0,
+                        "stato": "Paesi Bassi",
+                        "citta": "Amsterdam",
+                        "stazione": "EHAM",
+                        "temperatura": 20.9,
+                        "precipitazioni": 5.6,
+                        "vento": 21.0,
+                        "data": "2026-08-20"
+                    }
+                ]
+            },
+            "latency": 831.7115632999921,
+            "agent_completion": true,
+            "tool_calls_count": 16
+        }
+    ]
+}

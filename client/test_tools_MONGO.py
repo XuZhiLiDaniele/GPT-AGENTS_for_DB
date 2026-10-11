@@ -1,36 +1,45 @@
-from tools_MONGO import MongoDatabaseTools
-from pymongo import MongoClient
-from datetime import datetime
+from openai import OpenAI
+import json
 
-client = MongoClient("mongodb://localhost:27017/")
+client = OpenAI(
+    base_url="http://localhost:1234/v1",
+    api_key="not-needed"
+)
 
-db = client["DBVOLI"]
-
-pipeline = [
+tools = [
     {
-        "$lookup": {
-            "from": "aeroporto",
-            "localField": "iata_partenza",
-            "foreignField": "iata",
-            "as": "origine_details"
-        }
-    },
-    {
-        "$match": {
-            "origine_details.continente": "OC"
+        "type": "function",
+        "function": {
+            "name": "mongo_list_databases",
+            "description": "Restituisce la lista dei database MongoDB disponibili.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
         }
     }
 ]
 
-result = list(db["rotta"].aggregate(pipeline))
+messages = [
+    {
+        "role": "system",
+        "content": "Se necessario, usa gli strumenti disponibili."
+    },
+    {
+        "role": "user",
+        "content": "Quali database MongoDB sono disponibili?"
+    }
+]
 
-print("ROW COUNT:", len(result))
+response = client.chat.completions.create(
+    model="qwen",
+    messages=messages,
+    tools=tools,
+    tool_choice="auto",
+    temperature=0
+)
 
-for r in result:
-    print({
-        "partenza": r.get("iata_partenza"),
-        "arrivo": r.get("iata_arrivo"),
-        "origine_details": r.get("origine_details")
-    })
-
-client.close()
+print("CONTENT:", response.choices[0].message.content)
+print("TOOL CALLS:", response.choices[0].message.tool_calls)
+print("FINISH:", response.choices[0].finish_reason)

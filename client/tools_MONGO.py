@@ -201,7 +201,7 @@ class MongoDatabaseTools:
     # ----------------- Valori distinti di un field
     def get_distinct_values(self, database, collection_name, field_name):
         """
-        Restituisci valori distinti presenti in un determinato campo della collezione
+        Restituisci 10 valori distinti presenti in un determinato campo della collezione
         """
         client = None
         try:
@@ -222,6 +222,7 @@ class MongoDatabaseTools:
                       else value
                       for value in values
                      ]
+            values = values[:10]
             return {
                 "success": True,
                 "database": database,
@@ -243,7 +244,7 @@ class MongoDatabaseTools:
                 client.close()
 
     # ----------------- Esecuzione di una query find
-    def find_documents(self, database, collection_name, filter={}, projection = None):
+    def find_documents(self, database, collection_name, filter=None, projection = None):
         """
         Esecuzione di una query MongoDB find
         """
@@ -262,12 +263,8 @@ class MongoDatabaseTools:
                     "error": (f"Collection '{collection_name}' does not exist.")
                 }
 
-            mongo_filter = self._convert_dates(filter) #conversione stringhe delle date in datetime Python
-            
-            cursor = db[collection_name].find(
-                mongo_filter,
-                projection
-            )
+            mongo_filter = self._convert_dates(filter or {}) #conversione stringhe delle date in datetime Python     
+            cursor = db[collection_name].find(mongo_filter, projection)
 
             documents = list(cursor)
             for document in documents:
@@ -305,7 +302,7 @@ class MongoDatabaseTools:
                 "$group":{
                         "_id":"$stato",
                         "media":{"$avg": "$temperatura"}
-                         }
+                }
             }
         ]
         """
