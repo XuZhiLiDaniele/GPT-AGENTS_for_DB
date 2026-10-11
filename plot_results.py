@@ -17,9 +17,9 @@ import numpy as np
 
 #--------------------CONFIGURAZIONE 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_GEMMA_FILE = os.path.join(BASE_DIR, "evaluation/evaluations/gemma_sql_results_eva.json")
-DEFAULT_QWEN_FILE = os.path.join(BASE_DIR, "evaluation/evaluations/qwen_sql_results_eva.json")
-OUTPUT_DIR = os.path.join(BASE_DIR,"SQL_PLOTS")
+DEFAULT_GEMMA_FILE = os.path.join(BASE_DIR, "evaluation/evaluations/gemma_mongo_results_eva.json")
+DEFAULT_QWEN_FILE = os.path.join(BASE_DIR, "evaluation/evaluations/qwen_mongo_results_eva.json")
+OUTPUT_DIR = os.path.join(BASE_DIR,"plots_MONGO")
 
 #--------------------LETTURA FILE
 def load_json(filename):

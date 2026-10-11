@@ -59,7 +59,7 @@
             }
         },
         "by_difficulty": {
-            "MySQL": {
+            "facile": {
                 "confidence_level": 0.95,
                 "accuracy": {
                     "database": {
@@ -116,7 +116,7 @@
                     "n": 30
                 }
             },
-            "MongoDB": {
+            "intermedio": {
                 "confidence_level": 0.95,
                 "accuracy": {
                     "database": {
@@ -173,7 +173,7 @@
                     "n": 30
                 }
             },
-            "Cross-DBMS": {
+            "difficile": {
                 "confidence_level": 0.95,
                 "accuracy": {
                     "database": {
@@ -259,7 +259,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -302,7 +302,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -345,7 +345,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -389,7 +389,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -432,7 +432,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -475,7 +475,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -518,7 +518,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -561,7 +561,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -604,7 +604,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -647,7 +647,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -690,7 +690,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -733,7 +733,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -774,7 +774,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -811,7 +811,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -850,7 +850,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -891,7 +891,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -928,7 +928,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -967,7 +967,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1008,7 +1008,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1045,7 +1045,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1086,7 +1086,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1131,7 +1131,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1176,7 +1176,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1221,7 +1221,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1266,7 +1266,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1311,7 +1311,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1356,7 +1356,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1401,7 +1401,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1446,7 +1446,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1489,7 +1489,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1526,7 +1526,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1565,7 +1565,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1606,7 +1606,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1645,7 +1645,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1695,7 +1695,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1745,7 +1745,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1795,7 +1795,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1845,7 +1845,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1895,7 +1895,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1945,7 +1945,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1994,7 +1994,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2090,7 +2090,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -2129,7 +2129,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -2168,7 +2168,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -2207,7 +2207,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -2253,7 +2253,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2356,7 +2356,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -2440,7 +2440,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2543,7 +2543,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -2827,7 +2827,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2924,7 +2924,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -2972,7 +2972,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3026,7 +3026,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3103,7 +3103,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3151,7 +3151,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3199,7 +3199,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3247,7 +3247,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3301,7 +3301,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3378,7 +3378,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3426,7 +3426,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3480,7 +3480,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3543,7 +3543,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3606,7 +3606,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3669,7 +3669,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3732,7 +3732,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3795,7 +3795,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3858,7 +3858,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3921,7 +3921,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3984,7 +3984,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4047,7 +4047,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4108,7 +4108,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -4181,7 +4181,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4286,7 +4286,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -4359,7 +4359,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4473,7 +4473,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4587,7 +4587,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4701,7 +4701,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4815,7 +4815,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4929,7 +4929,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -5043,7 +5043,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {

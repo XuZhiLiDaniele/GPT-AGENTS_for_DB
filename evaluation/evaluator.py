@@ -17,14 +17,14 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 TEST_CASES_FILE = os.path.join(
     BASE_DIR,
-    "test_casesM.json"
+    #"test_casesM.json"
     # "test_casesS.json"
     # "test_casesL.json"
-    #"test_case_CROSS.json"
+    "test_case_CROSS.json"
 
 )
-RESULTS_FILE = os.path.join(BASE_DIR, "results/qwen_sql_results.json")
-OUTPUT_FILE = os.path.join(BASE_DIR, "evaluations/alt_qwen_sql_results_eva.json")
+RESULTS_FILE = os.path.join(BASE_DIR, "results/qwen_cross_results2.json")
+OUTPUT_FILE = os.path.join(BASE_DIR, "evaluations/qwen_cross_results_eva.json")
 
 DEFAULT_LEVELS = {
     "facile": list(range(1, 4)),
@@ -502,110 +502,172 @@ def row_matches(expected_row, actual_row, expected_columns):
     return True
 
 
-def match_expected_rows(expected_rows, actual_rows, expected_columns):
+def match_expected_rows(expected_rows, actual_rows, expected_columns=None):
     """
-    Determina quali righe expected sono state recuperate dalle righe actual.
-    Ogni riga actual può essere utilizzata una sola volta.
+    Abbina esclusivamente le righe completamente corrispondenti.
+    Ogni riga attesa e ogni riga effettiva possono essere usate una sola volta.
     """
+    expected_rows = normalize_rows(expected_rows or [])
+    actual_rows = normalize_rows(actual_rows or [])
 
-    expected_rows = normalize_rows(expected_rows)
-    actual_rows = normalize_rows(actual_rows)
+    matched_expected = set()
+    matched_actual = set()
 
-    total_expected_rows = len(expected_rows)
-    total_actual_rows = len(actual_rows)
-
-    if total_expected_rows == 0:
-        return 0, 0, total_actual_rows
-
-    matched_count = 0
-
-    # Ogni riga actual può essere utilizzata una sola volta.
-    used_actual_rows = set()
-
-    for expected_row in expected_rows:
-        for actual_index, actual_row in enumerate(actual_rows):
-            if actual_index in used_actual_rows:
+    for actual_index, actual_row in enumerate(actual_rows):
+        for expected_index, expected_row in enumerate(expected_rows):
+            if expected_index in matched_expected:
                 continue
 
             if row_matches(expected_row, actual_row, expected_columns):
-                matched_count += 1
-                used_actual_rows.add(actual_index)
+                matched_expected.add(expected_index)
+                matched_actual.add(actual_index)
                 break
 
-    return (matched_count, total_expected_rows, total_actual_rows)
+    return (
+        len(matched_expected),
+        len(expected_rows),
+        len(actual_rows),
+        matched_expected,
+        matched_actual,
+    )
 
-# ============================================================
-# EXACT MATCH
-# ============================================================
-def calculate_exact_match(expected_rows, actual_rows, expected_columns):
+
+def calculate_exact_match(expected_rows, actual_rows, expected_columns=None):
     """
-    Restituisce 1 se il risultato actual è un Exact Match, ovvero se:
-    - tutte le righe expected sono presenti;
-    - non sono presenti righe aggiuntive;
-    - ogni riga expected corrisponde ad una riga actual;
-    - le colonne richieste sono presenti.
-    Le colonne aggiuntive NON compromettono l'Exact Match.
+    Exact Match se tutte le righe attese sono presenti,
+    non esistono righe aggiuntive e le colonne richieste sono presenti.
+    Le colonne aggiuntive non compromettono il risultato.
     """
+    expected_rows = normalize_rows(expected_rows or [])
+    actual_rows = normalize_rows(actual_rows or [])
 
-    expected_rows = normalize_rows(expected_rows)
-    actual_rows = normalize_rows(actual_rows)
-
-    # Nessun risultato atteso
     if not expected_rows:
         return 1.0 if not actual_rows else 0.0
 
-    # Se il numero di righe tra actual e expected è diverso allora non può essere un Exact Match
     if len(expected_rows) != len(actual_rows):
         return 0.0
 
-    matched_count, total_expected, total_actual = (
-        match_expected_rows(expected_rows, actual_rows, expected_columns)
+    matched_count, total_expected, total_actual, _, _ = (
+        match_expected_rows(
+            expected_rows,
+            actual_rows,
+            expected_columns
+        )
     )
 
-    # Exact Match
-    if (matched_count == total_expected and total_actual == total_expected):
-        return 1.0
-    return 0.0
+    return float(
+        matched_count == total_expected
+        and total_actual == total_expected
+    )
 
-# ============================================================
-# PARTIAL MATCH
-# ============================================================
-def calculate_partial_match( expected_rows, actual_rows, expected_columns):
+
+
+def row_matches_partial(expected_row, actual_row, expected_columns=None):
     """
-    Restituisce 1 se il risultato è un Partial Match, cioè se:
-    - il risultato NON è Exact Match;
-    - almeno una riga expected è stata recuperata correttamente.
+    Verifica una corrispondenza parziale tra due righe.
+
+    I campi mancanti sono ammessi, ma tutti i valori confrontabili
+    devono coincidere. È necessaria almeno una colonna confrontabile.
+    Gli alias ammessi sono definiti in expected_columns.
     """
+    if not isinstance(expected_row, dict) or not isinstance(actual_row, dict):
+        return False
 
-    exact_match = calculate_exact_match(expected_rows, actual_rows, expected_columns)
+    compared_fields = 0
 
-    # Un Exact Match non è Partial.
-    if exact_match == 1.0:
-        return 0.0
-    
-    expected_rows = normalize_rows(expected_rows)
-    actual_rows = normalize_rows(actual_rows)
+    for expected_column, expected_value in expected_row.items():
+        aliases = [expected_column]
 
-    for expected in expected_rows:
-        for actual in actual_rows:
-            for column, value in expected.items():
-                aliases = next(
-                    (c for c in expected_columns
-                     if isinstance(c, list) and column in c),
-                    [column]
-                )
+        for definition in expected_columns or []:
+            if isinstance(definition, list) and expected_column in definition:
+                aliases = definition
+                break
+            elif isinstance(definition, str) and definition == expected_column:
+                aliases = [expected_column]
+                break
 
-                if isinstance(aliases, str):
-                    aliases = [aliases]
+        actual_aliases = [
+            alias for alias in aliases
+            if alias in actual_row
+        ]
 
-                if any(
-                    alias in actual
-                    and normalize_value(actual[alias]) == normalize_value(value)
-                    for alias in aliases
-                ):
-                    return 1.0
+        # Il campo atteso è assente: può essere una colonna mancante.
+        if not actual_aliases:
+            continue
 
-    return 0.0
+        # Se è presente un alias, il valore deve corrispondere.
+        if not any(
+            normalize_value(actual_row[alias])
+            == normalize_value(expected_value)
+            for alias in actual_aliases
+        ):
+            return False
+
+        compared_fields += 1
+
+    return compared_fields > 0
+
+
+def calculate_partial_match(
+    expected_rows,
+    actual_rows,
+    expected_columns=None
+):
+    """
+    Partial Match se almeno una riga attesa è riconoscibile
+    e il risultato non soddisfa i criteri di Exact Match.
+
+    Sono ammessi:
+    - colonne mancanti;
+    - righe attese mancanti;
+    - righe aggiuntive.
+
+    Tutti i valori confrontabili devono coincidere.
+    """
+    expected_rows = normalize_rows(expected_rows or [])
+    actual_rows = normalize_rows(actual_rows or [])
+
+    if not expected_rows or not actual_rows:
+        return 0
+
+    if calculate_exact_match(
+        expected_rows,
+        actual_rows,
+        expected_columns
+    ):
+        return 0
+
+    # Riserva prima le corrispondenze complete.
+    _, _, _, full_expected, full_actual = match_expected_rows(
+        expected_rows,
+        actual_rows,
+        expected_columns
+    )
+
+    matched_expected = set(full_expected)
+    matched_actual = set(full_actual)
+
+    # Cerca corrispondenze parziali tra le righe non ancora abbinate.
+    for actual_index, actual_row in enumerate(actual_rows):
+        if actual_index in matched_actual:
+            continue
+
+        for expected_index, expected_row in enumerate(expected_rows):
+            if expected_index in matched_expected:
+                continue
+
+            if row_matches_partial(
+                expected_row,
+                actual_row,
+                expected_columns
+            ):
+                matched_expected.add(expected_index)
+                matched_actual.add(actual_index)
+                break
+
+    return int(bool(matched_expected))
+
+
 
 # ============================================================
 # ESTRAZIONE DATABASE USATI
@@ -666,6 +728,18 @@ def evaluate_run(test_case, run):
 
     # ACTUAL RESULT -> L'answer del runner è la fonte ufficiale del risultato prodotto dall'agente.
     actual_rows = run.get("answer") or []
+
+    # Normalizzazione degli alias MongoDB.
+    mongodb_result = extract_mongodb_result(run)
+
+    if mongodb_result["tool"] is not None:
+        pipeline = extract_pipeline(mongodb_result)
+        mongo_provenance = build_field_provenance(pipeline)
+
+        actual_rows = normalize_rows_with_provenance(
+            actual_rows,
+            mongo_provenance
+        )
 
     # Estrazione query SQL e provenienza degli alias.
     sql_query = extract_sql_query(run)

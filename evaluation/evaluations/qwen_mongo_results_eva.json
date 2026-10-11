@@ -12,42 +12,42 @@
                     "n": 90
                 },
                 "columns": {
-                    "mean": 0.674074074074074,
-                    "ci_lower": 0.5851288111693977,
-                    "ci_upper": 0.7630193369787504,
-                    "margin": 0.0889452629046763,
+                    "mean": 0.812962962962963,
+                    "ci_lower": 0.732263250029571,
+                    "ci_upper": 0.893662675896355,
+                    "margin": 0.08069971293339198,
                     "n": 90
                 },
                 "overall": {
-                    "mean": 0.8342592592592593,
-                    "ci_lower": 0.7885280838907961,
-                    "ci_upper": 0.8799904346277224,
-                    "margin": 0.04573117536846313,
+                    "mean": 0.9037037037037037,
+                    "ci_lower": 0.8617662412272924,
+                    "ci_upper": 0.945641166180115,
+                    "margin": 0.041937462476411294,
                     "n": 90
                 }
             },
             "exact_match": {
-                "mean": 0.5444444444444444,
-                "ci_lower": 0.44184633569208204,
-                "ci_upper": 0.6434038309244221,
-                "margin_lower": 0.10259810875236236,
-                "margin_upper": 0.0989593864799777,
+                "mean": 0.6333333333333333,
+                "ci_lower": 0.5302230476398118,
+                "ci_upper": 0.725527452209701,
+                "margin_lower": 0.10311028569352154,
+                "margin_upper": 0.09219411887636775,
                 "n": 90
             },
             "partial_match": {
-                "mean": 0.18888888888888888,
-                "ci_lower": 0.12141259844132833,
-                "ci_upper": 0.28183623524314166,
-                "margin_lower": 0.06747629044756055,
-                "margin_upper": 0.09294734635425278,
+                "mean": 0.16666666666666666,
+                "ci_lower": 0.10368488734312978,
+                "ci_upper": 0.2569388630330881,
+                "margin_lower": 0.06298177932353688,
+                "margin_upper": 0.09027219636642145,
                 "n": 90
             },
             "wrong": {
-                "mean": 0.26666666666666666,
-                "ci_lower": 0.18623818738233572,
-                "ci_upper": 0.36619843788101675,
-                "margin_lower": 0.08042847928433094,
-                "margin_upper": 0.09953177121435008,
+                "mean": 0.2,
+                "ci_lower": 0.13042401182717056,
+                "ci_upper": 0.29413736351142555,
+                "margin_lower": 0.06957598817282945,
+                "margin_upper": 0.09413736351142554,
                 "n": 90
             },
             "latency": {
@@ -127,42 +127,42 @@
                         "n": 30
                     },
                     "columns": {
-                        "mean": 0.5333333333333333,
-                        "ci_lower": 0.3952328159961064,
-                        "ci_upper": 0.6714338506705603,
-                        "margin": 0.13810051733722697,
+                        "mean": 0.95,
+                        "ci_lower": 0.8748374708202709,
+                        "ci_upper": 1.0,
+                        "margin": 0.07516252917972915,
                         "n": 30
                     },
                     "overall": {
-                        "mean": 0.7666666666666667,
-                        "ci_lower": 0.6976164079980532,
-                        "ci_upper": 0.8357169253352802,
-                        "margin": 0.06905025866861349,
+                        "mean": 0.975,
+                        "ci_lower": 0.9374187354101354,
+                        "ci_upper": 1.0,
+                        "margin": 0.03758126458986458,
                         "n": 30
                     }
                 },
                 "exact_match": {
-                    "mean": 0.3,
-                    "ci_lower": 0.16664748268243793,
-                    "ci_upper": 0.47875787458714947,
-                    "margin_lower": 0.13335251731756206,
-                    "margin_upper": 0.17875787458714948,
+                    "mean": 0.5666666666666667,
+                    "ci_lower": 0.3919730700081361,
+                    "ci_upper": 0.7262251442353347,
+                    "margin_lower": 0.17469359665853057,
+                    "margin_upper": 0.15955847756866803,
                     "n": 30
                 },
                 "partial_match": {
-                    "mean": 0.4,
-                    "ci_lower": 0.24590628116801852,
-                    "ci_upper": 0.5767963974667752,
-                    "margin_lower": 0.1540937188319815,
-                    "margin_upper": 0.17679639746677522,
+                    "mean": 0.3333333333333333,
+                    "ci_lower": 0.19230498083676134,
+                    "ci_upper": 0.5121994835545616,
+                    "margin_lower": 0.14102835249657197,
+                    "margin_upper": 0.17886615022122826,
                     "n": 30
                 },
                 "wrong": {
-                    "mean": 0.3,
-                    "ci_lower": 0.16664748268243793,
-                    "ci_upper": 0.47875787458714947,
-                    "margin_lower": 0.13335251731756206,
-                    "margin_upper": 0.17875787458714948,
+                    "mean": 0.1,
+                    "ci_lower": 0.03459988874733419,
+                    "ci_upper": 0.25621082579184085,
+                    "margin_lower": 0.06540011125266582,
+                    "margin_upper": 0.15621082579184084,
                     "n": 30
                 },
                 "latency": {
@@ -266,7 +266,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -323,7 +323,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -380,7 +380,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -437,7 +437,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -494,7 +494,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -551,7 +551,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -608,7 +608,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -665,7 +665,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -722,7 +722,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -774,7 +774,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -818,7 +818,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -866,7 +866,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -925,7 +925,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -975,7 +975,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -1023,7 +1023,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1082,7 +1082,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1141,7 +1141,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1200,7 +1200,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1259,7 +1259,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1318,7 +1318,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1376,7 +1376,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1500,7 +1500,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1624,7 +1624,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1752,7 +1752,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -1912,7 +1912,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2068,7 +2068,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2192,7 +2192,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2316,7 +2316,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2440,7 +2440,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2564,7 +2564,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2680,16 +2680,17 @@
                         ]
                     ],
                     "actual": [
-                        "media_prezzo"
+                        "citta",
+                        "prezzo"
                     ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
-                "overall": 0.5
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 0.0,
-                "wrong": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
+                "wrong": 0.0,
                 "expected": [
                     {
                         "citta": "San Paolo",
@@ -2698,7 +2699,8 @@
                 ],
                 "actual": [
                     {
-                        "media_prezzo": 219.5
+                        "citta": "San Paolo",
+                        "prezzo": 219.5
                     }
                 ]
             },
@@ -2731,16 +2733,17 @@
                         ]
                     ],
                     "actual": [
-                        "media_prezzo"
+                        "citta",
+                        "prezzo"
                     ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
-                "overall": 0.5
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 0.0,
-                "wrong": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
+                "wrong": 0.0,
                 "expected": [
                     {
                         "citta": "San Paolo",
@@ -2749,7 +2752,8 @@
                 ],
                 "actual": [
                     {
-                        "media_prezzo": 219.5
+                        "citta": "San Paolo",
+                        "prezzo": 219.5
                     }
                 ]
             },
@@ -2782,16 +2786,17 @@
                         ]
                     ],
                     "actual": [
-                        "media_prezzo"
+                        "citta",
+                        "prezzo"
                     ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
-                "overall": 0.5
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 0.0,
-                "wrong": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
+                "wrong": 0.0,
                 "expected": [
                     {
                         "citta": "San Paolo",
@@ -2800,7 +2805,8 @@
                 ],
                 "actual": [
                     {
-                        "media_prezzo": 219.5
+                        "citta": "San Paolo",
+                        "prezzo": 219.5
                     }
                 ]
             },
@@ -2833,15 +2839,16 @@
                         ]
                     ],
                     "actual": [
-                        "costo_medio"
+                        "citta",
+                        "prezzo"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2851,7 +2858,8 @@
                 ],
                 "actual": [
                     {
-                        "costo_medio": 219.5
+                        "citta": "San Paolo",
+                        "prezzo": 219.5
                     }
                 ]
             },
@@ -2884,15 +2892,16 @@
                         ]
                     ],
                     "actual": [
-                        "costo_medio"
+                        "citta",
+                        "prezzo"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -2902,7 +2911,8 @@
                 ],
                 "actual": [
                     {
-                        "costo_medio": 219.5
+                        "citta": "San Paolo",
+                        "prezzo": 219.5
                     }
                 ]
             },
@@ -2935,17 +2945,18 @@
                         ]
                     ],
                     "actual": [
-                        "media_prezzo",
-                        "numero_camere"
+                        "citta",
+                        "numero_camere",
+                        "prezzo"
                     ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
-                "overall": 0.5
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 0.0,
-                "wrong": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
+                "wrong": 0.0,
                 "expected": [
                     {
                         "citta": "San Paolo",
@@ -2954,7 +2965,8 @@
                 ],
                 "actual": [
                     {
-                        "media_prezzo": 219.5,
+                        "citta": "San Paolo",
+                        "prezzo": 219.5,
                         "numero_camere": 4.0
                     }
                 ]
@@ -2989,15 +3001,15 @@
                     ],
                     "actual": [
                         "citta",
-                        "media_prezzo"
+                        "prezzo"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3007,7 +3019,7 @@
                 ],
                 "actual": [
                     {
-                        "media_prezzo": 75.0,
+                        "prezzo": 75.0,
                         "citta": "Copenhagen"
                     }
                 ]
@@ -3041,16 +3053,17 @@
                         ]
                     ],
                     "actual": [
-                        "media_prezzo"
+                        "citta",
+                        "prezzo"
                     ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
-                "overall": 0.5
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
-                "wrong": 1.0,
+                "partial_match": 1,
+                "wrong": 0.0,
                 "expected": [
                     {
                         "citta": "San Paolo",
@@ -3059,19 +3072,24 @@
                 ],
                 "actual": [
                     {
-                        "media_prezzo": 219.5
+                        "citta": "San Paolo",
+                        "prezzo": 219.5
                     },
                     {
-                        "media_prezzo": 274.8
+                        "citta": "Copenhagen",
+                        "prezzo": 274.8
                     },
                     {
-                        "media_prezzo": 286.0
+                        "citta": "Francoforte",
+                        "prezzo": 286.0
                     },
                     {
-                        "media_prezzo": 294.5
+                        "citta": "Parigi",
+                        "prezzo": 294.5
                     },
                     {
-                        "media_prezzo": 302.8
+                        "citta": "Taipei",
+                        "prezzo": 302.8
                     }
                 ]
             },
@@ -3104,16 +3122,17 @@
                         ]
                     ],
                     "actual": [
-                        "media_prezzo"
+                        "citta",
+                        "prezzo"
                     ],
-                    "accuracy": 0.0
+                    "accuracy": 1.0
                 },
-                "overall": 0.5
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
-                "wrong": 1.0,
+                "partial_match": 1,
+                "wrong": 0.0,
                 "expected": [
                     {
                         "citta": "San Paolo",
@@ -3122,19 +3141,24 @@
                 ],
                 "actual": [
                     {
-                        "media_prezzo": 219.5
+                        "citta": "San Paolo",
+                        "prezzo": 219.5
                     },
                     {
-                        "media_prezzo": 274.8
+                        "citta": "Copenhagen",
+                        "prezzo": 274.8
                     },
                     {
-                        "media_prezzo": 286.0
+                        "citta": "Francoforte",
+                        "prezzo": 286.0
                     },
                     {
-                        "media_prezzo": 294.5
+                        "citta": "Parigi",
+                        "prezzo": 294.5
                     },
                     {
-                        "media_prezzo": 302.8
+                        "citta": "Taipei",
+                        "prezzo": 302.8
                     }
                 ]
             },
@@ -3168,6 +3192,7 @@
                     ],
                     "actual": [
                         "citta",
+                        "hotel",
                         "media_prezzo"
                     ],
                     "accuracy": 0.5
@@ -3176,7 +3201,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3186,6 +3211,7 @@
                 ],
                 "actual": [
                     {
+                        "hotel": "Wakeup Copenhagen",
                         "citta": "Copenhagen",
                         "media_prezzo": 75.0
                     }
@@ -3235,7 +3261,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3326,7 +3352,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3417,7 +3443,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3508,7 +3534,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3599,7 +3625,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3690,7 +3716,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3781,7 +3807,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -3866,7 +3892,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -3941,7 +3967,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4034,7 +4060,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4113,15 +4139,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4131,27 +4158,35 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "Southwest",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Republic Airways",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Qantas",
                         "count": 1.0
                     }
                 ]
@@ -4188,15 +4223,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4206,27 +4242,35 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Qantas",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "Southwest",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Republic Airways",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     }
                 ]
@@ -4263,15 +4307,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4281,18 +4326,23 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     }
                 ]
@@ -4329,15 +4379,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4347,27 +4398,35 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Qantas",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Southwest",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Republic Airways",
                         "count": 1.0
                     }
                 ]
@@ -4404,15 +4463,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4422,27 +4482,35 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "Republic Airways",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Qantas",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Southwest",
                         "count": 1.0
                     }
                 ]
@@ -4479,15 +4547,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4497,27 +4566,35 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Qantas",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "Southwest",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Republic Airways",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     }
                 ]
@@ -4554,15 +4631,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4572,27 +4650,35 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Qantas",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Republic Airways",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Southwest",
                         "count": 1.0
                     }
                 ]
@@ -4629,15 +4715,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4647,27 +4734,35 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Republic Airways",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     },
                     {
+                        "compagnia": "Delta Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "China Eastern Airlines",
                         "count": 2.0
                     },
                     {
+                        "compagnia": "American Airlines",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "Qantas",
                         "count": 1.0
                     },
                     {
+                        "compagnia": "China Southern Airlines",
                         "count": 4.0
                     },
                     {
+                        "compagnia": "Southwest",
                         "count": 1.0
                     }
                 ]
@@ -4704,15 +4799,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4722,6 +4818,7 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     }
                 ]
@@ -4758,15 +4855,16 @@
                         ]
                     ],
                     "actual": [
+                        "compagnia",
                         "count"
                     ],
-                    "accuracy": 0.5
+                    "accuracy": 1.0
                 },
-                "overall": 0.75
+                "overall": 1.0
             },
             "result_matching": {
-                "exact_match": 0.0,
-                "partial_match": 1.0,
+                "exact_match": 1.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -4776,6 +4874,7 @@
                 ],
                 "actual": [
                     {
+                        "compagnia": "Ryanair",
                         "count": 5.0
                     }
                 ]
@@ -4811,7 +4910,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -4873,7 +4972,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -4974,7 +5073,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5087,7 +5186,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5193,7 +5292,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5255,7 +5354,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5356,7 +5455,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5469,7 +5568,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5582,7 +5681,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5688,7 +5787,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5745,7 +5844,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -5828,7 +5927,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -5926,7 +6025,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -6080,7 +6179,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -6178,7 +6277,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -6332,7 +6431,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -6480,7 +6579,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -6563,7 +6662,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -6661,7 +6760,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -6815,7 +6914,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -6972,7 +7071,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7053,7 +7152,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7170,7 +7269,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7287,7 +7386,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7404,7 +7503,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7521,7 +7620,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7634,7 +7733,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 1.0,
                 "expected": [
                     {
@@ -7736,7 +7835,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7853,7 +7952,7 @@
             },
             "result_matching": {
                 "exact_match": 1.0,
-                "partial_match": 0.0,
+                "partial_match": 0,
                 "wrong": 0.0,
                 "expected": [
                     {
@@ -7967,7 +8066,7 @@
             },
             "result_matching": {
                 "exact_match": 0.0,
-                "partial_match": 1.0,
+                "partial_match": 1,
                 "wrong": 0.0,
                 "expected": [
                     {
